@@ -1,0 +1,46 @@
+# Local copies, environments, and runtime output
+/_local_only/
+/_drive_upload/
+/_runtime/
+/.venv*/
+/.stage04_colab_build/
+/.vscode/
+**/__pycache__/
+**/.ipynb_checkpoints/
+*.py[cod]
+# Large data and model payloads; retain manifests, contracts and configs
+/data/audio/
+/data/stage04_cache/
+/colab_result/
+*.wav
+*.flac
+*.mp3
+*.npy
+*.npz
+*.pt
+*.pth
+*.zip
+*.7z
+*.tar
+*.gz
+# Bundled local tools/runtimes are not project source
+**/python_libs/
+*.dll
+*.pyd
+*.exe
+*.jar
+# Historical datasets are assigned to Drive, with local originals retained
+/archive/baseline_readiness/raw/
+# New experiment/runtime files must stay off Git
+/experiments/
+/derived/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+.env.*
+!.env.example
+*credentials*.json
+*token*.json

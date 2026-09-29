@@ -1,0 +1,151 @@
+{
+  "species": {
+    "Aedes aegypti": {
+      "files": 362,
+      "duration_seconds": 601.1805,
+      "duration_min": 0.561625,
+      "duration_median": 1.39625,
+      "duration_max": 10.319,
+      "files_at_least_1s": 269,
+      "sex_files": {
+        "F": 166,
+        "M": 196
+      },
+      "recoverable_source_families": 4,
+      "verified_individuals": null,
+      "verified_sessions": null,
+      "partitions": {
+        "training": {
+          "groups": 2,
+          "files": 200,
+          "files_at_least_1s": 171
+        },
+        "validation": {
+          "groups": 1,
+          "files": 88,
+          "files_at_least_1s": 72
+        },
+        "testing": {
+          "groups": 1,
+          "files": 74,
+          "files_at_least_1s": 26
+        }
+      }
+    },
+    "Aedes albopictus": {
+      "files": 400,
+      "duration_seconds": 697.94525,
+      "duration_min": 0.44125,
+      "duration_median": 1.37,
+      "duration_max": 8.336,
+      "files_at_least_1s": 303,
+      "sex_files": {
+        "F": 182,
+        "M": 218
+      },
+      "recoverable_source_families": 4,
+      "verified_individuals": null,
+      "verified_sessions": null,
+      "partitions": {
+        "training": {
+          "groups": 2,
+          "files": 241,
+          "files_at_least_1s": 183
+        },
+        "validation": {
+          "groups": 1,
+          "files": 70,
+          "files_at_least_1s": 44
+        },
+        "testing": {
+          "groups": 1,
+          "files": 89,
+          "files_at_least_1s": 76
+        }
+      }
+    },
+    "Anopheles dirus": {
+      "files": 330,
+      "duration_seconds": 426.148,
+      "duration_min": 0.405,
+      "duration_median": 1.0399375,
+      "duration_max": 22.826625,
+      "files_at_least_1s": 172,
+      "sex_files": {
+        "F": 152,
+        "M": 178
+      },
+      "recoverable_source_families": 4,
+      "verified_individuals": null,
+      "verified_sessions": null,
+      "partitions": {
+        "training": {
+          "groups": 2,
+          "files": 170,
+          "files_at_least_1s": 76
+        },
+        "validation": {
+          "groups": 1,
+          "files": 109,
+          "files_at_least_1s": 66
+        },
+        "testing": {
+          "groups": 1,
+          "files": 51,
+          "files_at_least_1s": 30
+        }
+      }
+    },
+    "Culex quinquefasciatus": {
+      "files": 232,
+      "duration_seconds": 896.724,
+      "duration_min": 0.319875,
+      "duration_median": 1.6033125,
+      "duration_max": 57.44375,
+      "files_at_least_1s": 173,
+      "sex_files": {
+        "F": 120,
+        "M": 112
+      },
+      "recoverable_source_families": 4,
+      "verified_individuals": null,
+      "verified_sessions": null,
+      "partitions": {
+        "training": {
+          "groups": 2,
+          "files": 167,
+          "files_at_least_1s": 123
+        },
+        "validation": {
+          "groups": 1,
+          "files": 24,
+          "files_at_least_1s": 20
+        },
+        "testing": {
+          "groups": 1,
+          "files": 41,
+          "files_at_least_1s": 30
+        }
+      }
+    }
+  },
+  "total_files": 1336,
+  "mosquito_files": 1324,
+  "noise_files": 12,
+  "formats": {
+    "8000 Hz / 1 ch / PCM_16": 1324,
+    "8000 Hz / 2 ch / PCM_16": 12
+  },
+  "exact_duplicate_rows": 8,
+  "exact_overlap_pairs": 3,
+  "grouping_status": "inferred_source_families_only",
+  "training_decision": "NO-GO for final experiment",
+  "selected_species": [],
+  "candidate_species": [
+    "Aedes aegypti",
+    "Aedes albopictus",
+    "Anopheles dirus",
+    "Culex quinquefasciatus"
+  ],
+  "split_ratio_by_family": "50/25/25; closest nonempty three-way integer allocation for four families/class; 60/20/20 not exactly achievable"
+}

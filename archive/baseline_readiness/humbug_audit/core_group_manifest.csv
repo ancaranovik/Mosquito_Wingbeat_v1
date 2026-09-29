@@ -1,0 +1,445 @@
+original_individual_group,species,date_group,partition,files,seconds
+IFA_44_10_1730.wav,an arabiensis,Tanzania|Ifakara|cup|24-03-20 00:00,training,1,10.23997732426304
+IFA_44_11_1731.wav,an arabiensis,Tanzania|Ifakara|cup|24-03-20 00:00,training,1,35.78
+IFA_44_12_1732.wav,an arabiensis,Tanzania|Ifakara|cup|24-03-20 00:00,training,2,33.22
+IFA_44_14_1734.wav,an funestus ss,Tanzania|Ifakara|cup|24-03-20 00:00,training,1,15.3
+IFA_44_33_1753.wav,an funestus ss,Tanzania|Ifakara|cup|24-03-20 00:00,training,1,28.1
+IFA_45_23_1783.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,2,35.78
+IFA_45_27_1787.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,4,40.89995464852608
+IFA_45_31_1791.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,1,10.23997732426304
+IFA_45_33_1793.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,1,7.68
+IFA_45_35_1795.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,4,23.039977324263038
+IFA_45_37_1797.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,2,25.54
+IFA_45_38_1798.wav,an arabiensis,Tanzania|Ifakara|cup|26-03-20 00:00,validation,1,43.52
+IFA_45_39_1799.wav,an funestus ss,Tanzania|Ifakara|cup|26-03-20 00:00,validation,4,30.719977324263038
+IFA_48_10_1890.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,2.56
+IFA_48_11_1891.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,3,17.92
+IFA_48_12_1892.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,2,15.360000000000001
+IFA_48_13_1893.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,3,25.539954648526077
+IFA_48_15_1895.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,58.82
+IFA_48_16_1896.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,35.78
+IFA_48_17_1897.wav,an funestus ss,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,15.299977324263038
+IFA_48_22_1902.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,35.78
+IFA_48_24_1904.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,3,10.24
+IFA_48_25_1905.wav,an funestus ss,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,2.5
+IFA_48_30_1910.wav,an arabiensis,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,7.68
+IFA_48_36_1916.wav,an funestus ss,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,5.12
+IFA_48_37_1917.wav,an funestus ss,Tanzania|Ifakara|cup|16-06-20 00:00,validation,2,5.119977324263038
+IFA_48_40_1920.wav,an funestus ss,Tanzania|Ifakara|cup|16-06-20 00:00,validation,1,7.68
+IFA_49_13_1933.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,40.900000000000006
+IFA_49_14_1934.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,40.9
+IFA_49_15_1935.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,17.86
+IFA_49_16_1936.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,40.89997732426304
+IFA_49_17_1937.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,30.66
+IFA_49_18_1938.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,3,23.039954648526077
+IFA_49_19_1939.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,3,35.84
+IFA_49_20_1940.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,30.66
+IFA_49_21_1941.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,3,25.54
+IFA_49_23_1943.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,23.04
+IFA_49_24_1944.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,35.78
+IFA_49_25_1945.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,33.22
+IFA_49_26_1946.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,40.899977324263034
+IFA_49_27_1947.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,38.34
+IFA_49_28_1948.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,46.02
+IFA_49_29_1949.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,33.22
+IFA_49_30_1950.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,28.1
+IFA_49_31_1951.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,38.34
+IFA_49_32_1952.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,25.54
+IFA_49_34_1954.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,28.099977324263037
+IFA_49_36_1956.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,25.6
+IFA_49_37_1957.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,25.540000000000003
+IFA_49_38_1958.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,40.9
+IFA_49_39_1959.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,74.17997732426304
+IFA_49_40_1960.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,28.1
+IFA_50_10_1970.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,4,35.84
+IFA_50_11_1971.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,5,22.97997732426304
+IFA_50_12_1972.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,35.78
+IFA_50_13_1973.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,22.97997732426304
+IFA_50_14_1974.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,30.66
+IFA_50_17_1977.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,35.78
+IFA_50_18_1978.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,33.22
+IFA_50_20_1980.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,28.1
+IFA_50_21_1981.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,5.12
+IFA_50_22_1982.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,15.36
+IFA_50_23_1983.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,3,17.92
+IFA_50_24_1984.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,40.9
+IFA_50_27_1987.wav,an funestus ss,Tanzania|Ifakara|cup|17-06-20 00:00,training,2,20.48
+IFA_50_28_1988.wav,an arabiensis,Tanzania|Ifakara|cup|17-06-20 00:00,training,1,30.66
+IFA_51_19_2019.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,2.5599773242630386
+IFA_51_20_2020.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,2.56
+IFA_51_21_2021.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,5.12
+IFA_51_22_2022.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,20.48
+IFA_51_24_2024.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,2.5599773242630386
+IFA_51_28_2028.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,7.679954648526077
+IFA_51_30_2030.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,25.54
+IFA_51_31_2031.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,35.78
+IFA_51_32_2032.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,12.739977324263037
+IFA_51_34_2034.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,28.16
+IFA_51_35_2035.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,40.9
+IFA_51_36_2036.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,35.78
+IFA_51_37_2037.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,4,20.41995464852608
+IFA_51_38_2038.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,48.58
+IFA_51_39_2039.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,25.539954648526077
+IFA_51_40_2040.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,10.24
+IFA_52_10_2050.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,3,17.86
+IFA_52_11_2051.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,3,30.65997732426304
+IFA_52_13_2053.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,40.9
+IFA_52_18_2058.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,51.14
+IFA_52_20_2060.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,48.58
+IFA_52_21_2061.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,7.68
+IFA_52_24_2064.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,30.66
+IFA_52_25_2065.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,43.52
+IFA_52_27_2067.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,33.28
+IFA_52_28_2068.wav,an funestus ss,Tanzania|Ifakara|cup|21-06-20 00:00,training,3,28.099954648526076
+IFA_52_29_2069.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,35.84
+IFA_52_30_2070.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,38.34
+IFA_52_31_2071.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,23.03997732426304
+IFA_52_32_2072.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,4,30.71993197278912
+IFA_52_35_2075.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,17.92
+IFA_52_36_2076.wav,an funestus ss,Tanzania|Ifakara|cup|21-06-20 00:00,training,3,30.65997732426304
+IFA_52_38_2078.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,4,35.78
+IFA_52_39_2079.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,2,15.36
+IFA_52_40_2080.wav,an arabiensis,Tanzania|Ifakara|cup|21-06-20 00:00,training,1,2.5599773242630386
+IFA_53_10_2090.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,3,12.799977324263038
+IFA_53_11_2091.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,2,35.84
+IFA_53_13_2093.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,3,12.799954648526077
+IFA_53_14_2094.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,38.34
+IFA_53_15_2095.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,17.86
+IFA_53_16_2096.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,38.33997732426304
+IFA_53_21_2101.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,28.1
+IFA_53_23_2103.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,33.28
+IFA_53_24_2104.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,2,5.059977324263039
+IFA_53_25_2105.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,10.24
+IFA_53_29_2109.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,2,43.51997732426304
+IFA_53_36_2116.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,12.8
+IFA_54_10_2130.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,35.78
+IFA_54_11_2131.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,35.78
+IFA_54_15_2135.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,25.54
+IFA_54_18_2138.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,28.1
+IFA_54_19_2139.wav,an arabiensis,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,35.78
+IFA_54_21_2141.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,40.9
+IFA_54_22_2142.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,35.84
+IFA_54_24_2144.wav,an funestus ss,Tanzania|Ifakara|cup|22-06-20 00:00,training,1,48.58
+IFA_54_31_2151.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,33.22
+IFA_54_32_2152.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,35.78
+IFA_54_33_2153.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,38.4
+IFA_54_34_2154.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,35.78
+IFA_54_36_2156.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,48.579954648526076
+IFA_54_37_2157.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,38.34
+IFA_54_38_2158.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,22.98
+IFA_54_39_2159.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,25.6
+IFA_54_40_2160.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,12.8
+IFA_55_13_2173.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,3,38.34
+IFA_55_14_2174.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,28.1
+IFA_55_16_2176.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,22.98
+IFA_55_18_2178.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,46.02
+IFA_55_20_2180.wav,an arabiensis,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,10.24
+IFA_55_21_2181.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,17.86
+IFA_55_23_2183.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,15.36
+IFA_55_27_2187.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,17.92
+IFA_55_28_2188.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,28.16
+IFA_55_32_2192.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,43.46
+IFA_55_34_2194.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,17.92
+IFA_55_35_2195.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,20.48
+IFA_55_36_2196.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,2.5
+IFA_56_11_2211.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,33.21997732426304
+IFA_56_12_2212.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,15.299954648526079
+IFA_56_14_2214.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,17.919999999999998
+IFA_56_24_2224.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,2,5.12
+IFA_56_26_2226.wav,an funestus ss,Tanzania|Ifakara|cup|23-06-20 00:00,training,1,5.12
+IFA_58_24_2304.wav,an arabiensis,Tanzania|Ifakara|cup|29-06-20 00:00,testing,3,40.95995464852608
+IFA_58_29_2309.wav,an arabiensis,Tanzania|Ifakara|cup|29-06-20 00:00,testing,1,30.72
+IFA_59_27_2347.wav,an funestus ss,Tanzania|Ifakara|cup|29-06-20 00:00,testing,1,17.92
+IFA_61_31_2431.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,1,30.66
+IFA_61_34_2434.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,2,23.03997732426304
+IFA_61_35_2435.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,1,56.26
+IFA_61_39_2439.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,2,43.46
+IFA_61_40_2440.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,2,38.34
+IFA_62_10_2450.wav,an funestus ss,Tanzania|Ifakara|cup|06-07-20 00:00,training,1,28.1
+IFA_62_11_2451.wav,an arabiensis,Tanzania|Ifakara|cup|06-07-20 00:00,training,1,30.72
+IFA_62_12_2452.wav,an funestus ss,Tanzania|Ifakara|cup|06-07-20 00:00,training,1,30.66
+IFA_62_13_2453.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,4,33.21995464852608
+IFA_62_14_2454.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.72
+IFA_62_17_2457.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,38.339999999999996
+IFA_62_18_2458.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,33.22
+IFA_62_19_2459.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,35.84
+IFA_62_20_2460.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.66
+IFA_62_21_2461.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.66
+IFA_62_22_2462.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.66
+IFA_62_23_2463.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.66
+IFA_62_24_2464.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,3,28.1
+IFA_62_25_2465.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,48.58
+IFA_62_26_2466.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,38.34
+IFA_62_27_2467.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,51.19997732426304
+IFA_62_28_2468.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,22.97995464852608
+IFA_62_29_2469.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,38.34
+IFA_62_31_2471.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,43.46
+IFA_62_32_2472.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,35.84
+IFA_62_33_2473.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,33.22
+IFA_62_34_2474.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,28.1
+IFA_62_35_2475.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,33.22
+IFA_62_36_2476.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,43.46
+IFA_62_37_2477.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.72
+IFA_62_38_2478.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,38.34
+IFA_62_39_2479.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,30.66
+IFA_62_40_2480.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,43.46
+IFA_63_10_2490.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,35.84
+IFA_63_11_2491.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,3,17.85997732426304
+IFA_63_12_2492.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,33.28
+IFA_63_13_2493.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,20.479954648526075
+IFA_63_14_2494.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,4,40.959977324263036
+IFA_63_17_2497.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,46.08
+IFA_63_18_2498.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,33.22
+IFA_63_19_2499.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,33.28
+IFA_63_20_2500.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,33.27997732426304
+IFA_63_21_2501.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,12.79997732426304
+IFA_63_24_2504.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,40.96
+IFA_63_26_2506.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,3,23.039954648526077
+IFA_63_28_2508.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,33.28
+IFA_63_29_2509.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,15.36
+IFA_63_32_2512.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,10.18
+IFA_63_33_2513.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,4,30.659954648526075
+IFA_63_34_2514.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,35.84
+IFA_63_38_2518.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,3,33.22
+IFA_63_39_2519.wav,an funestus ss,Tanzania|Ifakara|cup|07-07-20 00:00,training,1,40.9
+IFA_63_40_2520.wav,an arabiensis,Tanzania|Ifakara|cup|07-07-20 00:00,training,2,25.6
+IFA_64_10_2530.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,3,35.78
+IFA_64_11_2531.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,1,12.8
+IFA_64_12_2532.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,48.58
+IFA_64_13_2533.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,43.51997732426304
+IFA_64_14_2534.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,1,35.84
+IFA_64_15_2535.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,4,25.599977324263037
+IFA_64_16_2536.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,23.039977324263038
+IFA_64_17_2537.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,1,30.72
+IFA_64_18_2538.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,35.83997732426304
+IFA_64_19_2539.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,35.83997732426304
+IFA_64_20_2540.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,17.85997732426304
+IFA_64_21_2541.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,10.239977324263037
+IFA_64_22_2542.wav,an arabiensis,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,40.9
+IFA_64_24_2544.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,25.599977324263037
+IFA_64_25_2545.wav,an funestus ss,Tanzania|Ifakara|cup|12-07-20 00:00,training,2,20.47997732426304
+IFA_64_30_2550.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,35.83997732426304
+IFA_64_31_2551.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,25.599977324263037
+IFA_64_32_2552.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,33.28
+IFA_64_33_2553.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,28.16
+IFA_64_34_2554.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,3,25.6
+IFA_64_35_2555.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,12.79997732426304
+IFA_64_37_2557.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,38.4
+IFA_64_38_2558.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,30.66
+IFA_64_39_2559.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,5.059977324263039
+IFA_64_40_2560.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,30.72
+IFA_65_11_2571.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,23.039977324263038
+IFA_65_12_2572.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,20.479954648526075
+IFA_65_13_2573.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,25.6
+IFA_65_14_2574.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,38.34
+IFA_65_15_2575.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,25.54
+IFA_65_16_2576.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,35.84
+IFA_65_17_2577.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,33.28
+IFA_65_19_2579.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,30.66
+IFA_65_21_2581.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,38.34
+IFA_65_22_2582.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,38.34
+IFA_65_24_2584.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,48.58
+IFA_65_25_2585.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,51.2
+IFA_65_26_2586.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,43.46
+IFA_65_28_2588.wav,an arabiensis,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,12.8
+IFA_65_29_2589.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,51.2
+IFA_65_30_2590.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,2,40.96
+IFA_65_31_2591.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,38.34
+IFA_65_32_2592.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,46.02
+IFA_65_36_2596.wav,an funestus ss,Tanzania|Ifakara|cup|13-07-20 00:00,testing,1,48.64
+IFA_65_40_2600.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,48.58
+IFA_66_11_2611.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.22
+IFA_66_12_2612.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.52
+IFA_66_13_2613.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,46.02
+IFA_66_14_2614.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.96
+IFA_66_15_2615.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,30.66
+IFA_66_16_2616.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.28
+IFA_66_17_2617.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.9
+IFA_66_18_2618.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.9
+IFA_66_19_2619.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.22
+IFA_66_20_2620.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.22
+IFA_66_21_2621.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,38.4
+IFA_66_22_2622.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,38.34
+IFA_66_23_2623.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,30.72
+IFA_66_24_2624.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,51.19997732426304
+IFA_66_25_2625.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,48.58
+IFA_66_27_2627.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.46
+IFA_66_28_2628.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.46
+IFA_66_29_2629.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,46.02
+IFA_66_30_2630.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.9
+IFA_66_32_2632.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.22
+IFA_66_33_2633.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,51.14
+IFA_66_34_2634.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,53.7
+IFA_66_35_2635.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.46
+IFA_66_36_2636.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,38.39997732426304
+IFA_66_37_2637.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,38.4
+IFA_66_38_2638.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,17.919999999999998
+IFA_66_39_2639.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,38.4
+IFA_67_10_2650.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,5.119977324263038
+IFA_67_11_2651.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.52
+IFA_67_12_2652.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,33.28
+IFA_67_13_2653.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,25.6
+IFA_67_14_2654.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,15.360000000000001
+IFA_67_15_2655.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,3,15.359977324263038
+IFA_67_16_2656.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,3,38.339999999999996
+IFA_67_17_2657.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,35.84
+IFA_67_18_2658.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,30.719977324263038
+IFA_67_19_2659.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,33.21995464852608
+IFA_67_20_2660.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,30.72
+IFA_67_21_2661.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,12.8
+IFA_67_22_2662.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,33.27997732426304
+IFA_67_23_2663.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,5.12
+IFA_67_25_2665.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,3,17.919977324263037
+IFA_67_26_2666.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,7.619977324263038
+IFA_67_27_2667.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.959977324263036
+IFA_67_28_2668.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,17.92
+IFA_67_29_2669.wav,an arabiensis,Tanzania|Ifakara|cup|14-07-20 00:00,testing,2,33.28
+IFA_67_31_2671.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,81.86
+IFA_67_32_2672.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,43.52
+IFA_67_33_2673.wav,an funestus ss,Tanzania|Ifakara|cup|14-07-20 00:00,testing,1,40.96
+IFA_68_20_2700.wav,an arabiensis,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,46.02
+IFA_68_27_2707.wav,an funestus ss,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,10.18
+IFA_68_40_2720.wav,an arabiensis,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,40.9
+IFA_69_13_2733.wav,an arabiensis,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,46.08
+IFA_69_24_2744.wav,an funestus ss,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,40.9
+IFA_69_25_2745.wav,an arabiensis,Tanzania|Ifakara|cup|19-07-20 00:00,testing,1,35.78
+IFA_69_26_2746.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,25.54
+IFA_69_32_2752.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,38.4
+IFA_69_35_2755.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,3,30.719954648526077
+IFA_70_10_2770.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,35.78
+IFA_70_11_2771.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,3,20.47997732426304
+IFA_70_12_2772.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,33.22
+IFA_70_16_2776.wav,an arabiensis,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,33.28
+IFA_70_18_2778.wav,an funestus ss,Tanzania|Ifakara|cup|20-07-20 00:00,training,1,51.2
+IFA_70_32_2792.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,43.46
+IFA_70_34_2794.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,53.7
+IFA_70_35_2795.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,53.7
+IFA_70_36_2796.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,48.64
+IFA_70_38_2798.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,2,40.96
+IFA_70_39_2799.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,79.36
+IFA_70_40_2800.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,40.9
+IFA_71_10_2810.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,40.96
+IFA_71_11_2811.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,2,28.15997732426304
+IFA_71_12_2812.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,15.36
+IFA_71_13_2813.wav,an arabiensis,Tanzania|Ifakara|cup|21-07-20 00:00,training,4,40.959977324263036
+IFA_71_14_2814.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,2,48.579977324263034
+IFA_71_16_2816.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,3,48.58
+IFA_71_18_2818.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,40.96
+IFA_71_19_2819.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,2,51.2
+IFA_71_21_2821.wav,an funestus ss,Tanzania|Ifakara|cup|21-07-20 00:00,training,1,46.08
+IFA_71_23_2823.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,2.56
+IFA_71_25_2825.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,3,56.25997732426303
+IFA_71_26_2826.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,23.04
+IFA_71_28_2828.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,2,10.239977324263037
+IFA_71_29_2829.wav,an funestus ss,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,53.7
+IFA_71_30_2830.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,48.58
+IFA_71_31_2831.wav,an funestus ss,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,58.82
+IFA_71_32_2832.wav,an funestus ss,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,35.78
+IFA_71_34_2834.wav,an funestus ss,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,53.76
+IFA_71_35_2835.wav,an arabiensis,Tanzania|Ifakara|cup|26-07-20 00:00,validation,1,48.58
+IFA_71_36_2836.wav,an funestus ss,Tanzania|Ifakara|cup|26-07-20 00:00,validation,3,46.01997732426304
+IFA_72_12_2852.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,43.46
+IFA_72_13_2853.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,35.78
+IFA_72_14_2854.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,38.34
+IFA_72_16_2856.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,40.9
+IFA_72_17_2857.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,40.9
+IFA_72_21_2861.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,38.34
+IFA_72_25_2865.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,33.22
+IFA_72_26_2866.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,56.26
+IFA_72_27_2867.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,43.46
+IFA_72_29_2869.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,33.22
+IFA_72_31_2871.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,51.14
+IFA_72_32_2872.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,51.14
+IFA_72_33_2873.wav,an arabiensis,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,35.78
+IFA_72_34_2874.wav,an funestus ss,Tanzania|Ifakara|cup|27-07-20 00:00,training,1,58.82
+IFA_72_37_2877.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.84
+IFA_72_38_2878.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,33.22
+IFA_72_39_2879.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,25.54
+IFA_72_40_2880.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,38.34
+IFA_73_10_2890.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.66
+IFA_73_11_2891.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,40.96
+IFA_73_12_2892.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,43.46
+IFA_73_13_2893.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,3,38.33993197278912
+IFA_73_14_2894.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.66
+IFA_73_15_2895.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,33.22
+IFA_73_16_2896.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_73_17_2897.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,25.6
+IFA_73_18_2898.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,22.97997732426304
+IFA_73_20_2900.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,3,17.859954648526077
+IFA_73_21_2901.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.78
+IFA_73_22_2902.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,38.34
+IFA_73_23_2903.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,33.28
+IFA_73_24_2904.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_73_25_2905.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,43.46
+IFA_73_26_2906.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.78
+IFA_73_27_2907.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,3,30.719977324263038
+IFA_73_28_2908.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.72
+IFA_73_29_2909.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,33.27997732426304
+IFA_73_30_2910.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,10.23997732426304
+IFA_73_31_2911.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,33.28
+IFA_73_32_2912.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,3,28.099999999999998
+IFA_73_33_2913.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,28.1
+IFA_73_34_2914.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,25.6
+IFA_73_35_2915.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.84
+IFA_73_36_2916.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,33.22
+IFA_73_37_2917.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,25.54
+IFA_73_38_2918.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.78
+IFA_73_39_2919.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,28.16
+IFA_73_40_2920.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,38.34
+IFA_74_10_2930.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.72
+IFA_74_11_2931.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,22.98
+IFA_74_12_2932.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,46.08
+IFA_74_13_2933.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,33.28
+IFA_74_15_2935.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_16_2936.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,35.78
+IFA_74_17_2937.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,2,33.22
+IFA_74_19_2939.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_20_2940.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_21_2941.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,46.02
+IFA_74_23_2943.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,53.7
+IFA_74_25_2945.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.66
+IFA_74_27_2947.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,43.46
+IFA_74_28_2948.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_29_2949.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.16
+IFA_74_30_2950.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,38.34
+IFA_74_31_2951.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_32_2952.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_74_34_2954.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,33.22
+IFA_74_36_2956.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,30.66
+IFA_74_37_2957.wav,an funestus ss,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.16
+IFA_74_38_2958.wav,an arabiensis,Tanzania|Ifakara|cup|28-07-20 00:00,validation,1,28.1
+IFA_75_11_2971.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,33.22
+IFA_75_12_2972.wav,an funestus ss,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,53.76
+IFA_75_13_2973.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,33.28
+IFA_75_14_2974.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,48.64
+IFA_75_15_2975.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,20.48
+IFA_75_17_2977.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,28.1
+IFA_75_19_2979.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,35.84
+IFA_75_20_2980.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,53.7
+IFA_75_22_2982.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,30.66
+IFA_75_25_2985.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,33.28
+IFA_75_26_2986.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,38.33997732426304
+IFA_75_27_2987.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,56.26
+IFA_75_29_2989.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,56.26
+IFA_75_31_2991.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,33.22
+IFA_75_32_2992.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,40.9
+IFA_75_34_2994.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,35.78
+IFA_75_35_2995.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,43.52
+IFA_75_36_2996.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,33.22
+IFA_75_38_2998.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,30.66
+IFA_76_10_3010.wav,an funestus ss,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,46.02
+IFA_76_11_3011.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,40.96
+IFA_76_13_3013.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,53.7
+IFA_76_15_3015.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,40.96
+IFA_76_16_3016.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,48.58
+IFA_76_17_3017.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,53.76
+IFA_76_18_3018.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,40.96
+IFA_76_21_3021.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,5,63.999977324263035
+IFA_76_22_3022.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,53.76
+IFA_76_23_3023.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,46.02
+IFA_76_26_3026.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,1,56.26
+IFA_76_28_3028.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,40.96
+IFA_76_32_3032.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,3,25.599999999999998
+IFA_76_34_3034.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,76.74000000000001
+IFA_76_35_3035.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,15.359954648526077
+IFA_76_38_3038.wav,an arabiensis,Tanzania|Ifakara|cup|02-08-20 00:00,training,2,30.72

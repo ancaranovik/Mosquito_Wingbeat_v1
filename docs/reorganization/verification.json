@@ -1,0 +1,37 @@
+{
+  "preserved_files_verified": 12837,
+  "deleted_build_files": 252,
+  "changed_with_original_backup": [
+    "README.md",
+    "tools/review_support/extract_notebook.py",
+    "tools/review_support/extract_prior.py",
+    "tools/review_support/render_prior.py",
+    "notebooks/current/00_prepare_dataset.ipynb",
+    "notebooks/current/01_dataset_audit.ipynb",
+    "notebooks/current/02_segmentation.ipynb",
+    "notebooks/current/03A_logmel_reference.ipynb"
+  ],
+  "core_clips": 1898,
+  "sources": 1189,
+  "splits": {
+    "train": 1335,
+    "validation": 269,
+    "test": 294
+  },
+  "source_leakage": 0,
+  "examples": 32645,
+  "stride": 15360,
+  "reference_context": 15600,
+  "core_audio_hashes_match_grid_audit": 1898,
+  "path_checks": [
+    "00_prepare_dataset.ipynb from .: PASS",
+    "00_prepare_dataset.ipynb from notebooks/current: PASS",
+    "01_dataset_audit.ipynb from .: PASS",
+    "01_dataset_audit.ipynb from notebooks/current: PASS",
+    "02_segmentation.ipynb from .: PASS",
+    "02_segmentation.ipynb from notebooks/current: PASS",
+    "03A_logmel_reference.ipynb from .: PASS",
+    "03A_logmel_reference.ipynb from notebooks/current: PASS"
+  ],
+  "pipeline_executed": false
+}

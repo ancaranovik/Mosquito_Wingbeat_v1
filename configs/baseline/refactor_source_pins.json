@@ -1,0 +1,14 @@
+{
+  "archive/portability_originals/notebooks/current/00_prepare_dataset.ipynb": "0d6115c2c04daa6922011fc25a6a2fcf0c40404f960db69da84244e0d1ba2478",
+  "archive/portability_originals/notebooks/current/01_dataset_audit.ipynb": "80e47342423d1a31e9e2fde016c434cdb0c9af950b035c50655aea03d42542ec",
+  "archive/portability_originals/notebooks/current/02_segmentation.ipynb": "f22aede332ac8d6898cfcdecd82abf9bce17113b5ff18605c4430fd4c70242fc",
+  "archive/portability_originals/notebooks/current/03A_logmel_reference.ipynb": "5061ca94f408b3a2a8eae59e6205dc9d13a2654414cbe7db3f5e15490812b6d7",
+  "archive/portability_originals/notebooks/current/03B_edge_mfe.ipynb": "dbda6e2d3eb791b3f168af793dbefbd7f18c4ec9c4f82a92bc863c135ed9d46d",
+  "archive/portability_originals/notebooks/current/04A_train_logmel.ipynb": "16b40e6674a3e738748403c5d457bdf94801be877f640b47c589962cca1fee88",
+  "archive/portability_originals/notebooks/current/04B_train_edge_mfe.ipynb": "b4aef8d0e010eec7496a18e8548ad067fc7cfe2fd4d43f6575fd664db84ea8c3",
+  "archive/portability_originals/notebooks/current/04C_compare_models.ipynb": "a57265e06237cb5809452fe39c25d88c5e791c22a1c651950bf70a01561b4317",
+  "archive/portability_originals/tools/pipeline_contract.py": "056f4251b118a7167aaf921bd851b028276f868a01dfcf309ef68a1ca0a5a979",
+  "reports/stage04/scientific_lock.json": "315687fc77549f546be08ef124e021933f64809d39bbb4f462c7f4ebce27986e",
+  "reports/stage04/frontend_execution_lock.json": "a16a6fb0c88e68bec1b3e76295059ca022d7a136d67d59f5a6f33541833147cb",
+  "reports/stage04/frozen_input_lock.json": "042d383587cc8e393c1f5c14bfde49b280c464881e04c48d05c68671f7cd8ab4"
+}

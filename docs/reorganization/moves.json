@@ -1,0 +1,86 @@
+[
+  {
+    "to": "archive/legacy_code/code_by_me",
+    "from": "code_by_me"
+  },
+  {
+    "to": "tools/review_support",
+    "from": "review_support"
+  },
+  {
+    "to": "tools/review_support/inspect_pdf_runtime.R",
+    "from": "inspect_pdf_runtime.R"
+  },
+  {
+    "to": "archive/reviews/literature_audit.md",
+    "from": "literature_audit.md"
+  },
+  {
+    "to": "archive/reviews/methodology_review_notes.md",
+    "from": "methodology_review_notes.md"
+  },
+  {
+    "to": "docs/proposals/Acoustic_Mosquito_Edge_AI_Proposal_Revised.pdf",
+    "from": "Acoustic_Mosquito_Edge_AI_Proposal_Revised.pdf"
+  },
+  {
+    "to": "reference/tinyml/tinyml_primary_source.pdf",
+    "from": "tinyml_primary_source.pdf"
+  },
+  {
+    "to": "data/metadata/neurips_2021_zenodo_0_0_1.csv",
+    "from": "data/neurips_2021_zenodo_0_0_1.csv"
+  },
+  {
+    "to": "data/manifests/current/core_single_4species_metadata.csv",
+    "from": "data/core_single_4species_metadata.csv"
+  },
+  {
+    "to": "data/manifests/current/core_single_4species_frozen_split.csv",
+    "from": "data/core_single_4species_frozen_split.csv"
+  },
+  {
+    "to": "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+    "from": "data/core_example_grid_v2_stride15360_ref15600_candidates.csv"
+  },
+  {
+    "to": "data/audits/current/core_audio_audit.csv",
+    "from": "data/core_audio_audit.csv"
+  },
+  {
+    "to": "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json",
+    "from": "data/core_example_grid_v2_stride15360_ref15600_audit.json"
+  },
+  {
+    "to": "reports/reproduced_00",
+    "from": "data/_reproduced_00"
+  },
+  {
+    "to": "archive/legacy_data/core_096s_candidate_windows.csv",
+    "from": "data/core_096s_candidate_windows.csv"
+  },
+  {
+    "to": "archive/legacy_data/core_1s_audit_windows.csv",
+    "from": "data/core_1s_audit_windows.csv"
+  },
+  {
+    "to": "archive/legacy_data/train_joint_preprocessing_summary.csv",
+    "from": "data/train_joint_preprocessing_summary.csv"
+  },
+  {
+    "to": "archive/legacy_data/train_joint_preprocessing_sweep.csv",
+    "from": "data/train_joint_preprocessing_sweep.csv"
+  },
+  {
+    "to": "archive/legacy_data/train_low_frequency_audit.csv",
+    "from": "data/train_low_frequency_audit.csv"
+  },
+  {
+    "to": "archive/legacy_data/train_mfe_audit_summary.csv",
+    "from": "data/train_mfe_audit_summary.csv"
+  },
+  {
+    "to": "archive/legacy_data/train_signal_floor_diagnostic.csv",
+    "from": "data/train_signal_floor_diagnostic.csv"
+  }
+]

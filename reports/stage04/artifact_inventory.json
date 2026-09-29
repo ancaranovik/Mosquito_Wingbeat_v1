@@ -1,0 +1,122 @@
+{
+  "created_files": [
+    {
+      "path": "data/stage04_cache/03A/cache.json",
+      "bytes": 1460,
+      "sha256": "aacb75e41ac4fc5715022a857d5173aed36fac965e4f58b0e40648c68fa8ad81"
+    },
+    {
+      "path": "data/stage04_cache/03A/examples.csv",
+      "bytes": 4789441,
+      "sha256": "71a504df2090a16c887c79056c16e0ee95909fdadfb014fe51f55f30adb3efc8"
+    },
+    {
+      "path": "data/stage04_cache/03A/features.npy",
+      "bytes": 802283648,
+      "sha256": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0"
+    },
+    {
+      "path": "data/stage04_cache/03B/cache.json",
+      "bytes": 1912,
+      "sha256": "d9b7db21f8a78002c7fc5afa92fb369acd3ebd199e969fc707ebbab3da6022ed"
+    },
+    {
+      "path": "data/stage04_cache/03B/examples.csv",
+      "bytes": 4789441,
+      "sha256": "5ab2e8ecf7b9cc88da8df1e7a5e2fbe9a81bbff847aa3fb768601f2224caaf57"
+    },
+    {
+      "path": "data/stage04_cache/03B/features.npy",
+      "bytes": 501427328,
+      "sha256": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656"
+    },
+    {
+      "path": "docs/STAGE04.md",
+      "bytes": 13525,
+      "sha256": "f3842d10ef7895a78d896d2da581e6a2f6d2bc94f3d20e279c11c0f4c56ce6c3"
+    },
+    {
+      "path": "notebooks/current/04A_train_logmel.ipynb",
+      "bytes": 19111,
+      "sha256": "19099dab4a6b684b2c66b628c8aa58d306b9e30d179c431fce45564fffd6138f"
+    },
+    {
+      "path": "notebooks/current/04B_train_edge_mfe.ipynb",
+      "bytes": 19112,
+      "sha256": "9b7e029db6d6f02bf15b5b4767dd160a26aed458cc0726b0d81d829e371ff69c"
+    },
+    {
+      "path": "notebooks/current/04C_compare_models.ipynb",
+      "bytes": 9704,
+      "sha256": "82e237f49750cb0f225052d53c880e29df37bb4dbfdf59b22b1e841d7602bd35"
+    },
+    {
+      "path": "reports/stage04/architecture_inventory.json",
+      "bytes": 21493,
+      "sha256": "17c96e1db79fc672d01dfb8ea9acc4187366bb36444acb3d6c77ddf1ae0e0634"
+    },
+    {
+      "path": "reports/stage04/engineering_tests.txt",
+      "bytes": 2044,
+      "sha256": "d520e4f58ded491d2b73c05578f11d341a4374d892b581248a47f5e32e7336b4"
+    },
+    {
+      "path": "reports/stage04/frozen_input_lock.json",
+      "bytes": 1651,
+      "sha256": "042d383587cc8e393c1f5c14bfde49b280c464881e04c48d05c68671f7cd8ab4"
+    },
+    {
+      "path": "reports/stage04/IMPLEMENTATION_REPORT.md",
+      "bytes": 9787,
+      "sha256": "30037054d1439218e6c5ab271acf40355258fd420c91f825f788d2f15e2b33c0"
+    },
+    {
+      "path": "reports/stage04/implementation_validation.json",
+      "bytes": 3931,
+      "sha256": "9ed4e27df0e9e2291622b647f9cd7e11169779ce4eae8c2051942efb1e7a5da4"
+    },
+    {
+      "path": "reports/stage04/planned_protocol.json",
+      "bytes": 3178,
+      "sha256": "322f35f874ff6752957c91da0144ecac83cfc463cc2913033057c89b506873e2"
+    },
+    {
+      "path": "reports/stage04/preflight.json",
+      "bytes": 13310,
+      "sha256": "939b1e2ebc01f9eeae9aaeb742803a83290f46a326b4a7caee3e0664c20e9073"
+    },
+    {
+      "path": "requirements-stage04.txt",
+      "bytes": 125,
+      "sha256": "65a854b5d589e9b8064fa0ca01e043e372dac8004fcf7236f81cf7761f49b3d0"
+    },
+    {
+      "path": "tools/model_zoo.py",
+      "bytes": 5391,
+      "sha256": "074a05c27ebe168c5fbcd40bbd2563a2da78549c219df01d6e815f7dbb6034f8"
+    },
+    {
+      "path": "tools/stage04_data.py",
+      "bytes": 14953,
+      "sha256": "3149e822e2365f8549e05f2f6f10c9fff40a2f0219fbe2dabbc7f41434acd651"
+    },
+    {
+      "path": "tools/test_stage04.py",
+      "bytes": 7890,
+      "sha256": "4429e1e4894ecd492c3e75f30a67b272ca1f69f7dbaba1cd08931dc943638c58"
+    },
+    {
+      "path": "tools/training_common.py",
+      "bytes": 19494,
+      "sha256": "a29bfbea31639573fd3f6e43ec2cb615f484f27258427a8398b8509597d8d846"
+    },
+    {
+      "path": "tools/validate_stage04.py",
+      "bytes": 5296,
+      "sha256": "93fd8e68f9d5fdc000e11f641578b6cf0be79c8caa27b2197f31357d08a63be2"
+    }
+  ],
+  "inventory_file": "reports/stage04/artifact_inventory.json",
+  "existing_files_changed": [],
+  "frozen_inputs_unchanged": true
+}

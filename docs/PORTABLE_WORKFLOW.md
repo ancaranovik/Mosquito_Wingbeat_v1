@@ -1,0 +1,189 @@
+# Portable storage and execution
+
+The scientific pipeline remains 00 → 01 → 02 → 03A/03B → 04A/04B → 04C.
+The new 04D notebook provides Colab setup, cache-only smoke testing and explicitly
+requested future experiments. No preprocessing or training is part of this refactor.
+
+## Final repository layout
+
+```text
+Edge AI Project/
+├── notebooks/current/          00–04C plus 04D_experiments.ipynb
+├── tools/                      paths, cache consumer, experiment runner, checks
+├── configs/{baseline,experiments}/
+├── data/{manifests,audits,metadata}/  small frozen reproducibility material
+├── reports/                    preserved scientific evidence
+├── reference/, third_party/    authenticated upstream sources
+├── archive/                    scientific history and pre-refactor originals
+├── docs/                       methodology, workflow, migration, verification
+├── requirements-{pipeline,stage04,colab}.txt
+├── README.md, .gitignore, .gitattributes
+├── data/{audio,stage04_cache}/  local originals, excluded from Git
+├── colab_result/               original baseline, excluded from Git
+├── _local_only/                retained builds/runtime checks, excluded from Git
+└── _drive_upload/EdgeAI/        small upload copies, excluded from Git
+```
+
+GitHub stores code, notebooks, configs, small manifests/contracts, documentation
+and dependencies. Drive stores audio, feature arrays, baseline evidence and new
+experiment outputs. `_local_only` stores retained local artifacts, never active
+scientific inputs. The untouched external backup was not accessed or used.
+
+## Final Drive layout
+
+```text
+MyDrive/EdgeAI/
+├── fixed/
+│   ├── raw/HumBugDB/             all 2,694 local WAVs
+│   ├── data/
+│   │   ├── manifests/           Core metadata and accepted example grid
+│   │   ├── splits/              frozen source split
+│   │   ├── metadata/            original release metadata
+│   │   ├── audits/              frozen scientific acceptance evidence
+│   │   └── stage04_cache/{03A,03B}/
+│   │       └── features.npy, examples.csv, cache.json
+│   ├── baseline/stage04/        62 accepted Colab result artifacts
+│   └── history/archive/baseline_readiness/
+│       ├── raw/                 historical audio; never current inputs
+│       └── sources/historical_archives/  four historical ZIPs
+├── experiments/<experiment_id>/{config,checkpoints,results,logs}/
+├── derived/
+├── reports/
+└── temp/
+```
+
+The main Drive structure was created in the previous session at
+[EdgeAI](https://drive.google.com/drive/folders/10Sxiula2ZlFd_TYJtEDe4kBQUX-lVSo6).
+No project data was uploaded. Automatic approval review rejected the upload because
+it could not establish destination ownership/authorization for private project
+data. This task uses the explicitly authorized manual staging fallback. Historical
+`fixed/history` folders are included in staging and can be created during upload.
+
+## Exact manual upload mappings
+
+All local paths below are relative to **D:\VGU-27\Edge AI Project**. Copy contents
+into the existing corresponding Drive folders; avoid same-named duplicate roots.
+
+| Local source | Drive destination |
+|---|---|
+| `_drive_upload\EdgeAI\fixed\data\manifests\` | `MyDrive/EdgeAI/fixed/data/manifests/` |
+| `_drive_upload\EdgeAI\fixed\data\splits\` | `MyDrive/EdgeAI/fixed/data/splits/` |
+| `_drive_upload\EdgeAI\fixed\data\metadata\` | `MyDrive/EdgeAI/fixed/data/metadata/` |
+| `_drive_upload\EdgeAI\fixed\data\audits\` | `MyDrive/EdgeAI/fixed/data/audits/` |
+| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03A\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03A/` (metadata only) |
+| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03B\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03B/` (metadata only) |
+| `_drive_upload\EdgeAI\fixed\baseline\stage04\` | `MyDrive/EdgeAI/fixed/baseline/stage04/` |
+| `data\audio\` | `MyDrive/EdgeAI/fixed/raw/HumBugDB/` |
+| `data\stage04_cache\03A\features.npy` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03A/features.npy` |
+| `data\stage04_cache\03B\features.npy` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03B/features.npy` |
+| `archive\baseline_readiness\raw\` | `MyDrive/EdgeAI/fixed/history/archive/baseline_readiness/raw/` |
+| `archive\baseline_readiness\sources\historical_archives\` | `MyDrive/EdgeAI/fixed/history/archive/baseline_readiness/sources/historical_archives/` |
+
+Uploading the staging tree alone is insufficient: audio, feature arrays and ZIPs
+were deliberately not duplicated. Every file has an exact absolute source, Drive
+destination, size, SHA256, purpose and staging flag in
+[drive_migration.csv](portability/drive_migration.csv). Historical payloads are
+provenance, not required for the first cache-only test. The two unreadable historical
+cache directories under `data/stage04_cache/preserved-before-audit-20260929/` are
+untouched locally and are not accepted inputs; their contents could not be inventoried.
+
+## Paths and immutable boundaries
+
+`tools/project_paths.py` owns RAW_ROOT, MANIFEST_ROOT, SPLIT_ROOT, CACHE_ROOT,
+BASELINE_ROOT, EXPERIMENT_ROOT, DERIVED_ROOT and REPORT_ROOT. Set EDGEAI_DATA_ROOT
+to the **EdgeAI root**, not its `fixed` child, before importing tools.
+
+- Local, environment variable unset: read original local data and `colab_result`;
+  new output goes under `_runtime/`.
+- Colab: `/content/drive/MyDrive/EdgeAI`; code comes from the cloned repository.
+- Explicit external root: never silently fall back to repository data.
+
+The fixed boundary is enforced by application checks, not changed Drive ACLs.
+Manual changes can still happen; hash validation rejects them. Both accepted local
+data and external fixed data remain protected when an external root is configured.
+The test Drive layout under `_local_only/portability_test_drive` uses hardlinks for
+immutable audio/arrays to avoid duplication. Do not edit those test payloads.
+
+## Environment and first Colab GPU smoke test
+
+1. Later, create a GitHub repository and push the local commit yourself. No remote
+   is configured by this task. Configure private-repository authentication
+   interactively; never embed tokens in URLs, source or notebooks.
+2. Open `notebooks/current/04D_experiments.ipynb` in VS Code and connect to a Colab
+   GPU kernel. The local notebook file and remote execution filesystem differ.
+3. Set REPO_URL to your GitHub HTTPS clone URL. Run the first cell to mount Drive,
+   clone or fast-forward pull, check origin and require a clean runtime checkout.
+4. Run `configure(install=True)`. It sets EDGEAI_REPO_ROOT, defaults EDGEAI_DATA_ROOT
+   to `/content/drive/MyDrive/EdgeAI`, installs `requirements-colab.txt`, and prints
+   code/data/baseline/future-output paths. No local Windows path is used remotely.
+5. Run `python -B tools/verify_portability.py` through the supplied notebook cell.
+   It verifies scientific source/locks, both cache hashes and metadata, source
+   separation/class order, and all eight baseline records without training.
+6. Run the GPU cell. It prints `torch.cuda.is_available()` and
+   `torch.cuda.get_device_name(0)`, then invokes
+   `python -B tools/experiment_runner.py smoke --device cuda` in a fresh process.
+   Require PASS, `training_executed: false`, `feature_generation_executed: false`.
+7. Leave RUN_TRAINING=False. Future results will be written only under
+   `/content/drive/MyDrive/EdgeAI/experiments/<experiment_id>/`.
+
+Smoke performs synthetic forward passes only: no optimizer, feature extraction,
+training or repeated trained-model TEST evaluation. Missing caches fail; do not
+regenerate 00–03B to bypass a failed check. The local test uses `--device cpu`;
+CUDA remains to be verified on the actual Colab GPU.
+
+The accepted CUDA environment was Python 3.13.15, torch 2.8.0+cu126, numpy 2.4.6,
+pandas 3.0.6 and Tesla T4. Full original runtime/protocol is retained in
+`configs/baseline/colab_stage04.json`. Future cache consumers require Python 3.11+
+and the pinned package versions, recording actual runtime/hardware. Python-version
+AST schemas are handled by comparing current and authenticated original source
+under the same interpreter; no scientific pin is rewritten.
+
+Historical DSP/CPU execution used Python 3.12.14 and requirements-pipeline.txt /
+requirements-stage04.txt. Any suitable environment directory works; `.venv-stage04`
+is not required. 04A/04B inspect that CPU protocol with training disabled. 04C reads
+the accepted CUDA results. 04D uses the cache-consumer environment. Full 00–03B
+notebook reruns are unnecessary for normal experiments.
+
+## Future experiments
+
+Edit locally → commit → push → Colab pull → mount Drive → verify cache/data →
+explicitly train → results saved to Drive. Copy `configs/experiments/baseline_reuse.json`
+and choose a never-used `exp_...` ID. Commit config/code before running:
+
+```sh
+python -B tools/experiment_runner.py train --config configs/experiments/YOUR_CONFIG.json
+```
+
+The runner currently supports the accepted CUDA protocol, seed 42, one existing
+frontend and one existing model. Scientific overrides fail explicitly. This is
+infrastructure, not newly implemented tuning. Learning-rate/loss/sampler/load-time
+transforms can reuse accepted caches when scientifically valid, but implementing
+those choices requires separately reviewed code. Waveform, segmentation or feature
+changes must use a new versioned `derived/` location and new identities.
+
+The runner reserves a new output directory and refuses reused IDs. Failed runs
+remain visible; there is no implicit resume/restart. It records ID, parent baseline,
+commit, config, seed, environment/GPU/CUDA, cache/split identities, logs, history,
+validation selection, checkpoint, example/source predictions, metrics and confusion
+matrix. Training history and selected checkpoint may update only within that new
+run. TEST remains isolated from fitting and validation checkpoint selection.
+
+Current validators are read-only. Original validators, CPU modules/notebooks and
+CUDA export remain in `archive/portability_originals` and `archive/colab_baseline`.
+Do not run archived builders as the normal workflow. Original methodology documents
+and contracts are unchanged; their older operational instructions are superseded
+by this document. Git line-ending conversion is disabled to preserve exact bytes.
+
+## Windows Git ownership note
+
+Git was initialized by the sandbox account. Windows denied changing the new
+`.git` owner, so this task used a command-scoped `safe.directory` for this exact
+project. No global settings were changed. If your normal terminal reports
+“dubious ownership”, you can authorize this known local repository once:
+
+```powershell
+git config --global --add safe.directory "D:/VGU-27/Edge AI Project"
+```
+
+Or use `git -c safe.directory="D:/VGU-27/Edge AI Project" status` without changing
+global configuration. This concerns Git metadata ownership, not scientific files.

@@ -1,0 +1,68 @@
+{
+  "species": {
+    "ae aegypti": {
+      "files": 89,
+      "original_groups": 49,
+      "recording_dates": 4,
+      "seconds": 1322.4396371882078,
+      "duration_range": [
+        2.5,
+        61.38
+      ],
+      "rms_dbfs_range": [
+        -65.01508194986543,
+        -32.505788523492086
+      ],
+      "rms_dbfs_median": -41.69839801569104,
+      "tonality_proxy_median": 0.9937106918238994
+    },
+    "an arabiensis": {
+      "files": 831,
+      "original_groups": 514,
+      "recording_dates": 40,
+      "seconds": 14815.196326530615,
+      "duration_range": [
+        2.5,
+        117.76
+      ],
+      "rms_dbfs_range": [
+        -67.19092981804884,
+        -24.397233104284425
+      ],
+      "rms_dbfs_median": -46.13606001785091,
+      "tonality_proxy_median": 0.9951876804619827
+    },
+    "an funestus ss": {
+      "files": 381,
+      "original_groups": 248,
+      "recording_dates": 30,
+      "seconds": 7414.238276643999,
+      "duration_range": [
+        2.5,
+        81.86
+      ],
+      "rms_dbfs_range": [
+        -70.56196181497992,
+        -28.0992024122193
+      ],
+      "rms_dbfs_median": -45.27800500770105,
+      "tonality_proxy_median": 0.9949622166246851
+    }
+  },
+  "format": "44100 Hz mono PCM24 WAV",
+  "max_duration_error_seconds": 2.2675736971677907e-05,
+  "exact_duplicate_pairs": 0,
+  "overlap": {
+    "files": 1301,
+    "anchor_patterns": 3903,
+    "matches": 0,
+    "cross_original": 0,
+    "cross_date": 0
+  },
+  "clipped_files": 0,
+  "digital_silence_files": 0,
+  "core_files": 668,
+  "core_original_groups": 444,
+  "core_date_groups": 20,
+  "core_seconds": 14492.577414966
+}

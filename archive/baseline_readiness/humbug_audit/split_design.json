@@ -1,0 +1,70 @@
+{
+  "seed": 20260926,
+  "search_candidates": 20000,
+  "objective": "squared error from 60/20/20 individual proportions per species, metadata only",
+  "shared_dates": 20,
+  "partition_dates": {
+    "02-08-20 00:00": "training",
+    "06-07-20 00:00": "training",
+    "07-07-20 00:00": "training",
+    "12-07-20 00:00": "training",
+    "17-06-20 00:00": "training",
+    "20-07-20 00:00": "training",
+    "21-06-20 00:00": "training",
+    "21-07-20 00:00": "training",
+    "22-06-20 00:00": "training",
+    "23-06-20 00:00": "training",
+    "24-03-20 00:00": "training",
+    "27-07-20 00:00": "training",
+    "16-06-20 00:00": "validation",
+    "26-03-20 00:00": "validation",
+    "26-07-20 00:00": "validation",
+    "28-07-20 00:00": "validation",
+    "13-07-20 00:00": "testing",
+    "14-07-20 00:00": "testing",
+    "19-07-20 00:00": "testing",
+    "29-06-20 00:00": "testing"
+  },
+  "counts": {
+    "an arabiensis": {
+      "training": {
+        "individuals": 179,
+        "files": 273,
+        "dates": 12,
+        "seconds": 5986.779999999996
+      },
+      "validation": {
+        "individuals": 61,
+        "files": 92,
+        "dates": 4,
+        "seconds": 1805.1399999999987
+      },
+      "testing": {
+        "individuals": 60,
+        "files": 82,
+        "dates": 4,
+        "seconds": 2028.5199999999998
+      }
+    },
+    "an funestus ss": {
+      "training": {
+        "individuals": 88,
+        "files": 146,
+        "dates": 12,
+        "seconds": 2769.299999999997
+      },
+      "validation": {
+        "individuals": 28,
+        "files": 37,
+        "dates": 4,
+        "seconds": 902.6
+      },
+      "testing": {
+        "individuals": 28,
+        "files": 38,
+        "dates": 4,
+        "seconds": 1000.2399999999996
+      }
+    }
+  }
+}

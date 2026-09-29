@@ -1,0 +1,222 @@
+{
+  "baseline_id": "stage04_colab_seed42_20260929",
+  "protocol_sha256": "9eccbc55515c0a2ecb75e18178a1007177fcadd931480cc8890533dea20c7f25",
+  "protocol": {
+    "training_configuration": {
+      "seed": 42,
+      "device": "cuda",
+      "dtype": "float32",
+      "cpu_threads": 4,
+      "batch_size": 64,
+      "max_epochs": 50,
+      "early_stopping_patience": 8,
+      "selection": "minimum_validation_weighted_cross_entropy",
+      "min_delta": 0.0,
+      "tie_rule": "earliest_epoch",
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "amsgrad": false,
+      "lr_policy": "constant",
+      "loss": "weighted_cross_entropy",
+      "loss_reduction": "sum(weight[label]*NLL)/sum(weight[label])",
+      "class_weight_formula": "N_train/(4*n_train_class)",
+      "label_smoothing": 0.0,
+      "input_normalization": "none",
+      "augmentation": "none",
+      "oversampling": false,
+      "shuffle_train": true,
+      "shuffle_validation_test": false,
+      "num_workers": 0,
+      "drop_last": false,
+      "mixed_precision": false,
+      "pretrained": false,
+      "deterministic_algorithms": true,
+      "mkldnn_enabled": false,
+      "source_aggregation": "arithmetic mean softmax over all windows sharing source name; argmax",
+      "undefined_precision_recall_f1": 0.0,
+      "shortlist": "top 3 by selected-validation macro-F1 descending, params ascending, run_id ascending"
+    },
+    "frozen_lock_sha256": "042d383587cc8e393c1f5c14bfde49b280c464881e04c48d05c68671f7cd8ab4",
+    "scientific_lock_sha256": "315687fc77549f546be08ef124e021933f64809d39bbb4f462c7f4ebce27986e",
+    "execution_lock_sha256": "a16a6fb0c88e68bec1b3e76295059ca022d7a136d67d59f5a6f33541833147cb",
+    "export_contract_sha256": "d438c5901fe7f78e79d6e18fa09731f01d69f121b9e0035de57eaebb61fd7bd4",
+    "accepted_input_sha256": {
+      "archive/legacy_data/core_096s_candidate_windows.csv": "08df667e694466d23bd8c0a4ecb215f8505ea2e72c71cc131574bce4152628f9",
+      "data/audits/current/core_audio_audit.csv": "8551ada9c64998e69922779b42054ec17245c8923457877d24b633813a1f2965",
+      "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json": "e94cb9c65e4ce3e63266ac34b05d03bbe372a2f51935bfc3f8c7af20a36ee75b",
+      "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+      "data/manifests/current/core_single_4species_frozen_split.csv": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+      "data/manifests/current/core_single_4species_metadata.csv": "e72974da9a4e1a419bb459363be37ff91fdfdd6e65ff9a32582e9de13e786614",
+      "data/metadata/neurips_2021_zenodo_0_0_1.csv": "baa4de3da5965dfea41dbd505023d392fab4f01db1e6e137cf50442423f79727",
+      "reference/humbug/vggish/mel_features.py": "68803c00743cb43139db12836b5e745a977cdb81443257fa716cd520d7e5e948",
+      "reference/humbug/vggish/vggish.py": "fd227c0ff5e6646c5b8097d54fa2c1d1a3921bab7dda037f58cee4a8bfaa6ee8",
+      "reference/humbug/vggish/vggish_input.py": "a2a1bb264f1bd1a276c2c73964a27b64fa9dd65e4ace350d93614cb721501d13",
+      "reference/humbug/vggish/vggish_params.py": "61698102149a94a6ce8f567f6abfad8b1b04760825396f33f9d4f31e66e79c5f",
+      "third_party/edgeimpulse-processing-blocks/mfe/__init__.py": "a72e578358398436068d455d3cd4efb2e336b5b23bb373b44ece7faf427dfba9",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/dataset.py": "2e999e679d126619f2e7b72f263637bb78140fcacb3469628348b9e0e1cdee81",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/errors.py": "3a1b74b873961bbd5012a71ef57ac06f1a3d05c9ae22aea195fb9b4de2f8121c",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/graphing.py": "bd98e8d8d39444e4b10043159ea5d8d80ba859e80c43776e479c9ffdf52b551e",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/sampling.py": "4a3532ceeb51c9af9a0dc1df90151888554469937abf85daac111a6c43b22b52",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/spectrum.py": "09f6ba0335905f193ab8b5dbd15a8cf5b88e059201f913aa4e05c6662e43dd29",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/wavelet.py": "f2f5c47a387cd2a879b486f6af6a12be2a52f9f3f2e42ade6289d13247c0a7c5",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp-server.py": "f3afe7717f8612a2d925aac5088037a793900b711b7818966466fa8ecf46ff16",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp.py": "68e9ac2873c822791d6e4651ae4ed16aa9e0aaf4b61ffda8a20a4e2366f16f4e",
+      "third_party/edgeimpulse-processing-blocks/mfe/parameters.json": "9aa802f189079f552018a2a45151ae7bab6a5eb20e0ccd04f9865b006a2c5b8e",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/__init__.py": "ccfd42a6cc1ee35d88ee4771e8a493a987575d1972cb0d49f79664a27f62a187",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/feature.py": "85f7d5c72470a37bd2d88e26b02ccae5b293d63ec881247d7b1481911dbd6d3f",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/functions.py": "12b921981eb3b0cda1de223cce445e5ee6941c2d8516df16d9f19dc292a8296c",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/processing.py": "223e652894b20d47580d96bd198a25bbf48627f8b97e0b3828d7a023d8493619"
+    },
+    "class_order": [
+      "an arabiensis",
+      "an funestus ss",
+      "an squamosus",
+      "culex pipiens complex"
+    ],
+    "class_weights": {
+      "an arabiensis": 0.5406187242995123,
+      "an funestus ss": 1.1024278471138846,
+      "an squamosus": 3.9644109396914446,
+      "culex pipiens complex": 1.0091485183862907
+    },
+    "counts": {
+      "train": 22613,
+      "validation": 4937,
+      "test": 5095
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+      "torch": "2.8.0+cu126",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "processor": "x86_64",
+      "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX512\n  - CUDA Runtime 12.6\n  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90\n  - CuDNN 91.0.2  (built against CUDA 12.9)\n  - Magma 2.6.1\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CUDA_VERSION=12.6, CUDNN_VERSION=9.10.2, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+      "cuda_runtime": "12.6",
+      "cudnn": 91002,
+      "gpu": "Tesla T4",
+      "cublas_workspace_config": ":4096:8",
+      "tf32": false,
+      "mixed_precision": false
+    },
+    "frontends": {
+      "03A": {
+        "notebook_sha256_provenance": "d43210734ab46305d81d9272a165c49e39f84d1ad0d3527568393655d0b31ae3",
+        "frontend_ast_sha256": {
+          "frame_complete": "7fc8f5701fd55c69c97cc93b77e4713ca3a01b249ac90e6c3a0423df27ceb64d",
+          "periodic_hann": "4b077fa8f2a345185429659e7c85e3d409e3c4ba34ee11e41c8e67598448951c",
+          "stft_magnitude_vggish": "bb410824cf50e2b01dc3366d092417c7d3b7ed579c176d0dc60e1bc0e46dfa61",
+          "hertz_to_mel_vggish": "d417efe39a088299ff92f21eb616d35b9b7c14359780f15a22a9cdb51ad216e7",
+          "spectrogram_to_mel_matrix_vggish": "508c8620a7772b77c217e86522af037209638907216e0932246c881fdcf26f3a",
+          "logmel_reference": "aac2366186bb5513b8c70d1fe23171af3998699a96858e518cc35546a9d89d01"
+        },
+        "execution_ast_sha256": {
+          "8": "b3fb8a3118d61748e0f110bf1487d010d5b17cedde9d9d35e7a39148a8ee9c71",
+          "10": "576f5e195d9be9bff971e9f3289abbf4f09e7e9ca2a02c49338df1f5177c970b",
+          "12": "7e3d11b7827f7d2f14ca46dc4bb1edf270f8ee96e0d6be539a951821dbd15021"
+        },
+        "audit_sha256": "d67efd73a7fd5b1917b338203e127cffb910d66e21d227394dbd926cea36aa88",
+        "contract": {
+          "sample_rate_hz": 16000,
+          "context_samples": 15600,
+          "context_seconds": 0.975,
+          "frame_length_samples": 400,
+          "frame_hop_samples": 160,
+          "fft_length": 512,
+          "frames": 96,
+          "mel_bins": 64,
+          "mel_min_hz": 125.0,
+          "mel_max_hz": 7500.0,
+          "log_offset": 0.01,
+          "window": "periodic_hann",
+          "spectrum": "unnormalized_magnitude_rfft",
+          "mel_mapping": "VGGish_HTK_style",
+          "mel_area_normalization": false,
+          "dc_weight_zero": true,
+          "log": "natural_log",
+          "output_shape": [
+            96,
+            64
+          ],
+          "output_dtype": "float64"
+        },
+        "definition_cells": [
+          8,
+          10,
+          12
+        ],
+        "frontend": "03A",
+        "sha256": "2dd5f6ffbf09d2e9ff0185165186c6b44aca022e179bbf4a2bb73db37f23d506"
+      },
+      "03B": {
+        "notebook_sha256_provenance": "dbda6e2d3eb791b3f168af793dbefbd7f18c4ec9c4f82a92bc863c135ed9d46d",
+        "frontend_ast_sha256": {
+          "edge_v4_frame_count": "0af17c8e397b6a632d3be0b9e71e8053915caa22266225cb622e25a712ef0c58",
+          "extract_edge_context": "eb950e9bfe62209c28466a7e2ad6f71ee23e14ff5a084f6cb4053afbb9f15a9d",
+          "edge_mfe_v4": "8173e79835eca6dea0da2780b5f50113459aab944ebdf60ee286112ac2857afa"
+        },
+        "execution_ast_sha256": {
+          "8": "47010bed6f5e8c55fa362b8474565c4ef0505eb8d0a9cbf11673bc5c1530620a",
+          "10": "0feb37449bd1b733668e00a8713b1a2cefc7a523192c2f1d79f577f9955a26bd",
+          "12": "7bf7ed5a924a88afb0de8d4f51db037dcfbd42943582a4f3102b65fd080fd117",
+          "13": "c1a38ab36b58aad71e09e1c6ef1638654ba3824eb39c7611b6572f8e8c4ef7ff",
+          "15": "6270be0aea3e5dda429a4493310120e6ded2d6122cb7b6d27e299e84b4dd2694"
+        },
+        "audit_sha256": "8abb53690167fc6569ab8cbeb55de54daf82ab1b77066b7109e0af895555a1b2",
+        "contract": {
+          "sample_rate_hz": 16000,
+          "context_samples": 15600,
+          "frame_length_samples": 320,
+          "frame_stride_samples": 160,
+          "frames": 96,
+          "num_filters": 40,
+          "fft_length": 256,
+          "low_frequency_hz": 0,
+          "high_frequency_hz": 8000,
+          "noise_floor_db": -70,
+          "edge_impulse_default_noise_floor_db": -52,
+          "output_shape": [
+            96,
+            40
+          ],
+          "output_dtype": "float32",
+          "preemphasis": {
+            "coefficient": 0.98,
+            "shift": 1,
+            "scope": "per_context",
+            "boundary": "np.roll"
+          },
+          "wrapper_input_dtype": "float32",
+          "window": "rectangular",
+          "fft_truncates_frame_to_samples": 256,
+          "spectrum": "abs(rfft)**2 / FFT_LENGTH",
+          "mel_implementation": "vendored SpeechPy v4; use_old_mels=False",
+          "zero_handling": "vendored zero_handling, followed by clip at 1e-30",
+          "normalization": "clip((10*log10(mfe)-floor)/(-floor+12),0,1)",
+          "quantization": "around(x*256), uint8 cast, clip 0..255, float32 /256; wrap preserved"
+        },
+        "definition_cells": [
+          8,
+          10,
+          12,
+          13,
+          15
+        ],
+        "frontend": "03B",
+        "sha256": "62a754b8f514716e7ec03c352c989059808f3211672ba580008ba2c5a1bac3c3"
+      }
+    },
+    "implementation_sha256": {
+      "tools/stage04_data.py": "88efbde936a074320f1769f6976b1324027a8e86b3811d5ba453e8a101d4a78f",
+      "tools/model_zoo.py": "074a05c27ebe168c5fbcd40bbd2563a2da78549c219df01d6e815f7dbb6034f8",
+      "tools/training_common.py": "d6b3d8b3fa4bdf77831b404c146738917e2ef21f2ab0527884765f64e5b518e3",
+      "requirements.txt": "8a6aa58bf817c67e756c7a4e1d8ddd3d3a1ecc2a8add735c9075f1e57f1464a5"
+    }
+  }
+}

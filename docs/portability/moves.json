@@ -1,0 +1,337 @@
+[
+  {
+    "source": "stage04_colab_bundle.zip",
+    "destination": "_local_only/stage04_colab_bundle.zip",
+    "bytes": 713690891
+  },
+  {
+    "source": ".stage04_colab_build/audit_bundle.py",
+    "destination": "_local_only/.stage04_colab_build/audit_bundle.py",
+    "bytes": 4061
+  },
+  {
+    "source": ".stage04_colab_build/build_bundle.py",
+    "destination": "_local_only/.stage04_colab_build/build_bundle.py",
+    "bytes": 8922
+  },
+  {
+    "source": ".stage04_colab_build/cache_adapter.py",
+    "destination": "_local_only/.stage04_colab_build/cache_adapter.py",
+    "bytes": 6669
+  },
+  {
+    "source": ".stage04_colab_build/legacy_cache_verification.json",
+    "destination": "_local_only/.stage04_colab_build/legacy_cache_verification.json",
+    "bytes": 1319
+  },
+  {
+    "source": ".stage04_colab_build/make_notebook.py",
+    "destination": "_local_only/.stage04_colab_build/make_notebook.py",
+    "bytes": 10677
+  },
+  {
+    "source": ".stage04_colab_build/original_snapshot.json",
+    "destination": "_local_only/.stage04_colab_build/original_snapshot.json",
+    "bytes": 7946178
+  },
+  {
+    "source": ".stage04_colab_build/package_zip.py",
+    "destination": "_local_only/.stage04_colab_build/package_zip.py",
+    "bytes": 2564
+  },
+  {
+    "source": ".stage04_colab_build/README.md",
+    "destination": "_local_only/.stage04_colab_build/README.md",
+    "bytes": 6887
+  },
+  {
+    "source": ".stage04_colab_build/runner.py",
+    "destination": "_local_only/.stage04_colab_build/runner.py",
+    "bytes": 3599
+  },
+  {
+    "source": ".stage04_colab_build/verify_originals.py",
+    "destination": "_local_only/.stage04_colab_build/verify_originals.py",
+    "bytes": 1907
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/bundle_manifest.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/bundle_manifest.json",
+    "bytes": 2446
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/README.md",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/README.md",
+    "bytes": 6887
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/requirements.txt",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/requirements.txt",
+    "bytes": 103
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/run_stage04.py",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/run_stage04.py",
+    "bytes": 3599
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/stage04_colab.ipynb",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/stage04_colab.ipynb",
+    "bytes": 12008
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+    "bytes": 3764193
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/manifests/current/core_single_4species_frozen_split.csv",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/manifests/current/core_single_4species_frozen_split.csv",
+    "bytes": 322131
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/cache.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/cache.json",
+    "bytes": 2483
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/examples.csv",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/examples.csv",
+    "bytes": 6277905
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/features.npy",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03A/features.npy",
+    "bytes": 802283648
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/cache.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/cache.json",
+    "bytes": 2796
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/examples.csv",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/examples.csv",
+    "bytes": 6277905
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/features.npy",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/data/stage04_cache/03B/features.npy",
+    "bytes": 501427328
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/build_validation.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/build_validation.json",
+    "bytes": 1088
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/cuda_adaptation.diff",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/cuda_adaptation.diff",
+    "bytes": 10987
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/export_contract.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/export_contract.json",
+    "bytes": 20785
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/frontend_execution_lock.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/frontend_execution_lock.json",
+    "bytes": 655
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/frozen_input_lock.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/frozen_input_lock.json",
+    "bytes": 1651
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/local_forward_validation.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/local_forward_validation.json",
+    "bytes": 4718
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/original_files_verification.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/original_files_verification.json",
+    "bytes": 1757
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/provenance/scientific_lock.json",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/provenance/scientific_lock.json",
+    "bytes": 3859
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/tools/model_zoo.py",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/tools/model_zoo.py",
+    "bytes": 5391
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/tools/stage04_data.py",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/tools/stage04_data.py",
+    "bytes": 6714
+  },
+  {
+    "source": ".stage04_colab_build/stage04_colab_bundle/tools/training_common.py",
+    "destination": "_local_only/.stage04_colab_build/stage04_colab_bundle/tools/training_common.py",
+    "bytes": 23520
+  },
+  {
+    "source": ".stage04_colab_build/validation_results/preflight.json",
+    "destination": "_local_only/.stage04_colab_build/validation_results/preflight.json",
+    "bytes": 16522
+  },
+  {
+    "source": ".stage04_colab_build/validation_results/runtime_validation.json",
+    "destination": "_local_only/.stage04_colab_build/validation_results/runtime_validation.json",
+    "bytes": 4718
+  },
+  {
+    "source": "tools/__pycache__/pipeline_contract.cpython-311.pyc",
+    "destination": "_local_only/tools/__pycache__/pipeline_contract.cpython-311.pyc",
+    "bytes": 18741
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/config",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/config",
+    "bytes": 360
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/description",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/description",
+    "bytes": 73
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/HEAD",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/HEAD",
+    "bytes": 23
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/index",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/index",
+    "bytes": 10947
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/packed-refs",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/packed-refs",
+    "bytes": 114
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/shallow",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/shallow",
+    "bytes": 41
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/applypatch-msg.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/applypatch-msg.sample",
+    "bytes": 478
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/commit-msg.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/commit-msg.sample",
+    "bytes": 1972
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/fsmonitor-watchman.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/fsmonitor-watchman.sample",
+    "bytes": 4611
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/post-update.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/post-update.sample",
+    "bytes": 189
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-applypatch.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-applypatch.sample",
+    "bytes": 424
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-commit.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-commit.sample",
+    "bytes": 1649
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-merge-commit.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-merge-commit.sample",
+    "bytes": 416
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-push.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-push.sample",
+    "bytes": 1374
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-rebase.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-rebase.sample",
+    "bytes": 4898
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/pre-receive.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/pre-receive.sample",
+    "bytes": 544
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/prepare-commit-msg.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/prepare-commit-msg.sample",
+    "bytes": 1492
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/push-to-checkout.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/push-to-checkout.sample",
+    "bytes": 2783
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/sendemail-validate.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/sendemail-validate.sample",
+    "bytes": 2308
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/hooks/update.sample",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/hooks/update.sample",
+    "bytes": 3650
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/info/exclude",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/info/exclude",
+    "bytes": 240
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/logs/HEAD",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/logs/HEAD",
+    "bytes": 206
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/logs/refs/heads/master",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/logs/refs/heads/master",
+    "bytes": 206
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/logs/refs/remotes/origin/HEAD",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/logs/refs/remotes/origin/HEAD",
+    "bytes": 206
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.idx",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.idx",
+    "bytes": 2640
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.pack",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.pack",
+    "bytes": 44037
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.rev",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/objects/pack/pack-08dc76b85d9a98efb5dd7b8b0962c0cf3b4ac0f2.rev",
+    "bytes": 276
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/refs/heads/master",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/refs/heads/master",
+    "bytes": 41
+  },
+  {
+    "source": "third_party/edgeimpulse-processing-blocks/.git/refs/remotes/origin/HEAD",
+    "destination": "_local_only/vendor_git/edgeimpulse-processing-blocks.git/refs/remotes/origin/HEAD",
+    "bytes": 32
+  }
+]

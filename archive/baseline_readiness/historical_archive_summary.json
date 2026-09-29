@@ -1,0 +1,58 @@
+[
+  {
+    "archive": "aedes_aegypti.zip",
+    "sha256": "db1f8de63a799cadc3a96c29bee7bd684b844fd08499da594e29f46b0a6e6cd1",
+    "files": 10,
+    "duration_seconds": 692.523625,
+    "durations_min_max": [
+      61.561875,
+      76.1905
+    ],
+    "formats": {
+      "16000/1/PCM_16": 10
+    },
+    "filename_ancestor_count": 3
+  },
+  {
+    "archive": "aedes_albopictus.zip",
+    "sha256": "27236d16bf09e752f2c5977af55105ddd32c212f259f6a2bc4bcdf9ddbd8736e",
+    "files": 10,
+    "duration_seconds": 666.3663124999999,
+    "durations_min_max": [
+      65.3409375,
+      67.9323125
+    ],
+    "formats": {
+      "16000/1/PCM_16": 10
+    },
+    "filename_ancestor_count": 2
+  },
+  {
+    "archive": "noise.zip",
+    "sha256": "5f4ba031c47b4766d09d13b71a7991b8d153ba3e635c623be480128e7d3895e5",
+    "files": 255,
+    "duration_seconds": 685.7445625,
+    "durations_min_max": [
+      1.0,
+      64.3075625
+    ],
+    "formats": {
+      "16000/1/PCM_16": 255
+    },
+    "filename_ancestor_count": 252
+  },
+  {
+    "archive": "other_mosquitos_selected.zip",
+    "sha256": "ac2281d2f907e3bcef6e9352ec3b93dd7090ff4901bde671acedbbcc24ae3c70",
+    "files": 16,
+    "duration_seconds": 687.1907500000002,
+    "durations_min_max": [
+      4.87625,
+      75.4416875
+    ],
+    "formats": {
+      "16000/1/PCM_16": 16
+    },
+    "filename_ancestor_count": 16
+  }
+]

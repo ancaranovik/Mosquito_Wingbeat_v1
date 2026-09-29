@@ -1,0 +1,25 @@
+test_direct_training_entry_requires_reserved_experiment (test_portability.StorageTests.test_direct_training_entry_requires_reserved_experiment) ... ok
+test_existing_experiment_never_overwritten (test_portability.StorageTests.test_existing_experiment_never_overwritten) ... ok
+test_external_root_does_not_make_local_science_writable (test_portability.StorageTests.test_external_root_does_not_make_local_science_writable) ... ok
+test_fixed_writes_rejected (test_portability.StorageTests.test_fixed_writes_rejected) ... ok
+test_manifest_split_audio_and_cache_mapping (test_portability.StorageTests.test_manifest_split_audio_and_cache_mapping) ... ok
+test_path_traversal_rejected (test_portability.StorageTests.test_path_traversal_rejected) ... ok
+test_scientific_overrides_rejected (test_portability.StorageTests.test_scientific_overrides_rejected) ... ok
+test_coordinate_change_with_same_count_is_rejected (test_pipeline_contract.ContractFailureTests.test_coordinate_change_with_same_count_is_rejected) ... ok
+test_parent_label_change_is_rejected (test_pipeline_contract.ContractFailureTests.test_parent_label_change_is_rejected) ... ok
+test_missing_source_is_rejected (test_pipeline_contract.ContractFailureTests.test_missing_source_is_rejected) ... ok
+test_empty_gate_set_cannot_pass (test_pipeline_contract.ContractFailureTests.test_empty_gate_set_cannot_pass) ... ok
+test_notebook_serialization_does_not_change_scientific_ast (test_stage04.Stage04Tests.test_notebook_serialization_does_not_change_scientific_ast) ... ok
+test_real_gates_ignore_notebook_outputs_and_serialization (test_stage04.Stage04Tests.test_real_gates_ignore_notebook_outputs_and_serialization) ... ok
+test_same_design_and_only_tc_parameters_depend_on_width (test_stage04.Stage04Tests.test_same_design_and_only_tc_parameters_depend_on_width) ... ok
+test_repeated_initialization_and_shuffling (test_stage04.Stage04Tests.test_repeated_initialization_and_shuffling) ... ok
+test_metrics_hand_calculated_and_absent_prediction_class (test_stage04.Stage04Tests.test_metrics_hand_calculated_and_absent_prediction_class) ... ok
+test_source_mean_probability_not_majority_vote (test_stage04.Stage04Tests.test_source_mean_probability_not_majority_vote) ... ok
+test_epoch_loss_global_weight_denominator (test_stage04.Stage04Tests.test_epoch_loss_global_weight_denominator) ... ok
+test_executed_constants_and_loaders_are_gated (test_stage04.Stage04Tests.test_executed_constants_and_loaders_are_gated) ... ok
+test_expected_parameter_counts (test_stage04.Stage04Tests.test_expected_parameter_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.311s
+
+OK

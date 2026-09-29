@@ -1,0 +1,20 @@
+{
+  "data/audits/current/02_example_grid_v2_freeze_audit.json": "d14a8f03fef8882b85cf47ecbc0185d69bdc3dd525625af24ceb6334ace257da",
+  "data/audits/current/03A_logmel_reference_frontend_audit.json": "d67efd73a7fd5b1917b338203e127cffb910d66e21d227394dbd926cea36aa88",
+  "data/audits/current/03B_edge_mfe_implementation_audit.json": "8abb53690167fc6569ab8cbeb55de54daf82ab1b77066b7109e0af895555a1b2",
+  "data/audits/current/core_audio_audit.csv": "8551ada9c64998e69922779b42054ec17245c8923457877d24b633813a1f2965",
+  "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json": "e94cb9c65e4ce3e63266ac34b05d03bbe372a2f51935bfc3f8c7af20a36ee75b",
+  "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+  "data/manifests/current/core_single_4species_frozen_split.csv": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+  "docs/PIPELINE.md": "2d0f067a9240d9c144e26fd6af6fdaf03d05407b5fbb7145b716d372b1417cbf",
+  "notebooks/current/00_prepare_dataset.ipynb": "0d6115c2c04daa6922011fc25a6a2fcf0c40404f960db69da84244e0d1ba2478",
+  "notebooks/current/01_dataset_audit.ipynb": "fa110b1d4abf15fec9b5e34b091bda71867e82b0654a62060eff28a0ac47229e",
+  "notebooks/current/02_segmentation.ipynb": "f22aede332ac8d6898cfcdecd82abf9bce17113b5ff18605c4430fd4c70242fc",
+  "notebooks/current/03A_logmel_reference.ipynb": "5061ca94f408b3a2a8eae59e6205dc9d13a2654414cbe7db3f5e15490812b6d7",
+  "notebooks/current/03B_edge_mfe.ipynb": "dbda6e2d3eb791b3f168af793dbefbd7f18c4ec9c4f82a92bc863c135ed9d46d",
+  "reference/humbug/vggish/mel_features.py": "68803c00743cb43139db12836b5e745a977cdb81443257fa716cd520d7e5e948",
+  "reports/stage04/scientific_lock.json": "315687fc77549f546be08ef124e021933f64809d39bbb4f462c7f4ebce27986e",
+  "reports/validation/pretraining_review.json": "d5da1697ce3b0f81bdc2241b7e050989ba40eff36b3ffc4dda15d716da470cab",
+  "requirements-pipeline.txt": "5e83fb7a30655cdd63e402a3bfc0770efcdb34a4f65ba408954324f7867221d4",
+  "tools/pipeline_contract.py": "056f4251b118a7167aaf921bd851b028276f868a01dfcf309ef68a1ca0a5a979"
+}

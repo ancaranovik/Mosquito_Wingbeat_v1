@@ -1,0 +1,32 @@
+[
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03A/cache.json",
+    "matches_historical_inventory": true,
+    "sha256": "aacb75e41ac4fc5715022a857d5173aed36fac965e4f58b0e40648c68fa8ad81"
+  },
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03A/examples.csv",
+    "matches_historical_inventory": true,
+    "sha256": "71a504df2090a16c887c79056c16e0ee95909fdadfb014fe51f55f30adb3efc8"
+  },
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03A/features.npy",
+    "matches_historical_inventory": true,
+    "sha256": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0"
+  },
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03B/cache.json",
+    "matches_historical_inventory": true,
+    "sha256": "d9b7db21f8a78002c7fc5afa92fb369acd3ebd199e969fc707ebbab3da6022ed"
+  },
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03B/examples.csv",
+    "matches_historical_inventory": true,
+    "sha256": "5ab2e8ecf7b9cc88da8df1e7a5e2fbe9a81bbff847aa3fb768601f2224caaf57"
+  },
+  {
+    "path": "data/stage04_cache/preserved-before-audit-20260929/03B/features.npy",
+    "matches_historical_inventory": true,
+    "sha256": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656"
+  }
+]

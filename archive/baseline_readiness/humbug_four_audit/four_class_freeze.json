@@ -1,0 +1,24 @@
+{
+  "version": "humbug-four-class-v1",
+  "release": "0.0.1",
+  "zenodo": 4904800,
+  "frozen_at": "2026-09-26T06:32:58.875334+00:00",
+  "status": "GO_FOUR_CLASS_TRAINING",
+  "group_key": "name",
+  "candidate_sha256": "5320fe3da6be3d831e9ffacafafcc63a72d6efe23b7566b19fc3def2dd428ac7",
+  "metadata_sha256": "fd5a6e7df3ddd125d0ef4b941ab27090eec5414bf11ffcdadb74f0b9518b1aa9",
+  "sha256": {
+    "four_class_source_manifest.csv": "9e27b188da7c0400668b690f46d9dae109abed6ec8261016e0275338b0649128",
+    "four_class_group_manifest.csv": "a511989a913afb6595877c088ba7771a17436baefedba0a04c0228179dd056fb",
+    "four_class_training_files.csv": "a64bc3c47b0e6e8e2fb43c320e5b368bf847ca4e42cf86e7c74f2ee2c46cda34",
+    "four_class_validation_files.csv": "8bcb7a7411389bf4559547abb514aa4d3e4289f0ec78682bf1c802e793d8c519",
+    "four_class_testing_files.csv": "95485f82826d5250c38f883c715831021586d0646f6b948878bfe1f544d6f974",
+    "final_split_summary.csv": "f071afd23116d31fa41e62a3469810f20d401862cbf8407cbbf44482746a8cdc",
+    "audio_inventory.csv": "e5e251490b6b94897481bbeb201e5f36fa6fcebd2f3f63431b874b1073faa1fb",
+    "overlap_summary.json": "459f8e8851e8260664a4ee2dbbb76273c4f46ef9c6afdd4543d7f1d7185f6afa",
+    "representative_audio.csv": "18678bf44b123f70d206f4a5c99d0dfa86322dd23e36db66b1e782bb1bc52c6d",
+    "coverage_verification.json": "1f7bddc9a300f480137a0b6cd3e4b2475260f2fdf78896b54aa045fdb0d648ee",
+    "final_audit_summary.json": "1023afdad9b14bd7eb499462d3907ea036df429d835e906e9482233321d5357c"
+  },
+  "test_policy": "No test-driven selection, tuning, calibration or representative inspection. Preserve source membership through preprocessing and windowing."
+}

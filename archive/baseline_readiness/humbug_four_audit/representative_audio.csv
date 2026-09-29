@@ -1,0 +1,13 @@
+id,species,name,local_path,selection,seconds_displayed,partition
+220451,ae aegypti,IFA_44_37_1757.wav,D:\VGU-27\Edge AI Project\data\audio\220451.wav,development only; 0.1 quantile of spectral-contrast QC proxy,7.68,training
+220427,ae aegypti,IFA_42_27_1667.wav,D:\VGU-27\Edge AI Project\data\audio\220427.wav,development only; 0.5 quantile of spectral-contrast QC proxy,5.12,training
+220321,ae aegypti,IFA_40_15_1575.wav,D:\VGU-27\Edge AI Project\data\audio\220321.wav,development only; 0.9 quantile of spectral-contrast QC proxy,8.0,training
+220086,an arabiensis,IFA_35_22_1382.wav,D:\VGU-27\Edge AI Project\data\audio\220086.wav,development only; 0.1 quantile of spectral-contrast QC proxy,8.0,training
+222277,an arabiensis,IFA_70_33_2793.wav,D:\VGU-27\Edge AI Project\data\audio\222277.wav,development only; 0.5 quantile of spectral-contrast QC proxy,8.0,training
+221149,an arabiensis,IFA_17_26_666.wav,D:\VGU-27\Edge AI Project\data\audio\221149.wav,development only; 0.9 quantile of spectral-contrast QC proxy,2.56,training
+220981,culex pipiens complex,IFA_33_16_1296.wav,D:\VGU-27\Edge AI Project\data\audio\220981.wav,development only; 0.1 quantile of spectral-contrast QC proxy,2.5599773242630386,training
+221058,culex pipiens complex,IFA_31_30_1230.wav,D:\VGU-27\Edge AI Project\data\audio\221058.wav,development only; 0.5 quantile of spectral-contrast QC proxy,8.0,training
+220950,culex pipiens complex,IFA_30_19_1179.wav,D:\VGU-27\Edge AI Project\data\audio\220950.wav,development only; 0.9 quantile of spectral-contrast QC proxy,8.0,training
+220823,ma uniformis,IFA_28_19_1099.wav,D:\VGU-27\Edge AI Project\data\audio\220823.wav,development only; 0.1 quantile of spectral-contrast QC proxy,5.12,training
+220659,ma uniformis,IFA_25_25_985.wav,D:\VGU-27\Edge AI Project\data\audio\220659.wav,development only; 0.5 quantile of spectral-contrast QC proxy,5.12,training
+220597,ma uniformis,IFA_23_30_910.wav,D:\VGU-27\Edge AI Project\data\audio\220597.wav,development only; 0.9 quantile of spectral-contrast QC proxy,2.56,training

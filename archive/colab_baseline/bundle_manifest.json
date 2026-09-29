@@ -1,0 +1,26 @@
+{
+  "sha256": {
+    "README.md": "c914ce3c1023fe6657d0ad4e11c889d744b7d71c8a6529628b1e30d729e7cbbb",
+    "requirements.txt": "8a6aa58bf817c67e756c7a4e1d8ddd3d3a1ecc2a8add735c9075f1e57f1464a5",
+    "run_stage04.py": "93f1d2adec717e59fdec1993f988cf742cacaaba77abaf3f574301b85b6034fb",
+    "provenance/build_validation.json": "264375deb341d0457e971457a5abcd173fd8c5525227c2535d3f72e31aeb7b89",
+    "provenance/cuda_adaptation.diff": "e98f399e478e6368932add72758277e5d6ad97aaa4e0f07aca6b3cd0ee3845aa",
+    "provenance/export_contract.json": "d438c5901fe7f78e79d6e18fa09731f01d69f121b9e0035de57eaebb61fd7bd4",
+    "provenance/frontend_execution_lock.json": "a16a6fb0c88e68bec1b3e76295059ca022d7a136d67d59f5a6f33541833147cb",
+    "provenance/frozen_input_lock.json": "042d383587cc8e393c1f5c14bfde49b280c464881e04c48d05c68671f7cd8ab4",
+    "provenance/local_forward_validation.json": "2e142da82c9d387d3a5cfadde7ffff1c28a71588ab09c69c58e055f7637c516b",
+    "provenance/original_files_verification.json": "a8dc259e4005371b5a5b98911e49b10872a2165076f0f251dd1722b20eb1c46f",
+    "provenance/scientific_lock.json": "315687fc77549f546be08ef124e021933f64809d39bbb4f462c7f4ebce27986e",
+    "tools/model_zoo.py": "074a05c27ebe168c5fbcd40bbd2563a2da78549c219df01d6e815f7dbb6034f8",
+    "tools/stage04_data.py": "88efbde936a074320f1769f6976b1324027a8e86b3811d5ba453e8a101d4a78f",
+    "tools/training_common.py": "d6b3d8b3fa4bdf77831b404c146738917e2ef21f2ab0527884765f64e5b518e3",
+    "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+    "data/manifests/current/core_single_4species_frozen_split.csv": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+    "data/stage04_cache/03A/cache.json": "a8b163e0c39f6451cc31e212e616e16b649789668498e0574981e73f777f6a93",
+    "data/stage04_cache/03A/examples.csv": "3e4e21d14f4b107004475603179bde8e6733ff73a7ebf313e88d023f7cf41488",
+    "data/stage04_cache/03A/features.npy": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0",
+    "data/stage04_cache/03B/cache.json": "9b05998708f2cc395846e4097522f88bfe1c43160ea2dca6ffd7a845e3f58e18",
+    "data/stage04_cache/03B/examples.csv": "0e2f09fd257749a10da7cae9f8942e1b5c3dd79d5f8e886a56f57f3678569c7a",
+    "data/stage04_cache/03B/features.npy": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656"
+  }
+}

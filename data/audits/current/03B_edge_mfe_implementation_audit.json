@@ -1,0 +1,596 @@
+{
+  "status": "VERIFIED_FROZEN",
+  "model_training_performed": false,
+  "authenticated_inputs": {
+    "sha256": {
+      "archive/legacy_data/core_096s_candidate_windows.csv": "08df667e694466d23bd8c0a4ecb215f8505ea2e72c71cc131574bce4152628f9",
+      "data/audits/current/core_audio_audit.csv": "8551ada9c64998e69922779b42054ec17245c8923457877d24b633813a1f2965",
+      "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json": "e94cb9c65e4ce3e63266ac34b05d03bbe372a2f51935bfc3f8c7af20a36ee75b",
+      "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+      "data/manifests/current/core_single_4species_frozen_split.csv": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+      "data/manifests/current/core_single_4species_metadata.csv": "e72974da9a4e1a419bb459363be37ff91fdfdd6e65ff9a32582e9de13e786614",
+      "data/metadata/neurips_2021_zenodo_0_0_1.csv": "baa4de3da5965dfea41dbd505023d392fab4f01db1e6e137cf50442423f79727",
+      "reference/humbug/vggish/mel_features.py": "68803c00743cb43139db12836b5e745a977cdb81443257fa716cd520d7e5e948",
+      "reference/humbug/vggish/vggish.py": "fd227c0ff5e6646c5b8097d54fa2c1d1a3921bab7dda037f58cee4a8bfaa6ee8",
+      "reference/humbug/vggish/vggish_input.py": "a2a1bb264f1bd1a276c2c73964a27b64fa9dd65e4ace350d93614cb721501d13",
+      "reference/humbug/vggish/vggish_params.py": "61698102149a94a6ce8f567f6abfad8b1b04760825396f33f9d4f31e66e79c5f",
+      "third_party/edgeimpulse-processing-blocks/mfe/__init__.py": "a72e578358398436068d455d3cd4efb2e336b5b23bb373b44ece7faf427dfba9",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/dataset.py": "2e999e679d126619f2e7b72f263637bb78140fcacb3469628348b9e0e1cdee81",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/errors.py": "3a1b74b873961bbd5012a71ef57ac06f1a3d05c9ae22aea195fb9b4de2f8121c",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/graphing.py": "bd98e8d8d39444e4b10043159ea5d8d80ba859e80c43776e479c9ffdf52b551e",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/sampling.py": "4a3532ceeb51c9af9a0dc1df90151888554469937abf85daac111a6c43b22b52",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/spectrum.py": "09f6ba0335905f193ab8b5dbd15a8cf5b88e059201f913aa4e05c6662e43dd29",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/wavelet.py": "f2f5c47a387cd2a879b486f6af6a12be2a52f9f3f2e42ade6289d13247c0a7c5",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp-server.py": "f3afe7717f8612a2d925aac5088037a793900b711b7818966466fa8ecf46ff16",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp.py": "68e9ac2873c822791d6e4651ae4ed16aa9e0aaf4b61ffda8a20a4e2366f16f4e",
+      "third_party/edgeimpulse-processing-blocks/mfe/parameters.json": "9aa802f189079f552018a2a45151ae7bab6a5eb20e0ccd04f9865b006a2c5b8e",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/__init__.py": "ccfd42a6cc1ee35d88ee4771e8a493a987575d1972cb0d49f79664a27f62a187",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/feature.py": "85f7d5c72470a37bd2d88e26b02ccae5b293d63ec881247d7b1481911dbd6d3f",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/functions.py": "12b921981eb3b0cda1de223cce445e5ee6941c2d8516df16d9f19dc292a8296c",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/processing.py": "223e652894b20d47580d96bd198a25bbf48627f8b97e0b3828d7a023d8493619"
+    },
+    "wav_identity_record": "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json",
+    "wav_files_authenticated": 1898,
+    "grid_freeze_audit": {
+      "path": "data/audits/current/02_example_grid_v2_freeze_audit.json",
+      "sha256": "2d39ee23c40165b43f8cf365c06d925a4741820f69ff0bc0f8a61a76e86cae8a"
+    }
+  },
+  "final_gates": {
+    "exact_parent_metadata": true,
+    "complete_grid_geometry": true,
+    "accepted_membership": true,
+    "zero_source_leakage": true,
+    "accepted_input_and_source_hashes": true,
+    "all_wav_identities": true,
+    "synthetic_checks": true,
+    "pinned_wrapper_regression": true,
+    "real_train_checks": true,
+    "quantization_boundary": true,
+    "full_train_confirmation": true,
+    "selected_minus70_no_collapse_or_wrap": true,
+    "train_only_selection": true
+  },
+  "software": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.3.0"
+  },
+  "audio_preprocessing": {
+    "native_rate_hz": 44100,
+    "channels": 1,
+    "pcm_bits": 24,
+    "decode": "scipy int32 left-justified",
+    "scale_divisor": 2147483648,
+    "conversion_dtype": "float64",
+    "resampled_dtype": "float64",
+    "resampler": "scipy.signal.resample_poly",
+    "up": 160,
+    "down": 441,
+    "scope": "whole_clip",
+    "window": [
+      "kaiser",
+      5.0
+    ],
+    "padtype": "constant",
+    "cval": 0,
+    "output_length": "ceil(native_samples*160/441)",
+    "waveform_completion_padding": false,
+    "activity_filtering": false,
+    "denoising": false,
+    "amplitude_normalization": false
+  },
+  "example_grid": {
+    "manifest": "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+    "manifest_sha256": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+    "examples": 32645,
+    "stride_samples": 15360,
+    "context_samples": 15600
+  },
+  "frozen_split": {
+    "path": "data/manifests/current/core_single_4species_frozen_split.csv",
+    "sha256": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4"
+  },
+  "edge_impulse": {
+    "expected_revision": "9b0ceb2b5d22658d3193a5b77dc773cfc8d4cab0",
+    "authentication": "accepted SHA-256 source pins enforced",
+    "implementation_version": 4,
+    "source_hashes_sha256": {
+      "mfe/dsp.py": "68e9ac2873c822791d6e4651ae4ed16aa9e0aaf4b61ffda8a20a4e2366f16f4e",
+      "mfe/parameters.json": "9aa802f189079f552018a2a45151ae7bab6a5eb20e0ccd04f9865b006a2c5b8e",
+      "mfe/third_party/speechpy/feature.py": "85f7d5c72470a37bd2d88e26b02ccae5b293d63ec881247d7b1481911dbd6d3f",
+      "mfe/third_party/speechpy/processing.py": "223e652894b20d47580d96bd198a25bbf48627f8b97e0b3828d7a023d8493619",
+      "mfe/third_party/speechpy/functions.py": "12b921981eb3b0cda1de223cce445e5ee6941c2d8516df16d9f19dc292a8296c"
+    },
+    "ui_defaults": {
+      "frame_length": 0.02,
+      "frame_stride": 0.01,
+      "num_filters": 40,
+      "fft_length": 256,
+      "low_frequency": 0,
+      "high_frequency": 0,
+      "noise_floor_db": -52
+    },
+    "cli_defaults_used": false,
+    "parity_scope": "Pinned Python numerical function body; not C++/ESP32/streaming parity"
+  },
+  "frozen_contract": {
+    "sample_rate_hz": 16000,
+    "context_samples": 15600,
+    "frame_length_samples": 320,
+    "frame_stride_samples": 160,
+    "frames": 96,
+    "num_filters": 40,
+    "fft_length": 256,
+    "low_frequency_hz": 0,
+    "high_frequency_hz": 8000,
+    "noise_floor_db": -70,
+    "edge_impulse_default_noise_floor_db": -52,
+    "output_shape": [
+      96,
+      40
+    ],
+    "output_dtype": "float32",
+    "preemphasis": {
+      "coefficient": 0.98,
+      "shift": 1,
+      "scope": "per_context",
+      "boundary": "np.roll"
+    },
+    "wrapper_input_dtype": "float32",
+    "window": "rectangular",
+    "fft_truncates_frame_to_samples": 256,
+    "spectrum": "abs(rfft)**2 / FFT_LENGTH",
+    "mel_implementation": "vendored SpeechPy v4; use_old_mels=False",
+    "zero_handling": "vendored zero_handling, followed by clip at 1e-30",
+    "normalization": "clip((10*log10(mfe)-floor)/(-floor+12),0,1)",
+    "quantization": "around(x*256), uint8 cast, clip 0..255, float32 /256; wrap preserved"
+  },
+  "synthetic_checks": [
+    {
+      "input": "zeros",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.0,
+      "zero_fraction": 1.0
+    },
+    {
+      "input": "impulse",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.66796875,
+      "zero_fraction": 0.9895833333333334
+    },
+    {
+      "input": "440Hz_sine",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.8125,
+      "zero_fraction": 0.026041666666666668
+    },
+    {
+      "input": "noise",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.75390625,
+      "zero_fraction": 0.00234375
+    }
+  ],
+  "pinned_wrapper_parity": [
+    {
+      "case": "zeros",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "impulse",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "440Hz_sine",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "noise",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_255",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_319",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15200",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15599",
+      "noise_floor_db": -52,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "zeros",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "impulse",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "440Hz_sine",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "noise",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_255",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_319",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15200",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15599",
+      "noise_floor_db": -65,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "zeros",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "impulse",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "440Hz_sine",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "noise",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_255",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_319",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15200",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "boundary_impulse_15599",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "gridv2_220044_e0000",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "gridv2_220124_e0000",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "gridv2_220327_e0000",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    },
+    {
+      "case": "gridv2_220045_e0000",
+      "noise_floor_db": -70,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "real_train_examples": [
+    {
+      "example_uid": "gridv2_220044_e0000",
+      "species": "an arabiensis",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.47265625,
+      "mean": 0.1515757292509079,
+      "std": 0.10231654345989227,
+      "zero_fraction": 0.08489583333333334
+    },
+    {
+      "example_uid": "gridv2_220124_e0000",
+      "species": "an funestus ss",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.56640625,
+      "mean": 0.11805012822151184,
+      "std": 0.10480125993490219,
+      "zero_fraction": 0.20078125
+    },
+    {
+      "example_uid": "gridv2_220327_e0000",
+      "species": "an squamosus",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.15234375,
+      "mean": 0.005322265438735485,
+      "std": 0.018567683175206184,
+      "zero_fraction": 0.8658854166666666
+    },
+    {
+      "example_uid": "gridv2_220045_e0000",
+      "species": "culex pipiens complex",
+      "shape": "(96, 40)",
+      "min": 0.0,
+      "max": 0.28515625,
+      "mean": 0.02593587152659893,
+      "std": 0.04011794179677963,
+      "zero_fraction": 0.5138020833333333
+    }
+  ],
+  "train_only_noise_floor_sweep": [
+    {
+      "noise_floor_db": -52,
+      "zero_fraction": 0.989031982421875,
+      "all_zero_examples": 35,
+      "near_one_fraction": 0.0,
+      "mean": 0.0008459726814180613,
+      "std": 0.010642741806805134,
+      "min": 0.0,
+      "max": 0.44140625
+    },
+    {
+      "noise_floor_db": -55,
+      "zero_fraction": 0.98006591796875,
+      "all_zero_examples": 16,
+      "near_one_fraction": 0.0,
+      "mean": 0.0014957825187593699,
+      "std": 0.01421155035495758,
+      "min": 0.0,
+      "max": 0.46875
+    },
+    {
+      "noise_floor_db": -60,
+      "zero_fraction": 0.9451578776041667,
+      "all_zero_examples": 2,
+      "near_one_fraction": 0.0,
+      "mean": 0.0038786649238318205,
+      "std": 0.022340554744005203,
+      "min": 0.0,
+      "max": 0.50390625
+    },
+    {
+      "noise_floor_db": -65,
+      "zero_fraction": 0.8653055826822916,
+      "all_zero_examples": 0,
+      "near_one_fraction": 0.0,
+      "mean": 0.00959715060889721,
+      "std": 0.03405015170574188,
+      "min": 0.0,
+      "max": 0.53515625
+    },
+    {
+      "noise_floor_db": -70,
+      "zero_fraction": 0.711651611328125,
+      "all_zero_examples": 0,
+      "near_one_fraction": 0.0,
+      "mean": 0.021745307371020317,
+      "std": 0.049092475324869156,
+      "min": 0.0,
+      "max": 0.56640625
+    }
+  ],
+  "diagnostic_subset": {
+    "split": "train",
+    "example_uids": [
+      "gridv2_220044_e0000",
+      "gridv2_220064_e0007",
+      "gridv2_220127_e0026",
+      "gridv2_220182_e0011",
+      "gridv2_220257_e0003",
+      "gridv2_220376_e0006",
+      "gridv2_220643_e0006",
+      "gridv2_220895_e0014",
+      "gridv2_221210_e0038",
+      "gridv2_221314_e0009",
+      "gridv2_221375_e0027",
+      "gridv2_221410_e0005",
+      "gridv2_221454_e0012",
+      "gridv2_221536_e0003",
+      "gridv2_221737_e0016",
+      "gridv2_221875_e0023",
+      "gridv2_221921_e0005",
+      "gridv2_221964_e0024",
+      "gridv2_222019_e0011",
+      "gridv2_222065_e0041",
+      "gridv2_222089_e0013",
+      "gridv2_222107_e0011",
+      "gridv2_222138_e0035",
+      "gridv2_222251_e0020",
+      "gridv2_222301_e0016",
+      "gridv2_222351_e0023",
+      "gridv2_222388_e0000",
+      "gridv2_222417_e0023",
+      "gridv2_222444_e0001",
+      "gridv2_222468_e0004",
+      "gridv2_222500_e0017",
+      "gridv2_222524_e0041",
+      "gridv2_220124_e0000",
+      "gridv2_220162_e0007",
+      "gridv2_220196_e0002",
+      "gridv2_221012_e0003",
+      "gridv2_221247_e0002",
+      "gridv2_221329_e0029",
+      "gridv2_221475_e0010",
+      "gridv2_221529_e0037",
+      "gridv2_221548_e0026",
+      "gridv2_221585_e0010",
+      "gridv2_221630_e0000",
+      "gridv2_221912_e0025",
+      "gridv2_221944_e0017",
+      "gridv2_221967_e0007",
+      "gridv2_222005_e0013",
+      "gridv2_222027_e0031",
+      "gridv2_222102_e0014",
+      "gridv2_222120_e0005",
+      "gridv2_222286_e0016",
+      "gridv2_222323_e0007",
+      "gridv2_222342_e0024",
+      "gridv2_222365_e0028",
+      "gridv2_222384_e0022",
+      "gridv2_222404_e0024",
+      "gridv2_222531_e0005",
+      "gridv2_222561_e0002",
+      "gridv2_222577_e0002",
+      "gridv2_222592_e0017",
+      "gridv2_222603_e0022",
+      "gridv2_222609_e0000",
+      "gridv2_222616_e0018",
+      "gridv2_222621_e0030",
+      "gridv2_220327_e0000",
+      "gridv2_220356_e0001",
+      "gridv2_220436_e0009",
+      "gridv2_220455_e0003",
+      "gridv2_220458_e0005",
+      "gridv2_220465_e0025",
+      "gridv2_220489_e0014",
+      "gridv2_220492_e0008",
+      "gridv2_220507_e0000",
+      "gridv2_221274_e0020",
+      "gridv2_221283_e0007",
+      "gridv2_221669_e0011",
+      "gridv2_221674_e0015",
+      "gridv2_221679_e0027",
+      "gridv2_221683_e0018",
+      "gridv2_221693_e0015",
+      "gridv2_221709_e0018",
+      "gridv2_221719_e0017",
+      "gridv2_221725_e0009",
+      "gridv2_221736_e0026",
+      "gridv2_221744_e0033",
+      "gridv2_221755_e0011",
+      "gridv2_221756_e0012",
+      "gridv2_221764_e0001",
+      "gridv2_221772_e0010",
+      "gridv2_221796_e0028",
+      "gridv2_221832_e0018",
+      "gridv2_221854_e0003",
+      "gridv2_221862_e0010",
+      "gridv2_221868_e0006",
+      "gridv2_222124_e0000",
+      "gridv2_222220_e0009",
+      "gridv2_220045_e0000",
+      "gridv2_220058_e0024",
+      "gridv2_220070_e0043",
+      "gridv2_220117_e0016",
+      "gridv2_220208_e0021",
+      "gridv2_220626_e0003",
+      "gridv2_220705_e0002",
+      "gridv2_220732_e0014",
+      "gridv2_220756_e0005",
+      "gridv2_220900_e0000",
+      "gridv2_220941_e0006",
+      "gridv2_220963_e0026",
+      "gridv2_221014_e0026",
+      "gridv2_221035_e0009",
+      "gridv2_221058_e0019",
+      "gridv2_221218_e0003",
+      "gridv2_221457_e0017",
+      "gridv2_221499_e0007",
+      "gridv2_221547_e0003",
+      "gridv2_221581_e0016",
+      "gridv2_221640_e0021",
+      "gridv2_221659_e0020",
+      "gridv2_221703_e0022",
+      "gridv2_221739_e0022",
+      "gridv2_221775_e0045",
+      "gridv2_221815_e0028",
+      "gridv2_221927_e0044",
+      "gridv2_222054_e0016",
+      "gridv2_222260_e0008",
+      "gridv2_222318_e0000",
+      "gridv2_222445_e0014",
+      "gridv2_222508_e0004"
+    ],
+    "selection": "32 evenly spaced sorted TRAIN examples per species"
+  },
+  "full_train_noise_floor_confirmation": [
+    {
+      "noise_floor_db": -65,
+      "examples": 22613,
+      "zero_fraction": 0.8701978213122246,
+      "all_zero_examples": 11,
+      "near_one_fraction": 0.0,
+      "zero_bins": 75562688,
+      "near_one_bins": 0,
+      "total_bins": 86833920
+    },
+    {
+      "noise_floor_db": -70,
+      "examples": 22613,
+      "zero_fraction": 0.7133300673285279,
+      "all_zero_examples": 0,
+      "near_one_fraction": 0.0,
+      "zero_bins": 61941246,
+      "near_one_bins": 0,
+      "total_bins": 86833920
+    }
+  ],
+  "noise_floor_selection": {
+    "selected_db": -70,
+    "upstream_ui_default_db": -52,
+    "candidate_range_db": [
+      -52,
+      -55,
+      -60,
+      -65,
+      -70
+    ],
+    "confirmation_candidates_db": [
+      -65,
+      -70
+    ],
+    "rationale": "-65 dB leaves 11/22613 all-zero TRAIN tensors; -70 dB leaves zero, with zero near-one bins. Bounded TRAIN-only anti-collapse baseline, not globally optimal.",
+    "validation_or_test_used": false,
+    "examples_removed": 0
+  },
+  "validated_at_utc": "2026-09-28T17:19:50.354805+00:00"
+}

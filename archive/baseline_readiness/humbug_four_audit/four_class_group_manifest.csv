@@ -1,0 +1,976 @@
+name,species,partition,clips,seconds
+IFA_17_26_666.wav,an arabiensis,training,2,5.119977324263038
+IFA_17_27_667.wav,ma uniformis,training,4,10.23997732426304
+IFA_17_28_668.wav,culex pipiens complex,training,3,46.079977324263034
+IFA_17_31_671.wav,culex pipiens complex,training,2,15.360000000000001
+IFA_17_33_673.wav,ma uniformis,training,1,2.5
+IFA_17_35_675.wav,culex pipiens complex,testing,2,10.24
+IFA_17_36_676.wav,culex pipiens complex,training,2,12.8
+IFA_17_37_677.wav,ma uniformis,testing,2,7.68
+IFA_17_38_678.wav,culex pipiens complex,training,1,2.56
+IFA_18_13_693.wav,culex pipiens complex,training,1,12.799977324263038
+IFA_18_14_694.wav,culex pipiens complex,validation,4,17.919999999999998
+IFA_18_15_695.wav,culex pipiens complex,training,1,2.56
+IFA_18_18_698.wav,culex pipiens complex,testing,3,17.919954648526076
+IFA_18_19_699.wav,culex pipiens complex,training,1,12.8
+IFA_18_21_701.wav,culex pipiens complex,validation,1,2.5599773242630386
+IFA_18_23_703.wav,culex pipiens complex,testing,2,17.919977324263037
+IFA_18_24_704.wav,culex pipiens complex,training,1,17.92
+IFA_18_27_707.wav,culex pipiens complex,training,1,5.12
+IFA_18_28_708.wav,culex pipiens complex,testing,1,2.56
+IFA_18_29_709.wav,an arabiensis,training,1,12.799977324263038
+IFA_18_30_710.wav,culex pipiens complex,training,2,20.479977324263036
+IFA_18_31_711.wav,culex pipiens complex,training,2,7.68
+IFA_18_33_713.wav,culex pipiens complex,testing,1,17.92
+IFA_18_37_717.wav,an arabiensis,training,2,5.119977324263038
+IFA_18_38_718.wav,an arabiensis,training,3,12.799977324263038
+IFA_18_39_719.wav,an arabiensis,training,2,23.04
+IFA_19_12_732.wav,an arabiensis,training,2,10.239977324263037
+IFA_19_18_738.wav,an arabiensis,training,5,25.539954648526077
+IFA_19_19_739.wav,an arabiensis,training,1,63.94
+IFA_19_20_740.wav,an arabiensis,validation,2,38.34
+IFA_19_21_741.wav,an arabiensis,training,2,15.360000000000001
+IFA_19_22_742.wav,an arabiensis,training,1,43.46
+IFA_19_24_744.wav,an arabiensis,testing,2,7.679977324263039
+IFA_19_26_746.wav,an arabiensis,training,4,35.77997732426304
+IFA_19_27_747.wav,an arabiensis,testing,4,15.35997732426304
+IFA_19_28_748.wav,an arabiensis,training,1,20.48
+IFA_19_31_751.wav,an arabiensis,training,3,38.339954648526074
+IFA_19_32_752.wav,an arabiensis,validation,4,28.160000000000004
+IFA_19_34_754.wav,an arabiensis,training,1,12.8
+IFA_19_36_756.wav,an arabiensis,training,3,12.799954648526075
+IFA_19_38_758.wav,an arabiensis,training,2,5.12
+IFA_20_12_772.wav,an arabiensis,validation,2,12.8
+IFA_20_14_774.wav,culex pipiens complex,training,1,5.119977324263038
+IFA_20_17_777.wav,an arabiensis,training,1,2.56
+IFA_20_18_778.wav,an arabiensis,training,1,2.56
+IFA_20_38_798.wav,an arabiensis,testing,1,5.12
+IFA_21_10_810.wav,an arabiensis,training,1,2.56
+IFA_21_20_820.wav,an arabiensis,training,1,5.119977324263038
+IFA_21_22_822.wav,an arabiensis,validation,1,5.12
+IFA_21_27_827.wav,an arabiensis,training,3,10.24
+IFA_21_29_829.wav,an arabiensis,training,1,2.56
+IFA_21_36_836.wav,an arabiensis,training,1,10.23997732426304
+IFA_22_14_854.wav,an arabiensis,validation,1,2.56
+IFA_22_16_856.wav,an arabiensis,testing,1,2.56
+IFA_22_19_859.wav,an arabiensis,validation,2,7.68
+IFA_22_20_860.wav,an arabiensis,training,2,25.599999999999998
+IFA_22_21_861.wav,an arabiensis,validation,1,117.76
+IFA_22_22_862.wav,an arabiensis,training,3,12.79997732426304
+IFA_22_23_863.wav,an arabiensis,validation,3,53.7
+IFA_22_25_865.wav,culex pipiens complex,training,2,7.679977324263039
+IFA_22_27_867.wav,an arabiensis,training,2,12.8
+IFA_22_28_868.wav,an arabiensis,training,2,7.679977324263039
+IFA_22_29_869.wav,an arabiensis,validation,1,5.12
+IFA_22_37_877.wav,an arabiensis,training,1,2.56
+IFA_22_38_878.wav,an arabiensis,training,1,5.12
+IFA_22_39_879.wav,an arabiensis,training,2,5.119977324263038
+IFA_22_40_880.wav,an arabiensis,training,3,20.419977324263037
+IFA_23_10_890.wav,ma uniformis,training,2,5.12
+IFA_23_12_892.wav,ma uniformis,training,2,23.04
+IFA_23_13_893.wav,ma uniformis,validation,2,35.84
+IFA_23_14_894.wav,culex pipiens complex,training,1,2.5599773242630386
+IFA_23_16_896.wav,ma uniformis,testing,2,38.4
+IFA_23_17_897.wav,an arabiensis,training,2,35.84
+IFA_23_18_898.wav,ma uniformis,training,1,2.5599773242630386
+IFA_23_21_901.wav,ma uniformis,training,1,30.72
+IFA_23_27_907.wav,ma uniformis,training,1,30.72
+IFA_23_30_910.wav,ma uniformis,training,4,17.92
+IFA_23_31_911.wav,culex pipiens complex,validation,2,5.12
+IFA_23_32_912.wav,culex pipiens complex,training,1,5.119977324263038
+IFA_23_33_913.wav,ma uniformis,validation,2,38.34
+IFA_23_34_914.wav,ma uniformis,training,1,2.56
+IFA_23_36_916.wav,ma uniformis,training,3,38.339954648526074
+IFA_23_37_917.wav,ma uniformis,validation,2,12.73997732426304
+IFA_23_38_918.wav,culex pipiens complex,training,1,2.56
+IFA_23_39_919.wav,ma uniformis,training,3,23.03993197278912
+IFA_24_11_931.wav,culex pipiens complex,testing,1,2.5599773242630386
+IFA_24_12_932.wav,culex pipiens complex,validation,3,12.8
+IFA_24_14_934.wav,ma uniformis,training,2,30.72
+IFA_24_18_938.wav,ma uniformis,validation,1,23.04
+IFA_24_19_939.wav,ma uniformis,training,1,22.98
+IFA_24_20_940.wav,an arabiensis,testing,2,35.78
+IFA_24_21_941.wav,an arabiensis,validation,1,40.9
+IFA_24_22_942.wav,culex pipiens complex,training,1,23.04
+IFA_24_24_944.wav,ma uniformis,testing,1,23.04
+IFA_24_25_945.wav,an arabiensis,training,3,38.4
+IFA_24_26_946.wav,culex pipiens complex,training,3,35.83997732426304
+IFA_24_27_947.wav,ma uniformis,training,1,5.119977324263038
+IFA_24_29_949.wav,ma uniformis,testing,2,17.919999999999998
+IFA_24_30_950.wav,ma uniformis,training,3,33.27995464852607
+IFA_24_31_951.wav,ma uniformis,validation,2,7.619977324263038
+IFA_24_32_952.wav,ma uniformis,training,4,33.21997732426304
+IFA_24_33_953.wav,culex pipiens complex,training,2,33.22
+IFA_24_36_956.wav,culex pipiens complex,training,3,15.35997732426304
+IFA_24_37_957.wav,culex pipiens complex,training,5,25.599977324263037
+IFA_24_38_958.wav,culex pipiens complex,training,1,17.92
+IFA_24_39_959.wav,culex pipiens complex,training,2,23.04
+IFA_24_40_960.wav,ma uniformis,training,2,30.719977324263038
+IFA_25_14_974.wav,ma uniformis,validation,1,2.56
+IFA_25_15_975.wav,culex pipiens complex,training,2,40.959977324263036
+IFA_25_16_976.wav,culex pipiens complex,training,2,12.8
+IFA_25_17_977.wav,culex pipiens complex,training,2,15.3
+IFA_25_18_978.wav,culex pipiens complex,validation,2,12.799977324263038
+IFA_25_20_980.wav,culex pipiens complex,training,1,10.24
+IFA_25_22_982.wav,culex pipiens complex,training,2,33.28
+IFA_25_23_983.wav,ma uniformis,testing,1,22.98
+IFA_25_24_984.wav,ma uniformis,testing,1,23.04
+IFA_25_25_985.wav,ma uniformis,training,3,30.65997732426304
+IFA_25_28_988.wav,culex pipiens complex,training,4,35.77997732426304
+IFA_25_29_989.wav,ma uniformis,training,1,22.98
+IFA_25_30_990.wav,an arabiensis,training,1,35.78
+IFA_25_31_991.wav,ma uniformis,testing,4,22.979931972789117
+IFA_25_33_993.wav,an arabiensis,training,3,28.099977324263037
+IFA_25_35_995.wav,an arabiensis,training,3,38.33997732426304
+IFA_25_38_998.wav,ma uniformis,training,1,25.54
+IFA_25_40_1000.wav,ma uniformis,training,1,35.78
+IFA_26_13_1013.wav,ma uniformis,validation,2,22.98
+IFA_26_15_1015.wav,ma uniformis,training,1,5.12
+IFA_26_16_1016.wav,culex pipiens complex,testing,1,2.5599773242630386
+IFA_26_18_1018.wav,ma uniformis,training,1,20.48
+IFA_26_22_1022.wav,ma uniformis,training,1,17.92
+IFA_26_24_1024.wav,ma uniformis,training,1,2.5599773242630386
+IFA_26_25_1025.wav,ma uniformis,training,1,15.36
+IFA_26_26_1026.wav,ma uniformis,training,4,30.72
+IFA_26_27_1027.wav,ma uniformis,testing,1,10.23997732426304
+IFA_26_32_1032.wav,an arabiensis,training,3,12.8
+IFA_26_36_1036.wav,ma uniformis,testing,1,7.68
+IFA_27_10_1050.wav,an arabiensis,training,2,33.22
+IFA_27_11_1051.wav,ma uniformis,training,2,28.099999999999998
+IFA_27_12_1052.wav,culex pipiens complex,training,1,30.66
+IFA_27_13_1053.wav,culex pipiens complex,training,4,20.48
+IFA_27_14_1054.wav,culex pipiens complex,validation,2,7.679977324263039
+IFA_27_15_1055.wav,culex pipiens complex,training,4,28.160000000000004
+IFA_27_17_1057.wav,culex pipiens complex,training,1,7.619977324263038
+IFA_27_18_1058.wav,culex pipiens complex,validation,2,20.419977324263037
+IFA_27_19_1059.wav,an arabiensis,validation,3,7.679977324263039
+IFA_27_20_1060.wav,culex pipiens complex,training,1,5.119977324263038
+IFA_27_24_1064.wav,culex pipiens complex,testing,2,10.179954648526078
+IFA_27_25_1065.wav,culex pipiens complex,validation,1,15.36
+IFA_27_28_1068.wav,culex pipiens complex,training,2,33.21997732426304
+IFA_27_30_1070.wav,culex pipiens complex,training,1,40.9
+IFA_27_31_1071.wav,ma uniformis,training,1,33.22
+IFA_27_32_1072.wav,culex pipiens complex,validation,1,20.48
+IFA_27_33_1073.wav,culex pipiens complex,training,1,17.92
+IFA_27_35_1075.wav,culex pipiens complex,testing,2,15.3
+IFA_27_36_1076.wav,ma uniformis,training,1,25.54
+IFA_28_14_1094.wav,an arabiensis,training,2,7.679977324263039
+IFA_28_15_1095.wav,an arabiensis,validation,3,43.46
+IFA_28_16_1096.wav,culex pipiens complex,validation,2,15.36
+IFA_28_17_1097.wav,an arabiensis,validation,1,5.119977324263038
+IFA_28_19_1099.wav,ma uniformis,training,2,7.679977324263039
+IFA_28_20_1100.wav,ma uniformis,validation,1,28.1
+IFA_28_22_1102.wav,an arabiensis,training,1,7.68
+IFA_28_23_1103.wav,ma uniformis,testing,2,5.119977324263038
+IFA_28_24_1104.wav,an arabiensis,testing,1,20.47997732426304
+IFA_28_27_1107.wav,an arabiensis,training,4,17.85997732426304
+IFA_28_29_1109.wav,ma uniformis,training,1,12.74
+IFA_28_32_1112.wav,ma uniformis,training,1,2.5
+IFA_28_34_1114.wav,ma uniformis,testing,1,2.56
+IFA_28_35_1115.wav,ma uniformis,training,1,7.62
+IFA_28_39_1119.wav,culex pipiens complex,testing,1,15.36
+IFA_29_11_1131.wav,culex pipiens complex,validation,2,7.679977324263039
+IFA_29_13_1133.wav,culex pipiens complex,testing,2,22.98
+IFA_29_14_1134.wav,culex pipiens complex,testing,1,22.98
+IFA_29_15_1135.wav,culex pipiens complex,training,1,43.46
+IFA_29_16_1136.wav,ma uniformis,validation,1,20.419977324263037
+IFA_29_17_1137.wav,an arabiensis,training,3,10.239977324263037
+IFA_29_19_1139.wav,culex pipiens complex,testing,3,20.419954648526076
+IFA_29_20_1140.wav,culex pipiens complex,training,2,28.099999999999998
+IFA_29_21_1141.wav,culex pipiens complex,testing,2,10.239977324263037
+IFA_29_22_1142.wav,culex pipiens complex,training,1,20.48
+IFA_29_23_1143.wav,culex pipiens complex,training,4,20.419977324263037
+IFA_29_24_1144.wav,culex pipiens complex,training,2,25.54
+IFA_29_25_1145.wav,culex pipiens complex,testing,1,30.66
+IFA_29_27_1147.wav,an arabiensis,training,1,2.56
+IFA_29_28_1148.wav,culex pipiens complex,training,3,23.039977324263038
+IFA_29_29_1149.wav,culex pipiens complex,testing,3,17.92
+IFA_29_30_1150.wav,ma uniformis,training,2,5.119977324263038
+IFA_29_31_1151.wav,culex pipiens complex,training,1,12.8
+IFA_29_32_1152.wav,culex pipiens complex,training,2,33.27997732426304
+IFA_29_33_1153.wav,culex pipiens complex,training,2,12.799977324263038
+IFA_29_35_1155.wav,culex pipiens complex,testing,1,5.06
+IFA_29_36_1156.wav,culex pipiens complex,validation,2,7.68
+IFA_29_37_1157.wav,culex pipiens complex,validation,1,25.54
+IFA_29_38_1158.wav,culex pipiens complex,training,1,2.56
+IFA_29_39_1159.wav,ma uniformis,validation,4,28.09997732426304
+IFA_29_40_1160.wav,culex pipiens complex,validation,2,15.359977324263038
+IFA_30_14_1174.wav,culex pipiens complex,training,2,22.979977324263036
+IFA_30_15_1175.wav,culex pipiens complex,testing,1,12.8
+IFA_30_16_1176.wav,culex pipiens complex,training,2,25.54
+IFA_30_17_1177.wav,culex pipiens complex,training,2,28.15997732426304
+IFA_30_18_1178.wav,culex pipiens complex,testing,1,30.66
+IFA_30_19_1179.wav,culex pipiens complex,training,1,23.04
+IFA_30_20_1180.wav,culex pipiens complex,training,1,30.72
+IFA_30_23_1183.wav,culex pipiens complex,testing,3,28.099954648526076
+IFA_30_24_1184.wav,culex pipiens complex,training,1,28.16
+IFA_30_25_1185.wav,culex pipiens complex,testing,1,25.54
+IFA_30_27_1187.wav,an arabiensis,training,2,15.36
+IFA_30_28_1188.wav,culex pipiens complex,validation,3,25.599977324263037
+IFA_30_29_1189.wav,culex pipiens complex,training,2,28.15997732426304
+IFA_30_30_1190.wav,culex pipiens complex,training,1,28.1
+IFA_30_31_1191.wav,culex pipiens complex,testing,1,25.6
+IFA_30_32_1192.wav,an arabiensis,training,1,7.68
+IFA_30_33_1193.wav,an arabiensis,training,2,7.679954648526077
+IFA_30_34_1194.wav,culex pipiens complex,training,1,30.66
+IFA_30_36_1196.wav,an arabiensis,training,2,17.919999999999998
+IFA_30_38_1198.wav,culex pipiens complex,training,1,28.16
+IFA_30_39_1199.wav,culex pipiens complex,validation,1,2.56
+IFA_31_10_1210.wav,culex pipiens complex,training,1,38.34
+IFA_31_11_1211.wav,an arabiensis,training,3,12.739977324263037
+IFA_31_12_1212.wav,culex pipiens complex,training,1,48.58
+IFA_31_13_1213.wav,culex pipiens complex,validation,1,35.78
+IFA_31_14_1214.wav,culex pipiens complex,training,1,30.66
+IFA_31_15_1215.wav,culex pipiens complex,training,3,10.239977324263037
+IFA_31_16_1216.wav,culex pipiens complex,training,3,30.65997732426304
+IFA_31_18_1218.wav,culex pipiens complex,testing,3,20.41995464852608
+IFA_31_19_1219.wav,culex pipiens complex,testing,2,38.34
+IFA_31_20_1220.wav,culex pipiens complex,training,2,22.98
+IFA_31_21_1221.wav,culex pipiens complex,validation,1,38.4
+IFA_31_22_1222.wav,culex pipiens complex,training,2,15.359977324263038
+IFA_31_23_1223.wav,culex pipiens complex,training,2,33.28
+IFA_31_25_1225.wav,culex pipiens complex,training,2,7.68
+IFA_31_26_1226.wav,culex pipiens complex,training,3,28.09995464852608
+IFA_31_27_1227.wav,culex pipiens complex,training,3,20.41995464852608
+IFA_31_30_1230.wav,culex pipiens complex,training,1,28.1
+IFA_31_32_1232.wav,culex pipiens complex,training,2,33.22
+IFA_31_33_1233.wav,culex pipiens complex,testing,1,51.14
+IFA_31_34_1234.wav,culex pipiens complex,validation,2,35.78
+IFA_31_35_1235.wav,culex pipiens complex,training,3,40.89995464852608
+IFA_31_36_1236.wav,an arabiensis,validation,2,20.47995464852608
+IFA_31_38_1238.wav,culex pipiens complex,validation,1,28.1
+IFA_31_39_1239.wav,culex pipiens complex,training,4,33.22
+IFA_32_13_1253.wav,culex pipiens complex,training,1,33.22
+IFA_32_14_1254.wav,an arabiensis,training,1,2.5599773242630386
+IFA_32_17_1257.wav,an arabiensis,validation,2,7.619999999999999
+IFA_32_18_1258.wav,an arabiensis,training,2,7.68
+IFA_32_19_1259.wav,culex pipiens complex,training,3,23.03997732426304
+IFA_32_22_1262.wav,culex pipiens complex,validation,4,17.92
+IFA_32_23_1263.wav,an arabiensis,training,3,10.23997732426304
+IFA_32_26_1266.wav,an arabiensis,validation,3,25.6
+IFA_32_28_1268.wav,an arabiensis,testing,1,17.92
+IFA_32_30_1270.wav,an arabiensis,validation,1,25.6
+IFA_32_31_1271.wav,ma uniformis,testing,1,17.919977324263037
+IFA_32_32_1272.wav,an arabiensis,testing,1,7.68
+IFA_32_34_1274.wav,an arabiensis,validation,2,25.6
+IFA_32_37_1277.wav,an arabiensis,training,2,25.54
+IFA_32_38_1278.wav,culex pipiens complex,training,1,20.48
+IFA_33_11_1291.wav,culex pipiens complex,training,3,15.359954648526077
+IFA_33_12_1292.wav,culex pipiens complex,training,1,2.56
+IFA_33_15_1295.wav,an arabiensis,training,1,2.56
+IFA_33_16_1296.wav,culex pipiens complex,training,2,5.119977324263038
+IFA_33_18_1298.wav,an arabiensis,training,1,2.5599773242630386
+IFA_33_20_1300.wav,an arabiensis,training,1,5.12
+IFA_33_21_1301.wav,an arabiensis,validation,1,12.8
+IFA_33_22_1302.wav,an arabiensis,training,1,2.5599773242630386
+IFA_33_23_1303.wav,an arabiensis,training,1,5.12
+IFA_33_24_1304.wav,culex pipiens complex,training,1,25.54
+IFA_33_27_1307.wav,an arabiensis,training,1,2.56
+IFA_33_34_1314.wav,culex pipiens complex,training,3,38.339999999999996
+IFA_33_40_1320.wav,an arabiensis,testing,5,33.21997732426304
+IFA_34_11_1331.wav,culex pipiens complex,training,1,28.16
+IFA_34_12_1332.wav,culex pipiens complex,training,3,20.419999999999998
+IFA_34_14_1334.wav,culex pipiens complex,training,1,2.5599773242630386
+IFA_34_18_1338.wav,culex pipiens complex,testing,2,25.6
+IFA_34_20_1340.wav,culex pipiens complex,validation,2,25.6
+IFA_34_21_1341.wav,culex pipiens complex,training,1,53.7
+IFA_34_22_1342.wav,culex pipiens complex,testing,1,35.78
+IFA_34_23_1343.wav,an arabiensis,validation,1,61.38
+IFA_34_24_1344.wav,culex pipiens complex,validation,2,40.89997732426304
+IFA_34_25_1345.wav,culex pipiens complex,training,1,38.34
+IFA_34_26_1346.wav,an arabiensis,testing,3,38.39995464852608
+IFA_34_27_1347.wav,culex pipiens complex,training,1,43.46
+IFA_34_28_1348.wav,culex pipiens complex,testing,1,43.46
+IFA_34_29_1349.wav,culex pipiens complex,testing,1,35.78
+IFA_34_30_1350.wav,an arabiensis,training,1,48.58
+IFA_34_31_1351.wav,culex pipiens complex,validation,1,33.22
+IFA_34_32_1352.wav,culex pipiens complex,testing,1,20.419977324263037
+IFA_34_33_1353.wav,culex pipiens complex,training,1,51.14
+IFA_34_35_1355.wav,an arabiensis,training,1,51.14
+IFA_34_36_1356.wav,an arabiensis,training,1,40.9
+IFA_34_37_1357.wav,an arabiensis,validation,1,28.1
+IFA_34_38_1358.wav,an arabiensis,training,1,30.66
+IFA_34_39_1359.wav,an arabiensis,validation,1,40.9
+IFA_34_40_1360.wav,an arabiensis,training,3,33.21995464852608
+IFA_35_10_1370.wav,an arabiensis,training,3,25.59995464852608
+IFA_35_11_1371.wav,an arabiensis,testing,1,25.6
+IFA_35_12_1372.wav,an arabiensis,training,1,40.9
+IFA_35_13_1373.wav,an arabiensis,testing,1,51.14
+IFA_35_14_1374.wav,an arabiensis,testing,1,40.9
+IFA_35_15_1375.wav,an arabiensis,testing,1,35.78
+IFA_35_16_1376.wav,an arabiensis,training,1,40.9
+IFA_35_17_1377.wav,an arabiensis,training,1,35.84
+IFA_35_18_1378.wav,an arabiensis,training,3,22.979977324263036
+IFA_35_19_1379.wav,an arabiensis,training,2,30.719977324263038
+IFA_35_20_1380.wav,an arabiensis,validation,1,33.22
+IFA_35_21_1381.wav,an arabiensis,testing,1,38.4
+IFA_35_22_1382.wav,an arabiensis,training,3,33.279977324263044
+IFA_35_23_1383.wav,an arabiensis,training,1,40.9
+IFA_35_24_1384.wav,an arabiensis,training,2,25.54
+IFA_35_25_1385.wav,an arabiensis,validation,1,25.54
+IFA_35_26_1386.wav,an arabiensis,training,2,17.92
+IFA_35_27_1387.wav,culex pipiens complex,training,1,22.98
+IFA_35_29_1389.wav,an arabiensis,validation,3,17.91997732426304
+IFA_35_30_1390.wav,an arabiensis,training,1,15.36
+IFA_35_31_1391.wav,culex pipiens complex,testing,1,5.12
+IFA_35_32_1392.wav,culex pipiens complex,training,2,17.919977324263037
+IFA_35_33_1393.wav,culex pipiens complex,training,2,38.4
+IFA_35_34_1394.wav,culex pipiens complex,validation,2,12.799977324263038
+IFA_35_35_1395.wav,culex pipiens complex,training,1,35.83997732426304
+IFA_35_36_1396.wav,an arabiensis,training,1,5.119977324263038
+IFA_35_37_1397.wav,ma uniformis,testing,2,7.68
+IFA_35_38_1398.wav,culex pipiens complex,testing,2,20.47997732426304
+IFA_35_39_1399.wav,culex pipiens complex,training,1,2.5599773242630386
+IFA_35_40_1400.wav,culex pipiens complex,training,2,33.28
+IFA_36_14_1414.wav,culex pipiens complex,validation,3,23.039954648526077
+IFA_36_16_1416.wav,an arabiensis,training,1,22.98
+IFA_36_17_1417.wav,an arabiensis,testing,1,33.22
+IFA_36_20_1420.wav,an arabiensis,validation,1,38.34
+IFA_36_21_1421.wav,an arabiensis,training,1,43.46
+IFA_36_23_1423.wav,an arabiensis,training,1,28.1
+IFA_36_26_1426.wav,an arabiensis,training,1,30.66
+IFA_36_27_1427.wav,an arabiensis,testing,1,51.14
+IFA_36_30_1430.wav,culex pipiens complex,training,1,10.23997732426304
+IFA_36_34_1434.wav,an arabiensis,training,2,38.400000000000006
+IFA_36_35_1435.wav,an arabiensis,training,1,17.919977324263037
+IFA_36_36_1436.wav,ma uniformis,training,2,33.22
+IFA_36_38_1438.wav,culex pipiens complex,validation,1,30.66
+IFA_37_12_1452.wav,an arabiensis,validation,2,30.72
+IFA_37_13_1453.wav,an arabiensis,validation,2,20.48
+IFA_37_15_1455.wav,an arabiensis,training,1,33.22
+IFA_37_16_1456.wav,an arabiensis,testing,1,25.54
+IFA_37_17_1457.wav,an arabiensis,training,2,28.099999999999998
+IFA_37_20_1460.wav,culex pipiens complex,training,3,28.159999999999997
+IFA_37_21_1461.wav,culex pipiens complex,training,1,33.22
+IFA_37_22_1462.wav,culex pipiens complex,training,2,17.919977324263037
+IFA_37_24_1464.wav,an arabiensis,training,1,10.23997732426304
+IFA_37_25_1465.wav,an arabiensis,training,1,2.56
+IFA_37_26_1466.wav,an arabiensis,training,3,25.599977324263037
+IFA_37_27_1467.wav,an arabiensis,training,1,35.78
+IFA_37_28_1468.wav,culex pipiens complex,training,1,23.04
+IFA_37_29_1469.wav,an arabiensis,testing,2,48.639977324263036
+IFA_37_30_1470.wav,an arabiensis,training,2,15.36
+IFA_37_32_1472.wav,culex pipiens complex,testing,1,25.54
+IFA_37_34_1474.wav,an arabiensis,training,1,28.1
+IFA_37_37_1477.wav,culex pipiens complex,training,1,12.8
+IFA_37_38_1478.wav,culex pipiens complex,training,1,15.36
+IFA_38_10_1490.wav,an arabiensis,training,1,5.119977324263038
+IFA_38_11_1491.wav,culex pipiens complex,validation,2,33.21997732426304
+IFA_38_13_1493.wav,an arabiensis,training,3,35.84
+IFA_38_14_1494.wav,an arabiensis,training,2,5.12
+IFA_38_15_1495.wav,an arabiensis,training,1,7.68
+IFA_38_16_1496.wav,culex pipiens complex,training,2,51.14
+IFA_38_19_1499.wav,an arabiensis,training,2,7.679977324263039
+IFA_38_21_1501.wav,an arabiensis,validation,1,5.119977324263038
+IFA_38_23_1503.wav,an arabiensis,training,1,5.12
+IFA_38_25_1505.wav,an arabiensis,testing,1,12.799977324263038
+IFA_38_26_1506.wav,culex pipiens complex,training,1,5.12
+IFA_38_29_1509.wav,culex pipiens complex,validation,1,5.12
+IFA_38_30_1510.wav,an arabiensis,training,2,28.15997732426304
+IFA_38_31_1511.wav,an arabiensis,testing,2,33.21997732426304
+IFA_38_32_1512.wav,culex pipiens complex,validation,3,40.95997732426304
+IFA_38_35_1515.wav,culex pipiens complex,training,1,15.36
+IFA_38_36_1516.wav,an arabiensis,training,3,25.59995464852608
+IFA_38_37_1517.wav,an arabiensis,testing,1,33.22
+IFA_38_38_1518.wav,an arabiensis,training,4,40.9
+IFA_38_39_1519.wav,an arabiensis,validation,1,35.78
+IFA_38_40_1520.wav,an arabiensis,training,2,35.78
+IFA_39_10_1530.wav,an arabiensis,training,1,33.28
+IFA_39_12_1532.wav,an arabiensis,training,3,15.36
+IFA_39_13_1533.wav,an arabiensis,training,1,33.28
+IFA_39_14_1534.wav,an arabiensis,training,1,23.04
+IFA_39_16_1536.wav,an arabiensis,testing,1,17.919977324263037
+IFA_39_17_1537.wav,an arabiensis,testing,3,20.419977324263037
+IFA_39_18_1538.wav,an arabiensis,testing,3,28.099977324263037
+IFA_39_19_1539.wav,an arabiensis,training,1,2.56
+IFA_39_20_1540.wav,ma uniformis,training,3,23.04
+IFA_39_21_1541.wav,an arabiensis,validation,1,15.36
+IFA_39_22_1542.wav,an arabiensis,training,2,15.359977324263038
+IFA_39_24_1544.wav,an arabiensis,testing,3,17.85997732426304
+IFA_39_25_1545.wav,an arabiensis,training,1,20.48
+IFA_39_26_1546.wav,an arabiensis,testing,3,17.92
+IFA_39_27_1547.wav,an arabiensis,testing,3,12.739954648526076
+IFA_39_28_1548.wav,an arabiensis,validation,1,7.68
+IFA_39_31_1551.wav,an arabiensis,validation,1,7.68
+IFA_39_32_1552.wav,an arabiensis,training,1,15.36
+IFA_39_33_1553.wav,an arabiensis,training,4,12.799954648526077
+IFA_39_35_1555.wav,an arabiensis,testing,3,25.59995464852608
+IFA_40_10_1570.wav,ae aegypti,validation,1,43.52
+IFA_40_11_1571.wav,ae aegypti,training,1,20.419977324263037
+IFA_40_12_1572.wav,ae aegypti,training,4,15.359931972789116
+IFA_40_13_1573.wav,ae aegypti,validation,4,22.979977324263036
+IFA_40_14_1574.wav,ae aegypti,validation,3,30.720000000000002
+IFA_40_15_1575.wav,ae aegypti,training,1,30.72
+IFA_40_16_1576.wav,ae aegypti,training,3,30.72
+IFA_40_17_1577.wav,ae aegypti,validation,3,40.95995464852608
+IFA_40_18_1578.wav,ae aegypti,training,2,23.039977324263038
+IFA_40_19_1579.wav,ae aegypti,testing,2,28.099999999999998
+IFA_40_21_1581.wav,ae aegypti,testing,2,17.92
+IFA_40_22_1582.wav,ae aegypti,training,2,7.68
+IFA_40_23_1583.wav,ae aegypti,testing,1,20.48
+IFA_40_24_1584.wav,ae aegypti,testing,2,23.039954648526077
+IFA_40_25_1585.wav,ae aegypti,training,1,38.34
+IFA_40_26_1586.wav,ae aegypti,training,1,25.54
+IFA_40_27_1587.wav,ae aegypti,validation,2,51.139977324263036
+IFA_40_28_1588.wav,ae aegypti,training,1,38.34
+IFA_40_36_1596.wav,culex pipiens complex,training,3,10.24
+IFA_40_37_1597.wav,culex pipiens complex,testing,2,10.24
+IFA_41_10_1610.wav,culex pipiens complex,validation,2,20.47997732426304
+IFA_41_11_1611.wav,an arabiensis,training,2,7.679977324263039
+IFA_41_12_1612.wav,an arabiensis,validation,1,40.9
+IFA_41_13_1613.wav,culex pipiens complex,training,1,5.119977324263038
+IFA_41_24_1624.wav,culex pipiens complex,validation,2,7.679977324263039
+IFA_41_25_1625.wav,culex pipiens complex,training,1,12.8
+IFA_41_26_1626.wav,culex pipiens complex,validation,1,5.12
+IFA_41_34_1634.wav,an arabiensis,training,3,12.739999999999998
+IFA_41_36_1636.wav,an arabiensis,training,1,2.5599773242630386
+IFA_41_37_1637.wav,an arabiensis,training,2,7.68
+IFA_41_38_1638.wav,an arabiensis,training,4,28.09997732426304
+IFA_42_11_1651.wav,an arabiensis,testing,3,7.679954648526078
+IFA_42_14_1654.wav,an arabiensis,training,2,15.36
+IFA_42_19_1659.wav,an arabiensis,training,2,38.339999999999996
+IFA_42_21_1661.wav,ae aegypti,validation,3,33.28
+IFA_42_22_1662.wav,ae aegypti,training,3,43.45997732426304
+IFA_42_23_1663.wav,ae aegypti,training,1,23.04
+IFA_42_24_1664.wav,ae aegypti,validation,1,10.23997732426304
+IFA_42_25_1665.wav,ae aegypti,testing,1,53.76
+IFA_42_26_1666.wav,ae aegypti,testing,4,15.3
+IFA_42_27_1667.wav,ae aegypti,training,1,5.12
+IFA_42_28_1668.wav,ae aegypti,training,2,5.0600000000000005
+IFA_42_29_1669.wav,ae aegypti,validation,3,30.720000000000002
+IFA_42_30_1670.wav,ae aegypti,training,2,10.24
+IFA_42_31_1671.wav,ae aegypti,testing,1,5.12
+IFA_42_32_1672.wav,ae aegypti,testing,3,15.359954648526077
+IFA_42_33_1673.wav,ae aegypti,training,2,35.84
+IFA_42_36_1676.wav,ae aegypti,training,1,48.58
+IFA_42_38_1678.wav,ae aegypti,training,1,2.5599773242630386
+IFA_42_39_1679.wav,ae aegypti,training,2,71.62
+IFA_44_10_1730.wav,an arabiensis,training,1,10.23997732426304
+IFA_44_11_1731.wav,an arabiensis,training,1,35.78
+IFA_44_12_1732.wav,an arabiensis,testing,2,33.22
+IFA_44_34_1754.wav,ae aegypti,testing,1,33.28
+IFA_44_35_1755.wav,ae aegypti,training,1,38.34
+IFA_44_36_1756.wav,ae aegypti,training,1,30.66
+IFA_44_37_1757.wav,ae aegypti,training,2,25.54
+IFA_44_39_1759.wav,ae aegypti,validation,1,25.54
+IFA_44_40_1760.wav,ae aegypti,testing,4,23.040000000000003
+IFA_45_10_1770.wav,ae aegypti,training,2,33.28
+IFA_45_11_1771.wav,ae aegypti,training,1,38.4
+IFA_45_12_1772.wav,ae aegypti,training,1,30.72
+IFA_45_13_1773.wav,ae aegypti,training,1,28.1
+IFA_45_14_1774.wav,ae aegypti,training,2,23.04
+IFA_45_15_1775.wav,ae aegypti,training,2,10.24
+IFA_45_16_1776.wav,ae aegypti,training,1,25.6
+IFA_45_17_1777.wav,ae aegypti,validation,1,30.66
+IFA_45_23_1783.wav,an arabiensis,validation,2,35.78
+IFA_45_27_1787.wav,an arabiensis,testing,4,40.89995464852608
+IFA_45_31_1791.wav,an arabiensis,validation,1,10.23997732426304
+IFA_45_33_1793.wav,an arabiensis,training,1,7.68
+IFA_45_35_1795.wav,an arabiensis,training,4,23.039977324263038
+IFA_45_37_1797.wav,an arabiensis,validation,2,25.54
+IFA_45_38_1798.wav,an arabiensis,training,1,43.52
+IFA_46_12_1812.wav,ae aegypti,training,1,7.68
+IFA_46_23_1823.wav,culex pipiens complex,training,3,12.74
+IFA_47_16_1856.wav,an arabiensis,testing,2,5.119977324263038
+IFA_47_33_1873.wav,culex pipiens complex,training,2,33.22
+IFA_47_35_1875.wav,ma uniformis,testing,1,2.56
+IFA_48_10_1890.wav,an arabiensis,validation,1,2.56
+IFA_48_11_1891.wav,an arabiensis,training,3,17.92
+IFA_48_12_1892.wav,an arabiensis,training,2,15.360000000000001
+IFA_48_13_1893.wav,an arabiensis,training,3,25.539954648526077
+IFA_48_15_1895.wav,an arabiensis,training,1,58.82
+IFA_48_16_1896.wav,an arabiensis,testing,1,35.78
+IFA_48_19_1899.wav,culex pipiens complex,training,2,30.66
+IFA_48_20_1900.wav,culex pipiens complex,validation,1,28.1
+IFA_48_21_1901.wav,culex pipiens complex,testing,1,28.1
+IFA_48_22_1902.wav,an arabiensis,validation,1,35.78
+IFA_48_24_1904.wav,an arabiensis,training,3,10.24
+IFA_48_27_1907.wav,culex pipiens complex,validation,2,5.119977324263038
+IFA_48_28_1908.wav,culex pipiens complex,training,2,30.719954648526077
+IFA_48_29_1909.wav,culex pipiens complex,training,1,2.5599773242630386
+IFA_48_30_1910.wav,an arabiensis,validation,1,7.68
+IFA_48_33_1913.wav,ma uniformis,training,1,2.56
+IFA_48_34_1914.wav,culex pipiens complex,validation,2,28.16
+IFA_49_10_1930.wav,culex pipiens complex,training,1,28.16
+IFA_49_11_1931.wav,culex pipiens complex,training,4,15.359977324263038
+IFA_49_18_1938.wav,an arabiensis,training,3,23.039954648526077
+IFA_49_19_1939.wav,an arabiensis,training,3,35.84
+IFA_49_23_1943.wav,an arabiensis,training,1,23.04
+IFA_49_24_1944.wav,an arabiensis,training,1,35.78
+IFA_49_25_1945.wav,an arabiensis,validation,1,33.22
+IFA_49_26_1946.wav,an arabiensis,training,2,40.899977324263034
+IFA_49_27_1947.wav,an arabiensis,testing,1,38.34
+IFA_49_28_1948.wav,an arabiensis,validation,2,46.02
+IFA_49_29_1949.wav,an arabiensis,training,1,33.22
+IFA_49_30_1950.wav,an arabiensis,testing,2,28.1
+IFA_49_31_1951.wav,an arabiensis,training,1,38.34
+IFA_49_32_1952.wav,an arabiensis,testing,1,25.54
+IFA_49_36_1956.wav,an arabiensis,training,1,25.6
+IFA_49_37_1957.wav,an arabiensis,training,2,25.540000000000003
+IFA_49_38_1958.wav,an arabiensis,training,2,40.9
+IFA_49_40_1960.wav,an arabiensis,testing,1,28.1
+IFA_50_10_1970.wav,an arabiensis,training,4,35.84
+IFA_50_14_1974.wav,an arabiensis,testing,2,30.66
+IFA_50_21_1981.wav,an arabiensis,validation,1,5.12
+IFA_50_22_1982.wav,an arabiensis,testing,1,15.36
+IFA_50_23_1983.wav,an arabiensis,testing,3,17.92
+IFA_50_28_1988.wav,an arabiensis,training,1,30.66
+IFA_50_29_1989.wav,culex pipiens complex,testing,1,33.28
+IFA_50_31_1991.wav,culex pipiens complex,validation,2,7.62
+IFA_50_32_1992.wav,culex pipiens complex,training,2,43.519999999999996
+IFA_50_33_1993.wav,culex pipiens complex,validation,1,30.72
+IFA_50_35_1995.wav,culex pipiens complex,training,2,35.839999999999996
+IFA_50_36_1996.wav,ma uniformis,training,1,17.919977324263037
+IFA_50_37_1997.wav,culex pipiens complex,validation,1,25.54
+IFA_50_38_1998.wav,culex pipiens complex,training,1,20.42
+IFA_50_40_2000.wav,culex pipiens complex,validation,1,28.1
+IFA_51_12_2012.wav,culex pipiens complex,training,1,33.22
+IFA_51_13_2013.wav,culex pipiens complex,training,2,20.47997732426304
+IFA_51_14_2014.wav,culex pipiens complex,training,1,46.02
+IFA_51_19_2019.wav,an arabiensis,training,1,2.5599773242630386
+IFA_51_20_2020.wav,an arabiensis,training,1,2.56
+IFA_51_21_2021.wav,an arabiensis,training,2,5.12
+IFA_51_22_2022.wav,an arabiensis,validation,2,20.48
+IFA_51_24_2024.wav,an arabiensis,training,1,2.5599773242630386
+IFA_51_28_2028.wav,an arabiensis,validation,2,7.679954648526077
+IFA_51_30_2030.wav,an arabiensis,training,2,25.54
+IFA_51_31_2031.wav,an arabiensis,training,1,35.78
+IFA_51_32_2032.wav,an arabiensis,training,2,12.739977324263037
+IFA_51_34_2034.wav,an arabiensis,validation,1,28.16
+IFA_51_35_2035.wav,an arabiensis,training,2,40.9
+IFA_51_36_2036.wav,an arabiensis,training,1,35.78
+IFA_51_37_2037.wav,an arabiensis,testing,4,20.41995464852608
+IFA_51_38_2038.wav,an arabiensis,training,1,48.58
+IFA_51_39_2039.wav,an arabiensis,training,2,25.539954648526077
+IFA_51_40_2040.wav,an arabiensis,training,1,10.24
+IFA_52_10_2050.wav,an arabiensis,training,3,17.86
+IFA_52_11_2051.wav,an arabiensis,validation,3,30.65997732426304
+IFA_52_12_2052.wav,culex pipiens complex,training,1,30.66
+IFA_52_13_2053.wav,an arabiensis,training,2,40.9
+IFA_52_15_2055.wav,culex pipiens complex,training,2,28.15997732426304
+IFA_52_18_2058.wav,an arabiensis,training,1,51.14
+IFA_52_20_2060.wav,an arabiensis,training,1,48.58
+IFA_52_21_2061.wav,an arabiensis,training,1,7.68
+IFA_52_24_2064.wav,an arabiensis,validation,1,30.66
+IFA_52_25_2065.wav,an arabiensis,testing,1,43.52
+IFA_52_27_2067.wav,an arabiensis,training,2,33.28
+IFA_52_29_2069.wav,an arabiensis,validation,1,35.84
+IFA_52_30_2070.wav,an arabiensis,training,1,38.34
+IFA_52_31_2071.wav,an arabiensis,testing,2,23.03997732426304
+IFA_52_32_2072.wav,an arabiensis,testing,4,30.71993197278912
+IFA_52_33_2073.wav,culex pipiens complex,training,3,33.21995464852608
+IFA_52_35_2075.wav,an arabiensis,training,2,17.92
+IFA_52_38_2078.wav,an arabiensis,validation,4,35.78
+IFA_52_39_2079.wav,an arabiensis,training,2,15.36
+IFA_52_40_2080.wav,an arabiensis,training,1,2.5599773242630386
+IFA_53_10_2090.wav,an arabiensis,training,3,12.799977324263038
+IFA_53_11_2091.wav,an arabiensis,validation,2,35.84
+IFA_53_12_2092.wav,ma uniformis,validation,1,25.6
+IFA_53_14_2094.wav,an arabiensis,training,1,38.34
+IFA_53_15_2095.wav,an arabiensis,training,1,17.86
+IFA_53_16_2096.wav,an arabiensis,validation,1,38.33997732426304
+IFA_53_18_2098.wav,culex pipiens complex,testing,1,30.66
+IFA_53_26_2106.wav,culex pipiens complex,testing,1,30.72
+IFA_53_28_2108.wav,culex pipiens complex,training,2,20.42
+IFA_53_34_2114.wav,culex pipiens complex,training,1,5.059977324263039
+IFA_53_36_2116.wav,an arabiensis,training,1,12.8
+IFA_53_37_2117.wav,culex pipiens complex,validation,2,7.679954648526077
+IFA_53_38_2118.wav,culex pipiens complex,validation,2,7.679977324263039
+IFA_53_39_2119.wav,culex pipiens complex,training,1,2.56
+IFA_54_12_2132.wav,an arabiensis,testing,1,46.02
+IFA_54_13_2133.wav,an arabiensis,training,1,25.6
+IFA_54_14_2134.wav,ma uniformis,validation,2,22.98
+IFA_54_15_2135.wav,an arabiensis,validation,1,25.54
+IFA_54_17_2137.wav,ma uniformis,training,2,40.96
+IFA_54_18_2138.wav,an arabiensis,training,1,28.1
+IFA_54_19_2139.wav,an arabiensis,training,1,35.78
+IFA_54_23_2143.wav,ma uniformis,validation,1,33.22
+IFA_54_25_2145.wav,culex pipiens complex,training,1,30.66
+IFA_54_26_2146.wav,culex pipiens complex,training,1,33.22
+IFA_54_27_2147.wav,culex pipiens complex,training,1,33.28
+IFA_54_28_2148.wav,culex pipiens complex,validation,2,28.1
+IFA_54_29_2149.wav,culex pipiens complex,training,1,35.78
+IFA_54_30_2150.wav,culex pipiens complex,training,1,43.46
+IFA_54_31_2151.wav,an arabiensis,training,1,33.22
+IFA_54_32_2152.wav,an arabiensis,training,1,35.78
+IFA_54_33_2153.wav,an arabiensis,training,2,38.4
+IFA_54_34_2154.wav,an arabiensis,training,1,35.78
+IFA_54_37_2157.wav,an arabiensis,validation,1,38.34
+IFA_54_38_2158.wav,an arabiensis,testing,2,22.98
+IFA_55_10_2170.wav,culex pipiens complex,training,1,35.78
+IFA_55_11_2171.wav,culex pipiens complex,training,1,25.54
+IFA_55_12_2172.wav,culex pipiens complex,training,2,20.419977324263037
+IFA_55_14_2174.wav,an arabiensis,testing,1,28.1
+IFA_55_15_2175.wav,culex pipiens complex,training,1,35.84
+IFA_55_16_2176.wav,an arabiensis,validation,2,22.98
+IFA_55_17_2177.wav,culex pipiens complex,training,2,25.6
+IFA_55_19_2179.wav,culex pipiens complex,training,2,20.47997732426304
+IFA_55_20_2180.wav,an arabiensis,validation,1,10.24
+IFA_55_22_2182.wav,culex pipiens complex,testing,1,38.33997732426304
+IFA_55_24_2184.wav,culex pipiens complex,training,2,28.16
+IFA_55_25_2185.wav,culex pipiens complex,training,2,12.739977324263037
+IFA_55_26_2186.wav,culex pipiens complex,validation,2,10.18
+IFA_55_29_2189.wav,an arabiensis,training,1,25.54
+IFA_55_30_2190.wav,an arabiensis,training,3,35.78
+IFA_55_31_2191.wav,culex pipiens complex,testing,1,7.62
+IFA_55_33_2193.wav,culex pipiens complex,testing,1,25.54
+IFA_55_37_2197.wav,ma uniformis,validation,1,10.24
+IFA_55_38_2198.wav,ma uniformis,training,2,5.119954648526077
+IFA_55_40_2200.wav,culex pipiens complex,validation,1,33.22
+IFA_56_13_2213.wav,culex pipiens complex,training,1,23.04
+IFA_56_15_2215.wav,culex pipiens complex,testing,1,30.72
+IFA_56_16_2216.wav,culex pipiens complex,training,1,28.16
+IFA_56_18_2218.wav,culex pipiens complex,training,1,5.12
+IFA_56_19_2219.wav,culex pipiens complex,testing,1,5.12
+IFA_56_21_2221.wav,culex pipiens complex,training,1,7.68
+IFA_56_27_2227.wav,culex pipiens complex,training,1,25.54
+IFA_56_28_2228.wav,culex pipiens complex,validation,1,33.22
+IFA_56_29_2229.wav,culex pipiens complex,validation,2,35.78
+IFA_56_32_2232.wav,culex pipiens complex,training,2,33.28
+IFA_56_40_2240.wav,an arabiensis,training,1,35.78
+IFA_57_10_2250.wav,an arabiensis,testing,1,38.34
+IFA_57_12_2252.wav,culex pipiens complex,training,1,25.6
+IFA_57_16_2256.wav,an arabiensis,validation,2,12.79997732426304
+IFA_57_17_2257.wav,culex pipiens complex,training,2,30.66
+IFA_57_18_2258.wav,an arabiensis,training,1,33.28
+IFA_57_20_2260.wav,an arabiensis,training,2,35.78
+IFA_57_22_2262.wav,culex pipiens complex,training,2,10.24
+IFA_57_23_2263.wav,culex pipiens complex,testing,2,7.679954648526077
+IFA_57_24_2264.wav,an arabiensis,training,1,7.68
+IFA_57_26_2266.wav,culex pipiens complex,training,1,33.22
+IFA_57_30_2270.wav,culex pipiens complex,training,1,38.4
+IFA_57_32_2272.wav,culex pipiens complex,training,2,17.92
+IFA_57_33_2273.wav,culex pipiens complex,validation,4,10.23997732426304
+IFA_57_35_2275.wav,culex pipiens complex,training,1,35.78
+IFA_57_36_2276.wav,culex pipiens complex,testing,1,33.28
+IFA_57_37_2277.wav,culex pipiens complex,testing,1,48.58
+IFA_57_38_2278.wav,culex pipiens complex,training,1,38.34
+IFA_57_39_2279.wav,culex pipiens complex,testing,1,33.22
+IFA_57_40_2280.wav,culex pipiens complex,testing,1,2.56
+IFA_58_24_2304.wav,an arabiensis,training,3,40.95995464852608
+IFA_58_29_2309.wav,an arabiensis,validation,1,30.72
+IFA_58_40_2320.wav,culex pipiens complex,training,1,43.46
+IFA_59_10_2330.wav,culex pipiens complex,testing,1,46.02
+IFA_59_11_2331.wav,culex pipiens complex,testing,1,28.1
+IFA_59_12_2332.wav,culex pipiens complex,training,2,23.039954648526077
+IFA_59_13_2333.wav,culex pipiens complex,testing,1,28.1
+IFA_59_14_2334.wav,culex pipiens complex,training,1,30.66
+IFA_59_15_2335.wav,culex pipiens complex,training,1,40.9
+IFA_59_16_2336.wav,culex pipiens complex,validation,1,43.46
+IFA_59_17_2337.wav,culex pipiens complex,training,1,25.54
+IFA_59_18_2338.wav,culex pipiens complex,testing,1,30.66
+IFA_59_19_2339.wav,culex pipiens complex,testing,1,38.34
+IFA_59_20_2340.wav,culex pipiens complex,testing,2,25.54
+IFA_59_21_2341.wav,culex pipiens complex,training,1,28.1
+IFA_59_22_2342.wav,culex pipiens complex,validation,1,33.22
+IFA_59_23_2343.wav,culex pipiens complex,training,2,12.8
+IFA_59_25_2345.wav,culex pipiens complex,training,1,2.5599773242630386
+IFA_59_26_2346.wav,culex pipiens complex,training,1,5.12
+IFA_59_28_2348.wav,culex pipiens complex,training,3,10.239954648526076
+IFA_59_30_2350.wav,culex pipiens complex,validation,3,12.8
+IFA_60_13_2373.wav,an arabiensis,testing,1,35.78
+IFA_60_24_2384.wav,culex pipiens complex,training,3,28.15997732426304
+IFA_60_25_2385.wav,culex pipiens complex,training,1,22.98
+IFA_60_26_2386.wav,culex pipiens complex,training,1,28.16
+IFA_60_27_2387.wav,culex pipiens complex,validation,1,25.6
+IFA_60_28_2388.wav,culex pipiens complex,training,2,28.099977324263037
+IFA_60_29_2389.wav,culex pipiens complex,training,1,23.04
+IFA_60_30_2390.wav,culex pipiens complex,training,1,28.16
+IFA_60_31_2391.wav,culex pipiens complex,training,1,35.78
+IFA_60_32_2392.wav,culex pipiens complex,testing,1,28.1
+IFA_60_33_2393.wav,culex pipiens complex,training,1,25.54
+IFA_60_34_2394.wav,culex pipiens complex,training,1,17.919977324263037
+IFA_60_35_2395.wav,culex pipiens complex,training,1,23.04
+IFA_60_36_2396.wav,culex pipiens complex,training,2,30.66
+IFA_60_37_2397.wav,culex pipiens complex,training,2,17.919977324263037
+IFA_60_38_2398.wav,culex pipiens complex,training,4,46.01997732426304
+IFA_60_39_2399.wav,culex pipiens complex,testing,2,25.599977324263037
+IFA_60_40_2400.wav,culex pipiens complex,validation,2,30.66
+IFA_61_11_2411.wav,an arabiensis,testing,7,33.219909297052155
+IFA_61_12_2412.wav,an arabiensis,training,2,40.9
+IFA_61_13_2413.wav,an arabiensis,testing,2,33.22
+IFA_61_16_2416.wav,an arabiensis,training,1,2.5599773242630386
+IFA_61_19_2419.wav,culex pipiens complex,testing,2,12.79997732426304
+IFA_61_20_2420.wav,culex pipiens complex,testing,1,23.04
+IFA_61_21_2421.wav,an arabiensis,validation,3,10.24
+IFA_61_22_2422.wav,an arabiensis,training,1,10.23997732426304
+IFA_61_25_2425.wav,an arabiensis,validation,2,12.799954648526079
+IFA_61_27_2427.wav,culex pipiens complex,validation,1,7.68
+IFA_61_28_2428.wav,culex pipiens complex,training,4,23.039931972789113
+IFA_61_29_2429.wav,culex pipiens complex,training,2,10.239977324263037
+IFA_61_30_2430.wav,culex pipiens complex,validation,1,2.5599773242630386
+IFA_61_31_2431.wav,an arabiensis,testing,1,30.66
+IFA_61_34_2434.wav,an arabiensis,training,2,23.03997732426304
+IFA_61_35_2435.wav,an arabiensis,testing,1,56.26
+IFA_61_36_2436.wav,culex pipiens complex,validation,1,25.54
+IFA_61_39_2439.wav,an arabiensis,training,2,43.46
+IFA_61_40_2440.wav,an arabiensis,training,2,38.34
+IFA_62_11_2451.wav,an arabiensis,validation,1,30.72
+IFA_62_13_2453.wav,an arabiensis,training,4,33.21995464852608
+IFA_62_14_2454.wav,an arabiensis,training,1,30.72
+IFA_62_15_2455.wav,an arabiensis,validation,1,30.66
+IFA_62_17_2457.wav,an arabiensis,training,2,38.339999999999996
+IFA_62_18_2458.wav,an arabiensis,training,1,33.22
+IFA_62_19_2459.wav,an arabiensis,testing,1,35.84
+IFA_62_20_2460.wav,an arabiensis,validation,1,30.66
+IFA_62_21_2461.wav,an arabiensis,training,1,30.66
+IFA_62_22_2462.wav,an arabiensis,training,1,30.66
+IFA_62_23_2463.wav,an arabiensis,validation,1,30.66
+IFA_62_24_2464.wav,an arabiensis,training,3,28.1
+IFA_62_25_2465.wav,an arabiensis,testing,1,48.58
+IFA_62_27_2467.wav,an arabiensis,testing,2,51.19997732426304
+IFA_62_28_2468.wav,an arabiensis,testing,2,22.97995464852608
+IFA_62_29_2469.wav,an arabiensis,training,1,38.34
+IFA_62_31_2471.wav,an arabiensis,training,1,43.46
+IFA_62_32_2472.wav,an arabiensis,validation,2,35.84
+IFA_62_33_2473.wav,an arabiensis,testing,1,33.22
+IFA_62_34_2474.wav,an arabiensis,training,1,28.1
+IFA_62_35_2475.wav,an arabiensis,training,1,33.22
+IFA_62_36_2476.wav,an arabiensis,testing,1,43.46
+IFA_62_37_2477.wav,an arabiensis,training,1,30.72
+IFA_62_39_2479.wav,an arabiensis,training,1,30.66
+IFA_62_40_2480.wav,an arabiensis,training,1,43.46
+IFA_63_10_2490.wav,an arabiensis,training,1,35.84
+IFA_63_20_2500.wav,an arabiensis,training,2,33.27997732426304
+IFA_63_21_2501.wav,an arabiensis,validation,2,12.79997732426304
+IFA_63_22_2502.wav,culex pipiens complex,training,1,46.08
+IFA_63_23_2503.wav,culex pipiens complex,training,2,35.83997732426304
+IFA_63_24_2504.wav,an arabiensis,training,1,40.96
+IFA_63_27_2507.wav,culex pipiens complex,validation,4,33.27997732426304
+IFA_63_28_2508.wav,an arabiensis,validation,2,33.28
+IFA_63_29_2509.wav,an arabiensis,testing,2,15.36
+IFA_63_33_2513.wav,an arabiensis,validation,4,30.659954648526075
+IFA_63_34_2514.wav,an arabiensis,training,1,35.84
+IFA_63_36_2516.wav,culex pipiens complex,training,2,15.359954648526077
+IFA_63_37_2517.wav,culex pipiens complex,training,1,40.9
+IFA_63_38_2518.wav,an arabiensis,validation,3,33.22
+IFA_63_40_2520.wav,an arabiensis,testing,2,25.6
+IFA_64_10_2530.wav,an arabiensis,validation,3,35.78
+IFA_64_11_2531.wav,an arabiensis,training,1,12.8
+IFA_64_12_2532.wav,an arabiensis,training,2,48.58
+IFA_64_13_2533.wav,an arabiensis,validation,2,43.51997732426304
+IFA_64_14_2534.wav,an arabiensis,training,1,35.84
+IFA_64_17_2537.wav,an arabiensis,training,1,30.72
+IFA_64_22_2542.wav,an arabiensis,training,2,40.9
+IFA_64_23_2543.wav,culex pipiens complex,training,1,35.84
+IFA_64_30_2550.wav,an arabiensis,training,2,35.83997732426304
+IFA_64_31_2551.wav,an arabiensis,testing,2,25.599977324263037
+IFA_64_32_2552.wav,an arabiensis,training,1,33.28
+IFA_64_33_2553.wav,an arabiensis,training,2,28.16
+IFA_64_34_2554.wav,an arabiensis,validation,3,25.6
+IFA_64_35_2555.wav,an arabiensis,validation,2,12.79997732426304
+IFA_64_36_2556.wav,an arabiensis,testing,4,33.27997732426304
+IFA_64_37_2557.wav,an arabiensis,validation,1,38.4
+IFA_64_38_2558.wav,an arabiensis,validation,1,30.66
+IFA_64_39_2559.wav,an arabiensis,testing,1,5.059977324263039
+IFA_64_40_2560.wav,an arabiensis,training,2,30.72
+IFA_65_10_2570.wav,an arabiensis,testing,3,35.83997732426304
+IFA_65_11_2571.wav,an arabiensis,training,2,23.039977324263038
+IFA_65_12_2572.wav,an arabiensis,training,2,20.479954648526075
+IFA_65_13_2573.wav,an arabiensis,testing,2,25.6
+IFA_65_15_2575.wav,an arabiensis,training,1,25.54
+IFA_65_21_2581.wav,an arabiensis,training,1,38.34
+IFA_65_23_2583.wav,culex pipiens complex,validation,2,33.22
+IFA_65_24_2584.wav,an arabiensis,training,1,48.58
+IFA_65_25_2585.wav,an arabiensis,training,1,51.2
+IFA_65_28_2588.wav,an arabiensis,training,1,12.8
+IFA_65_33_2593.wav,culex pipiens complex,validation,1,48.58
+IFA_65_34_2594.wav,culex pipiens complex,training,3,40.96
+IFA_65_35_2595.wav,culex pipiens complex,testing,1,40.96
+IFA_65_37_2597.wav,culex pipiens complex,training,2,35.84
+IFA_65_38_2598.wav,culex pipiens complex,training,2,23.03997732426304
+IFA_65_39_2599.wav,culex pipiens complex,testing,2,30.719954648526077
+IFA_65_40_2600.wav,an arabiensis,training,1,48.58
+IFA_66_10_2610.wav,an arabiensis,validation,3,40.96
+IFA_66_11_2611.wav,an arabiensis,training,1,33.22
+IFA_66_12_2612.wav,an arabiensis,testing,1,43.52
+IFA_66_13_2613.wav,an arabiensis,training,1,46.02
+IFA_66_14_2614.wav,an arabiensis,training,1,40.96
+IFA_66_15_2615.wav,an arabiensis,testing,1,30.66
+IFA_66_16_2616.wav,an arabiensis,training,1,33.28
+IFA_66_17_2617.wav,an arabiensis,validation,1,40.9
+IFA_66_18_2618.wav,an arabiensis,training,1,40.9
+IFA_66_19_2619.wav,an arabiensis,validation,1,33.22
+IFA_66_20_2620.wav,an arabiensis,training,1,33.22
+IFA_66_21_2621.wav,an arabiensis,training,1,38.4
+IFA_66_22_2622.wav,an arabiensis,training,1,38.34
+IFA_66_23_2623.wav,an arabiensis,training,1,30.72
+IFA_66_25_2625.wav,an arabiensis,training,1,48.58
+IFA_66_26_2626.wav,an arabiensis,training,1,43.52
+IFA_66_27_2627.wav,an arabiensis,testing,1,43.46
+IFA_66_28_2628.wav,an arabiensis,training,1,43.46
+IFA_66_29_2629.wav,an arabiensis,training,1,46.02
+IFA_66_30_2630.wav,an arabiensis,training,1,40.9
+IFA_66_32_2632.wav,an arabiensis,testing,1,33.22
+IFA_66_33_2633.wav,an arabiensis,testing,1,51.14
+IFA_66_34_2634.wav,an arabiensis,training,1,53.7
+IFA_66_36_2636.wav,an arabiensis,validation,2,38.39997732426304
+IFA_66_38_2638.wav,an arabiensis,training,2,17.919999999999998
+IFA_66_39_2639.wav,an arabiensis,validation,1,38.4
+IFA_67_10_2650.wav,an arabiensis,training,2,5.119977324263038
+IFA_67_11_2651.wav,an arabiensis,validation,1,43.52
+IFA_67_12_2652.wav,an arabiensis,testing,1,33.28
+IFA_67_15_2655.wav,an arabiensis,training,3,15.359977324263038
+IFA_67_17_2657.wav,an arabiensis,training,2,35.84
+IFA_67_19_2659.wav,an arabiensis,training,2,33.21995464852608
+IFA_67_20_2660.wav,an arabiensis,testing,2,30.72
+IFA_67_21_2661.wav,an arabiensis,testing,2,12.8
+IFA_67_23_2663.wav,an arabiensis,training,1,5.12
+IFA_67_24_2664.wav,culex pipiens complex,validation,1,20.48
+IFA_67_27_2667.wav,an arabiensis,validation,1,40.959977324263036
+IFA_67_29_2669.wav,an arabiensis,training,2,33.28
+IFA_68_20_2700.wav,an arabiensis,validation,1,46.02
+IFA_68_35_2715.wav,ma uniformis,training,3,28.159954648526075
+IFA_68_40_2720.wav,an arabiensis,validation,1,40.9
+IFA_69_13_2733.wav,an arabiensis,testing,1,46.08
+IFA_69_14_2734.wav,ma uniformis,training,2,56.26
+IFA_69_15_2735.wav,culex pipiens complex,training,1,43.46
+IFA_69_21_2741.wav,culex pipiens complex,training,2,35.78
+IFA_69_23_2743.wav,culex pipiens complex,training,1,43.46
+IFA_69_25_2745.wav,an arabiensis,testing,1,35.78
+IFA_69_26_2746.wav,an arabiensis,training,1,25.54
+IFA_69_28_2748.wav,culex pipiens complex,validation,2,43.46
+IFA_69_29_2749.wav,an arabiensis,validation,2,25.599999999999998
+IFA_69_32_2752.wav,an arabiensis,training,1,38.4
+IFA_69_33_2753.wav,an arabiensis,training,1,38.34
+IFA_69_35_2755.wav,an arabiensis,training,3,30.719954648526077
+IFA_70_10_2770.wav,an arabiensis,testing,1,35.78
+IFA_70_11_2771.wav,an arabiensis,validation,3,20.47997732426304
+IFA_70_12_2772.wav,an arabiensis,training,1,33.22
+IFA_70_16_2776.wav,an arabiensis,training,1,33.28
+IFA_70_19_2779.wav,culex pipiens complex,testing,1,25.6
+IFA_70_20_2780.wav,culex pipiens complex,testing,1,30.72
+IFA_70_21_2781.wav,culex pipiens complex,training,1,28.16
+IFA_70_22_2782.wav,culex pipiens complex,testing,1,28.16
+IFA_70_26_2786.wav,an arabiensis,testing,1,46.02
+IFA_70_29_2789.wav,an arabiensis,training,1,30.66
+IFA_70_32_2792.wav,an arabiensis,testing,1,43.46
+IFA_70_33_2793.wav,an arabiensis,training,1,46.02
+IFA_70_34_2794.wav,an arabiensis,training,1,53.7
+IFA_70_35_2795.wav,an arabiensis,training,1,53.7
+IFA_70_36_2796.wav,an arabiensis,testing,1,48.64
+IFA_70_38_2798.wav,an arabiensis,training,2,40.96
+IFA_70_39_2799.wav,an arabiensis,training,1,79.36
+IFA_70_40_2800.wav,an arabiensis,training,1,40.9
+IFA_71_10_2810.wav,an arabiensis,training,1,40.96
+IFA_71_12_2812.wav,an arabiensis,training,1,15.36
+IFA_71_13_2813.wav,an arabiensis,testing,4,40.959977324263036
+IFA_71_17_2817.wav,culex pipiens complex,validation,2,40.96
+IFA_71_20_2820.wav,culex pipiens complex,training,1,30.66
+IFA_71_23_2823.wav,an arabiensis,training,1,2.56
+IFA_71_25_2825.wav,an arabiensis,validation,3,56.25997732426303
+IFA_71_26_2826.wav,an arabiensis,validation,1,23.04
+IFA_71_28_2828.wav,an arabiensis,training,2,10.239977324263037
+IFA_71_30_2830.wav,an arabiensis,training,1,48.58
+IFA_71_35_2835.wav,an arabiensis,training,1,48.58
+IFA_72_12_2852.wav,an arabiensis,training,1,43.46
+IFA_72_13_2853.wav,an arabiensis,training,1,35.78
+IFA_72_14_2854.wav,an arabiensis,training,1,38.34
+IFA_72_15_2855.wav,an arabiensis,training,1,35.78
+IFA_72_17_2857.wav,an arabiensis,training,1,40.9
+IFA_72_19_2859.wav,culex pipiens complex,testing,1,33.22
+IFA_72_20_2860.wav,an arabiensis,testing,1,33.22
+IFA_72_21_2861.wav,an arabiensis,training,1,38.34
+IFA_72_26_2866.wav,an arabiensis,training,1,56.26
+IFA_72_28_2868.wav,culex pipiens complex,training,1,43.46
+IFA_72_33_2873.wav,an arabiensis,validation,1,35.78
+IFA_72_35_2875.wav,culex pipiens complex,training,1,46.02
+IFA_72_36_2876.wav,culex pipiens complex,training,1,5.119977324263038
+IFA_72_37_2877.wav,an arabiensis,testing,1,35.84
+IFA_72_39_2879.wav,an arabiensis,testing,1,25.54
+IFA_72_40_2880.wav,an arabiensis,validation,1,38.34
+IFA_73_10_2890.wav,an arabiensis,training,1,30.66
+IFA_73_11_2891.wav,an arabiensis,training,1,40.96
+IFA_73_12_2892.wav,an arabiensis,validation,1,43.46
+IFA_73_13_2893.wav,an arabiensis,training,3,38.33993197278912
+IFA_73_14_2894.wav,an arabiensis,training,1,30.66
+IFA_73_15_2895.wav,an arabiensis,training,1,33.22
+IFA_73_16_2896.wav,an arabiensis,validation,1,28.1
+IFA_73_17_2897.wav,an arabiensis,validation,1,25.6
+IFA_73_18_2898.wav,an arabiensis,testing,2,22.97997732426304
+IFA_73_20_2900.wav,an arabiensis,validation,3,17.859954648526077
+IFA_73_21_2901.wav,an arabiensis,testing,1,35.78
+IFA_73_22_2902.wav,an arabiensis,training,1,38.34
+IFA_73_24_2904.wav,an arabiensis,training,1,28.1
+IFA_73_27_2907.wav,an arabiensis,training,3,30.719977324263038
+IFA_73_29_2909.wav,an arabiensis,training,2,33.27997732426304
+IFA_73_30_2910.wav,an arabiensis,testing,1,10.23997732426304
+IFA_73_32_2912.wav,an arabiensis,training,3,28.099999999999998
+IFA_73_33_2913.wav,an arabiensis,validation,2,28.1
+IFA_73_34_2914.wav,an arabiensis,testing,1,25.6
+IFA_73_35_2915.wav,an arabiensis,training,1,35.84
+IFA_73_36_2916.wav,an arabiensis,testing,1,33.22
+IFA_73_37_2917.wav,an arabiensis,testing,1,25.54
+IFA_73_38_2918.wav,an arabiensis,training,1,35.78
+IFA_73_39_2919.wav,an arabiensis,testing,2,28.16
+IFA_73_40_2920.wav,an arabiensis,validation,1,38.34
+IFA_74_11_2931.wav,an arabiensis,training,2,22.98
+IFA_74_12_2932.wav,an arabiensis,testing,1,46.08
+IFA_74_13_2933.wav,an arabiensis,validation,1,33.28
+IFA_74_14_2934.wav,an arabiensis,training,1,43.46
+IFA_74_15_2935.wav,an arabiensis,validation,1,28.1
+IFA_74_18_2938.wav,culex pipiens complex,validation,1,30.66
+IFA_74_19_2939.wav,an arabiensis,training,1,28.1
+IFA_74_20_2940.wav,an arabiensis,training,1,28.1
+IFA_74_21_2941.wav,an arabiensis,testing,1,46.02
+IFA_74_22_2942.wav,culex pipiens complex,training,1,30.72
+IFA_74_26_2946.wav,culex pipiens complex,training,2,25.539954648526077
+IFA_74_29_2949.wav,an arabiensis,testing,1,28.16
+IFA_74_33_2953.wav,culex pipiens complex,validation,1,17.86
+IFA_74_34_2954.wav,an arabiensis,validation,1,33.22
+IFA_74_35_2955.wav,culex pipiens complex,training,1,22.98
+IFA_74_36_2956.wav,an arabiensis,training,1,30.66
+IFA_74_38_2958.wav,an arabiensis,testing,1,28.1
+IFA_74_39_2959.wav,culex pipiens complex,validation,1,28.16
+IFA_74_40_2960.wav,culex pipiens complex,validation,1,40.9
+IFA_75_11_2971.wav,an arabiensis,training,1,33.22
+IFA_75_13_2973.wav,an arabiensis,training,1,33.28
+IFA_75_14_2974.wav,an arabiensis,training,1,48.64
+IFA_75_15_2975.wav,an arabiensis,testing,1,20.48
+IFA_75_16_2976.wav,ma uniformis,testing,1,48.64
+IFA_75_17_2977.wav,an arabiensis,validation,1,28.1
+IFA_75_19_2979.wav,an arabiensis,training,1,35.84
+IFA_75_20_2980.wav,an arabiensis,training,1,53.7
+IFA_75_21_2981.wav,culex pipiens complex,testing,1,33.28
+IFA_75_22_2982.wav,an arabiensis,training,2,30.66
+IFA_75_24_2984.wav,ma uniformis,training,1,35.84
+IFA_75_25_2985.wav,an arabiensis,training,1,33.28
+IFA_75_26_2986.wav,an arabiensis,training,1,38.33997732426304
+IFA_75_27_2987.wav,an arabiensis,testing,1,56.26
+IFA_75_28_2988.wav,culex pipiens complex,training,3,35.83995464852608
+IFA_75_29_2989.wav,an arabiensis,training,1,56.26
+IFA_75_30_2990.wav,culex pipiens complex,training,2,30.66
+IFA_75_31_2991.wav,an arabiensis,training,1,33.22
+IFA_75_32_2992.wav,an arabiensis,testing,1,40.9
+IFA_75_33_2993.wav,an arabiensis,testing,1,33.28
+IFA_75_34_2994.wav,an arabiensis,training,1,35.78
+IFA_75_35_2995.wav,an arabiensis,training,2,43.52
+IFA_75_36_2996.wav,an arabiensis,training,1,33.22
+IFA_75_38_2998.wav,an arabiensis,training,1,30.66
+IFA_75_39_2999.wav,an arabiensis,validation,1,58.82
+IFA_75_40_3000.wav,an arabiensis,testing,3,33.27997732426304
+IFA_76_11_3011.wav,an arabiensis,training,1,40.96
+IFA_76_12_3012.wav,culex pipiens complex,training,2,35.77997732426304
+IFA_76_13_3013.wav,an arabiensis,training,1,53.7
+IFA_76_14_3014.wav,culex pipiens complex,validation,1,40.9
+IFA_76_15_3015.wav,an arabiensis,validation,1,40.96
+IFA_76_16_3016.wav,an arabiensis,training,1,48.58
+IFA_76_17_3017.wav,an arabiensis,training,1,53.76
+IFA_76_18_3018.wav,an arabiensis,validation,1,40.96
+IFA_76_20_3020.wav,ma uniformis,training,1,53.7
+IFA_76_21_3021.wav,an arabiensis,training,5,63.999977324263035
+IFA_76_22_3022.wav,an arabiensis,training,1,53.76
+IFA_76_23_3023.wav,an arabiensis,training,1,46.02
+IFA_76_24_3024.wav,ma uniformis,training,1,84.42
+IFA_76_25_3025.wav,culex pipiens complex,training,1,33.28
+IFA_76_26_3026.wav,an arabiensis,training,1,56.26
+IFA_76_27_3027.wav,culex pipiens complex,training,3,20.48
+IFA_76_28_3028.wav,an arabiensis,testing,2,40.96
+IFA_76_29_3029.wav,culex pipiens complex,testing,2,25.599977324263037
+IFA_76_32_3032.wav,an arabiensis,testing,3,25.599999999999998
+IFA_76_33_3033.wav,ma uniformis,validation,4,30.720000000000002
+IFA_76_34_3034.wav,an arabiensis,training,2,76.74000000000001
+IFA_76_35_3035.wav,an arabiensis,training,2,15.359954648526077
+IFA_76_36_3036.wav,culex pipiens complex,testing,1,10.24
+IFA_76_38_3038.wav,an arabiensis,training,2,30.72
+IFA_76_39_3039.wav,culex pipiens complex,training,1,30.72

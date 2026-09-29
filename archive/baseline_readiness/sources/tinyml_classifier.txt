@@ -1,0 +1,213 @@
+# ICTP_Mosquito_WingBeat_Sound_Classification_TinyML
+- TinyML - Edge Impulse Model Training analysis 
+- M.Rovai @30Nov2021
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.fftpack
+import librosa
+import librosa.display
+import IPython.display
+## Analizyng Audio raw sample
+- From Edge Impulse Studio `Data Aquisition - Export Data` Tab, download to your computer a zip file with the .wav raw data captured.
+- Upload on /content one (or more) .wav samples
+### Aedes Aegypti
+# @ CoLab
+!ls /content
+# @ CoLab
+sound_path = '/content/file_name'
+# @ Mac
+#!ls ../data/dataset/aedes_aegypti
+file_path = '/content/'
+file = '16khz_1_10130f.wav'
+audio, sr = librosa.load(file_path+file, sr=16_000)
+sr
+plt.figure(figsize=(10, 5))
+plt.plot(audio);
+IPython.display.Audio(data=audio, rate=sr)
+def fft(file_path, file, title = '', sr=16_000):  
+    audio, sr = librosa.load(file_path+file, sr=sr)
+    plt.figure(figsize=(10, 5))
+    plt.plot(audio);
+    plt.xlabel('time')
+    plt.ylabel('amp')
+    plt.grid(True)
+    plt.title(title+' sample - Time Domain')
+    
+    plt.figure(figsize=(10, 5))
+    for x in range (0, len(audio)-sr, sr//4):
+        sample = audio[x:(x+16000)]
+        yf = scipy.fftpack.fft(sample)
+        plt.plot(2.0/sr * np.abs(yf[1:sr//8]))
+    plt.xlabel('frequency [Hz]')
+    plt.ylabel('amp')
+    plt.grid(True)
+    plt.title(title+' sample - Frequency Components')
+    return audio, sr
+audio
+audio, sr = fft(file_path, file, title = 'aedes_aegypti')
+def spectogram(audio, title='', sr=sr):
+    X = librosa.stft(audio)
+    Xdb = librosa.amplitude_to_db(abs(X))
+    plt.figure(figsize=(10, 5))
+    librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='log')
+    plt.title(title+' sample - Spectogram')
+    plt.colorbar();
+spectogram(audio, title='aedes_aegypti')
+### Aedes Albopictus
+!ls ../data/dataset/aedes_albopictus
+file_path = '../data/dataset/aedes_albopictus/'
+file = '16khz_0_11-16-2016-125240 albopictus f.wav'
+audio, sr = fft(file_path, file, title = 'aedes_albopictus')
+spectogram(audio, title='aedes_albopictus')
+## Analysing Edge Impulse Model Training
+Download the data - after extracting features through a processing block - so we can train a machine learning model.
+import numpy as np
+import requests
+
+API_KEY = '[REDACTED_PUBLIC_NOTEBOOK_CREDENTIAL_NOT_USED]'
+
+def download_data(url):
+    response = requests.get(url, headers={'x-api-key': API_KEY})
+    if response.status_code == 200:
+        return response.content
+    else:
+        print(response.content)
+        raise ConnectionError('Could not download data file')
+
+X = download_data('https://studio.edgeimpulse.com/v1/api/65237/training/5/x')
+Y = download_data('https://studio.edgeimpulse.com/v1/api/65237/training/5/y')
+
+Store the data in a temporary file, and load it back through Numpy.
+with open('x_train.npy', 'wb') as file:
+    file.write(X)
+with open('y_train.npy', 'wb') as file:
+    file.write(Y)
+X = np.load('x_train.npy')
+Y = np.load('y_train.npy')[:,0]
+X.shape, Y.shape
+image = X[1000]
+img_length = image.shape[0]
+img_length
+columns = 65
+rows = int(img_length / columns)
+image = np.reshape(image, (rows, columns))
+image.shape
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.figure(figsize=(12,6))
+#sns.heatmap(image.T)
+ax = sns.heatmap(image.T)
+ax.invert_yaxis()
+plt.title('1D-image - Spectogram of 1-second sample');
+Define our labels and split the data up in a test and training set:
+# Load the TensorBoard notebook extension.
+%load_ext tensorboard
+import sys, os, random
+from datetime import datetime
+import tensorflow as tf
+import tensorboard
+from sklearn.model_selection import train_test_split
+
+# Clear any logs from previous runs
+#rm -rf ./logs/
+
+# import logging
+# tf.get_logger().setLevel(logging.ERROR)
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+# Set random seeds for repeatable results
+RANDOM_SEED = 3
+random.seed(RANDOM_SEED)
+np.random.seed(RANDOM_SEED)
+tf.random.set_seed(RANDOM_SEED)
+
+classes_values = [ "aegypti", "albopictus", "noise", "other" ]
+classes = len(classes_values)
+
+Y = tf.keras.utils.to_categorical(Y - 1, classes)
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
+
+input_length = X_train[0].shape[0]
+
+train_dataset = tf.data.Dataset.from_tensor_slices((X_train, Y_train))
+validation_dataset = tf.data.Dataset.from_tensor_slices((X_test, Y_test))
+def get_reshape_function(reshape_to):
+    def reshape(image, label):
+        return tf.reshape(image, reshape_to), label
+    return reshape
+# Define the Keras TensorBoard callback.
+logdir="logs/fit/" + datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
+from tensorflow.keras.callbacks import EarlyStopping
+early_stop = EarlyStopping(monitor='val_loss', 
+                           mode='min', 
+                           verbose=1, 
+                           patience=5)
+
+callbacks = [early_stop, tensorboard_callback]
+Train the model:
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, InputLayer, Dropout, Conv1D, Conv2D, Flatten, Reshape, MaxPooling1D, MaxPooling2D, BatchNormalization, TimeDistributed
+from tensorflow.keras.optimizers import Adam
+
+# model architecture
+model = Sequential()
+model.add(Reshape((int(input_length / 65), 65), input_shape=(input_length, )))
+model.add(Conv1D(32, kernel_size=3, activation='relu', padding='same'))
+model.add(MaxPooling1D(pool_size=2, strides=2, padding='same'))
+model.add(Conv1D(64, kernel_size=3, activation='relu', padding='same'))
+model.add(MaxPooling1D(pool_size=2, strides=2, padding='same'))
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(classes, activation='softmax', name='y_pred'))
+model.summary()
+tf.keras.utils.plot_model(
+    model,
+    to_file="model.png",
+    show_shapes=True,
+    show_dtype=False,
+    show_layer_names=True,
+    rankdir="TB",
+    expand_nested=True,
+    dpi=96,
+    layer_range=None,
+)
+LR = 0.001
+BS = 32
+EPOCHS = 100
+# this controls the learning rate
+opt = Adam(lr=LR, beta_1=0.9, beta_2=0.999)
+# this controls the batch size, or you can manipulate the tf.data.Dataset objects yourself
+BATCH_SIZE = BS
+train_dataset = train_dataset.batch(BATCH_SIZE, drop_remainder=False)
+validation_dataset = validation_dataset.batch(BATCH_SIZE, drop_remainder=False)
+
+# train the neural network
+model.compile(loss='categorical_crossentropy',
+              optimizer=opt,
+              metrics=['accuracy'])
+
+history = model.fit(train_dataset,
+                    epochs=EPOCHS,
+                    validation_data=validation_dataset,
+                    verbose=2,
+                    callbacks=callbacks)
+%tensorboard --logdir logs
+import matplotlib.pyplot as plt
+def plot_result(history, res= 'loss'):
+    plt.plot(history.history[res])
+    plt.plot(history.history['val_'+res])
+    plt.title(res+' vs. epochs')
+    plt.ylabel(res)
+    plt.xlabel('Epoch')
+    if res == 'loss':
+        plt.legend(['Training', res], loc='upper right')
+    else:
+        plt.legend(['Training', 'Validation'], loc='lower right')
+    plt.show()
+plot_result(history, res= 'loss')
+plot_result(history, res= 'accuracy')
+# Save the model to disk
+model.save('saved_model')

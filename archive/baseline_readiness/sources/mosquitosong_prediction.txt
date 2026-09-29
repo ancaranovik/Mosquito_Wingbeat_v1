@@ -1,0 +1,496 @@
+﻿import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+import numpy as np
+import pandas as pd
+import sys
+import time
+import copy
+from numpy import mean
+from numpy import std
+from numpy import dstack
+from pandas import read_csv
+from matplotlib import pyplot
+from tensorflow.keras.utils import to_categorical
+import math
+from sklearn import preprocessing
+from tensorflow.keras.utils import Sequence
+import random
+import librosa
+from imblearn.over_sampling import RandomOverSampler
+from tensorflow.keras.optimizers import Adam, SGD
+import matplotlib.pyplot as plt
+import seaborn as sns
+import tensorflow as tf
+from soundfile import write as wav_write
+# from pydub import AudioSegment
+import array
+plt.style.use('dark_background')
+from sklearn.metrics import classification_report
+import pandas as pd
+configproto = tf.compat.v1.ConfigProto() 
+configproto.gpu_options.allow_growth = True
+sess = tf.compat.v1.Session(config=configproto) 
+tf.compat.v1.keras.backend.set_session(sess)
+gpus = tf.config.experimental.list_physical_devices('GPU')
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
+def check_gpu():
+    device_name = tf.test.gpu_device_name()
+    if device_name != '/device:GPU:0':
+        print("NO GPU")
+    print('Found GPU at: {}'.format(device_name))
+import re
+numbers = re.compile(r'(\d+)')
+def numericalSort(value):
+    parts = numbers.split(value)
+    parts[1::2] = map(int, parts[1::2])
+    return parts
+def load_data(directory):
+    audio_files_name = os.listdir(directory)
+    sorted_audio_files_name = sorted(audio_files_name, key=numericalSort)
+    return sorted_audio_files_name
+def encode_data(dataY):
+    le = preprocessing.LabelEncoder()
+    Y = le.fit_transform(dataY)
+    le_name_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
+    return Y, le_name_mapping
+def split_train_test_val(dataX, Y):    
+    X_train, X_test_val, y_train, y_test_val= train_test_split(dataX, Y, test_size=0.2, random_state=42, shuffle=True, stratify=Y)
+    X_val, X_test, y_val, y_test = train_test_split(X_test_val, y_test_val, test_size=0.5, random_state=42, shuffle=True, stratify=y_test_val)
+    return X_train, X_val, X_test, y_train, y_val, y_test
+def balance_train(X_train, y_train):
+    sm = RandomOverSampler(sampling_strategy='all', random_state=42)
+    X_train, y_train = sm.fit_resample(X_train, y_train)
+    return X_train, y_train
+def reshape_data(X_train, X_val, X_test, y_train, y_val, y_test):
+    X_train = tf.convert_to_tensor(X_train)
+    X_test = tf.convert_to_tensor(X_test)
+    X_val = tf.convert_to_tensor(X_val)
+    y_train = tf.convert_to_tensor(y_train)
+    y_test = tf.convert_to_tensor(y_test)
+    y_val = tf.convert_to_tensor(y_val)
+    y_train = to_categorical(y_train)
+    y_val = to_categorical(y_val)
+    y_test = to_categorical(y_test)
+    X_train = tf.reshape(X_train ,(X_train.shape[0], X_train.shape[1], -1))
+    X_test = tf.reshape(X_test ,(X_test.shape[0], X_test.shape[1], -1))
+    X_val = tf.reshape(X_val ,(X_val.shape[0], X_val.shape[1], -1))
+    return X_train, X_val, X_test, y_train, y_val, y_test
+def MultiplyFactorToSound(sound_array, factor):
+    factored_array = np.multiply(sound_array, factor) # multiply with factor
+    return factored_array
+def calculate_delay(M1, M2,sr, x ,y):
+    c = 343 # speed of sound in the air = 343 m/s
+    xM1_dist = math.hypot(M1[0] - x, M1[1] - y)
+    xM2_dist = math.hypot(M2[0] - x, M2[1] - y)
+    
+    
+    xM1_delay_duration = abs(xM1_dist)/ c
+    xM2_delay_duration = abs(xM2_dist)/ c
+    
+    xM1_delay = np.zeros(int(xM1_delay_duration * sr))
+    xM2_delay = np.zeros(int(xM2_delay_duration * sr))
+    return xM1_dist, xM2_dist, xM1_delay,xM2_delay
+def separate_noise_channels(noise_in_two_channels):
+    return noise_in_two_channels[1],noise_in_two_channels[0]
+def random_shifted_noise(noise_1, noise_2, len_mosquito):
+    assert len(noise_1) == len(noise_2), "both noise channel must have the same length"
+    randomable_range = 0
+    endpoint = 0
+    randomable_range = len(noise_1) - len_mosquito
+    random_start = int(round(random.uniform(0, randomable_range), 0))
+    
+    end = random_start + len_mosquito
+    random_shifted_noise_1 = noise_1[random_start: end]
+    random_shifted_noise_2 = noise_2[random_start: end]
+
+    return random_shifted_noise_1, random_shifted_noise_2
+def random_shifted_noise_with_seed(noise_1, noise_2, len_mosquito, seed):
+    assert len(noise_1) == len(noise_2), "both noise channel must have the same length"
+    randomable_range = 0
+    endpoint = 0
+    randomable_range = len(noise_1) - len_mosquito
+    random.seed(seed)
+    random_start = int(round(random.uniform(0, randomable_range), 0))
+    
+    end = random_start + len_mosquito
+    random_shifted_noise_1 = noise_1[random_start: end]
+    random_shifted_noise_2 = noise_2[random_start: end]
+
+    return random_shifted_noise_1, random_shifted_noise_2
+noise_dir = "./data/environmental_noise_recordings/"
+
+noise_list = os.listdir(noise_dir)
+noise_list.sort()
+noise_sound = []
+for idx, filename in enumerate(noise_list):
+    noise_two_channels, sr = librosa.load(noise_dir + filename, mono = False, sr =8000)
+    print(filename)
+    noise_sound.append(noise_two_channels)
+print(f"Amount of noise files: {len(noise_list)}")
+# Modification of splitting data
+def recreate_mosquito_filename_without_noise(species,sex, day, lowMic):
+    species_sex = (species + '_' + sex).strip()
+    day = day.strip()
+    isLowMic = lowMic.strip() == "LowMic"
+    if isLowMic:
+        key = species_sex + '_' + day + '_' + "LowMic"
+    else:
+        key = species_sex + '_' + day 
+    return key
+def create_species_dict_without_noise(sorted_audio_files_name):
+#     np_files = np.array(sorted_audio_files_name)
+    keySet = set()
+    for file in sorted_audio_files_name:
+        row = file.split('_')
+        key = recreate_mosquito_filename_without_noise(row[0], row[1], row[2], row[5])
+        keySet.add(key)
+    keyList = list(keySet)
+    empty_species_dict = dict.fromkeys(keyList, 0)
+    return empty_species_dict
+def count_data(sorted_audio_files_name, dir='./SmallCylinder_big/'):
+    count_species = create_species_dict_without_noise(sorted_audio_files_name)
+    np.random.seed(42)
+    sr = 8000
+    target = 2400  # 0.3s
+    count = 0
+    for p in sorted_audio_files_name:
+        path = dir + p
+        if path.endswith('.wav'):
+            row = p.split('_')
+            x, sr = librosa.load(path, sr=sr)
+            for i in range(0, len(x), int(target / 2)):  #overlap .15s
+                np.random.seed(i)
+                shift = np.random.randint(120)
+                y = x[i + shift : i + target + shift]
+                if (len(y) == target):
+                    key = recreate_mosquito_filename_without_noise(row[0], row[1], row[2], row[5])
+                    count = count + 1
+                    count_species[key] = count_species[key] + 1
+    return count_species
+count_test_low =  {'Cx.Quin_1F_14D_LowMic': 97,
+                   'Ae.Aegypti_1F_21D_LowMic': 19, 
+                   'An.Dirus_1M_14D_LowMic': 30,
+                   'An.Dirus_1F_14D_LowMic': 34,
+                   'Ae.Aegypti_1M_21D_LowMic': 39,
+                   'Ae.Albopictus_1F_7D_LowMic': 51,
+                   'Ae.Albopictus_1M_7D_LowMic': 46,
+                   'Cx.Quin_1M_14D_LowMic': 72,
+                   'Ae.Aegypti_1F_5D_LowMic': 64, 
+                   'Ae.Albopictus_1F_14D_LowMic': 43,
+                   'Ae.Albopictus_1M_14D_LowMic': 57,
+                   'Ae.Aegypti_1M_5D_LowMic': 48}
+
+def split_data(sorted_audio_files_name, total_data, fold_round, dir):
+    count_species = create_species_dict_without_noise(sorted_audio_files_name)
+    count_training_set = create_species_dict_without_noise(sorted_audio_files_name)
+    test_index = -1 if fold_round == 9 else fold_round
+    low_count = {'Cx.Quin_1F_14D_LowMic': 0,
+                   'Ae.Aegypti_1F_21D_LowMic': 0, 
+                   'An.Dirus_1F_5D_LowMic': 0,
+                   'An.Dirus_1M_5D_LowMic': 0,
+                   'An.Dirus_1M_14D_LowMic': 0,
+                   'An.Minimus_1F_5D_LowMic': 0,
+                   'An.Minimus_1M_5D_LowMic': 0,
+                   'An.Dirus_1F_14D_LowMic': 0,
+                   'Ae.Aegypti_1M_21D_LowMic': 0,
+                   'Cx.Quin_1M_6D_LowMic': 0,
+                   'Ae.Albopictus_1F_7D_LowMic': 0,
+                   'Ae.Albopictus_1M_7D_LowMic': 0,
+                   'Cx.Quin_1F_6D_LowMic': 0,
+                   'Cx.Quin_1M_14D_LowMic': 0,
+                   'Ae.Aegypti_1F_5D_LowMic': 0, 
+                   'Ae.Albopictus_1F_14D_LowMic': 0,
+                   'Ae.Albopictus_1M_14D_LowMic': 0,
+                   'Ae.Aegypti_1M_5D_LowMic': 0}
+    con_count = {'Cx.Quin_1F_14D': 0 ,
+                  'Ae.Aegypti_1F_21D': 0,
+                  'An.Dirus_1F_5D': 0, 
+                  'An.Dirus_1M_5D': 0,
+                  'An.Dirus_1M_14D': 0,
+                  'An.Minimus_1F_5D': 0,
+                  'An.Minimus_1M_5D': 0, 
+                  'An.Dirus_1F_14D': 0,
+                  'Ae.Aegypti_1M_21D': 0,
+                  'Cx.Quin_1M_6D': 0, 
+                  'Ae.Albopictus_1F_7D': 0,
+                  'Ae.Albopictus_1M_7D':0,
+                  'Cx.Quin_1F_6D': 0,
+                  'Cx.Quin_1M_14D': 0,
+                  'Ae.Aegypti_1F_5D': 0 ,
+                  'Ae.Albopictus_1F_14D': 0,
+                  'Ae.Albopictus_1M_14D': 0 ,
+                  'Ae.Aegypti_1M_5D': 0}
+    
+    X_train = []
+    dataY_train = []
+    X_test = []
+    dataY_test = []
+    X_val = []
+    dataY_val = []
+    count = 0
+    train_count = 0
+    val_count = 0
+    test_count = 0 
+    sr = 8000
+    target = 2400  # 0.3s
+    # loop files
+    for p in sorted_audio_files_name:
+        path = dir + p
+        row = p.split('_')
+        if path.endswith('.wav'):
+#             print('Currently working on ' + p)
+            sex_without_number = row[1][1]
+            sex_with_number = row[1]
+            sp_gender = row[0] + '_' + sex_without_number
+            x, sr = librosa.load(path, sr=sr)
+            # cut file
+            for i in range(0, len(x), int(target / 2)):  #overlap .15s
+                np.random.seed(i)
+                shift = np.random.randint(120)
+                y = x[i + shift : i + target + shift]
+                if (len(y) == target) and row[0] != "An.Minimus":
+                    key = recreate_mosquito_filename_without_noise(row[0], row[1], row[2], row[5])
+                    current_frame = count_species[key]
+                    count_species[key] = count_species[key] + 1
+                    count += 1
+                    # validation
+                    if (current_frame >= (fold_round * math.floor(total_data[key] * 0.1))) and (current_frame < ((fold_round + 1) * math.floor(total_data[key] * 0.1))):
+                        dataY_val.append(sp_gender)
+                        X_val.append(y)
+                        val_count += 1
+#                     test
+                    elif (current_frame >= ((test_index + 1) * math.floor(total_data[key] * 0.1))) and (current_frame < ((test_index + 2) * math.floor(total_data[key] * 0.1))):
+                        if (row[5] == "LowMic") and (low_count[key] < count_test_low[key]):
+                            low_count[key] += 1
+                            dataY_test.append(sp_gender)    
+                            X_test.append(y)
+                            test_count += 1
+                    else:
+                        dataY_train.append(sp_gender)
+                        X_train.append(y)
+                        train_count += 1
+    return X_train, X_val, X_test, dataY_train, dataY_val, dataY_test
+check_gpu()
+def OverlayAndDelayPerBatchTestSet (np_mosquito, sr, f, seed, is_noise_cancelled):
+    '''  
+          Microphone 1 (M1) is on the left side.
+          Microphone 2 (M2) is on the right side.
+          Parameters
+          x is position on x-axis (meter).
+          y is position on y-axis (meter).
+          length is the distance between microphone 1 and microphone 2.
+          coordinate (0,0) is at the middle between 2 microphones.
+          f is scaling factor to scale the level of mosquito sound.
+    '''
+    length = 0.3
+    delta_m = 0.5
+    x = ((length * delta_m)) 
+    y = 0.05
+    M1 = (-(length/2) , 0)
+    M2 = (length/2 , 0)
+#     print(M1, M2)
+
+    xM1_dist, xM2_dist, delay_xM1, delay_xM2 = calculate_delay(M1, M2, sr, x , y)
+#         *********  random the different source of environmental noise *********
+
+    random.seed(seed)
+    randomIndex = random.randint(0,len(noise_sound) - 1)
+    mono_M1, mono_M2 = separate_noise_channels(noise_sound[randomIndex])
+
+
+#         ********* multiply f and 1/ distance from inverse distance law  *********
+    random_f = f
+    f_M1 = MultiplyFactorToSound(np_mosquito, random_f/xM1_dist)
+    f_M2 = MultiplyFactorToSound(np_mosquito, random_f/xM2_dist)
+
+
+#         ********* add delay to mosquito sound *********
+    delay_xM1_np = np.tile(delay_xM1, (f_M1.shape[0],1))
+    delay_xM2_np = np.tile(delay_xM2, (f_M2.shape[0],1))
+    delayed_mosquito_M1 = np.concatenate((delay_xM1_np,f_M1), axis=1)
+    delayed_mosquito_M2 = np.concatenate((delay_xM2_np,f_M2), axis=1)
+    delayed_mosquito_M1 = np.delete(delayed_mosquito_M1,np.s_[2400:delayed_mosquito_M1.shape[1]],1)    
+    delayed_mosquito_M2 = np.delete(delayed_mosquito_M2,np.s_[2400:delayed_mosquito_M2.shape[1]],1) 
+    delayed_cancelled_mosquito_sound = np.subtract(delayed_mosquito_M2, delayed_mosquito_M1)
+
+
+#         ********* random shifted noise array  *********
+    noise_1, noise_2 = random_shifted_noise_with_seed(mono_M1,mono_M2, 2400, seed)
+    overlay_M1 = np.add(delayed_mosquito_M1, noise_1.reshape(1,delayed_mosquito_M1.shape[1]))
+    overlay_M2 = np.add(delayed_mosquito_M2, noise_2.reshape(1,delayed_mosquito_M2.shape[1]))
+    denoised_sound = np.subtract(overlay_M2, overlay_M1)
+    if is_noise_cancelled:
+        sample_list = [delayed_cancelled_mosquito_sound, denoised_sound]
+    elif is_noise_cancelled == False:
+        sample_list = [delayed_mosquito_M2, overlay_M2]
+    return random.choice(sample_list)
+
+def DelayTestSet (np_mosquito, sr, f, is_noise_cancelled):
+    '''  
+          Microphone 1 (M1) is on the left side.
+          Microphone 2 (M2) is on the right side.
+          Parameters
+          x is position on x-axis (meter).
+          y is position on y-axis (meter).
+          length is the distance between microphone 1 and microphone 2.
+          coordinate (0,0) is at the middle between 2 microphones.
+          f is scaling factor to scale the level of mosquito sound.
+          offset is where the mosquito sound start on the noise recording  (second)
+    '''
+    length = 0.3
+    delta_m = 0.5
+    x = ((length * delta_m)) 
+    y = 0.05
+    M1 = (-(length/2) , 0)
+    M2 = (length/2 , 0)
+    xM1_dist, xM2_dist, delay_xM1, delay_xM2 = calculate_delay(M1, M2, sr, x , y)
+
+#         ********* mutiply f factor and inverse distance *********
+    f_M1 = MultiplyFactorToSound(np_mosquito, f/xM1_dist)
+    f_M2 = MultiplyFactorToSound(np_mosquito, f/xM2_dist)
+
+#         ********* add delay to mosquito sound *********
+    delay_xM1_np = np.tile(delay_xM1, (f_M1.shape[0],1))
+    delay_xM2_np = np.tile(delay_xM2, (f_M2.shape[0],1))
+    delayed_mosquito_M1 = np.concatenate((delay_xM1_np,f_M1), axis=1)
+    delayed_mosquito_M2 = np.concatenate((delay_xM2_np,f_M2), axis=1)
+    delayed_mosquito_M1 = np.delete(delayed_mosquito_M1,np.s_[2400:delayed_mosquito_M1.shape[1]],1)    
+    delayed_mosquito_M2 = np.delete(delayed_mosquito_M2,np.s_[2400:delayed_mosquito_M2.shape[1]],1) 
+    denoised_sound = np.subtract(delayed_mosquito_M2, delayed_mosquito_M1)
+    if is_noise_cancelled:
+        return denoised_sound
+    elif is_noise_cancelled == False:
+        return delayed_mosquito_M2
+def create_validation_or_test_set(dataX, seed_increment, is_noise_cancelled):
+    f1 = []
+    f15 = []
+    f2 = []
+    for idx, val in enumerate(dataX):
+    #     from shape (xxxx) -> (1, xxxx)
+        seed = seed_increment + idx
+        f1.append(OverlayAndDelayPerBatchTestSet(np.array(dataX[idx]).reshape(1, np.array(dataX[idx]).shape[0]), 8000,1, seed, is_noise_cancelled))    
+        f15.append(OverlayAndDelayPerBatchTestSet(np.array(dataX[idx]).reshape(1, np.array(dataX[idx]).shape[0]), 8000,1.5,seed, is_noise_cancelled))    
+        f2.append(OverlayAndDelayPerBatchTestSet(np.array(dataX[idx]).reshape(1, np.array(dataX[idx]).shape[0]), 8000,2,seed, is_noise_cancelled))    
+    # totalX_test
+    totalX_test = np.concatenate((f1, f15, f2))
+    np.array(totalX_test).shape
+    # reshape the f1,f15,f2 test set
+    f1 = np.array(f1)
+    f15 = np.array(f15)
+    f2 = np.array(f2)
+    f1 = np.array(f1).reshape(f1.shape[0], f1.shape[2], f1.shape[1])
+    f15 = np.array(f15).reshape(f15.shape[0], f15.shape[2], f15.shape[1])
+    f2 = np.array(f2).reshape(f2.shape[0], f2.shape[2], f2.shape[1])
+    totalX_test = np.array(totalX_test).reshape(totalX_test.shape[0], totalX_test.shape[2], totalX_test.shape[1])
+    return f1, f15, f2, totalX_test
+def create_test_set_without_noise(X_test, seed_increment, is_noise_cancelled):
+    f1_no_noise = []
+    f15_no_noise = []
+    f2_no_noise = []
+    for idx, val in enumerate(X_test):
+    #     from shape (xxxx) -> (1, xxxx)
+        val = np.array(val)
+        f1_no_noise.append(DelayTestSet(np.array(val).reshape(1, np.array(val).shape[0]), 8000,1, is_noise_cancelled))    
+        f15_no_noise.append(DelayTestSet(np.array(val).reshape(1, np.array(val).shape[0]), 8000,1.5, is_noise_cancelled))    
+        f2_no_noise.append(DelayTestSet(np.array(val).reshape(1, np.array(val).shape[0]), 8000,2, is_noise_cancelled))    
+    # totalX_test
+    totalX_test_no_noise = np.concatenate((f1_no_noise, f15_no_noise, f2_no_noise))
+    np.array(totalX_test_no_noise).shape
+    # reshape the f1,f15,f2, test set
+    f1_no_noise = np.array(f1_no_noise)
+    f15_no_noise = np.array(f15_no_noise)
+    f2_no_noise = np.array(f2_no_noise)
+
+    f1_no_noise = np.array(f1_no_noise).reshape(f1_no_noise.shape[0], f1_no_noise.shape[2], f1_no_noise.shape[1])
+    f15_no_noise = np.array(f15_no_noise).reshape(f15_no_noise.shape[0], f15_no_noise.shape[2], f15_no_noise.shape[1])
+    f2_no_noise = np.array(f2_no_noise).reshape(f2_no_noise.shape[0], f2_no_noise.shape[2], f2_no_noise.shape[1])
+    totalX_test_no_noise = np.array(totalX_test_no_noise).reshape(totalX_test_no_noise.shape[0], totalX_test_no_noise.shape[2], totalX_test_no_noise.shape[1])
+    return f1_no_noise, f15_no_noise,f2_no_noise, totalX_test_no_noise
+# Model testing
+def get_report(model, X_test, y_test):
+    time.sleep(4)
+    prediction = np.argmax(model.predict(X_test), axis = 1)
+    df = pd.DataFrame(classification_report(np.argmax(y_test, axis = 1), prediction, output_dict=True))
+    inv_label_dict = { str(value) : key for (key, value) in label_dict.items() }
+    df.rename(columns=inv_label_dict, inplace=True)
+    df = df.round(3)
+    return df
+def get_test_result(model, X_test, y_test, row_index):
+    _, score = model.evaluate(X_test, y_test, batch_size=32, verbose=0)
+    res = get_report(model, X_test, y_test)
+    return res.iloc[row_index,:]
+def find_optimal_model(saved_model_dir, training_round):
+    formatted_training_round = "_round" + str(training_round + 1)
+    for model_name in os.listdir(saved_model_dir):
+        if formatted_training_round in model_name:
+            return model_name
+def write_csv_file(classification_result, metric_name, model_directory):
+    classification_result.to_csv(f"{model_directory}{metric_name}_classification_result_raw.csv", index = False)
+    average_res = pd.DataFrame(classification_result.groupby("Test dataset").mean())
+    average_res = average_res.drop(columns=['round'])
+    average_res.to_csv(f"{model_directory}{metric_name}_classification_result_avg.csv")
+# Model testing final
+data_dir = "./data/mosquito_recordings/"
+model_dir = "./models/"
+export_result_dir = "./classification_results/"
+sorted_audio_files_name = load_data(data_dir)
+data_count  = count_data(sorted_audio_files_name, data_dir)
+total_res_f1_score = pd.DataFrame()
+total_res_precision = pd.DataFrame()
+total_res_recall = pd.DataFrame()
+
+for fold_round in range(10):
+    print(f" ********** round {fold_round} ********** ")
+    X_train, X_val, X_test, dataY_train, dataY_val, dataY_test = split_data(sorted_audio_files_name, data_count,  fold_round, data_dir)
+#     create test set with noise cancellation 
+    f1,f15,f2, totalX_test = create_validation_or_test_set(X_test, 0, is_noise_cancelled = True)
+    f1_no_noise,f15_no_noise, f2_no_noise, totalX_test_no_noise =  create_test_set_without_noise(X_test, 0,is_noise_cancelled = True)
+    _,_,_, totalX_val = create_validation_or_test_set(X_val, 2500, is_noise_cancelled = True)
+#     encode data
+    print(" ------ Encode data ------")
+    y_train, label_dict = encode_data(dataY_train)
+    y_test, label_dict = encode_data(dataY_test)
+    y_val,label_dict = encode_data(dataY_val)
+#     balance data
+    print("------ Balance data ------")
+    X_train, y_train = balance_train(X_train, y_train)
+#     reshape data
+    print("------ Reshape data ------")
+    X_train, totalX_val, X_test, y_train, y_val, y_test = reshape_data(X_train, totalX_val, X_test, y_train, y_val, y_test) 
+    y_test_2x = np.concatenate((y_test, y_test))
+    y_test_6x = np.concatenate((y_test, y_test, y_test, y_test, y_test, y_test))
+#     evaluate data
+    totalX_test_data_de = [np.concatenate((f1, f1_no_noise)), np.concatenate((f15, f15_no_noise)), 
+                           np.concatenate((f2, f2_no_noise)), np.concatenate((totalX_test, totalX_test_no_noise))]
+
+    totalY_test_data = [y_test_2x,y_test_2x,y_test_2x,y_test_6x]
+
+    row_label = ["Denoised Wingbeats (F=1) + Denoised Clean Wingbeats (F=1) ",
+        "Denoised Wingbeats (F=1.5) + Denoised Clean Wingbeats (F=1.5)",
+        "Denoised Wingbeats (F=2) + Denoised Clean Wingbeats (F=2)",
+        "Denoised Wingbeats (F=1,1.5,2) + Denoised Clean Wingbeats (F=1,1.5,2)"]
+
+    saved_model_cp_dir = f"{model_dir}"
+    model_filename = find_optimal_model(model_dir, fold_round)
+    print(f"----- ROUND: {fold_round + 1}, MODEL: {model_filename}")
+    min_val_model = tf.keras.models.load_model(model_dir + model_filename)
+    for idx, test_data in enumerate(totalX_test_data_de):
+        for metric_index in range(3):                    
+            res = get_test_result(min_val_model, test_data, totalY_test_data[idx], metric_index)
+            res = pd.DataFrame(res).transpose()
+
+            res.insert(0, 'round', fold_round + 1)
+            res.insert(0, 'Test dataset', row_label[idx])
+            if metric_index == 0:
+                total_res_precision = total_res_precision.append(res)
+            elif metric_index == 1:
+                total_res_recall = total_res_recall.append(res)
+            elif metric_index == 2:
+                total_res_f1_score = total_res_f1_score.append(res)
+
+write_csv_file(total_res_precision, "precision",  export_result_dir)
+write_csv_file(total_res_recall, "recall", export_result_dir)
+write_csv_file(total_res_f1_score, "f1_score", export_result_dir)
+
+

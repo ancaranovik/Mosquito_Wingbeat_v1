@@ -1,0 +1,398 @@
+[
+  {
+    "frontend": "03A",
+    "model_family": "small_cnn",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "channels": [
+        16,
+        32,
+        64
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "max_pool_after_first_two": [
+        2,
+        2
+      ],
+      "head": "global_mean_time_frequency -> dropout -> linear4",
+      "family": "small_cnn",
+      "input_shape": [
+        1,
+        96,
+        64
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 23668,
+    "module_repr": "SmallCNN(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (2): Sequential(\n      (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (4): Sequential(\n      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=64, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03A",
+    "model_family": "ds_cnn",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "stem_channels": 32,
+      "stem_kernel": [
+        3,
+        3
+      ],
+      "stem_stride": [
+        2,
+        2
+      ],
+      "blocks": 4,
+      "channels": 32,
+      "depthwise_kernel": [
+        3,
+        3
+      ],
+      "block_stride": [
+        1,
+        1
+      ],
+      "pointwise_kernel": [
+        1,
+        1
+      ],
+      "head": "global_mean_time_frequency -> dropout -> linear4",
+      "family": "ds_cnn",
+      "input_shape": [
+        1,
+        96,
+        64
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 6244,
+    "module_repr": "DSCNN(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (2): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (4): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (5): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (6): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (7): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (8): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=32, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03A",
+    "model_family": "tc_resnet8",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "input_layout": "frequency_as_channels; temporal Conv1d",
+      "channels": [
+        16,
+        24,
+        32,
+        48
+      ],
+      "stem_kernel": 3,
+      "stem_stride": 1,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "block_kernel": 9,
+      "first_conv_strides": [
+        2,
+        2,
+        2
+      ],
+      "second_conv_stride": 1,
+      "shortcut": "1x1 projection + BN",
+      "head": "global_mean_time -> dropout -> linear4",
+      "depth_convention": "7 main-path convolutions + classifier; projections excluded",
+      "family": "tc_resnet8",
+      "input_shape": [
+        1,
+        96,
+        64
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 65940,
+    "module_repr": "TCResNet8(\n  (features): Sequential(\n    (0): Conv1d(64, 16, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)\n    (1): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(16, 24, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(24, 24, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(16, 24, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n    (4): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(24, 32, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(32, 32, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(24, 32, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n    (5): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(32, 48, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(48, 48, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(32, 48, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=48, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03A",
+    "model_family": "cnn_lstm",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "channels": [
+        16,
+        32
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "max_pool_after_each": [
+        2,
+        2
+      ],
+      "frequency_reduction": "mean",
+      "lstm_input": 32,
+      "lstm_hidden": 32,
+      "lstm_layers": 1,
+      "bidirectional": false,
+      "lstm_dropout": 0.0,
+      "head": "last temporal hidden state -> dropout -> linear4",
+      "family": "cnn_lstm",
+      "input_shape": [
+        1,
+        96,
+        64
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 13428,
+    "module_repr": "CNNLSTM(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (2): Sequential(\n      (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n  )\n  (lstm): LSTM(32, 32, batch_first=True)\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=32, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03B",
+    "model_family": "small_cnn",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "channels": [
+        16,
+        32,
+        64
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "max_pool_after_first_two": [
+        2,
+        2
+      ],
+      "head": "global_mean_time_frequency -> dropout -> linear4",
+      "family": "small_cnn",
+      "input_shape": [
+        1,
+        96,
+        40
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 23668,
+    "module_repr": "SmallCNN(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (2): Sequential(\n      (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (4): Sequential(\n      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=64, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03B",
+    "model_family": "ds_cnn",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "stem_channels": 32,
+      "stem_kernel": [
+        3,
+        3
+      ],
+      "stem_stride": [
+        2,
+        2
+      ],
+      "blocks": 4,
+      "channels": 32,
+      "depthwise_kernel": [
+        3,
+        3
+      ],
+      "block_stride": [
+        1,
+        1
+      ],
+      "pointwise_kernel": [
+        1,
+        1
+      ],
+      "head": "global_mean_time_frequency -> dropout -> linear4",
+      "family": "ds_cnn",
+      "input_shape": [
+        1,
+        96,
+        40
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 6244,
+    "module_repr": "DSCNN(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (2): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (4): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (5): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (6): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (7): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (8): Sequential(\n      (0): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=32, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03B",
+    "model_family": "tc_resnet8",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "input_layout": "frequency_as_channels; temporal Conv1d",
+      "channels": [
+        16,
+        24,
+        32,
+        48
+      ],
+      "stem_kernel": 3,
+      "stem_stride": 1,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "block_kernel": 9,
+      "first_conv_strides": [
+        2,
+        2,
+        2
+      ],
+      "second_conv_stride": 1,
+      "shortcut": "1x1 projection + BN",
+      "head": "global_mean_time -> dropout -> linear4",
+      "depth_convention": "7 main-path convolutions + classifier; projections excluded",
+      "family": "tc_resnet8",
+      "input_shape": [
+        1,
+        96,
+        40
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 64788,
+    "module_repr": "TCResNet8(\n  (features): Sequential(\n    (0): Conv1d(40, 16, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)\n    (1): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(16, 24, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(24, 24, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(16, 24, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n    (4): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(24, 32, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(32, 32, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(24, 32, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n    (5): TemporalBlock(\n      (main): Sequential(\n        (0): Conv1d(32, 48, kernel_size=(9,), stride=(2,), padding=(4,), bias=False)\n        (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n        (2): ReLU()\n        (3): Conv1d(48, 48, kernel_size=(9,), stride=(1,), padding=(4,), bias=False)\n        (4): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (skip): Sequential(\n        (0): Conv1d(32, 48, kernel_size=(1,), stride=(2,), bias=False)\n        (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n      (relu): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=48, out_features=4, bias=True)\n  )\n)"
+  },
+  {
+    "frontend": "03B",
+    "model_family": "cnn_lstm",
+    "status": "NOT_TRAINED",
+    "architecture": {
+      "channels": [
+        16,
+        32
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "max_pool_after_each": [
+        2,
+        2
+      ],
+      "frequency_reduction": "mean",
+      "lstm_input": 32,
+      "lstm_hidden": 32,
+      "lstm_layers": 1,
+      "bidirectional": false,
+      "lstm_dropout": 0.0,
+      "head": "last temporal hidden state -> dropout -> linear4",
+      "family": "cnn_lstm",
+      "input_shape": [
+        1,
+        96,
+        40
+      ],
+      "classes": 4,
+      "activation": "ReLU",
+      "dropout": 0.2,
+      "convolution_bias": false,
+      "convolution_padding": "symmetric k//2",
+      "batch_norm": {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "affine": true
+      },
+      "linear_bias": true,
+      "initialization": "PyTorch default reset_parameters; seed 42",
+      "pretrained": false
+    },
+    "parameter_count": 13428,
+    "module_repr": "CNNLSTM(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (2): Sequential(\n      (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n  )\n  (lstm): LSTM(32, 32, batch_first=True)\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=32, out_features=4, bias=True)\n  )\n)"
+  }
+]

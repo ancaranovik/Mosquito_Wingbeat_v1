@@ -1,0 +1,24 @@
+{
+  "version": "humbug-core-v1",
+  "frozen_at_utc": "2026-09-25T18:16:22.388801+00:00",
+  "status": "CONDITIONAL_GO_CONTROLLED_TWO_SPECIES_CORE_ONLY",
+  "test_policy": "No further listening, plots, feature tuning, predictions or selection on testing members until final locked evaluation; fixed preprocessing and integrity checks only.",
+  "supersedes": "manifests/humbug_metadata_candidate.csv is a preserved pre-audio three-species proposal, never an approved final split",
+  "selection": "Female; fed=f; method=LT; plurality=Single; Tanzania/Ifakara/cup; arabiensis or funestus ss; dates with both eligible species",
+  "grouping": "All clips of each original name stay together; all selected original names on the same record_datetime stay together",
+  "sha256": {
+    "core_source_manifest.csv": "382c7d671fa6049159928131abeced683c5dbc119cec306366fa6c130b3bb372",
+    "core_group_manifest.csv": "bf4fb25618185d597ed498ee408f940278b01311f657cf1fef452d5c1cc7507e",
+    "core_training_files.csv": "a2784b04f5bc0955e71f7125d5d534a4f5e180bda1da61791d5902e0f14a386c",
+    "core_validation_files.csv": "fb4a9d044b8909fb954e31fa0ff353e4a8ebb8d094ceeff07f7100a80c838d58",
+    "core_testing_files.csv": "d6ee6960e288c3d9a3feb32f7428f2980cbe3c3324c7948a8121b90fa1d0044d",
+    "split_design.json": "f1ca1346719140babd8558763c6d2f91a29901c5876f3b6772d7e14c37b5cb92",
+    "audio_inventory.csv": "31672aaa87abcd571b3c7476acb37d26882b4cbf7264151a4b8f9948951fd7eb",
+    "exact_overlap.csv": "5c2929dcf6c2956404ab449b890186c332c76e08b2699abf459e1e487d16568f",
+    "overlap_summary.json": "ab1409122ac3ffaaafc11eaefa4f87f58a6dae9b3e89e448da41f76264c429a4",
+    "representative_audio.csv": "19188a17a7209de08e27c59e5d31e05add697e64ecf6ab3299a1392ec5fbacec",
+    "audit_summary.json": "3420577b606931000b02c1557a802186060412bcdaba40fa5831e614ce2e5a5d"
+  },
+  "metadata_sha256": "fd5a6e7df3ddd125d0ef4b941ab27090eec5414bf11ffcdadb74f0b9518b1aa9",
+  "archive_inventory_sha256": "e2498adbdaf6d18e01f9d98f39b7219ad059b21f6cbb75a49c0cf21e512fbf44"
+}

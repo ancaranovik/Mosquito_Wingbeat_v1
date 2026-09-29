@@ -1,0 +1,79 @@
+{
+  "status": "VALIDATION_CHECKPOINT_FIXED",
+  "best_epoch": 4,
+  "epochs_run": 12,
+  "criterion": "minimum_validation_weighted_cross_entropy",
+  "selected_validation_metrics": {
+    "accuracy": 0.5507393153737087,
+    "macro_precision": 0.5341374583933529,
+    "macro_recall": 0.5816732065630028,
+    "macro_f1": 0.5250039441643606,
+    "weighted_f1": 0.561004061822925,
+    "examples": 4937,
+    "confusion_matrix": [
+      [
+        1231,
+        105,
+        401,
+        483
+      ],
+      [
+        396,
+        547,
+        58,
+        119
+      ],
+      [
+        64,
+        1,
+        214,
+        16
+      ],
+      [
+        337,
+        102,
+        136,
+        727
+      ]
+    ],
+    "class_order": [
+      "an arabiensis",
+      "an funestus ss",
+      "an squamosus",
+      "culex pipiens complex"
+    ],
+    "per_class": {
+      "an arabiensis": {
+        "precision": 0.6070019723865878,
+        "recall": 0.5545045045045045,
+        "f1": 0.5795668549905839,
+        "support": 2220
+      },
+      "an funestus ss": {
+        "precision": 0.7245033112582782,
+        "recall": 0.48839285714285713,
+        "f1": 0.5834666666666667,
+        "support": 1120
+      },
+      "an squamosus": {
+        "precision": 0.26452410383189123,
+        "recall": 0.7254237288135593,
+        "f1": 0.38768115942028986,
+        "support": 295
+      },
+      "culex pipiens complex": {
+        "precision": 0.5405204460966543,
+        "recall": 0.5583717357910907,
+        "f1": 0.5493010955799018,
+        "support": 1302
+      }
+    },
+    "loss": 1.021739699481174
+  },
+  "best_validation_loss": 1.021739699481174,
+  "best_validation_macro_f1_observed": 0.5250039441643606,
+  "model_sha256": "32f45a7d0d8e557230497b5b9c025e6b52bea16b17c7acd8b190eb493979ec25",
+  "history_sha256": "480d1e556c77913411e939433b4cd95096379c5e4fe0d0000d791d1d4e9fe737",
+  "fixed_at_utc": "2026-09-29T08:28:02.116281+00:00",
+  "test_used_for_selection": false
+}

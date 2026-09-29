@@ -1,0 +1,153 @@
+﻿# ICTP_Mosquito_WingBeat_Sound_Classification_TinyML
+- Raw data: Sample Rate: 16 KHz / 16 bits
+- TinyML - Dataset Preparation
+- M.Rovai @30Nov2021
+## Libraries 
+import numpy as np
+import matplotlib.pyplot as plt
+import soundfile
+import librosa
+import librosa.display
+import IPython.display
+## Classes
+* Aedes aegypti
+* Aedes albopictus
+* Other mosquitos
+* Noise
+
+## Download Datasets
+### Raw Dataset (Stanford University)
+- [Data from: Using mobile phones as acoustic sensors for high-throughput mosquito surveillance](https://datadryad.org/stash/dataset/doi:10.5061/dryad.98d7s)
+
+The direct monitoring of mosquito populations in field settings is a crucial input for shaping appropriate and timely control measures for mosquito-borne diseases. Here, we demonstrate that commercially available mobile phones are a powerful tool for acoustically mapping mosquito species distributions worldwide. We show that even low-cost mobile phones with very basic functionality are capable of sensitively acquiring acoustic data on species-specific mosquito wingbeat sounds, while simultaneously recording the time and location of the human-mosquito encounter. We survey a wide range of medically important mosquito species, to quantitatively demonstrate how acoustic recordings supported by spatio-temporal metadata enable rapid, non-invasive species identification. As proof-of-concept, we carry out field demonstrations where minimally-trained users map local mosquitoes using their personal phones. Thus, we establish a new paradigm for mosquito surveillance that takes advantage of the existing global mobile network infrastructure, to enable continuous and large-scale data acquisition in resource-constrained areas.
+
+Mukundarajan, Haripriya et al. (2018), Data from: Using mobile phones as acoustic sensors for high-throughput mosquito surveillance, Dryad, Dataset, https://doi.org/10.5061/dryad.98d7s
+The 2 main classes will be the `Aedes aegypi` and `Aedes albopictus`. All 44KHz data will be used.
+### Background noise
+- Record form laboratory (Santiago and Trieste)
+- Extract from Speech Commands v0.02 dataset 
+- Get background from Mukundarajan, Haripriya et al. (2018), Data from: Using mobile phones as acoustic sensors for high-throughput mosquito surveillance, Dryad, Dataset, https://doi.org/10.5061/dryad.98d7s
+# Download Speech Commands v0.02 dataset. The dataset contains 30+ word and
+# sound categories, but we will only use a subset of them
+
+!mkdir - p ./speech_commands_v0.02
+!curl - o ./speech_commands_v0.02/speech_commands_v0.02.tar.gz - fSsL http: // download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+!cd  ./speech_commands_v0.02 & & tar xzf speech_commands_v0.02.tar.gz
+### Other mosquitos
+`Other Mosquito` is a random sampling from the "Using mobile phones as acoustic sensors for high-throughput mosquito surveillance, Dryad, Dataset", except for `Aedes aegypt` and `Aedes albopictu`. 
+### Working Dataset
+!pwd
+!ls ../data/raw_dataset
+#### inspect data
+!ls ../data/raw_dataset/aedes_aegypti
+file_path = '../data/raw_dataset/aedes_aegypti/'
+file = '10130f.wav'
+audio, sr = librosa.load(file_path+file, sr=16000) # Read in 16kHz
+sr
+audio.shape
+plt.plot(audio);
+IPython.display.Audio(data=audio, rate=sr)
+len_min = (len(audio)/16000)/60
+cut = int(len_min)
+cut
+x = np.array_split(audio, cut)
+len(x[3])
+cut = len(audio)//5
+cut
+audio_test = audio[:cut]
+audio_train = audio[cut:]
+audio_train.shape, audio_test.shape,
+soundfile.write(file_path+'train/'+'tr'+file, audio_train, sr, subtype='PCM_16') # Write in 16kHz/16bits
+soundfile.write(file_path+'test/'+'ts'+file, audio_test, sr, subtype='PCM_16') # Write in 16kHz/16bits
+####  Convert to 16KHz/16bit and save data as .wav (around 1 minute samples)
+def split_resample_audio(file_path, saved_file_path, file):
+    audio, sr = librosa.load(file_path+file, sr=16000) # Read in 16kHz
+    len_min = (len(audio)/sr)/60
+    cut = int(len_min)
+    if cut == 0:cut=1
+    split_audio = np.array_split(audio, cut)
+    for i in range(cut):
+        soundfile.write(saved_file_path+'16khz_'+str(i)+'_'+file, split_audio[i], sr, subtype='PCM_16')
+**aedes_aegypti**
+!ls ../data/raw_dataset/aedes_aegypti
+f1=2*60+32
+f2=4*60+6
+f3=4*60+54
+(f1+f2+f3)/60
+file = '10130f.wav'
+file_path = '../data/raw_dataset/aedes_aegypti/'
+saved_file_path = '../data/dataset/aedes_aegypti/'
+split_resample_audio(file_path, saved_file_path, file)
+file = '11-16-2016-111839 10130f.wav'
+file_path = '../data/raw_dataset/aedes_aegypti/'
+saved_file_path = '../data/dataset/aedes_aegypti/'
+split_resample_audio(file_path, saved_file_path, file)
+file = '11-16-2016-111457 10130f.wav'
+file_path = '../data/raw_dataset/aedes_aegypti/'
+saved_file_path = '../data/dataset/aedes_aegypti/'
+split_resample_audio(file_path, saved_file_path, file)
+**aedes_albopictus**
+!ls ../data/raw_dataset/aedes_albopictus
+f1=5*60+27
+f2=5*60+40
+(f1+f2)/60
+file = '11-16-2016-125240 albopictus f.wav'
+file_path = '../data/raw_dataset/aedes_albopictus/'
+saved_file_path = '../data/dataset/aedes_albopictus/'
+split_resample_audio(file_path, saved_file_path, file)
+file = 'albof.wav'
+file_path = '../data/raw_dataset/aedes_albopictus/'
+saved_file_path = '../data/dataset/aedes_albopictus/'
+split_resample_audio(file_path, saved_file_path, file)
+**background noise**
+from pathlib import Path
+
+file_path = '../data/raw_dataset/noise/' 
+saved_file_path = '../data/dataset/noise/' 
+
+entries = Path(file_path)
+for entry in entries.iterdir():
+    file = entry.name
+    audio, sr = librosa.load(file_path+file, sr=16000) # Read in 16kHz
+    soundfile.write(saved_file_path+'16khz_'+file, audio, sr, subtype='PCM_16')        
+    print(file)
+9*21/60
+file_path = '../data/raw_dataset/noise/' 
+saved_file_path = '../data/dataset/noise/' 
+
+entries = Path(file_path)
+for entry in entries.iterdir():
+    try:
+        file = entry.name
+        audio, sr = librosa.load(file_path+file, sr=16000) # Read in 16kHz
+        len_min = (len(audio)/sr)/60
+        cut = int(len_min)
+        if cut == 0:cut=1
+        split_audio = np.array_split(audio, cut)
+        for i in range(cut):
+            soundfile.write(saved_file_path+'16khz_'+str(i)+'_'+file, split_audio[i], sr, subtype='PCM_16')        
+        print(file)
+    except:
+        print("Problem with: ", file)
+**Other Mosquitos**
+- The samples were split around 1 minute and converted. 
+- A sub-sample of around 22 minutes were selected to be uploaded to Edge Impulse
+int(0.8)
+file_path = '../data/raw_dataset/other_mosquitos/' 
+saved_file_path = '../data/dataset/other_mosquitos/' 
+
+entries = Path(file_path)
+for entry in entries.iterdir():
+    try:
+        file = entry.name
+        audio, sr = librosa.load(file_path+file, sr=16000) # Read in 16kHz
+        len_min = (len(audio)/sr)/60
+        cut = int(len_min)
+        if cut == 0:cut=1
+        split_audio = np.array_split(audio, cut)
+        for i in range(cut):
+            soundfile.write(saved_file_path+'16khz_'+str(i)+'_'+file, split_audio[i], sr, subtype='PCM_16')        
+        print(file)
+    except:
+        print("Problem with: ", file)
+

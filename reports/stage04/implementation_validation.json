@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "validated_at_utc": "2026-09-29T07:50:08.322617+00:00",
+  "engineering_tests_passed": 17,
+  "fresh_kernel_notebooks": [
+    {
+      "notebook": "notebooks/current/04A_train_logmel.ipynb",
+      "status": "PASS",
+      "training_enabled": false,
+      "sha256": "e92928211b52bd73a30f4b9087c632ef07b5862008614b696160fadf7c0c3ebe"
+    },
+    {
+      "notebook": "notebooks/current/04B_train_edge_mfe.ipynb",
+      "status": "PASS",
+      "training_enabled": false,
+      "sha256": "501834156e351074a497127da7e75d54ccb1232fa401f9d3650d2d4024eb1e50"
+    },
+    {
+      "notebook": "notebooks/current/04C_compare_models.ipynb",
+      "status": "EXPECTED_BLOCKED_MISSING_RUNS",
+      "training_enabled": false,
+      "sha256": "53f3669858353d12bac53e303df21a6a782302b3d176372af0e0856689e4da95"
+    }
+  ],
+  "mosquito_model_training_executed": false,
+  "optimizer_updates_on_real_data": 0,
+  "synthetic_checks": "forward/backward, serialization, deterministic seeds; mocked fit stopping test",
+  "cache_examples": {
+    "03A": 32645,
+    "03B": 32645
+  },
+  "protected_frozen_inputs_unchanged": true,
+  "historical_review_notes": [
+    {
+      "notebook": "notebooks/current/00_prepare_dataset.ipynb",
+      "historical_sha256": "2ee89d7b424c517b165a0c9a56f785d6540df79bd487abd1bd8be9c922cc95d3",
+      "current_frozen_sha256": "0d6115c2c04daa6922011fc25a6a2fcf0c40404f960db69da84244e0d1ba2478",
+      "note": "Historical whole-notebook hash differs; handled as provenance only. Scientific AST/artifact gates are checked separately."
+    },
+    {
+      "notebook": "notebooks/current/01_dataset_audit.ipynb",
+      "historical_sha256": "d8fdb548b5c3c6b4ce6a0d13723da692358adee77f49b709dddd79a7ab6babf2",
+      "current_frozen_sha256": "fa110b1d4abf15fec9b5e34b091bda71867e82b0654a62060eff28a0ac47229e",
+      "note": "Historical whole-notebook hash differs; handled as provenance only. Scientific AST/artifact gates are checked separately."
+    },
+    {
+      "notebook": "notebooks/current/02_segmentation.ipynb",
+      "historical_sha256": "05b65e69d225133441cce7ebf123124f7c4080e671a252c3fcb63e08febeb495",
+      "current_frozen_sha256": "f22aede332ac8d6898cfcdecd82abf9bce17113b5ff18605c4430fd4c70242fc",
+      "note": "Historical whole-notebook hash differs; handled as provenance only. Scientific AST/artifact gates are checked separately."
+    },
+    {
+      "notebook": "notebooks/current/03A_logmel_reference.ipynb",
+      "historical_sha256": "d43210734ab46305d81d9272a165c49e39f84d1ad0d3527568393655d0b31ae3",
+      "current_frozen_sha256": "5061ca94f408b3a2a8eae59e6205dc9d13a2654414cbe7db3f5e15490812b6d7",
+      "note": "Historical whole-notebook hash differs; handled as provenance only. Scientific AST/artifact gates are checked separately."
+    }
+  ],
+  "software": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.8.0",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.6",
+    "nbformat": "5.11.1",
+    "ipykernel": "7.3.0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "torch_build": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 193833145\n  - Intel(R) oneAPI Math Kernel Library Version 2025.2-Product Build 20250620 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "limitations": [
+    "Full 8-run training and post-training comparison not executed",
+    "No Stage-05 hardware or quantization work"
+  ]
+}

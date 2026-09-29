@@ -1,0 +1,60 @@
+{
+  "ae aegypti": {
+    "groups": 49,
+    "annotation_files": 89,
+    "annotated_seconds": 1322.439999999999,
+    "group_split": {
+      "training": 29,
+      "validation": 10,
+      "testing": 10
+    },
+    "metadata_sample_rates": {
+      "44100": 89
+    },
+    "gender": {
+      "Female": 89
+    },
+    "devices": {
+      "tascam": 89
+    }
+  },
+  "an arabiensis": {
+    "groups": 514,
+    "annotation_files": 831,
+    "annotated_seconds": 14815.200000000012,
+    "group_split": {
+      "training": 308,
+      "validation": 103,
+      "testing": 103
+    },
+    "metadata_sample_rates": {
+      "44100": 831
+    },
+    "gender": {
+      "Female": 820,
+      "Male": 11
+    },
+    "devices": {
+      "tascam": 831
+    }
+  },
+  "an funestus ss": {
+    "groups": 248,
+    "annotation_files": 381,
+    "annotated_seconds": 7414.240000000002,
+    "group_split": {
+      "training": 149,
+      "validation": 50,
+      "testing": 49
+    },
+    "metadata_sample_rates": {
+      "44100": 381
+    },
+    "gender": {
+      "Female": 381
+    },
+    "devices": {
+      "tascam": 381
+    }
+  }
+}

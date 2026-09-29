@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "original_caches_validated_read_only": true,
+  "examples_per_branch": 32645,
+  "counts": {
+    "train": 22613,
+    "validation": 4937,
+    "test": 5095
+  },
+  "shapes": {
+    "03A": [
+      96,
+      64
+    ],
+    "03B": [
+      96,
+      40
+    ]
+  },
+  "exact_paired_metadata": true,
+  "source_name_leakage": false,
+  "models_byte_identical": true,
+  "ast_identical_training_components": [
+    "make_loader",
+    "FeatureDataset",
+    "classification_metrics",
+    "source_evaluation",
+    "fit_validation_checkpoint",
+    "load_fixed_checkpoint",
+    "comparison_row"
+  ],
+  "training_executed": false,
+  "feature_generation_executed": false,
+  "cuda_execution_tested_locally": false,
+  "import_closure_verified": true,
+  "external_runtime_dependencies": [
+    "numpy",
+    "pandas",
+    "torch"
+  ],
+  "local_module_imports_from_bundle_only": true,
+  "learning_config_identical_except_device": true,
+  "cpu_training_refused": true,
+  "synthetic_weighted_loss_passed": true,
+  "notebook_schema_and_code_syntax_passed": true,
+  "notebook_03A_before_03B": true
+}

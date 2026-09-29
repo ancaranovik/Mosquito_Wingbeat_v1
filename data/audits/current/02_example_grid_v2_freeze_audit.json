@@ -1,0 +1,122 @@
+{
+  "status": "ACCEPTED_FROZEN",
+  "model_training_performed": false,
+  "manifest": "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+  "manifest_sha256": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+  "generation_audit": "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json",
+  "generation_audit_sha256": "e94cb9c65e4ce3e63266ac34b05d03bbe372a2f51935bfc3f8c7af20a36ee75b",
+  "authenticated_inputs": {
+    "sha256": {
+      "archive/legacy_data/core_096s_candidate_windows.csv": "08df667e694466d23bd8c0a4ecb215f8505ea2e72c71cc131574bce4152628f9",
+      "data/audits/current/core_audio_audit.csv": "8551ada9c64998e69922779b42054ec17245c8923457877d24b633813a1f2965",
+      "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json": "e94cb9c65e4ce3e63266ac34b05d03bbe372a2f51935bfc3f8c7af20a36ee75b",
+      "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+      "data/manifests/current/core_single_4species_frozen_split.csv": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+      "data/manifests/current/core_single_4species_metadata.csv": "e72974da9a4e1a419bb459363be37ff91fdfdd6e65ff9a32582e9de13e786614",
+      "data/metadata/neurips_2021_zenodo_0_0_1.csv": "baa4de3da5965dfea41dbd505023d392fab4f01db1e6e137cf50442423f79727",
+      "reference/humbug/vggish/mel_features.py": "68803c00743cb43139db12836b5e745a977cdb81443257fa716cd520d7e5e948",
+      "reference/humbug/vggish/vggish.py": "fd227c0ff5e6646c5b8097d54fa2c1d1a3921bab7dda037f58cee4a8bfaa6ee8",
+      "reference/humbug/vggish/vggish_input.py": "a2a1bb264f1bd1a276c2c73964a27b64fa9dd65e4ace350d93614cb721501d13",
+      "reference/humbug/vggish/vggish_params.py": "61698102149a94a6ce8f567f6abfad8b1b04760825396f33f9d4f31e66e79c5f",
+      "third_party/edgeimpulse-processing-blocks/mfe/__init__.py": "a72e578358398436068d455d3cd4efb2e336b5b23bb373b44ece7faf427dfba9",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/dataset.py": "2e999e679d126619f2e7b72f263637bb78140fcacb3469628348b9e0e1cdee81",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/errors.py": "3a1b74b873961bbd5012a71ef57ac06f1a3d05c9ae22aea195fb9b4de2f8121c",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/graphing.py": "bd98e8d8d39444e4b10043159ea5d8d80ba859e80c43776e479c9ffdf52b551e",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/sampling.py": "4a3532ceeb51c9af9a0dc1df90151888554469937abf85daac111a6c43b22b52",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/spectrum.py": "09f6ba0335905f193ab8b5dbd15a8cf5b88e059201f913aa4e05c6662e43dd29",
+      "third_party/edgeimpulse-processing-blocks/mfe/common/wavelet.py": "f2f5c47a387cd2a879b486f6af6a12be2a52f9f3f2e42ade6289d13247c0a7c5",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp-server.py": "f3afe7717f8612a2d925aac5088037a793900b711b7818966466fa8ecf46ff16",
+      "third_party/edgeimpulse-processing-blocks/mfe/dsp.py": "68e9ac2873c822791d6e4651ae4ed16aa9e0aaf4b61ffda8a20a4e2366f16f4e",
+      "third_party/edgeimpulse-processing-blocks/mfe/parameters.json": "9aa802f189079f552018a2a45151ae7bab6a5eb20e0ccd04f9865b006a2c5b8e",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/__init__.py": "ccfd42a6cc1ee35d88ee4771e8a493a987575d1972cb0d49f79664a27f62a187",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/feature.py": "85f7d5c72470a37bd2d88e26b02ccae5b293d63ec881247d7b1481911dbd6d3f",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/functions.py": "12b921981eb3b0cda1de223cce445e5ee6941c2d8516df16d9f19dc292a8296c",
+      "third_party/edgeimpulse-processing-blocks/mfe/third_party/speechpy/processing.py": "223e652894b20d47580d96bd198a25bbf48627f8b97e0b3828d7a023d8493619"
+    },
+    "wav_identity_record": "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json",
+    "wav_files_authenticated": 1898
+  },
+  "final_gates": {
+    "exact_parent_metadata": true,
+    "complete_grid_geometry": true,
+    "accepted_membership": true,
+    "zero_source_leakage": true,
+    "accepted_hashes": true,
+    "all_wav_identities": true,
+    "exact_reconstruction": true,
+    "all_contexts_physically_checked": true,
+    "original_clip_evidence_unchanged": true,
+    "terminal_eligibility_unchanged": true
+  },
+  "software": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.3.0"
+  },
+  "counts": {
+    "old_examples": 32964,
+    "new_examples": 32645,
+    "terminal_examples_lost": 319,
+    "clips": 1898,
+    "sources": 1189
+  },
+  "by_split": [
+    {
+      "split": "test",
+      "examples": 5095,
+      "clips": 294,
+      "sources": 182,
+      "old_examples": 5146,
+      "terminal_examples_lost": 51
+    },
+    {
+      "split": "train",
+      "examples": 22613,
+      "clips": 1335,
+      "sources": 830,
+      "old_examples": 22841,
+      "terminal_examples_lost": 228
+    },
+    {
+      "split": "validation",
+      "examples": 4937,
+      "clips": 269,
+      "sources": 177,
+      "old_examples": 4977,
+      "terminal_examples_lost": 40
+    }
+  ],
+  "geometry": {
+    "sample_rate": 16000,
+    "example_stride_samples": 15360,
+    "reference_context_samples": 15600,
+    "context_overlap_samples": 240,
+    "reference_frame_samples": 400,
+    "reference_hop_samples": 160,
+    "reference_frames": 96,
+    "padding": "none",
+    "cleaning": "none"
+  },
+  "resampling": {
+    "up": 160,
+    "down": 441,
+    "scope": "whole_clip",
+    "window": [
+      "kaiser",
+      5.0
+    ],
+    "padtype": "constant",
+    "cval": 0,
+    "output_length": "ceil(native_samples*160/441)"
+  },
+  "geometry_validation_dtype": "float32",
+  "frontend_input_dtype": "float64",
+  "scope": "Exact accepted example membership and geometry; frontend contracts verified separately",
+  "validated_at_utc": "2026-09-29T06:55:40.799359+00:00"
+}

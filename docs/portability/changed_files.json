@@ -1,0 +1,49 @@
+{
+  "modified_original_files": [
+    ".vscode/settings.json",
+    "README.md",
+    "notebooks/current/00_prepare_dataset.ipynb",
+    "notebooks/current/01_dataset_audit.ipynb",
+    "notebooks/current/02_segmentation.ipynb",
+    "notebooks/current/03A_logmel_reference.ipynb",
+    "notebooks/current/03B_edge_mfe.ipynb",
+    "notebooks/current/04A_train_logmel.ipynb",
+    "notebooks/current/04B_train_edge_mfe.ipynb",
+    "notebooks/current/04C_compare_models.ipynb",
+    "tools/pipeline_contract.py",
+    "tools/stage04_data.py",
+    "tools/test_pipeline_contract.py",
+    "tools/test_stage04.py",
+    "tools/training_common.py",
+    "tools/validate_pipeline.py",
+    "tools/validate_stage04.py"
+  ],
+  "new_primary_files": [
+    ".gitattributes",
+    ".gitignore",
+    "configs/baseline/accepted_artifacts.json",
+    "configs/baseline/colab_stage04.json",
+    "configs/baseline/refactor_source_pins.json",
+    "configs/experiments/baseline_reuse.json",
+    "notebooks/current/04D_experiments.ipynb",
+    "requirements-colab.txt",
+    "tools/baseline_review.py",
+    "tools/cache_consumer.py",
+    "tools/colab_bootstrap.py",
+    "tools/experiment_runner.py",
+    "tools/experiment_training.py",
+    "tools/prepare_drive_upload.py",
+    "tools/project_paths.py",
+    "tools/test_portability.py",
+    "tools/verify_portability.py"
+  ],
+  "new_documentation": [
+    "docs/PORTABLE_WORKFLOW.md",
+    "docs/portability/"
+  ],
+  "preserved_provenance_copies": [
+    "archive/portability_originals/",
+    "archive/colab_baseline/",
+    "archive/colab_build_tools/"
+  ]
+}

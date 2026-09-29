@@ -1,0 +1,399 @@
+{
+  "status": "COMPLETE",
+  "run_id": "03A_small_cnn_seed42",
+  "frontend": "03A",
+  "frontend_identity": {
+    "notebook_sha256_provenance": "d43210734ab46305d81d9272a165c49e39f84d1ad0d3527568393655d0b31ae3",
+    "frontend_ast_sha256": {
+      "frame_complete": "7fc8f5701fd55c69c97cc93b77e4713ca3a01b249ac90e6c3a0423df27ceb64d",
+      "periodic_hann": "4b077fa8f2a345185429659e7c85e3d409e3c4ba34ee11e41c8e67598448951c",
+      "stft_magnitude_vggish": "bb410824cf50e2b01dc3366d092417c7d3b7ed579c176d0dc60e1bc0e46dfa61",
+      "hertz_to_mel_vggish": "d417efe39a088299ff92f21eb616d35b9b7c14359780f15a22a9cdb51ad216e7",
+      "spectrogram_to_mel_matrix_vggish": "508c8620a7772b77c217e86522af037209638907216e0932246c881fdcf26f3a",
+      "logmel_reference": "aac2366186bb5513b8c70d1fe23171af3998699a96858e518cc35546a9d89d01"
+    },
+    "execution_ast_sha256": {
+      "8": "b3fb8a3118d61748e0f110bf1487d010d5b17cedde9d9d35e7a39148a8ee9c71",
+      "10": "576f5e195d9be9bff971e9f3289abbf4f09e7e9ca2a02c49338df1f5177c970b",
+      "12": "7e3d11b7827f7d2f14ca46dc4bb1edf270f8ee96e0d6be539a951821dbd15021"
+    },
+    "audit_sha256": "d67efd73a7fd5b1917b338203e127cffb910d66e21d227394dbd926cea36aa88",
+    "contract": {
+      "sample_rate_hz": 16000,
+      "context_samples": 15600,
+      "context_seconds": 0.975,
+      "frame_length_samples": 400,
+      "frame_hop_samples": 160,
+      "fft_length": 512,
+      "frames": 96,
+      "mel_bins": 64,
+      "mel_min_hz": 125.0,
+      "mel_max_hz": 7500.0,
+      "log_offset": 0.01,
+      "window": "periodic_hann",
+      "spectrum": "unnormalized_magnitude_rfft",
+      "mel_mapping": "VGGish_HTK_style",
+      "mel_area_normalization": false,
+      "dc_weight_zero": true,
+      "log": "natural_log",
+      "output_shape": [
+        96,
+        64
+      ],
+      "output_dtype": "float64"
+    },
+    "definition_cells": [
+      8,
+      10,
+      12
+    ],
+    "frontend": "03A",
+    "sha256": "2dd5f6ffbf09d2e9ff0185165186c6b44aca022e179bbf4a2bb73db37f23d506"
+  },
+  "model_family": "small_cnn",
+  "architecture": {
+    "channels": [
+      16,
+      32,
+      64
+    ],
+    "kernel": [
+      3,
+      3
+    ],
+    "stride": [
+      1,
+      1
+    ],
+    "max_pool_after_first_two": [
+      2,
+      2
+    ],
+    "head": "global_mean_time_frequency -> dropout -> linear4",
+    "family": "small_cnn",
+    "input_shape": [
+      1,
+      96,
+      64
+    ],
+    "classes": 4,
+    "activation": "ReLU",
+    "dropout": 0.2,
+    "convolution_bias": false,
+    "convolution_padding": "symmetric k//2",
+    "batch_norm": {
+      "eps": 1e-05,
+      "momentum": 0.1,
+      "affine": true
+    },
+    "linear_bias": true,
+    "initialization": "PyTorch default reset_parameters; seed 42",
+    "pretrained": false
+  },
+  "module_repr": "SmallCNN(\n  (features): Sequential(\n    (0): Sequential(\n      (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (2): Sequential(\n      (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (4): Sequential(\n      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (2): ReLU()\n    )\n  )\n  (head): Sequential(\n    (0): Dropout(p=0.2, inplace=False)\n    (1): Linear(in_features=64, out_features=4, bias=True)\n  )\n)",
+  "seed": 42,
+  "seeds": {
+    "python": 42,
+    "numpy": 42,
+    "framework": 42,
+    "data_loader": 42,
+    "PYTHONHASHSEED": "unset; no hash-order-dependent operations",
+    "limitations": "CPU only; identical software/hardware required; cross-platform bitwise identity not promised"
+  },
+  "training_configuration": {
+    "seed": 42,
+    "device": "cpu",
+    "dtype": "float32",
+    "cpu_threads": 4,
+    "batch_size": 64,
+    "max_epochs": 50,
+    "early_stopping_patience": 8,
+    "selection": "minimum_validation_weighted_cross_entropy",
+    "min_delta": 0.0,
+    "tie_rule": "earliest_epoch",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "amsgrad": false,
+    "lr_policy": "constant",
+    "loss": "weighted_cross_entropy",
+    "loss_reduction": "sum(weight[label]*NLL)/sum(weight[label])",
+    "class_weight_formula": "N_train/(4*n_train_class)",
+    "label_smoothing": 0.0,
+    "input_normalization": "none",
+    "augmentation": "none",
+    "oversampling": false,
+    "shuffle_train": true,
+    "shuffle_validation_test": false,
+    "num_workers": 0,
+    "drop_last": false,
+    "mixed_precision": false,
+    "pretrained": false,
+    "deterministic_algorithms": true,
+    "mkldnn_enabled": false,
+    "source_aggregation": "arithmetic mean softmax over all windows sharing source name; argmax",
+    "undefined_precision_recall_f1": 0.0,
+    "shortlist": "top 3 by selected-validation macro-F1 descending, params ascending, run_id ascending"
+  },
+  "class_weights": {
+    "an arabiensis": 0.5406187242995123,
+    "an funestus ss": 1.1024278471138846,
+    "an squamosus": 3.9644109396914446,
+    "culex pipiens complex": 1.0091485183862907
+  },
+  "class_order": [
+    "an arabiensis",
+    "an funestus ss",
+    "an squamosus",
+    "culex pipiens complex"
+  ],
+  "counts": {
+    "train": 22613,
+    "validation": 4937,
+    "test": 5095
+  },
+  "protocol_sha256": "329ddbab28ab908fd3319fae3b75ffc8d52e0f14a391bf2c3b36a44d66fcd2da",
+  "best_epoch": 4,
+  "epochs_run": 12,
+  "criterion": "minimum_validation_weighted_cross_entropy",
+  "selected_validation_metrics": {
+    "accuracy": 0.5507393153737087,
+    "macro_precision": 0.5341374583933529,
+    "macro_recall": 0.5816732065630028,
+    "macro_f1": 0.5250039441643606,
+    "weighted_f1": 0.561004061822925,
+    "examples": 4937,
+    "confusion_matrix": [
+      [
+        1231,
+        105,
+        401,
+        483
+      ],
+      [
+        396,
+        547,
+        58,
+        119
+      ],
+      [
+        64,
+        1,
+        214,
+        16
+      ],
+      [
+        337,
+        102,
+        136,
+        727
+      ]
+    ],
+    "class_order": [
+      "an arabiensis",
+      "an funestus ss",
+      "an squamosus",
+      "culex pipiens complex"
+    ],
+    "per_class": {
+      "an arabiensis": {
+        "precision": 0.6070019723865878,
+        "recall": 0.5545045045045045,
+        "f1": 0.5795668549905839,
+        "support": 2220
+      },
+      "an funestus ss": {
+        "precision": 0.7245033112582782,
+        "recall": 0.48839285714285713,
+        "f1": 0.5834666666666667,
+        "support": 1120
+      },
+      "an squamosus": {
+        "precision": 0.26452410383189123,
+        "recall": 0.7254237288135593,
+        "f1": 0.38768115942028986,
+        "support": 295
+      },
+      "culex pipiens complex": {
+        "precision": 0.5405204460966543,
+        "recall": 0.5583717357910907,
+        "f1": 0.5493010955799018,
+        "support": 1302
+      }
+    },
+    "loss": 1.021739699481174
+  },
+  "best_validation_loss": 1.021739699481174,
+  "best_validation_macro_f1_observed": 0.5250039441643606,
+  "model_sha256": "32f45a7d0d8e557230497b5b9c025e6b52bea16b17c7acd8b190eb493979ec25",
+  "history_sha256": "480d1e556c77913411e939433b4cd95096379c5e4fe0d0000d791d1d4e9fe737",
+  "fixed_at_utc": "2026-09-29T08:28:02.116281+00:00",
+  "test_used_for_selection": false,
+  "final_test_metrics": {
+    "accuracy": 0.49342492639842983,
+    "macro_precision": 0.4889268541556528,
+    "macro_recall": 0.5412438218396991,
+    "macro_f1": 0.4745854030381812,
+    "weighted_f1": 0.5030771258278706,
+    "examples": 5095,
+    "confusion_matrix": [
+      [
+        1050,
+        154,
+        442,
+        586
+      ],
+      [
+        470,
+        486,
+        138,
+        145
+      ],
+      [
+        38,
+        9,
+        275,
+        49
+      ],
+      [
+        169,
+        128,
+        253,
+        703
+      ]
+    ],
+    "class_order": [
+      "an arabiensis",
+      "an funestus ss",
+      "an squamosus",
+      "culex pipiens complex"
+    ],
+    "per_class": {
+      "an arabiensis": {
+        "precision": 0.6079907353792704,
+        "recall": 0.47043010752688175,
+        "f1": 0.5304369790351099,
+        "support": 2232
+      },
+      "an funestus ss": {
+        "precision": 0.6254826254826255,
+        "recall": 0.3922518159806295,
+        "f1": 0.48214285714285715,
+        "support": 1239
+      },
+      "an squamosus": {
+        "precision": 0.24819494584837545,
+        "recall": 0.7412398921832885,
+        "f1": 0.37187288708586885,
+        "support": 371
+      },
+      "culex pipiens complex": {
+        "precision": 0.47403910991233983,
+        "recall": 0.5610534716679968,
+        "f1": 0.5138888888888888,
+        "support": 1253
+      }
+    },
+    "loss": 1.0566683947606768
+  },
+  "source_test_metrics": {
+    "accuracy": 0.5274725274725275,
+    "macro_precision": 0.5221452067669172,
+    "macro_recall": 0.5640688259109311,
+    "macro_f1": 0.5068957720066213,
+    "weighted_f1": 0.5312114360926244,
+    "confusion_matrix": [
+      [
+        36,
+        6,
+        12,
+        24
+      ],
+      [
+        14,
+        15,
+        5,
+        4
+      ],
+      [
+        2,
+        0,
+        11,
+        2
+      ],
+      [
+        4,
+        3,
+        10,
+        34
+      ]
+    ],
+    "class_order": [
+      "an arabiensis",
+      "an funestus ss",
+      "an squamosus",
+      "culex pipiens complex"
+    ],
+    "per_class": {
+      "an arabiensis": {
+        "precision": 0.6428571428571429,
+        "recall": 0.46153846153846156,
+        "f1": 0.537313432835821,
+        "support": 78
+      },
+      "an funestus ss": {
+        "precision": 0.625,
+        "recall": 0.39473684210526316,
+        "f1": 0.48387096774193544,
+        "support": 38
+      },
+      "an squamosus": {
+        "precision": 0.2894736842105263,
+        "recall": 0.7333333333333333,
+        "f1": 0.4150943396226416,
+        "support": 15
+      },
+      "culex pipiens complex": {
+        "precision": 0.53125,
+        "recall": 0.6666666666666666,
+        "f1": 0.591304347826087,
+        "support": 51
+      }
+    },
+    "sources": 182,
+    "aggregation": "arithmetic mean softmax over all windows sharing source name; argmax"
+  },
+  "parameter_count": 23668,
+  "serialized_model_bytes": 102837,
+  "model_file_path": "reports/stage04/runs/03A_small_cnn_seed42/best_model.pt",
+  "software": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.8.0",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.6",
+    "nbformat": "5.11.1",
+    "ipykernel": "7.3.0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "torch_build": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 193833145\n  - Intel(R) oneAPI Math Kernel Library Version 2025.2-Product Build 20250620 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "cache_sha256": {
+    "features.npy": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0",
+    "examples.csv": "3e4e21d14f4b107004475603179bde8e6733ff73a7ebf313e88d023f7cf41488"
+  },
+  "completed_at_utc": "2026-09-29T08:28:06.188892+00:00",
+  "artifacts_sha256": {
+    "best_model.pt": "32f45a7d0d8e557230497b5b9c025e6b52bea16b17c7acd8b190eb493979ec25",
+    "history.json": "480d1e556c77913411e939433b4cd95096379c5e4fe0d0000d791d1d4e9fe737",
+    "selection.json": "8b31a32f622d2128ee674e8a003a377ca5766b0b86e129e93c1301f0a41492dc",
+    "run_spec.json": "1e78f55f0ea05a7dcac9bd4a46fdc5f21f40912d0c58ee7fe1ef025604f9823a",
+    "test_predictions.csv": "7e8c71173aa9e86882248001db796a65900ce6c9ce9118af6a102c98ed880283",
+    "source_predictions.csv": "65e6a1bc229dea6e5626705b5c5e04edfb3bfbfd96ee1fa1df22994d19e5608b"
+  }
+}

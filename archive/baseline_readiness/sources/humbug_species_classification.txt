@@ -1,0 +1,155 @@
+import os
+import sys
+import pandas as pd
+sys.path.insert(0, os.path.abspath('../lib'))
+
+import config
+from evaluate import get_results, get_results_multiclass, compute_plot_roc_multiclass
+
+from sklearn.utils import shuffle, class_weight
+import numpy as np
+
+# Troubleshooting and visualisation
+import IPython.display as ipd
+# Task 2: Mosquito Species Classification (MSC)
+This code is complementary to the paper: HumBugDB: a large-scale acoustic mosquito dataset. Section B of `/docs/` gives detail on the meaning of the metadata fields that are present in the `csv` file `config.data_df`, while Section C describes in more detail the models used here as baselines.
+
+
+This notebook provides the interface to partition data, extract features, train a BNN model in either PyTorch or Keras and evaluate its accuracy, precision-recall, confusion matrices and uncertainty metrics. Settings are specified in `config.py` and `config_pytorch.py` or `config_keras.py` which are located in `../lib`. Functions are imported from data and feature processing code in `../lib/feat_util.py`, model training in `../lib/runTorchMultiClass.py` or `../lib/runKeras.py` and evaluation in `../lib/evaluate.py`.
+
+### Data and feature configuration `config.py`
+Specify the metadata (csv) location in `data_df`, with the location of the raw wave files in `data_dir`. The desired output for the features is set by `dir_out`. Model objects will be saved to `../models/PyTorch/` for PyTorch, or `../models/keras/` for Keras models.
+
+#### Feat A
+Feat A:  features extracted for [VGGish](https://github.com/harritaylor/torchvggish)'s model class, imported from `feat_vggish.py`. Edits can be made in `lib/PyTorch/vggish/{mel_features.py, vggish_input.py, vggish_params.py}`. A further discussion on feature transformations is given in Section B.3 of the [HumBugDB supplement](https://github.com/HumBug-Mosquito/HumBugDB/blob/devel/docs/NeurIPS_2021_HumBugDB_Supplement.pdf).
+
+
+#### Feat B
+Feat B uses log-mel features with `librosa`, configurable in `config.py` with the sample rate `rate`, to which data is re-sampled on loading, a window size `win_size` which determines the size of a training window (in number of _feature_ windows), `step_size`, which determines the step size taken by the window, `NFFT`, and `n_hop`, which are parameters for the core STFT transform upon which log-mel feature extraction is based. Finally, `n_feat` determines the number of mel-frequency bands.
+
+In `librosa`, we can calculate the value of `win_size` to achieve a user's desired `duration` for a label as follows:
+
+`win_size` = `duration` / `frame_duration`, where `frame_duration` = `n_hop`/`rate`. Librosa uses a default `hop_length` of `NFFT/4`.
+The default values in `config.py` are optimised for `rate` = 8000 with  `win_size` = 30, `NFFT` = 2048, `n_hop` = `default`,  to achieve a label duration of $30 \times 2048/(4\times 8000) = 1.92$ (s).
+## Step 1: Choose Keras or PyTorch
+
+library = 'PyTorch'
+
+if library == 'PyTorch':
+    from PyTorch.runTorchMultiClass import (train_model, load_model, evaluate_model, evaluate_model_aggregated,
+    Resnet50DropoutFull, Resnet18DropoutFull, Resnet, VGGishDropout, VGGishDropoutFeatB)
+    from PyTorch import config_pytorch
+elif library == 'Keras':
+    from tensorflow import keras
+    from Keras.runKeras import train_model, load_model
+    from evaluate import evaluate_model, evaluate_model_aggregated
+else:
+    print('Library:', library, 'not supported. Please add your own code for support of that framework.')
+## Step 2: Data selection for classification
+# Select IHI Tanzania cup data to use for multi-species classification
+
+df = pd.read_csv(config.data_df)
+idx_multiclass = np.logical_and(df['country'] == 'Tanzania', df['location_type'] == 'cup')
+df_all = df[idx_multiclass]
+# Select list of classes with sufficient samples for significant analysis. Ordered with similar groups in adjacent classes.
+
+classes = ['an arabiensis','culex pipiens complex', 'ae aegypti','an funestus ss','an squamosus',
+               'an coustani','ma uniformis','ma africanus']
+feat_type = 'FeatA'
+
+if feat_type == 'FeatA': #VGGish features (Feat. A)
+    from feat_vggish import get_train_test_multispecies, reshape_feat    
+elif feat_type == 'FeatB': #log-mel-128 win 30 step 5 train, step 30 test, features (Feat. B)
+    from feat_util import get_train_test_multispecies, reshape_feat
+else:
+    print('Features:', feat_type, 'not defined. Please check spelling or add your own code for support of those features.')
+# Extract feats, expected runtime ~14 mins train, ~5mins test if pickle does not exist yet.
+random_seed = 42
+X_train, y_train, X_test, y_test = get_train_test_multispecies(df_all, classes, random_seed)
+## Step 3: Model definition and training
+if feat_type == 'FeatA':
+    X_train_CNN, y_train_CNN = reshape_feat(X_train, y_train)
+elif feat_type == 'FeatB':
+    X_train_CNN, y_train_CNN = reshape_feat(X_train, y_train, config.win_size, config.step_size)
+# Keras training code
+class_weights = class_weight.compute_class_weight('balanced',classes=np.unique(np.array(y_train_CNN)),y=np.array(y_train_CNN))
+model = train_model(X_train_CNN, y_train_CNN, class_weight = class_weights)
+# PyTorch training code, only difference is specification of model object.
+# Choose from {ResnetDropoutFull, Resnet, VGGishDropout} as defined in runTorchMulticlass.py
+class_weights = class_weight.compute_class_weight('balanced',classes=np.unique(np.array(y_train)),y=np.array(y_train))
+model = train_model(X_train_CNN, y_train_CNN, class_weight = class_weights, model = ResnetDropoutFull(n_classes = 8, dropout=0.2))
+### Load model from checkpoint (optional)
+
+The full list of trained model names, and classes, and their hyperparameters used is given in the [species classification documentation](https://github.com/HumBug-Mosquito/HumBugDB/blob/master/docs/mosquito_species_classification.md).
+
+The binaries for the trained models are supplied in the latest [GitHub release](https://github.com/HumBug-Mosquito/HumBugDB/releases/tag/2.0).
+# Example code to load PyTorch model. Select from {Resnet18DropoutFull, Resnet, VGGishDropoutFeatB, ...} as defined in runTorchMultiClass.py
+filepath = '../outputs/models/pytorch/'
+
+filepath = '../outputs/models/reproducibility/MSC_trained_models/'
+model_name = 'Win_30_Stride_5_2021_07_26_12_59_05-e80accuracy0.9635.hdf5'  
+
+# warning: poor performance for featB seed 5, resnet50dropoutfull: model_e73_2021_08_01_18_19_10.pth
+# model = load_model(filepath + model_name, model=Resnet50DropoutFull(n_classes=8, dropout=0.2))
+model = load_model(filepath + model_name)
+# Example code to load Keras model
+
+filepath = '../outputs/models/keras/'
+filepath = '../outputs/models/reproducibility/MSC_trained_models/'
+model_name = 'Win_30_Stride_5_2021_07_26_12_59_05-e80accuracy0.9635.hdf5'
+
+model = load_model(filepath + model_name)
+## Step 4: Model evaluation
+if feat_type == 'FeatA':
+    p,y,yt = evaluate_model_aggregated(model, X_test, y_test, 30)  # Aggregate windows from feature list (0.96->1.92 s)
+    get_results_multiclass(yt, p, feat_type + '_seed_' + str(random_seed) +
+                                     '_'+ model_name, classes)
+elif feat_type == 'FeatB':
+    X_test_CNN, y_test_CNN = reshape_feat(X_test, y_test, config.win_size, config.win_size)
+    preds_list = evaluate_model(model, X_test_CNN, y_test_CNN, 100)  # Predict directly over feature windows (1.92 s)
+    get_results_multiclass(y_test_CNN, np.mean(preds_list,axis=0), feat_type + '_seed_' + str(random_seed) +
+                                     '_'+ model_name, classes)
+else:
+    'Feature type not supported.'
+import matplotlib.pyplot as plt
+classes
+axs[3]
+model_name
+fig, axs = plt.subplots(4, 2, sharex=True, sharey=True, figsize=(8,10))
+
+for ax, i in zip(axs.ravel(), range(8)):
+    idx_start = np.where(y_test_CNN==i)[0][0]
+    if i < 7:
+        idx_end = np.where(y_test_CNN==i+1)[0][0]
+    else:
+        idx_end = len(y_test_CNN)
+    ax.fill_between([idx_start, idx_end], [1], alpha=0.30, label=r'$y_{\mathrm{true},' + str(i) + '}$')
+    ax.plot(np.mean(preds_list,axis=0)[:,i], '.', lw=0.5, ms=1.4, label=r'$y_{\mathrm{pred},' + str(i) + '}$', rasterized=True)
+    ax.legend()
+#     plt.ylim([0, 1.05])
+#     plt.title(classes[i])
+#     plt.show()
+#     plt.show()
+
+axs[3,0].set_xlabel('Prediction window')
+axs[3,1].set_xlabel('Prediction window')
+plt.tight_layout()
+plt.savefig('../outputs/plots/reproducibility/supplement/' + 'seed_' + str(random_seed) +
+           '_' + feat_type + model_name + 'softmax.pdf', dpi=110)
+# Experiment with undersampling
+n_samples = len(np.where(y_test_CNN==7)[0])
+n_samples = 120
+y_preds = np.mean(preds_list,axis=0)
+
+y_class = []
+y_pred = []
+
+# select random subset
+for i in range(8):
+    y_class.append(y_test_CNN[np.where(y_test_CNN==i)][:n_samples])
+    y_pred.append(y_preds[np.where(y_test_CNN==i)][:n_samples])
+
+y_true_resampled = np.hstack(y_class)
+y_pred_resampled = np.vstack(y_pred)
+get_results_multiclass(y_true_resampled, y_pred_resampled, feat_type + '_seed_' + str(random_seed) +
+                                 '_'+ model_name + 'UNDERSAMPLED', classes)

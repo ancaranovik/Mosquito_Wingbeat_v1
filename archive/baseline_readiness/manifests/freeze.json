@@ -1,0 +1,22 @@
+{
+  "version": "source-family-candidate-v1",
+  "date": "2026-09-23",
+  "seed": "20260923",
+  "status": "HOLD_NO_GO_NOT_VERIFIED_INDEPENDENT",
+  "checks": {
+    "inventory_complete": true,
+    "group_disjoint": true,
+    "identities_not_fabricated": true,
+    "no_cross_family_exact_overlap": true
+  },
+  "manifest_sha256": {
+    "duplicates.csv": "c46ec3153d6751e1542cf741b6bafb521cd713cc2f8ae9e0442a1aa1bc5bf59b",
+    "exact_overlap_screen.csv": "0fd9083ecc40c0645ed7ec1248a153b40ee081bb4a27f736d0c50e1aa4a12d70",
+    "group_manifest.csv": "fbd75ff6f7209c061108156bd8a2e3f166f7de2d6b2379bc2511b1cdc49d0609",
+    "historical_archive_inventory.csv": "5e2e5c5548bbc4e3475566512ee2ce46213eb3e833c6ae7d8eb96d5aeee8eca0",
+    "split_manifest.csv": "f9e631dcc415171ef431119b633fe27ace8bad1394bdf5e1e35e38219626d14d",
+    "testing_files_HOLD.csv": "6c041e21616fcbef299e80fac942af42f1fe667b2e9a180f375606eb3739a44b",
+    "training_files_HOLD.csv": "08231563248bdc1f08abccfa596ade9803ca919b7454ee2c01e04ccc68f752d6",
+    "validation_files_HOLD.csv": "cf1c98354ae051282d1ac0361b2c6596dd87405a3737d369481d05f89d0fb6b4"
+  }
+}

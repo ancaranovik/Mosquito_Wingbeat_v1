@@ -1,0 +1,13 @@
+species,partition,clips,groups,seconds
+ae aegypti,training,46,29,767.2798412698412
+ae aegypti,validation,22,10,319.7598866213152
+ae aegypti,testing,21,10,235.39990929705218
+an arabiensis,training,489,308,8672.257868480729
+an arabiensis,validation,165,103,2987.199433106575
+an arabiensis,testing,177,103,3155.7390249433083
+culex pipiens complex,training,336,202,5030.5982312925125
+culex pipiens complex,validation,116,67,1529.139501133786
+culex pipiens complex,testing,93,67,1598.0194557823124
+ma uniformis,training,81,46,1053.6395238095238
+ma uniformis,validation,27,15,342.4999092970522
+ma uniformis,testing,23,15,258.4398639455782

@@ -1,0 +1,10 @@
+{
+  "03A": {
+    "preserved_sha256": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0",
+    "rebuilt_sha256": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0"
+  },
+  "03B": {
+    "preserved_sha256": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656",
+    "rebuilt_sha256": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656"
+  }
+}

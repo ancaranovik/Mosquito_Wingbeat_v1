@@ -1,0 +1,9 @@
+{
+  "experiment_id": "exp_001_baseline_reuse_03A_ds_cnn",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontend": "03A",
+  "model": "ds_cnn",
+  "seed": 42,
+  "scientific_overrides": {},
+  "description": "Infrastructure template; accepted CUDA protocol and existing caches, no improvements."
+}

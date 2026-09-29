@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "raw_cache_checkpoint_archive_payloads_staged": 0,
+  "gitlinks": 0,
+  "credential_pattern_matches": 0,
+  "credential_scan_limit": "Heuristic pattern scan, not proof of absence",
+  "largest_files": [
+    {
+      "path": "reference/tinyml/tinyml_classifier_source.ipynb",
+      "bytes": 14662269
+    },
+    {
+      "path": "archive/baseline_readiness/sources/tinyml_classifier_pinned.ipynb",
+      "bytes": 14662269
+    },
+    {
+      "path": "reference/tinyml/tinyml_data_prep_source.ipynb",
+      "bytes": 12578317
+    },
+    {
+      "path": "archive/baseline_readiness/sources/tinyml_prep_pinned.ipynb",
+      "bytes": 12578317
+    },
+    {
+      "path": "archive/colab_build_tools/original_snapshot.json",
+      "bytes": 7946178
+    },
+    {
+      "path": "archive/legacy_data/train_joint_preprocessing_sweep.csv",
+      "bytes": 3768651
+    },
+    {
+      "path": "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv",
+      "bytes": 3764193
+    },
+    {
+      "path": "archive/legacy_data/core_096s_candidate_windows.csv",
+      "bytes": 3300808
+    }
+  ],
+  "required_pinned_sources_tracked": true,
+  "git_ownership": "Metadata owned by CodexSandboxOffline; command-scoped safe.directory used; no global settings changed",
+  "tracked_files": 437
+}

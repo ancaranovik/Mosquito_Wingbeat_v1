@@ -1,0 +1,14 @@
+epoch 01: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 02: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 03: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 04: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 05: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 06: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 07: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 08: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 09: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+................
+----------------------------------------------------------------------
+Ran 16 tests in 3.787s
+
+OK

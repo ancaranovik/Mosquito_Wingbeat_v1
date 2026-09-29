@@ -1,0 +1,104 @@
+--- before/00_prepare_dataset.ipynb
++++ after/00_prepare_dataset.ipynb
+@@ -26,17 +26,17 @@
+ import pandas as pd
+ 
+ PROJECT = next((p for p in [Path.cwd(), *Path.cwd().parents]
+-    if (p / "data/neurips_2021_zenodo_0_0_1.csv").is_file()), None)
++    if (p / "data/metadata/neurips_2021_zenodo_0_0_1.csv").is_file()), None)
+ assert PROJECT is not None, "Run from the project root or its notebook directory"
+ DATA_DIR = PROJECT / "data"
+ AUDIO_DIR = DATA_DIR / "audio"
+ 
+-RAW_METADATA_PATH = DATA_DIR / "neurips_2021_zenodo_0_0_1.csv"
+-CORE_PATH = DATA_DIR / "core_single_4species_metadata.csv"
+-SPLIT_PATH = DATA_DIR / "core_single_4species_frozen_split.csv"
+-AUDIO_AUDIT_PATH = DATA_DIR / "core_audio_audit.csv"
+-
+-REPRO_DIR = DATA_DIR / "_reproduced_00"
++RAW_METADATA_PATH = PROJECT / "data/metadata/neurips_2021_zenodo_0_0_1.csv"
++CORE_PATH = PROJECT / "data/manifests/current/core_single_4species_metadata.csv"
++SPLIT_PATH = PROJECT / "data/manifests/current/core_single_4species_frozen_split.csv"
++AUDIO_AUDIT_PATH = PROJECT / "data/audits/current/core_audio_audit.csv"
++
++REPRO_DIR = PROJECT / "reports/reproduced_00"
+ REPRO_DIR.mkdir(parents=True, exist_ok=True)
+ 
+ for p in [RAW_METADATA_PATH, CORE_PATH, SPLIT_PATH, AUDIO_AUDIT_PATH]:
+--- before/01_dataset_audit.ipynb
++++ after/01_dataset_audit.ipynb
+@@ -38,13 +38,15 @@
+ import pandas as pd
+ import matplotlib.pyplot as plt
+ 
+-PROJECT = Path(r"D:\VGU-27\Edge AI Project")
++PROJECT = next((p for p in [Path.cwd(), *Path.cwd().parents]
++    if (p / "data/metadata/neurips_2021_zenodo_0_0_1.csv").is_file()), None)
++assert PROJECT is not None, "Run from the project root or its notebook directory"
+ DATA_DIR = PROJECT / "data"
+ AUDIO_DIR = DATA_DIR / "audio"
+ 
+-METADATA_PATH = DATA_DIR / "neurips_2021_zenodo_0_0_1.csv"
+-CORE_PATH = DATA_DIR / "core_single_4species_metadata.csv"
+-SPLIT_PATH = DATA_DIR / "core_single_4species_frozen_split.csv"
++METADATA_PATH = PROJECT / "data/metadata/neurips_2021_zenodo_0_0_1.csv"
++CORE_PATH = PROJECT / "data/manifests/current/core_single_4species_metadata.csv"
++SPLIT_PATH = PROJECT / "data/manifests/current/core_single_4species_frozen_split.csv"
+ 
+ print("Project:", PROJECT)
+ print("Metadata exists:", METADATA_PATH.exists())
+--- before/02_segmentation.ipynb
++++ after/02_segmentation.ipynb
+@@ -30,14 +30,14 @@
+ from scipy import signal
+ 
+ PROJECT = next((p for p in [Path.cwd(), *Path.cwd().parents]
+-                if (p / "data/neurips_2021_zenodo_0_0_1.csv").is_file()), None)
++                if (p / "data/metadata/neurips_2021_zenodo_0_0_1.csv").is_file()), None)
+ assert PROJECT is not None, "Run from the project root or its notebook directory"
+ DATA_DIR = PROJECT / "data"
+ AUDIO_DIR = DATA_DIR / "audio"
+-SPLIT_PATH = DATA_DIR / "core_single_4species_frozen_split.csv"
+-OLD_MANIFEST = DATA_DIR / "core_096s_candidate_windows.csv"
+-OUTPUT_MANIFEST = DATA_DIR / "core_example_grid_v2_stride15360_ref15600_candidates.csv"
+-OUTPUT_AUDIT = DATA_DIR / "core_example_grid_v2_stride15360_ref15600_audit.json"
++SPLIT_PATH = PROJECT / "data/manifests/current/core_single_4species_frozen_split.csv"
++OLD_MANIFEST = PROJECT / "archive/legacy_data/core_096s_candidate_windows.csv"
++OUTPUT_MANIFEST = PROJECT / "data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv"
++OUTPUT_AUDIT = PROJECT / "data/audits/current/core_example_grid_v2_stride15360_ref15600_audit.json"
+ 
+ SOURCE_SR = 44100
+ TARGET_SR = 16000
+@@ -58,17 +58,19 @@
+ 
+ These SHA-256 values pin the existing input bytes, not merely counts. A changed split must fail even if counts and leakage checks still pass. Do not update these hashes to accept another split. Hashes describe the reviewed files, not a new split recipe.
+ 
++INPUT_PATHS = {'neurips_2021_zenodo_0_0_1.csv': 'data/metadata/neurips_2021_zenodo_0_0_1.csv', 'core_single_4species_metadata.csv': 'data/manifests/current/core_single_4species_metadata.csv', 'core_single_4species_frozen_split.csv': 'data/manifests/current/core_single_4species_frozen_split.csv', 'core_audio_audit.csv': 'data/audits/current/core_audio_audit.csv', 'core_096s_candidate_windows.csv': 'archive/legacy_data/core_096s_candidate_windows.csv'}
++
+ EXPECTED_INPUT_SHA256 = {'neurips_2021_zenodo_0_0_1.csv': 'baa4de3da5965dfea41dbd505023d392fab4f01db1e6e137cf50442423f79727', 'core_single_4species_metadata.csv': 'e72974da9a4e1a419bb459363be37ff91fdfdd6e65ff9a32582e9de13e786614', 'core_single_4species_frozen_split.csv': '3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4', 'core_audio_audit.csv': '8551ada9c64998e69922779b42054ec17245c8923457877d24b633813a1f2965', 'core_096s_candidate_windows.csv': '08df667e694466d23bd8c0a4ecb215f8505ea2e72c71cc131574bce4152628f9'}
+ 
+ def authenticate_inputs():
+     for name, expected in EXPECTED_INPUT_SHA256.items():
+-        path = DATA_DIR / name
++        path = PROJECT / INPUT_PATHS[name]
+         assert path.is_file(), f"Missing frozen/historical input: {path}"
+         assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, f"Input identity mismatch: {name}"
+ 
+ authenticate_inputs()
+ split_df = pd.read_csv(SPLIT_PATH)
+-core_df = pd.read_csv(DATA_DIR / "core_single_4species_metadata.csv")
++core_df = pd.read_csv(PROJECT / "data/manifests/current/core_single_4species_metadata.csv")
+ assert split_df[["id", "name", "species", "split", "length"]].notna().all().all()
+ assert split_df["id"].is_unique and len(split_df) == 1898
+ assert split_df["name"].nunique() == 1189
+--- before/03A_logmel_reference.ipynb
++++ after/03A_logmel_reference.ipynb
+@@ -567,7 +567,7 @@
+         PROJECT / "reference" / "humbugdb",
+         PROJECT / "reference",
+         PROJECT / "baseline_readiness",
+-        PROJECT / "archive" / "old_experiments" / "baseline_readiness",
++        PROJECT / "archive" / "baseline_readiness",
+         PROJECT / "review_support",
+         PROJECT / "tools" / "review_support",
+     ]

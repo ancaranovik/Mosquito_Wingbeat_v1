@@ -1,0 +1,17 @@
+group_identifier,species,sex,day_token,files,duration_seconds,files_at_least_1s,microphone_variants,verified_individual_count,verified_session_count,partition
+ae.aegypti_1f_21d_25c_smallcylinder,Aedes aegypti,F,21D,74,77.0175,26,LowMic;unmarked,unknown,unknown,testing
+ae.aegypti_1f_5d_25c_smallcylinder,Aedes aegypti,F,5D,92,214.57275,86,LowMic;unmarked,unknown,unknown,training
+ae.aegypti_1m_21d_25c_smallcylinder,Aedes aegypti,M,21D,88,139.218875,72,LowMic;unmarked,unknown,unknown,validation
+ae.aegypti_1m_5d_25c_smallcylinder,Aedes aegypti,M,5D,108,170.371375,85,LowMic;unmarked,unknown,unknown,training
+ae.albopictus_1f_14d_25c_smallcylinder,Aedes albopictus,F,14D,70,146.556875,44,LowMic;unmarked,unknown,unknown,validation
+ae.albopictus_1f_7d_25c_smallcylinder,Aedes albopictus,F,7D,112,181.668,90,LowMic;unmarked,unknown,unknown,training
+ae.albopictus_1m_14d_25c_smallcylinder,Aedes albopictus,M,14D,89,195.470625,76,LowMic;unmarked,unknown,unknown,testing
+ae.albopictus_1m_7d_25c_smallcylinder,Aedes albopictus,M,7D,129,174.24975,93,LowMic;unmarked,unknown,unknown,training
+an.dirus_1f_14d_25c_smallcylinder,Anopheles dirus,F,14D,109,165.72275,66,LowMic;unmarked,unknown,unknown,validation
+an.dirus_1f_5d_25c_smallcylinder,Anopheles dirus,F,5D,43,71.92625,24,unmarked,unknown,unknown,training
+an.dirus_1m_14d_25c_smallcylinder,Anopheles dirus,M,14D,127,129.28525,52,LowMic;unmarked,unknown,unknown,training
+an.dirus_1m_5d_25c_smallcylinder,Anopheles dirus,M,5D,51,59.21375,30,unmarked,unknown,unknown,testing
+cx.quin_1f_14d_25c_smallcylinder,Culex quinquefasciatus,F,14D,79,317.29325,59,LowMic;unmarked,unknown,unknown,training
+cx.quin_1f_6d_25c_smallcylinder,Culex quinquefasciatus,F,6D,41,61.222875,30,unmarked,unknown,unknown,testing
+cx.quin_1m_14d_25c_smallcylinder,Culex quinquefasciatus,M,14D,88,251.15875,64,LowMic;unmarked,unknown,unknown,training
+cx.quin_1m_6d_25c_smallcylinder,Culex quinquefasciatus,M,6D,24,267.049125,20,unmarked,unknown,unknown,validation

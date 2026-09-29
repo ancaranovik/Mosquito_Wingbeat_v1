@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "train_fraction_sources_per_species": 0.7,
+  "validation_fraction_sources_per_species": 0.15,
+  "test_fraction": "remainder",
+  "species_order": [
+    "an arabiensis",
+    "an funestus ss",
+    "an squamosus",
+    "culex pipiens complex"
+  ],
+  "source_order_mode": "encounter",
+  "rng_mode": "global",
+  "group_column": "name",
+  "split_before_segmentation": true
+}

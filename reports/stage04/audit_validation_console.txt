@@ -1,0 +1,41 @@
+test_all_eight_shapes_gradients_and_checkpoint_roundtrip (test_stage04.Stage04Tests.test_all_eight_shapes_gradients_and_checkpoint_roundtrip) ... ok
+test_cache_permission_and_partial_errors (test_stage04.Stage04Tests.test_cache_permission_and_partial_errors) ... ok
+test_comparison_refuses_partial_benchmark (test_stage04.Stage04Tests.test_comparison_refuses_partial_benchmark) ... ok
+test_complete_synthetic_comparison_and_tampered_summary (test_stage04.Stage04Tests.test_complete_synthetic_comparison_and_tampered_summary) ... ok
+test_corrupt_cache_and_reordered_metadata_fail (test_stage04.Stage04Tests.test_corrupt_cache_and_reordered_metadata_fail) ... ok
+test_earliest_tie_patience_and_fixed_checkpoint_gate (test_stage04.Stage04Tests.test_earliest_tie_patience_and_fixed_checkpoint_gate) ... epoch 01: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 02: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 03: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 04: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 05: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 06: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 07: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 08: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+epoch 09: train loss=1.000000, val loss=1.000000, val macro-F1=0.250000; best=1
+ok
+test_epoch_loss_global_weight_denominator (test_stage04.Stage04Tests.test_epoch_loss_global_weight_denominator) ... ok
+test_executed_constants_and_loaders_are_gated (test_stage04.Stage04Tests.test_executed_constants_and_loaders_are_gated) ... ok
+test_expected_parameter_counts (test_stage04.Stage04Tests.test_expected_parameter_counts) ... ok
+test_metrics_hand_calculated_and_absent_prediction_class (test_stage04.Stage04Tests.test_metrics_hand_calculated_and_absent_prediction_class) ... ok
+test_missing_protocol_clear_failure (test_stage04.Stage04Tests.test_missing_protocol_clear_failure) ... ok
+test_notebook_serialization_does_not_change_scientific_ast (test_stage04.Stage04Tests.test_notebook_serialization_does_not_change_scientific_ast) ... ok
+test_real_gates_ignore_notebook_outputs_and_serialization (test_stage04.Stage04Tests.test_real_gates_ignore_notebook_outputs_and_serialization) ... ok
+test_repeated_initialization_and_shuffling (test_stage04.Stage04Tests.test_repeated_initialization_and_shuffling) ... ok
+test_same_design_and_only_tc_parameters_depend_on_width (test_stage04.Stage04Tests.test_same_design_and_only_tc_parameters_depend_on_width) ... ok
+test_source_mean_probability_not_majority_vote (test_stage04.Stage04Tests.test_source_mean_probability_not_majority_vote) ... ok
+test_stale_protocol_rejected_before_reading_runs (test_stage04.Stage04Tests.test_stale_protocol_rejected_before_reading_runs) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 3.212s
+
+OK
+
+Execute (training disabled): 04A_train_logmel
+D:\VGU-27\Edge AI Project\.venv-stage04\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Execute (training disabled): 04B_train_edge_mfe
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Execute (training disabled): 04C_compare_models
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+PASS: Stage 04 ready; no mosquito model trained

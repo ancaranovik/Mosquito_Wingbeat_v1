@@ -1,0 +1,109 @@
+{
+  "coverage": {
+    "expected": 1596,
+    "present": 1596,
+    "missing": 0,
+    "previous_missing": 297,
+    "previous_missing_now_present": 297
+  },
+  "clips": 1596,
+  "groups": 975,
+  "exclusions": 0,
+  "exact_pcm_duplicates": 0,
+  "overlap": {
+    "files": 1596,
+    "anchor_patterns": 4788,
+    "matches": 0,
+    "cross_original": 0,
+    "cross_date": 0
+  },
+  "seconds": 25949.972448979668,
+  "max_duration_error": 2.267573696457248e-05,
+  "secondary_test_groups_in_four_development": 47,
+  "split": [
+    {
+      "species": "ae aegypti",
+      "partition": "training",
+      "clips": 46,
+      "groups": 29,
+      "seconds": 767.2798412698412
+    },
+    {
+      "species": "ae aegypti",
+      "partition": "validation",
+      "clips": 22,
+      "groups": 10,
+      "seconds": 319.7598866213152
+    },
+    {
+      "species": "ae aegypti",
+      "partition": "testing",
+      "clips": 21,
+      "groups": 10,
+      "seconds": 235.39990929705218
+    },
+    {
+      "species": "an arabiensis",
+      "partition": "training",
+      "clips": 489,
+      "groups": 308,
+      "seconds": 8672.257868480729
+    },
+    {
+      "species": "an arabiensis",
+      "partition": "validation",
+      "clips": 165,
+      "groups": 103,
+      "seconds": 2987.199433106575
+    },
+    {
+      "species": "an arabiensis",
+      "partition": "testing",
+      "clips": 177,
+      "groups": 103,
+      "seconds": 3155.7390249433083
+    },
+    {
+      "species": "culex pipiens complex",
+      "partition": "training",
+      "clips": 336,
+      "groups": 202,
+      "seconds": 5030.5982312925125
+    },
+    {
+      "species": "culex pipiens complex",
+      "partition": "validation",
+      "clips": 116,
+      "groups": 67,
+      "seconds": 1529.139501133786
+    },
+    {
+      "species": "culex pipiens complex",
+      "partition": "testing",
+      "clips": 93,
+      "groups": 67,
+      "seconds": 1598.0194557823124
+    },
+    {
+      "species": "ma uniformis",
+      "partition": "training",
+      "clips": 81,
+      "groups": 46,
+      "seconds": 1053.6395238095238
+    },
+    {
+      "species": "ma uniformis",
+      "partition": "validation",
+      "clips": 27,
+      "groups": 15,
+      "seconds": 342.4999092970522
+    },
+    {
+      "species": "ma uniformis",
+      "partition": "testing",
+      "clips": 23,
+      "groups": 15,
+      "seconds": 258.4398639455782
+    }
+  ]
+}

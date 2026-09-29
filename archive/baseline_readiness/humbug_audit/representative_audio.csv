@@ -1,0 +1,10 @@
+id,species,name,local_path,selection,seconds_displayed,partition
+220308,ae aegypti,IFA_40_12_1572.wav,raw/humbug_core/220308.wav,development only; 0.1 quantile of spectral-contrast QC proxy,2.5599773242630386,excluded_core_aegypti_previous_candidate_training
+220326,ae aegypti,IFA_40_14_1574.wav,raw/humbug_core/220326.wav,development only; 0.5 quantile of spectral-contrast QC proxy,8.0,excluded_core_aegypti_previous_candidate_training
+220320,ae aegypti,IFA_40_26_1586.wav,raw/humbug_core/220320.wav,development only; 0.9 quantile of spectral-contrast QC proxy,8.0,excluded_core_aegypti_previous_candidate_training
+221900,an arabiensis,IFA_63_33_2513.wav,raw/humbug_core/221900.wav,development only; 0.1 quantile of spectral-contrast QC proxy,5.119977324263038,training
+221425,an arabiensis,IFA_52_20_2060.wav,raw/humbug_core/221425.wav,development only; 0.5 quantile of spectral-contrast QC proxy,8.0,training
+222506,an arabiensis,IFA_75_11_2971.wav,raw/humbug_core/222506.wav,development only; 0.9 quantile of spectral-contrast QC proxy,8.0,training
+221539,an funestus ss,IFA_53_29_2109.wav,raw/humbug_core/221539.wav,development only; 0.1 quantile of spectral-contrast QC proxy,8.0,training
+221476,an funestus ss,IFA_50_27_1987.wav,raw/humbug_core/221476.wav,development only; 0.5 quantile of spectral-contrast QC proxy,5.12,training
+220485,an funestus ss,IFA_44_33_1753.wav,raw/humbug_core/220485.wav,development only; 0.9 quantile of spectral-contrast QC proxy,8.0,training

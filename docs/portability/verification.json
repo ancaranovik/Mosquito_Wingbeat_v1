@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "scientific_ast_locks": "PASS",
+  "executed_frontend_cell_locks": "PASS",
+  "training_function_ast_parity": "PASS",
+  "model_source_byte_parity": "PASS",
+  "training_defaults_disabled": true,
+  "core_clips": 1898,
+  "sources": 1189,
+  "source_leakage": 0,
+  "examples": 32645,
+  "counts": {
+    "train": 22613,
+    "validation": 4937,
+    "test": 5095
+  },
+  "label_mapping": {
+    "an arabiensis": 0,
+    "an funestus ss": 1,
+    "an squamosus": 2,
+    "culex pipiens complex": 3
+  },
+  "manifest_sha256": "36881d79d33cd42521aa24004236022dc25b4927f65ae0246a76832835206234",
+  "split_sha256": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+  "upstream_mel_sha256": "68803c00743cb43139db12836b5e745a977cdb81443257fa716cd520d7e5e948",
+  "cache_sha256": {
+    "03A": {
+      "features.npy": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0",
+      "examples.csv": "3e4e21d14f4b107004475603179bde8e6733ff73a7ebf313e88d023f7cf41488"
+    },
+    "03B": {
+      "features.npy": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656",
+      "examples.csv": "0e2f09fd257749a10da7cae9f8942e1b5c3dd79d5f8e886a56f57f3678569c7a"
+    }
+  },
+  "accepted_baseline_runs": 8,
+  "training_executed": false,
+  "preprocessing_executed": false,
+  "local_smoke": {
+    "status": "PASS",
+    "training_executed": false,
+    "feature_generation_executed": false,
+    "runtime": {
+      "python": "3.12.14",
+      "executable": "D:\\VGU-27\\Edge AI Project\\.venv-stage04\\Scripts\\python.exe",
+      "packages": {
+        "numpy": "2.4.6",
+        "pandas": "3.0.6",
+        "torch": "2.8.0"
+      },
+      "cuda": null,
+      "cuda_available": false,
+      "gpu": null
+    },
+    "models": [
+      {
+        "frontend": "03A",
+        "model": "small_cnn",
+        "parameters": 23668
+      },
+      {
+        "frontend": "03A",
+        "model": "ds_cnn",
+        "parameters": 6244
+      },
+      {
+        "frontend": "03A",
+        "model": "tc_resnet8",
+        "parameters": 65940
+      },
+      {
+        "frontend": "03A",
+        "model": "cnn_lstm",
+        "parameters": 13428
+      },
+      {
+        "frontend": "03B",
+        "model": "small_cnn",
+        "parameters": 23668
+      },
+      {
+        "frontend": "03B",
+        "model": "ds_cnn",
+        "parameters": 6244
+      },
+      {
+        "frontend": "03B",
+        "model": "tc_resnet8",
+        "parameters": 64788
+      },
+      {
+        "frontend": "03B",
+        "model": "cnn_lstm",
+        "parameters": 13428
+      }
+    ],
+    "cache_sha256": {
+      "03A": {
+        "features.npy": "577c730ae2bc2748c09aba0b89c20ace39f5e5e008e01667bc0f6ede546384e0",
+        "examples.csv": "3e4e21d14f4b107004475603179bde8e6733ff73a7ebf313e88d023f7cf41488"
+      },
+      "03B": {
+        "features.npy": "24bac6eeff33531b40672c99016cc303e586a4b8a247416266e383a635b8d656",
+        "examples.csv": "0e2f09fd257749a10da7cae9f8942e1b5c3dd79d5f8e886a56f57f3678569c7a"
+      }
+    },
+    "split_sha256": "3e40928622dcea26e723540cfb493a35fd1d78393bf5531810583eae7966e0c4",
+    "future_results": "D:\\VGU-27\\Edge AI Project\\_runtime\\experiments"
+  },
+  "protected_files_unchanged": 2953,
+  "moved_files_preserved": 38,
+  "colab_provenance_preserved": true,
+  "migration": {
+    "files": 5412,
+    "bytes": 10311854467,
+    "staged_files": 75,
+    "status": "PASS"
+  },
+  "limitations": [
+    "No local CUDA GPU; actual Colab GPU smoke pending",
+    "Two historical pre-audit cache directories deny access; left untouched",
+    "Drive folders created previously, no project data uploaded"
+  ]
+}

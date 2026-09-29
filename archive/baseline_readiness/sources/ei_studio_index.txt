@@ -1,0 +1,195 @@
+# Edge Impulse Documentation - Studio
+
+> Projects, data acquisition, impulse design, training, testing, deployment, and organizations.
+
+This is the "Studio" section index of the Edge Impulse documentation, following https://llmstxt.org/. It lists the pages in this section only. For other sections see the root index at https://docs.edgeimpulse.com/llms.txt; for the complete expanded index see https://docs.edgeimpulse.com/llms-full.txt.
+
+Links point to the markdown-rendered version of each page (`.md`), so agents retrieve clean content without navigation, ads, or scripts. Every link includes a short note describing the page.
+
+## Intents
+
+Intent-bearing retrieval prompts. Match a user request to the closest intent below, then retrieve the linked pages before answering.
+
+### Get started with Edge Impulse from scratch
+
+> I am new to Edge Impulse and want to understand the end-to-end workflow - collect data, design an impulse, train a model, and deploy it - so I can build my first edge AI project.
+
+- [Build a first project with guided, beginner-friendly explanations.](https://docs.edgeimpulse.com/knowledge/guides/getting-started-for-beginners.md)
+- [Configure the input, processing, and learning blocks that make up an impulse.](https://docs.edgeimpulse.com/studio/projects/impulse-design.md)
+- [Pick a complete worked tutorial that matches the project you want to build.](https://docs.edgeimpulse.com/tutorials/end-to-end/overview.md)
+- [Learn the core edge-AI concepts behind the workflow before building.](https://docs.edgeimpulse.com/knowledge/courses/edge-ai-fundamentals.md)
+
+### Get started as an embedded engineer
+
+> I come from firmware and hardware and want to start from devices, resource constraints, firmware, and on-device deployment rather than from data science.
+
+- [Start from devices, firmware, resource constraints, and deployment.](https://docs.edgeimpulse.com/knowledge/guides/getting-started-for-embedded-engineers.md)
+- [Choose a supported board, device, or accelerator to target.](https://docs.edgeimpulse.com/hardware.md)
+- [Build a C++ library, firmware, package, or container for a specific target.](https://docs.edgeimpulse.com/studio/projects/deployment.md)
+
+### Get started as an ML practitioner
+
+> I come from machine learning and want to start from datasets, model workflows, experiments, SDKs, and evaluation rather than from hardware.
+
+- [Start from datasets, model workflows, experiments, SDKs, and evaluation.](https://docs.edgeimpulse.com/knowledge/guides/getting-started-for-ml-practitioners.md)
+- [Compare alternative impulse and model configurations side by side.](https://docs.edgeimpulse.com/studio/projects/experiments.md)
+- [Evaluate trained models on held-out data before deploying.](https://docs.edgeimpulse.com/studio/projects/model-testing.md)
+- [Drive Studio workflows programmatically from the Python SDK.](https://docs.edgeimpulse.com/tools/libraries/sdks/studio/python.md)
+
+### Train an image classification model and deploy it to a device
+
+> I want to collect labeled images, train a transfer-learning image classifier in Edge Impulse Studio, and deploy the model to a microcontroller or single-board computer.
+
+- [Follow an end-to-end image classification project from data to deployment.](https://docs.edgeimpulse.com/tutorials/end-to-end/image-classification.md)
+- [Collect and label image data directly in Studio.](https://docs.edgeimpulse.com/tutorials/topics/data/collect-image-data-studio.md)
+- [Train an image classifier with transfer learning on limited data.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/transfer-learning-images.md)
+- [Export the trained impulse to run on your target device.](https://docs.edgeimpulse.com/studio/projects/deployment.md)
+
+### Detect, locate, and count objects in a camera feed
+
+> I want to build an object detection model that finds and counts multiple objects in real time on an embedded device, using FOMO or bounding boxes.
+
+- [Follow an end-to-end object detection and counting project.](https://docs.edgeimpulse.com/tutorials/end-to-end/object-detection-centroids.md)
+- [Use FOMO for fast, low-memory object detection on constrained devices.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection/fomo.md)
+- [Compare object detection block options and when to use each.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection.md)
+- [Count and track detected objects with post-processing.](https://docs.edgeimpulse.com/tutorials/topics/post-processing/count-objects-fomo.md)
+
+### Build a keyword spotting or voice command model
+
+> I want to recognize spoken keywords or voice commands that run entirely on-device, including how to gather or synthesize the audio data.
+
+- [Follow an end-to-end keyword spotting project.](https://docs.edgeimpulse.com/tutorials/end-to-end/keyword-spotting.md)
+- [Train a keyword model with audio transfer learning.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/transfer-learning-keyword.md)
+- [Synthesize keyword audio when you lack real recordings.](https://docs.edgeimpulse.com/tutorials/topics/data/generate-keyword-data-google-tts.md)
+- [Reuse a ready-made keyword spotting dataset to get started.](https://docs.edgeimpulse.com/datasets/audio/keyword-spotting.md)
+
+### Recognize motion or gestures from accelerometer data
+
+> I want to classify movements or gestures from IMU / accelerometer time-series data and deploy the model to a wearable or microcontroller.
+
+- [Follow an end-to-end motion / gesture recognition project.](https://docs.edgeimpulse.com/tutorials/end-to-end/motion-recognition.md)
+- [Extract frequency features from motion signals with spectral analysis.](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/spectral-analysis.md)
+- [Reuse a continuous motion dataset to prototype quickly.](https://docs.edgeimpulse.com/datasets/time-series/continuous-motion-recognition.md)
+
+### Detect anomalies or defects (visual or sensor)
+
+> I want to detect defects, faults, or unusual patterns by learning what 'normal' looks like, using visual anomaly detection or sensor-based anomaly detection.
+
+- [Follow an end-to-end visual anomaly / defect detection project.](https://docs.edgeimpulse.com/tutorials/end-to-end/visual-anomaly-detection.md)
+- [Detect visual defects with FOMO-AD when defect samples are scarce.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/visual-anomaly-detection-fomo-ad.md)
+- [Flag abnormal sensor readings with K-means anomaly detection.](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/anomaly-detection-k-means.md)
+
+### Optimize and fit a model to device constraints
+
+> My model needs to fit a device's memory and latency budget - I want to search architectures, compare experiments, profile on-device cost, and validate accuracy.
+
+- [Search for models and DSP configurations that meet device constraints.](https://docs.edgeimpulse.com/studio/projects/eon-tuner.md)
+- [Compare candidate impulses on accuracy, latency, and memory.](https://docs.edgeimpulse.com/studio/projects/experiments.md)
+- [Validate the chosen model on held-out data before shipping.](https://docs.edgeimpulse.com/studio/projects/model-testing.md)
+
+### Import and deploy my own pretrained model (BYOM)
+
+> I already have a trained model and want to bring it into Edge Impulse, including custom or freeform input/output formats, and deploy it.
+
+- [Bring your own model into a project and profile it for a target.](https://docs.edgeimpulse.com/studio/projects/dashboard/byom.md)
+- [Deploy a model with custom or freeform input/output formats.](https://docs.edgeimpulse.com/tutorials/topics/machine-learning/deploy-freeform-model.md)
+
+### Generate synthetic data when I lack real samples
+
+> I don't have enough real-world data and want to generate synthetic images, audio, or time-series data to train my model.
+
+- [Generate synthetic training data from inside Studio.](https://docs.edgeimpulse.com/studio/projects/data-acquisition/synthetic-data.md)
+- [Understand when and how synthetic data helps model training.](https://docs.edgeimpulse.com/knowledge/concepts/data-engineering/synthetic-data.md)
+- [Create synthetic image data with a generative model.](https://docs.edgeimpulse.com/tutorials/topics/data/generate-image-data-dall-e.md)
+
+## Studio
+
+- [Studio](https://docs.edgeimpulse.com/studio.md): Build, train, and deploy edge AI models in Edge Impulse Studio using projects and organizations.
+- [Account settings](https://docs.edgeimpulse.com/studio/account-settings.md): Manage your Edge Impulse account profile, password, plan, multi-factor authentication, secrets, and organization access.
+- [Dashboard](https://docs.edgeimpulse.com/studio/projects/dashboard.md): Manage project settings, visibility, collaborators, README content, performance options, and API credentials.
+- [API keys](https://docs.edgeimpulse.com/studio/projects/dashboard/api-keys.md): Create project API keys and HMAC keys for programmatic access, development tooling, and signed ingestion.
+- [Target device](https://docs.edgeimpulse.com/studio/projects/dashboard/target-device.md): Set target hardware constraints so Edge Impulse Studio can recommend defaults and budget model performance for deployment.
+- [Bring your own model (BYOM)](https://docs.edgeimpulse.com/studio/projects/dashboard/byom.md): Upload pretrained models, inspect their behavior, and optionally add Edge Impulse DSP preprocessing blocks.
+- [Devices](https://docs.edgeimpulse.com/studio/projects/devices.md): Connect devices to collect data, run live classification, and deploy pre-built firmware from your project.
+- [Data acquisition](https://docs.edgeimpulse.com/studio/projects/data-acquisition.md): Explore the project data acquisition tabs for datasets, sources, synthetic data, labeling, and CSV imports.
+- [Dataset](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset.md): Review collected samples, dataset splits, filters, previews, and sample editing options in the Dataset tab.
+- [Uploader](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/uploader.md): Upload existing samples and datasets through Edge Impulse Studio with supported labels and annotation formats.
+- [Define dataset split](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/splits.md): Define training, validation, and test splits with ratios, stratification, and metadata-based grouping controls.
+- [Metadata](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/metadata.md): Use metadata keys to organize samples, analyze distributions, and control training and validation splits.
+- [Multi-label data](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/multi-label.md): Use multi-label samples to preserve long time-series context and choose labeling strategies for model windows.
+- [Tabular data](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/tabular-data.md): Import pre-processed CSV data as tabular samples and test tabular models in Edge Impulse Studio.
+- [Advanced dataset settings](https://docs.edgeimpulse.com/studio/projects/data-acquisition/dataset/advanced-settings.md): Configure explicit validation sets, disable reset behavior, and adjust dataset settings from the Advanced settings modal.
+- [Data explorer](https://docs.edgeimpulse.com/studio/projects/data-acquisition/data-explorer.md): Visualize dataset embeddings to inspect clusters, identify outliers, and relabel samples in Edge Impulse Studio.
+- [Data sources](https://docs.edgeimpulse.com/studio/projects/data-acquisition/data-sources.md): Connect external storage to a project and automate ingestion with labeling, transformations, schedules, and webhooks.
+- [Synthetic data](https://docs.edgeimpulse.com/studio/projects/data-acquisition/synthetic-data.md): Generate image, audio, and time-series synthetic data through built-in blocks or custom integrations.
+- [Labeling queue](https://docs.edgeimpulse.com/studio/projects/data-acquisition/labeling-queue.md): Use the Labeling queue to create bounding boxes and get AI-assisted suggestions for object detection datasets.
+- [AI labeling](https://docs.edgeimpulse.com/studio/projects/data-acquisition/ai-labeling.md): Configure AI labeling actions that use built-in or custom blocks to label project data automatically.
+- [CSV Wizard](https://docs.edgeimpulse.com/studio/projects/data-acquisition/csv-wizard.md): Import custom CSV files by mapping metadata, sensor values, labels, and sample windows.
+- [Auto-labeler](https://docs.edgeimpulse.com/studio/projects/data-acquisition/auto-labeler.md): Use embeddings to group unlabeled object detection images and assign bounding boxes more quickly.
+- [Experiments](https://docs.edgeimpulse.com/studio/projects/experiments.md): Compare multiple impulses in one project and export accuracy and performance results.
+- [EON Tuner](https://docs.edgeimpulse.com/studio/projects/eon-tuner.md): Run hardware-aware searches to compare impulses and select efficient configurations for your target device.
+- [Search space](https://docs.edgeimpulse.com/studio/projects/eon-tuner/search-space.md): Constrain EON Tuner searches with templates that define input, processing, and learning block combinations.
+- [Impulse design](https://docs.edgeimpulse.com/studio/projects/impulse-design.md): Build impulses by combining input, processing, and learning blocks for different project types.
+- [Processing blocks](https://docs.edgeimpulse.com/studio/projects/processing-blocks.md): Extract features with built-in processing blocks, custom DSP code, and feature normalization options.
+- [Feature explorer](https://docs.edgeimpulse.com/studio/projects/processing-blocks/feature-explorer.md): Use feature plots to inspect class separation, outliers, and dimensionality reduction results.
+- [Audio MFCC](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/audio-mfcc.md): Configure MFCC audio feature extraction parameters for speech recognition and related sound models.
+- [Audio MFE](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/audio-mfe.md): Extract Mel-filterbank energy features from audio signals and tune the parameters used during feature generation.
+- [Audio Syntiant](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/audio-syntiant.md): Configure Syntiant-specific audio feature extraction for projects that target NDP101 or NDP120 chips.
+- [EEG](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/eeg.md): Preprocess EEG time-series data with filtering, motion artifact removal, scaling, and spectral feature extraction.
+- [Flatten](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/flatten.md): Summarize slow-moving sensor windows with statistical features such as averages, extrema, RMS, and variance.
+- [HR/HRV](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/hr-hrv.md): Extract heart rate and heart rate variability metrics from PPG or ECG signals for edge deployments.
+- [Image](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/image.md): Normalize image inputs and choose color depth settings for computer vision impulses.
+- [IMU Syntiant](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/imu-syntiant.md): Rescale IMU input data for Syntiant NDP101 and NDP120 chip requirements.
+- [Raw data](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/raw-data.md): Pass preprocessed samples through the impulse with optional feature normalization and axis scaling.
+- [Spectral analysis](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/spectral-analysis.md): Extract frequency-domain and statistical features from sensor signals using FFT or wavelet analysis.
+- [Spectrogram](https://docs.edgeimpulse.com/studio/projects/processing-blocks/blocks/spectrogram.md): Convert continuous signals into time-frequency features for audio and sensor classification use cases.
+- [Custom processing blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-processing-blocks.md): Build processing blocks that transform raw signals into features and visualizations for impulse design.
+- [Learning blocks](https://docs.edgeimpulse.com/studio/projects/learning-blocks.md): Train models with built-in learning blocks, configure neural network settings, and access expert mode.
+- [Expert mode](https://docs.edgeimpulse.com/studio/projects/learning-blocks/expert-mode.md): Customize Keras learning blocks with expert mode and edit architectures beyond the visual editor.
+- [Training graphs](https://docs.edgeimpulse.com/studio/projects/learning-blocks/training-graphs.md): Inspect accuracy and loss graphs, open TensorBoard, and compare training runs across experiments.
+- [Anomaly detection](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/anomaly-detection-custom.md): Host custom anomaly detection algorithms in an impulse and understand the expected learning block workflow.
+- [Anomaly detection (GMM)](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/anomaly-detection-gmm.md): Train and test GMM anomaly detection models with selected features, components, and confidence thresholds.
+- [Anomaly detection (K-means)](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/anomaly-detection-k-means.md): Train K-means anomaly detection models and choose features for detecting outliers in sensor data.
+- [Classification](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/classification.md): Train neural network classifiers and review model performance after feature extraction.
+- [Classical ML](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/classical-ml.md): Train scikit-learn based classical ML classifiers and regressors from Edge Impulse processing block features.
+- [Object detection](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection.md): Compare built-in object detection architectures and choose a model for bounding-box projects.
+- [YOLO-Pro](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection/yolo-pro.md): Use YOLO-Pro object detection architectures in an impulse and configure training settings.
+- [FOMO](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection/fomo.md): Use FOMO to detect object centroids on constrained devices and customize the model in expert mode.
+- [MobileNetV2 SSD FPN](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/object-detection/mobilenetv2-ssd-fpn.md): Configure MobileNetV2 SSD FPN-Lite for bounding-box object detection with transfer learning.
+- [Regression](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/regression.md): Train regression models from numeric labels and test continuous predictions on unseen samples.
+- [Transfer learning (images)](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/transfer-learning-images.md): Use image transfer learning with pre-trained networks and expert mode for classification projects.
+- [Transfer learning (keyword spotting)](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/transfer-learning-keyword.md): Fine-tune pre-trained keyword spotting models and adjust neural network settings for audio projects.
+- [Visual anomaly detection (FOMO-AD)](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/visual-anomaly-detection-fomo-ad.md): Train visual anomaly detection models with PatchCore or GMM scoring and set confidence thresholds.
+- [Custom learning blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-learning-blocks.md): Create learning blocks that train custom models from project data and return deployable model artifacts.
+- [NVIDIA TAO](https://docs.edgeimpulse.com/studio/projects/learning-blocks/blocks/nvidia-tao.md): Understand the deprecation of NVIDIA TAO models and choose supported Edge Impulse alternatives.
+- [Retrain model](https://docs.edgeimpulse.com/studio/projects/retrain-model.md): Regenerate features and retrain an existing impulse after adding data to a project.
+- [Live classification](https://docs.edgeimpulse.com/studio/projects/live-classification.md): Validate trained models with live data from devices, phones, computers, or uploaded samples.
+- [Model testing](https://docs.edgeimpulse.com/studio/projects/model-testing.md): Evaluate trained models on test data, inspect confusion matrices, and set confidence thresholds.
+- [Performance calibration](https://docs.edgeimpulse.com/studio/projects/performance-calibration.md): Tune event detection post-processing with streaming tests and compare recommended configurations.
+- [Object tracking](https://docs.edgeimpulse.com/studio/projects/post-processing/object-tracking.md): Track object detections across frames, configure trace settings, and reduce jitter in post-processing.
+- [Deployment](https://docs.edgeimpulse.com/studio/projects/deployment.md): Choose deployment targets, download builds, and compare model optimization options for edge devices.
+- [EON Compiler](https://docs.edgeimpulse.com/studio/projects/deployment/eon-compiler.md): Compile models into optimized C++ and compare EON Compiler resource savings across supported architectures.
+- [EON Operator Matrix (TensorFlow 2.19)](https://docs.edgeimpulse.com/studio/projects/deployment/eon-compiler-operator-matrix-2-19.md): View the EON Compiler operator support matrix in a full-width layout for TensorFlow 2.19.
+- [Custom deployment blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-deployment-blocks.md): Create deployment blocks that package trained models into custom artifacts for devices, services, or toolchains.
+- [Multi-project deployment](https://docs.edgeimpulse.com/studio/organizations/multi-project-deployment.md): Bundle multiple Edge Impulse projects and impulses into one deployment package for coordinated on-device inference.
+- [Versioning](https://docs.edgeimpulse.com/studio/projects/versioning.md): Create, view, and revert project versions to track machine learning workflow changes over time.
+- [Dashboard](https://docs.edgeimpulse.com/studio/organizations/dashboard.md): Monitor organization usage, data, projects, campaigns, blocks, and members from the organization dashboard.
+- [Data campaigns](https://docs.edgeimpulse.com/studio/organizations/data-campaigns.md): Create organization data campaigns to collect files through upload portals and route them into datasets.
+- [Users](https://docs.edgeimpulse.com/studio/organizations/users.md): Understand organization roles and compare the permissions available to Admins, Members, and Guests.
+- [Projects](https://docs.edgeimpulse.com/studio/organizations/projects.md): View and manage the Edge Impulse projects that belong to your organization.
+- [Data](https://docs.edgeimpulse.com/studio/organizations/data.md): Centralize organization datasets, connect storage buckets, and prepare files for importing into Edge Impulse projects.
+- [Cloud data storage](https://docs.edgeimpulse.com/studio/organizations/data/cloud-data-storage.md): Connect organization or project data sources to S3, Google Cloud Storage, Azure Blob Storage, or S3-compatible buckets.
+- [Data pipelines](https://docs.edgeimpulse.com/studio/organizations/data-pipelines.md): Combine transformation blocks into scheduled pipelines that process organization data and trigger notifications or webhooks.
+- [Data transformation](https://docs.edgeimpulse.com/studio/organizations/data-transformation.md): Run transformation jobs on organization datasets to generate files, update metadata, or import data into projects.
+- [Transformation blocks](https://docs.edgeimpulse.com/studio/organizations/transformation-blocks.md): Run pre-built or custom transformation blocks to process files, folders, or standalone organization jobs.
+- [Time-series data augmentation](https://docs.edgeimpulse.com/studio/organizations/transformation-blocks/blocks/time-series-data-augmentation.md): Use the time-series data augmentation block to generate synthetic sensor signals for organization datasets.
+- [Upload portals](https://docs.edgeimpulse.com/studio/organizations/upload-portals.md): Configure upload portals that let external contributors send files into organization storage buckets.
+- [Custom blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks.md): Create and manage organization custom blocks for labeling, processing, learning, transformation, deployment, and synthetic data workflows.
+- [Custom AI labeling blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-ai-labeling-blocks.md): Build custom AI labeling blocks that generate labels or bounding boxes from data stored in Edge Impulse.
+- [Custom synthetic data blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-synthetic-data-blocks.md): Create synthetic data blocks that generate samples and upload them to Edge Impulse through the Ingestion API.
+- [Custom transformation blocks](https://docs.edgeimpulse.com/studio/organizations/custom-blocks/custom-transformation-blocks.md): Create transformation blocks that process organization data, update metadata, and run from jobs or data sources.
+- [Secrets](https://docs.edgeimpulse.com/studio/organizations/secrets.md): Store organization-level secret values that custom blocks and automation can reference securely.
+
+## Optional
+
+- [Documentation index (all sections)](https://docs.edgeimpulse.com/llms.txt): Root llms.txt router linking every documentation section.
