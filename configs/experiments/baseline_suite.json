@@ -1,0 +1,9 @@
+{
+  "experiment_id": "exp_001_full_suite",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": ["03A", "03B"],
+  "models": ["small_cnn", "ds_cnn", "tc_resnet8", "cnn_lstm"],
+  "seed": 42,
+  "scientific_overrides": {},
+  "description": "Full eight-configuration run using the accepted CUDA protocol and validated frozen caches; no scientific changes."
+}

@@ -10,6 +10,8 @@ caches, baseline evidence and future results. `_local_only/` holds retained loca
 build/runtime material excluded from Git. Original local data and `colab_result/`
 remain available. Nothing was deleted.
 
+Hướng dẫn thao tác từng lần chạy bằng tiếng Việt: [Hướng dẫn chạy thử nghiệm](docs/HUONG_DAN_CHAY_THU_NGHIEM.md).
+
 ## Start here
 
 - [04D_experiments.ipynb](notebooks/current/04D_experiments.ipynb): mount Drive,
@@ -47,22 +49,30 @@ missing CUDA fails explicitly. Neither smoke command constructs an optimizer.
 The scientific pipeline remains **00 → 01 → 02 → 03A / 03B → 04A / 04B → 04C**.
 00–03B preserve the accepted scientific function and executed frontend-cell ASTs.
 04A/04B retain the historical CPU protocol for inspection, read existing caches,
-and cannot launch baseline retraining. 04C verifies and displays the saved accepted
-CUDA results without rewriting them. 04D supplies the new portable execution path.
+and cannot launch baseline retraining. 04C verifies and displays either the saved accepted
+CUDA baseline or a named completed eight-run experiment without rewriting it. 04D supplies the new portable execution path.
 
-For a future run, copy `configs/experiments/baseline_reuse.json`, set a never-used
-`exp_...` ID, commit/push, pull in Colab, then explicitly invoke:
+For a full future run, open 04D, set `EXPERIMENT_NAME` once and explicitly enable
+`RUN_TRAINING` for that execution. The suite trains all four existing models with
+03A, then all four with 03B, sequentially in one named experiment. The equivalent CLI is:
 
 ```sh
-python -B tools/experiment_runner.py train --config configs/experiments/YOUR_CONFIG.json
+python -u -B tools/experiment_runner.py train --config configs/experiments/baseline_suite.json --experiment-id exp_001_full_suite
 ```
 
-The current experiment layer reuses the accepted CUDA training protocol and one
-selected existing model/frontend. It rejects scientific overrides. New learning
-rate/loss/sampler/normalization/augmentation options require a separately reviewed
-implementation; none were introduced here. A run saves config, commit, runtime,
-cache/split hashes, logs, history, selected checkpoint, predictions and metrics to
-`EdgeAI/experiments/<experiment_id>/`. Existing IDs fail rather than overwrite.
+Commit/push the implementation, then pull it into a clean Colab checkout before
+training. Names and optional descriptions are runtime overrides; no new tracked
+config is needed just to name a run. Keep the committed notebook default at False.
+The existing `baseline_reuse.json` single-pair CLI remains supported.
+
+The experiment layer reuses the accepted CUDA training protocol, seed 42 and
+validated caches. It rejects scientific overrides. New scientific options require
+separately reviewed implementation; none were introduced here. Each experiment saves
+effective config, commit, runtime, cache/split identities and eight separate histories,
+checkpoints, predictions, metrics and confusion matrices under
+`EdgeAI/experiments/<EXPERIMENT_NAME>/`. A completed group includes `comparison.csv`
+and `comparison.json`; 04C selects the group by the same name. Existing names fail
+rather than overwrite. Partial/failed groups retain their artifacts and status.
 Waveform, segmentation or feature changes require a new versioned `derived/` path.
 
 Standard cycle: **edit locally → commit → push → Colab pull → mount Drive →

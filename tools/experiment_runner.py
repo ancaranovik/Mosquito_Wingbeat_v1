@@ -49,25 +49,60 @@ def smoke(device='cuda'):
 
 def validate_config(config):
     from model_zoo import FAMILIES
-    expected = {'experiment_id', 'parent_baseline_id', 'frontend', 'model', 'seed', 'scientific_overrides', 'description'}
+    common = {'experiment_id', 'parent_baseline_id', 'seed', 'scientific_overrides', 'description'}
+    suite = 'frontends' in config or 'models' in config
+    expected = common | ({'frontends', 'models'} if suite else {'frontend', 'model'})
     if set(config) != expected:
         raise ValueError(f'Config must contain exactly {sorted(expected)}')
     if config['parent_baseline_id'] != 'stage04_colab_seed42_20260929':
         raise ValueError('Unknown parent baseline')
-    if config['frontend'] not in ('03A', '03B') or config['model'] not in FAMILIES:
+    if suite and (config['frontends'] != ['03A', '03B'] or config['models'] != list(FAMILIES)):
+        raise ValueError('A suite must contain 03A and 03B and all four frozen models exactly once, in order')
+    if not suite and (config['frontend'] not in ('03A', '03B') or config['model'] not in FAMILIES):
         raise ValueError('Unknown frozen frontend/model')
     if config['seed'] != 42 or config['scientific_overrides'] != {}:
         raise ValueError('Scientific changes require a separately reviewed experiment implementation')
     return ProjectPaths.from_env().experiment(config['experiment_id'])
 
 
-def run(config_path):
+def run_plan(config):
+    """One legacy pair or the full eight-run suite, using the unchanged seed-42 protocol."""
+    validate_config(config)
+    frontends = config.get('frontends', [config.get('frontend')])
+    models = config.get('models', [config.get('model')])
+    return [{'run_id': f'{frontend}_{model}_seed42', 'frontend': frontend, 'model': model}
+            for frontend in frontends for model in models]
+
+
+class Tee:
+    """Flush each epoch to both the notebook and the persistent experiment log."""
+    def __init__(self, stream, log):
+        self.stream, self.log = stream, log
+
+    def write(self, value):
+        self.stream.write(value)
+        self.log.write(value)
+        self.flush()
+        return len(value)
+
+    def flush(self):
+        self.stream.flush()
+        self.log.flush()
+
+
+def run(config_path, experiment_id=None, description=None):
     import shutil
     import traceback
     from cache_consumer import read_json, write_json, sha256
     import experiment_training as training
     config = read_json(config_path)
+    # Runtime naming does not require changing a tracked config or notebook in Colab.
+    if experiment_id is not None:
+        config['experiment_id'] = experiment_id
+    if description is not None:
+        config['description'] = description
     target = validate_config(config)
+    plan = run_plan(config)
     require_mutable_output(target)
     if target.exists():
         raise FileExistsError(f'Experiment ID already exists; preserve it and choose a new ID: {target}')
@@ -82,30 +117,63 @@ def run(config_path):
         (target / name).mkdir()
     write_json(target / 'config/experiment.json', config)
     metadata = {'experiment_id': config['experiment_id'], 'parent_baseline_id': config['parent_baseline_id'],
-                'git_commit': commit, 'configuration': config, 'frontend': config['frontend'],
-                'model': config['model'], 'seed': config['seed'], 'runtime': report['runtime'],
+                'git_commit': commit, 'configuration': config,
+                'source_config_sha256': sha256(config_path),
+                'seed': config['seed'], 'runtime': report['runtime'], 'planned_runs': plan,
+                'expected_runs': len(plan), 'completed_runs': 0,
+                'runs': {item['run_id']: {'status': 'PENDING'} for item in plan},
                 'cache_sha256': report['cache_sha256'], 'split_sha256': report['split_sha256'],
                 'started_at_utc': datetime.now(timezone.utc).isoformat(), 'status': 'RUNNING'}
     write_json(target / 'config/metadata.json', metadata)
-    training.OUTPUT = target / 'results'
-    training.RUNS = training.OUTPUT / 'runs'
-    training.SELECTED_FAMILIES = (config['model'],)
-    training.EXPERIMENT_ID = config['experiment_id']
+    previous = (training.OUTPUT, training.RUNS, training.SELECTED_FAMILIES, training.EXPERIMENT_ID)
     with (target / 'logs/console.log').open('x', encoding='utf-8') as log:
         try:
-            with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
-                training.run_branch(config['frontend'])
-            run_root = training.RUNS / f"{config['frontend']}_{config['model']}_seed42"
-            shutil.copyfile(run_root / 'best_model.pt', target / 'checkpoints/best_model.pt')
-            result = read_json(run_root / 'result.json')
-            write_json(target / 'results/confusion_matrix.json', result['final_test_metrics']['confusion_matrix'])
-            metadata.update(status='COMPLETE', checkpoint_sha256=sha256(target / 'checkpoints/best_model.pt'),
-                            selected_checkpoint='checkpoints/best_model.pt')
-        except Exception:
+            training.OUTPUT = target / 'results'
+            training.RUNS = training.OUTPUT / 'runs'
+            training.EXPERIMENT_ID = config['experiment_id']
+            with contextlib.redirect_stdout(Tee(sys.stdout, log)), contextlib.redirect_stderr(Tee(sys.stderr, log)):
+                for index, item in enumerate(plan, 1):
+                    run_id = item['run_id']
+                    metadata['current_run'] = run_id
+                    metadata['runs'][run_id] = {'status': 'RUNNING', 'started_at_utc': datetime.now(timezone.utc).isoformat()}
+                    write_json(target / 'config/metadata.json', metadata)
+                    print(f"[{index}/{len(plan)}] {config['experiment_id']} / {run_id}", flush=True)
+                    training.SELECTED_FAMILIES = (item['model'],)
+                    training.run_branch(item['frontend'])
+                    run_root = training.RUNS / run_id
+                    checkpoint = target / 'checkpoints' / run_id / 'best_model.pt'
+                    checkpoint.parent.mkdir(exist_ok=False)
+                    shutil.copyfile(run_root / 'best_model.pt', checkpoint)
+                    result = read_json(run_root / 'result.json')
+                    write_json(run_root / 'confusion_matrix.json', result['final_test_metrics']['confusion_matrix'])
+                    metadata['runs'][run_id].update(status='COMPLETE',
+                        result_sha256=sha256(run_root / 'result.json'), checkpoint_sha256=sha256(checkpoint),
+                        selected_checkpoint=checkpoint.relative_to(target).as_posix(),
+                        completed_at_utc=datetime.now(timezone.utc).isoformat())
+                    metadata['completed_runs'] = index
+                    metadata['protocol_sha256'] = sha256(target / 'results/protocol.json')
+                    write_json(target / 'config/metadata.json', metadata)
+                from experiment_review import verify_experiment, comparison_summary
+                records = verify_experiment(config['experiment_id'], require_complete=False)
+                summary, table = comparison_summary(records)
+                table.to_csv(target / 'results/comparison.csv', index=False)
+                write_json(target / 'results/comparison.json', summary)
+                metadata.update(status='COMPLETE', current_run=None,
+                    completed_at_utc=datetime.now(timezone.utc).isoformat(),
+                    comparison_sha256={name: sha256(target / 'results' / name)
+                                       for name in ('comparison.csv', 'comparison.json')})
+                print(f"COMPLETE: {len(plan)}/{len(plan)} runs; results: {target}", flush=True)
+        except BaseException as error:
             log.write(traceback.format_exc())
-            metadata['status'] = 'FAILED'
+            log.flush()
+            metadata.update(status='INTERRUPTED' if isinstance(error, (KeyboardInterrupt, SystemExit)) else 'FAILED',
+                            failure_type=type(error).__name__, stopped_at_utc=datetime.now(timezone.utc).isoformat())
+            current = metadata.get('current_run')
+            if current and metadata['runs'][current]['status'] == 'RUNNING':
+                metadata['runs'][current]['status'] = metadata['status']
             raise
         finally:
+            training.OUTPUT, training.RUNS, training.SELECTED_FAMILIES, training.EXPERIMENT_ID = previous
             write_json(target / 'config/metadata.json', metadata)
     return target
 
@@ -115,6 +183,8 @@ def main():
     parser.add_argument('action', choices=('smoke', 'train', 'baseline'), nargs='?', default='smoke')
     parser.add_argument('--device', choices=('cpu', 'cuda'), default='cuda')
     parser.add_argument('--config', type=Path)
+    parser.add_argument('--experiment-id', help='New output folder name; overrides the config template ID')
+    parser.add_argument('--description', help='Purpose/change notes saved with this run')
     args = parser.parse_args()
     if args.action == 'smoke':
         print(json.dumps(smoke(args.device), indent=2))
@@ -124,7 +194,7 @@ def main():
     else:
         if args.config is None:
             parser.error('train requires --config and a never-used experiment ID')
-        print(run(args.config))
+        print(run(args.config, args.experiment_id, args.description))
 
 
 if __name__ == '__main__':

@@ -152,26 +152,38 @@ notebook reruns are unnecessary for normal experiments.
 ## Future experiments
 
 Edit locally → commit → push → Colab pull → mount Drive → verify cache/data →
-explicitly train → results saved to Drive. Copy `configs/experiments/baseline_reuse.json`
-and choose a never-used `exp_...` ID. Commit config/code before running:
+explicitly train → results saved to Drive. In 04D, set `EXPERIMENT_NAME` once and
+turn on `RUN_TRAINING` only for the execution you intend. Keep False in the committed
+notebook. The named suite trains all four frozen models with 03A, then with 03B:
 
 ```sh
-python -B tools/experiment_runner.py train --config configs/experiments/YOUR_CONFIG.json
+python -u -B tools/experiment_runner.py train --config configs/experiments/baseline_suite.json --experiment-id exp_001_full_suite
 ```
 
-The runner currently supports the accepted CUDA protocol, seed 42, one existing
-frontend and one existing model. Scientific overrides fail explicitly. This is
-infrastructure, not newly implemented tuning. Learning-rate/loss/sampler/load-time
-transforms can reuse accepted caches when scientifically valid, but implementing
-those choices requires separately reviewed code. Waveform, segmentation or feature
-changes must use a new versioned `derived/` location and new identities.
+`--experiment-id` overrides the template ID without changing a tracked config.
+`--description` optionally records purpose/change notes. The runtime checkout must
+be clean and committed. A VS Code local notebook connected to Colab can change these
+controls without modifying the remote checkout; a notebook hosted inside that
+checkout should be copied outside it for interactive control.
 
-The runner reserves a new output directory and refuses reused IDs. Failed runs
-remain visible; there is no implicit resume/restart. It records ID, parent baseline,
-commit, config, seed, environment/GPU/CUDA, cache/split identities, logs, history,
-validation selection, checkpoint, example/source predictions, metrics and confusion
-matrix. Training history and selected checkpoint may update only within that new
-run. TEST remains isolated from fitting and validation checkpoint selection.
+The accepted CUDA protocol and seed 42 remain fixed. Scientific overrides fail
+explicitly. The legacy `baseline_reuse.json` single-pair CLI still works. New
+learning-rate/loss/sampler/transforms need separately reviewed implementations;
+waveform, segmentation or feature changes need versioned `derived/` identities.
+
+The runner reserves a new output directory and refuses reused names. It persists
+per-run progress, COMPLETE/FAILED/INTERRUPTED group status, ID, parent baseline,
+commit, effective config, seed, runtime/GPU/CUDA and cache/split identities. All eight
+runs get their own history, validation selection, checkpoint, predictions, metrics
+and confusion matrix. A group comparison/validation-only shortlist is written only
+after every planned run is complete and authenticated. Logs are shown live and saved
+to Drive. Completed/partial earlier results remain in their named directories;
+there is no implicit resume/restart or overwrite. TEST remains isolated from fitting
+and checkpoint selection.
+
+04C is read-only: leave `EXPERIMENT_NAME` empty to inspect the accepted baseline,
+or enter a completed suite name to inspect its eight results and provenance.
+CLI review: `python -B tools/experiment_review.py exp_001_full_suite`.
 
 Current validators are read-only. Original validators, CPU modules/notebooks and
 CUDA export remain in `archive/portability_originals` and `archive/colab_baseline`.

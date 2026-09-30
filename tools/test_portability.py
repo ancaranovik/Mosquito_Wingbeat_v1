@@ -1,5 +1,7 @@
 """Storage isolation and experiment safety checks; no training."""
 import os
+import contextlib
+import io
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -121,7 +123,8 @@ class StorageTests(unittest.TestCase):
                  patch.object(sys, 'path', list(sys.path)), \
                  patch('os.chdir'), patch.object(Path, 'exists', return_value=exists), \
                  patch('subprocess.run') as run_command, \
-                 patch('subprocess.check_output', side_effect=[url, ''] if exists else []) as read_command:
+                 patch('subprocess.check_output', side_effect=[url, ''] if exists else []) as read_command, \
+                 contextlib.redirect_stdout(io.StringIO()):
                 scope = {}
                 exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'REPO_URL =' in ''.join(c['source'])), scope)
                 colab.drive.mount.assert_called_with('/content/drive')
