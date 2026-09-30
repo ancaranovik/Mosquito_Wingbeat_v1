@@ -123,16 +123,16 @@ class StorageTests(unittest.TestCase):
                  patch('subprocess.run') as run_command, \
                  patch('subprocess.check_output', side_effect=[url, ''] if exists else []) as read_command:
                 scope = {}
-                exec(''.join(notebook['cells'][1]['source']), scope)
+                exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'REPO_URL =' in ''.join(c['source'])), scope)
                 colab.drive.mount.assert_called_with('/content/drive')
                 self.assertTrue(scope['IN_COLAB'])
                 args = run_command.call_args.args[0]
                 self.assertEqual(args[:3], ['git', 'pull', '--ff-only'] if exists else ['git', 'clone', url])
                 scope['paths'] = ProjectPaths(repo=REPO_ROOT, data=Path('/content/drive/MyDrive/EdgeAI'))
-                exec(''.join(notebook['cells'][7]['source']), scope)
+                exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'device = ' in ''.join(c['source'])), scope)
                 self.assertEqual(run_command.call_args.args[0][-3:], ['smoke', '--device', 'cuda'])
                 before = run_command.call_count
-                exec(''.join(notebook['cells'][9]['source']), scope)
+                exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'RUN_TRAINING = False' in ''.join(c['source'])), scope)
                 self.assertFalse(scope['RUN_TRAINING'])
                 self.assertEqual(run_command.call_count, before)
 
