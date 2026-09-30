@@ -44,3 +44,10 @@ desktop.ini
 !.env.example
 *credentials*.json
 *token*.json
+
+# Raw archived webpage snapshots can embed third-party API keys.
+/archive/**/*.html
+/archive/**/*.htm
+**/drive_folder*.html
+**/noise_folder*.html
+**/mosquito_folder*.html
