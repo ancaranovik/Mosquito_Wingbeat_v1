@@ -51,7 +51,10 @@ def validate_config(config):
     from model_zoo import FAMILIES
     common = {'experiment_id', 'parent_baseline_id', 'seed', 'scientific_overrides', 'description'}
     suite = 'frontends' in config or 'models' in config
+    v2 = config.get('protocol_version') == 'stage04_experiment_v2'
     expected = common | ({'frontends', 'models'} if suite else {'frontend', 'model'})
+    if v2:
+        expected |= {'protocol_version', 'training_overrides', 'evaluate_test', 'reference_experiment_id'}
     if set(config) != expected:
         raise ValueError(f'Config must contain exactly {sorted(expected)}')
     if config['parent_baseline_id'] != 'stage04_colab_seed42_20260929':
@@ -62,11 +65,27 @@ def validate_config(config):
         raise ValueError('Unknown frozen frontend/model')
     if config['seed'] != 42 or config['scientific_overrides'] != {}:
         raise ValueError('Scientific changes require a separately reviewed experiment implementation')
+    if v2:
+        from experiment_training_v2 import effective_config
+        if not suite:
+            raise ValueError('v2 requires a complete eight-configuration suite')
+        effective_config(config['training_overrides'], config['evaluate_test'])
+        ProjectPaths.from_env().experiment(config['reference_experiment_id'])
+        if config['reference_experiment_id'] == config['experiment_id']:
+            raise ValueError('An experiment cannot be its own reference')
     return ProjectPaths.from_env().experiment(config['experiment_id'])
 
 
+def training_module(config):
+    if config.get('protocol_version') == 'stage04_experiment_v2':
+        import experiment_training_v2 as training
+    else:
+        import experiment_training as training
+    return training
+
+
 def run_plan(config):
-    """One legacy pair or the full eight-run suite, using the unchanged seed-42 protocol."""
+    """One legacy pair or eight frozen model/frontend pairs; seed 42 remains fixed."""
     validate_config(config)
     frontends = config.get('frontends', [config.get('frontend')])
     models = config.get('models', [config.get('model')])
@@ -94,7 +113,6 @@ def run(config_path, experiment_id=None, description=None):
     import shutil
     import traceback
     from cache_consumer import read_json, write_json, sha256
-    import experiment_training as training
     config = read_json(config_path)
     # Runtime naming does not require changing a tracked config or notebook in Colab.
     if experiment_id is not None:
@@ -102,6 +120,7 @@ def run(config_path, experiment_id=None, description=None):
     if description is not None:
         config['description'] = description
     target = validate_config(config)
+    training = training_module(config)
     plan = run_plan(config)
     require_mutable_output(target)
     if target.exists():
@@ -126,11 +145,14 @@ def run(config_path, experiment_id=None, description=None):
                 'started_at_utc': datetime.now(timezone.utc).isoformat(), 'status': 'RUNNING'}
     write_json(target / 'config/metadata.json', metadata)
     previous = (training.OUTPUT, training.RUNS, training.SELECTED_FAMILIES, training.EXPERIMENT_ID)
+    previous_config = training.CONFIG
     with (target / 'logs/console.log').open('x', encoding='utf-8') as log:
         try:
             training.OUTPUT = target / 'results'
             training.RUNS = training.OUTPUT / 'runs'
             training.EXPERIMENT_ID = config['experiment_id']
+            if config.get('protocol_version') == 'stage04_experiment_v2':
+                training.CONFIG = training.effective_config(config['training_overrides'], config['evaluate_test'])
             with contextlib.redirect_stdout(Tee(sys.stdout, log)), contextlib.redirect_stderr(Tee(sys.stderr, log)):
                 for index, item in enumerate(plan, 1):
                     run_id = item['run_id']
@@ -145,7 +167,12 @@ def run(config_path, experiment_id=None, description=None):
                     checkpoint.parent.mkdir(exist_ok=False)
                     shutil.copyfile(run_root / 'best_model.pt', checkpoint)
                     result = read_json(run_root / 'result.json')
-                    write_json(run_root / 'confusion_matrix.json', result['final_test_metrics']['confusion_matrix'])
+                    display_metrics = result['final_test_metrics'] or result['selected_validation_metrics']
+                    confusion = display_metrics['confusion_matrix']
+                    if config.get('protocol_version') == 'stage04_experiment_v2':
+                        confusion = {'split': 'test' if result['test_evaluated'] else 'validation',
+                                     'class_order': result['class_order'], 'matrix': confusion}
+                    write_json(run_root / 'confusion_matrix.json', confusion)
                     metadata['runs'][run_id].update(status='COMPLETE',
                         result_sha256=sha256(run_root / 'result.json'), checkpoint_sha256=sha256(checkpoint),
                         selected_checkpoint=checkpoint.relative_to(target).as_posix(),
@@ -174,6 +201,7 @@ def run(config_path, experiment_id=None, description=None):
             raise
         finally:
             training.OUTPUT, training.RUNS, training.SELECTED_FAMILIES, training.EXPERIMENT_ID = previous
+            training.CONFIG = previous_config
             write_json(target / 'config/metadata.json', metadata)
     return target
 

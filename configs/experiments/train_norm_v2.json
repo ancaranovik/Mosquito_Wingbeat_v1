@@ -1,0 +1,13 @@
+{
+  "experiment_id": "exp_004_train_norm",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": ["03A", "03B"],
+  "models": ["small_cnn", "ds_cnn", "tc_resnet8", "cnn_lstm"],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v2",
+  "training_overrides": {"input_normalization": "train_global_zscore"},
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_002_control_v2",
+  "description": "Single-factor normalization trial versus exp_002_control_v2: one TRAIN-only scalar mean/std per frontend, transformed in memory; LR=0.001. Frozen cache files remain unchanged. Validation-only; TEST disabled."
+}

@@ -1,30 +1,35 @@
 """Read and authenticate a named Drive experiment; never train or rewrite results."""
 from cache_consumer import read_json, sha256, require
 from project_paths import ProjectPaths
-from experiment_runner import run_plan, validate_config
+from experiment_runner import run_plan, validate_config, training_module
 
 
 def comparison_summary(records):
     import pandas as pd
-    import experiment_training as training
+    training = training_module(records[0])
     table = pd.DataFrame([training.comparison_row(record) for record in records])
     shortlist = sorted(records, key=lambda r: (-r['selected_validation_metrics']['macro_f1'],
                                                r['parameter_count'], r['run_id']))[:3]
-    return {'interpretation': 'controlled comparison of frozen acoustic frontend/model configurations',
+    summary = {'interpretation': 'controlled comparison of frozen acoustic frontend/model configurations',
             'experiments': table.to_dict(orient='records'),
             'protocol_sha256': records[0]['protocol_sha256'],
-            'shortlist_rule': training.CONFIG['shortlist'],
+            'shortlist_rule': records[0]['training_configuration']['shortlist'],
             'stage05_shortlist': [r['run_id'] for r in shortlist],
             'edge_winner_declared': False, 'test_used_for_shortlist': False,
-            'limitation': 'Correlated windows are not independent mosquitoes; source grouping does not prove biological or domain independence'}, table
+            'limitation': 'Correlated windows are not independent mosquitoes; source grouping does not prove biological or domain independence'}
+    if records[0].get('protocol_version') == 'stage04_experiment_v2':
+        summary.update(protocol_version=records[0]['protocol_version'],
+                       test_evaluated=records[0]['test_evaluated'],
+                       evaluation_policy=records[0]['training_configuration']['evaluation_policy'])
+    return summary, table
 
 
 def verify_experiment(experiment_id, require_complete=True):
     import pandas as pd
-    import experiment_training as training
     root = ProjectPaths.from_env().experiment(experiment_id)
     config = read_json(root / 'config/experiment.json')
     require(validate_config(config) == root, 'Experiment folder/config identity mismatch')
+    training = training_module(config)
     plan = run_plan(config)
     metadata = read_json(root / 'config/metadata.json')
     require(metadata['experiment_id'] == experiment_id and metadata['configuration'] == config,
@@ -41,6 +46,10 @@ def verify_experiment(experiment_id, require_complete=True):
             'Missing or unexpected run directories')
     require(sha256(output / 'protocol.json') == metadata['protocol_sha256'], 'Experiment protocol changed')
     protocol = read_json(output / 'protocol.json')
+    if config.get('protocol_version') == 'stage04_experiment_v2':
+        require(protocol.get('protocol_version') == config['protocol_version']
+                and protocol['training_configuration'] == training.effective_config(
+                    config['training_overrides'], config['evaluate_test']), 'Config/effective protocol mismatch')
     previous = training.OUTPUT
     try:
         training.OUTPUT = output
@@ -58,7 +67,12 @@ def verify_experiment(experiment_id, require_complete=True):
                     f'Checkpoint path mismatch: {run_id}')
             require(sha256(checkpoint) == run_metadata['checkpoint_sha256'] == record['model_sha256'],
                     f'Checkpoint copy changed: {run_id}')
-            require(read_json(directory / 'confusion_matrix.json') == record['final_test_metrics']['confusion_matrix'],
+            display_metrics = record['final_test_metrics'] or record['selected_validation_metrics']
+            confusion = display_metrics['confusion_matrix']
+            if config.get('protocol_version') == 'stage04_experiment_v2':
+                confusion = {'split': 'test' if record['test_evaluated'] else 'validation',
+                             'class_order': record['class_order'], 'matrix': confusion}
+            require(read_json(directory / 'confusion_matrix.json') == confusion,
                     f'Confusion matrix changed: {run_id}')
             records.append(record)
     finally:
@@ -75,6 +89,33 @@ def verify_experiment(experiment_id, require_complete=True):
 
 def compare_saved_results(experiment_id):
     return comparison_summary(verify_experiment(experiment_id))[1]
+
+
+def compare_validation_to_reference(experiment_id, reference_id=None):
+    """Compare authenticated, paired validation scores; never infer or consult TEST."""
+    import pandas as pd
+    records = verify_experiment(experiment_id)
+    metadata = read_json(ProjectPaths.from_env().experiment(experiment_id) / 'config/metadata.json')
+    reference_id = reference_id or metadata['configuration'].get('reference_experiment_id')
+    require(reference_id is not None and reference_id != experiment_id, 'Choose a distinct reference experiment')
+    reference = verify_experiment(reference_id)
+    original = {r['run_id']: r for r in reference}
+    require(set(original) == {r['run_id'] for r in records}, 'Reference has a different run plan')
+    rows = []
+    for record in records:
+        old = original[record['run_id']]
+        require(record['cache_sha256'] == old['cache_sha256'] and record['counts'] == old['counts']
+                and record['class_order'] == old['class_order'] and record['architecture'] == old['architecture'],
+                'Reference differs in data, split, labels or architecture')
+        before = old['selected_validation_metrics']['macro_f1']
+        after = record['selected_validation_metrics']['macro_f1']
+        rows.append({'Run': record['run_id'], 'Reference': reference_id, 'Experiment': experiment_id,
+                     'Reference val Macro-F1': before, 'Current val Macro-F1': after,
+                     'Delta val F1 (percentage points)': 100 * (after - before),
+                     'Reference selected epoch': old['best_epoch'], 'Current selected epoch': record['best_epoch'],
+                     'Same runtime': old['software'] == record['software'],
+                     'Reference criterion': old['criterion'], 'Current criterion': record['criterion']})
+    return pd.DataFrame(rows)
 
 
 if __name__ == '__main__':

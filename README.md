@@ -11,6 +11,8 @@ build/runtime material excluded from Git. Original local data and `colab_result/
 remain available. Nothing was deleted.
 
 Hướng dẫn thao tác từng lần chạy bằng tiếng Việt: [Hướng dẫn chạy thử nghiệm](docs/HUONG_DAN_CHAY_THU_NGHIEM.md).
+Lần tiếp theo **exp_002_control_v2**: [Hướng dẫn experiment v2](docs/EXPERIMENT_V2_GUIDE.md).
+04D đã đặt sẵn control v2 và training tắt; 04C đọc validation diagnostics theo tên.
 
 ## Start here
 
@@ -57,7 +59,7 @@ For a full future run, open 04D, set `EXPERIMENT_NAME` once and explicitly enabl
 03A, then all four with 03B, sequentially in one named experiment. The equivalent CLI is:
 
 ```sh
-python -u -B tools/experiment_runner.py train --config configs/experiments/baseline_suite.json --experiment-id exp_001_full_suite
+python -u -B tools/experiment_runner.py train --config configs/experiments/control_v2.json --experiment-id exp_002_control_v2
 ```
 
 Commit/push the implementation, then pull it into a clean Colab checkout before
@@ -65,9 +67,13 @@ training. Names and optional descriptions are runtime overrides; no new tracked
 config is needed just to name a run. Keep the committed notebook default at False.
 The existing `baseline_reuse.json` single-pair CLI remains supported.
 
-The experiment layer reuses the accepted CUDA training protocol, seed 42 and
-validated caches. It rejects scientific overrides. New scientific options require
-separately reviewed implementation; none were introduced here. Each experiment saves
+The original `baseline_suite.json` engine preserves the accepted CUDA protocol.
+The reviewed v2 engine keeps seed 42, architectures and validated caches, selects
+by validation Macro-F1 while retaining loss-based early stopping, and saves both
+checkpoint candidates plus TRAIN-eval / validation diagnostics. TEST defaults to
+disabled during tuning. Only learning-rate and TRAIN-global normalization overrides
+are supported in v2; other scientific options require separate implementation.
+Each experiment saves
 effective config, commit, runtime, cache/split identities and eight separate histories,
 checkpoints, predictions, metrics and confusion matrices under
 `EdgeAI/experiments/<EXPERIMENT_NAME>/`. A completed group includes `comparison.csv`

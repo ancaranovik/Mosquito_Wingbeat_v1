@@ -1,0 +1,13 @@
+{
+  "experiment_id": "exp_002_control_v2",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": ["03A", "03B"],
+  "models": ["small_cnn", "ds_cnn", "tc_resnet8", "cnn_lstm"],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v2",
+  "training_overrides": {},
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_001_First_Run_with_Defult_Params",
+  "description": "Control v2: select maximum validation Macro-F1; keep seed, Adam LR=0.001, no normalization, loss-based early stopping, architectures, caches and split unchanged. Save both checkpoints and evaluation diagnostics. Validation-only; TEST disabled."
+}

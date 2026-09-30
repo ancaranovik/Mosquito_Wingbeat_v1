@@ -82,12 +82,12 @@ class SuiteTests(unittest.TestCase):
         import pandas as pd
         notebook = read_json(REPO_ROOT / 'notebooks/current/04C_compare_models.ipynb')
         selection = next(''.join(c['source']) for c in notebook['cells']
-                         if c['cell_type'] == 'code' and 'EXPERIMENT_NAME = ""' in ''.join(c['source']))
+                         if c['cell_type'] == 'code' and 'all_complete = False' in ''.join(c['source']))
         scope = {'PATHS': ProjectPaths.from_env(), 'BRANCHES': training.BRANCHES,
                  'FAMILIES': training.FAMILIES, 'read_json': read_json, 'pd': pd,
                  'display': lambda _: None}
         with contextlib.redirect_stdout(io.StringIO()):
-            exec(selection.replace('EXPERIMENT_NAME = ""', 'EXPERIMENT_NAME = "exp_test_suite"'), scope)
+            exec(selection.replace('EXPERIMENT_NAME = "exp_002_control_v2"', 'EXPERIMENT_NAME = "exp_test_suite"'), scope)
         self.assertTrue(scope['all_complete'])
         self.assertEqual(scope['RUNS'], target / 'results/runs')
         self.assertEqual(len(scope['comparison']), 8)
@@ -155,7 +155,7 @@ class SuiteTests(unittest.TestCase):
             command.assert_not_called()
             exec(source.replace('RUN_TRAINING = False', 'RUN_TRAINING = True'), scope)
             args = command.call_args.args[0]
-            self.assertIn('configs/experiments/baseline_suite.json', args)
+            self.assertIn('configs/experiments/control_v2.json', args)
             self.assertEqual(args[args.index('--experiment-id') + 1], scope['EXPERIMENT_NAME'])
             self.assertEqual(args[args.index('--description') + 1], scope['EXPERIMENT_DESCRIPTION'])
 

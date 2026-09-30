@@ -7,6 +7,10 @@ import unittest
 from unittest.mock import patch
 from project_paths import ProjectPaths, REPO_ROOT, resolve_path, require_mutable_output, logical_relative
 from experiment_runner import validate_config, run
+# Load extension modules before patch.dict(sys.modules): restoring that mock must
+# not unload NumPy/PyTorch extensions first imported inside a fake-Colab context.
+import cache_consumer
+import experiment_training_v2
 
 
 class StorageTests(unittest.TestCase):
@@ -111,6 +115,10 @@ class StorageTests(unittest.TestCase):
         import json, sys, types
         from unittest.mock import Mock
         notebook = json.loads((REPO_ROOT / 'notebooks/current/04D_experiments.ipynb').read_text(encoding='utf-8'))
+        # Dependency installation must precede any live-kernel Torch import.
+        setup_index = next(i for i, c in enumerate(notebook['cells']) if 'paths = configure(' in ''.join(c['source']))
+        self.assertFalse(any('import torch' in ''.join(c['source']) for c in notebook['cells'][:setup_index]
+                             if c['cell_type'] == 'code'))
         google = types.ModuleType('google')
         colab = types.ModuleType('google.colab')
         colab.drive = Mock()
@@ -120,6 +128,7 @@ class StorageTests(unittest.TestCase):
             with self.subTest(existing_checkout=exists), \
                  patch.dict(sys.modules, {'google': google, 'google.colab': colab}), \
                  patch.dict(os.environ, {'EDGEAI_REPO_ROOT': '/content/edge-ai'}), \
+                 patch('project_paths.is_colab_runtime', return_value=False), \
                  patch.object(sys, 'path', list(sys.path)), \
                  patch('os.chdir'), patch.object(Path, 'exists', return_value=exists), \
                  patch('subprocess.run') as run_command, \
@@ -135,7 +144,9 @@ class StorageTests(unittest.TestCase):
                 exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'device = ' in ''.join(c['source'])), scope)
                 self.assertEqual(run_command.call_args.args[0][-3:], ['smoke', '--device', 'cuda'])
                 before = run_command.call_count
-                exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'RUN_TRAINING = False' in ''.join(c['source'])), scope)
+                config_fixture = cache_consumer.read_json(REPO_ROOT / 'configs/experiments/control_v2.json')
+                with patch('cache_consumer.read_json', return_value=config_fixture):
+                    exec(next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code' and 'RUN_TRAINING = False' in ''.join(c['source'])), scope)
                 self.assertFalse(scope['RUN_TRAINING'])
                 self.assertEqual(run_command.call_count, before)
 

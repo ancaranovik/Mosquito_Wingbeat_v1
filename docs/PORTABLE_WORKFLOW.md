@@ -151,6 +151,14 @@ notebook reruns are unnecessary for normal experiments.
 
 ## Future experiments
 
+The reviewed v2 workflow is documented in [EXPERIMENT_V2_GUIDE.md](EXPERIMENT_V2_GUIDE.md).
+04D now defaults to `configs/experiments/control_v2.json`, `exp_002_control_v2`
+and `RUN_TRAINING=False`. This separately versioned engine selects by validation
+Macro-F1, retains loss-based early stopping, saves both checkpoints and TRAIN-eval /
+validation diagnostics, and defaults to validation-only tuning with TEST disabled.
+The LR and TRAIN-only normalization templates are prepared as individual later trials.
+The original CUDA engine and baseline suite below remain available unchanged.
+
 Edit locally → commit → push → Colab pull → mount Drive → verify cache/data →
 explicitly train → results saved to Drive. In 04D, set `EXPERIMENT_NAME` once and
 turn on `RUN_TRAINING` only for the execution you intend. Keep False in the committed
@@ -166,9 +174,10 @@ be clean and committed. A VS Code local notebook connected to Colab can change t
 controls without modifying the remote checkout; a notebook hosted inside that
 checkout should be copied outside it for interactive control.
 
-The accepted CUDA protocol and seed 42 remain fixed. Scientific overrides fail
-explicitly. The legacy `baseline_reuse.json` single-pair CLI still works. New
-learning-rate/loss/sampler/transforms need separately reviewed implementations;
+The accepted CUDA protocol and seed 42 remain fixed in the original engine.
+Scientific overrides fail explicitly there. The legacy `baseline_reuse.json`
+single-pair CLI still works. The v2 engine accepts only the reviewed learning-rate
+and TRAIN-global normalization overrides; loss/sampler/other transforms need separately reviewed implementations;
 waveform, segmentation or feature changes need versioned `derived/` identities.
 
 The runner reserves a new output directory and refuses reused names. It persists
