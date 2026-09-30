@@ -2,7 +2,7 @@
 import os
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 from datetime import datetime, timezone
-from project_paths import resolve_path, ProjectPaths
+from project_paths import resolve_path, ProjectPaths, require_mutable_output
 import importlib.metadata
 import os
 import platform
@@ -221,6 +221,7 @@ def run_branch(branch):
     expected_output = ProjectPaths.from_env().experiment(EXPERIMENT_ID) / "results"
     require(OUTPUT == expected_output and RUNS == expected_output / "runs",
             "Experiment output must stay inside its reserved directory")
+    require_mutable_output(OUTPUT)
     require(branch in BRANCHES, "Unknown frontend")
     require(torch.cuda.is_available(), "CUDA GPU required: select a Colab GPU runtime; no CPU fallback")
     require(torch.version.cuda is not None, "Install the bundled CUDA PyTorch requirements")
@@ -358,6 +359,7 @@ def comparison_row(record):
 
 def compare_saved_results():
     """04C reads saved Stage-04 artifacts only. Never generates features or trains."""
+    require_mutable_output(OUTPUT)
     protocol_path = OUTPUT / "protocol.json"
     require(protocol_path.is_file(), "Missing Stage-04 protocol; comparison requires all 8 completed authenticated runs")
     missing = [f"{b}_{f}_seed42" for b in BRANCHES for f in FAMILIES

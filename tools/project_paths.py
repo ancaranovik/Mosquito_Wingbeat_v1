@@ -4,12 +4,23 @@ EDGEAI_DATA_ROOT selects the EdgeAI directory, never its fixed/ child.
 Without it, local reads use the original project layout. No files are moved.
 """
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import os
 import re
+import sys
+import importlib.util
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 COLAB_DATA_ROOT = Path('/content/drive/MyDrive/EdgeAI')
+
+
+def is_colab_runtime():
+    if 'google.colab' in sys.modules:
+        return True
+    try:
+        return importlib.util.find_spec('google.colab') is not None
+    except (ImportError, ValueError):
+        return False
 
 
 @dataclass(frozen=True)
@@ -20,8 +31,12 @@ class ProjectPaths:
     @classmethod
     def from_env(cls, repo=REPO_ROOT):
         value = os.environ.get('EDGEAI_DATA_ROOT')
+        if value and os.name != 'nt' and PureWindowsPath(value).drive:
+            raise ValueError('EDGEAI_DATA_ROOT cannot refer to a Windows drive in this runtime')
         data = Path(value).expanduser().resolve() if value else None
-        if data is None and Path('/content').is_dir():
+        if is_colab_runtime():
+            if data is not None and data != COLAB_DATA_ROOT:
+                raise ValueError(f'Colab data must be mounted at {COLAB_DATA_ROOT}')
             data = COLAB_DATA_ROOT
         return cls(Path(repo).resolve(), data)
 

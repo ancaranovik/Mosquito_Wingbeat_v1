@@ -21,7 +21,7 @@ Edge AI Project/
 ├── data/{audio,stage04_cache}/  local originals, excluded from Git
 ├── colab_result/               original baseline, excluded from Git
 ├── _local_only/                retained builds/runtime checks, excluded from Git
-└── _drive_upload/EdgeAI/        small upload copies, excluded from Git
+└── _drive_upload/EdgeAI/        complete manual-upload staging tree, excluded from Git
 ```
 
 GitHub stores code, notebooks, configs, small manifests/contracts, documentation
@@ -70,8 +70,8 @@ into the existing corresponding Drive folders; avoid same-named duplicate roots.
 | `_drive_upload\EdgeAI\fixed\data\splits\` | `MyDrive/EdgeAI/fixed/data/splits/` |
 | `_drive_upload\EdgeAI\fixed\data\metadata\` | `MyDrive/EdgeAI/fixed/data/metadata/` |
 | `_drive_upload\EdgeAI\fixed\data\audits\` | `MyDrive/EdgeAI/fixed/data/audits/` |
-| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03A\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03A/` (metadata only) |
-| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03B\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03B/` (metadata only) |
+| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03A\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03A/` |
+| `_drive_upload\EdgeAI\fixed\data\stage04_cache\03B\` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03B/` |
 | `_drive_upload\EdgeAI\fixed\baseline\stage04\` | `MyDrive/EdgeAI/fixed/baseline/stage04/` |
 | `data\audio\` | `MyDrive/EdgeAI/fixed/raw/HumBugDB/` |
 | `data\stage04_cache\03A\features.npy` | `MyDrive/EdgeAI/fixed/data/stage04_cache/03A/features.npy` |
@@ -79,9 +79,10 @@ into the existing corresponding Drive folders; avoid same-named duplicate roots.
 | `archive\baseline_readiness\raw\` | `MyDrive/EdgeAI/fixed/history/archive/baseline_readiness/raw/` |
 | `archive\baseline_readiness\sources\historical_archives\` | `MyDrive/EdgeAI/fixed/history/archive/baseline_readiness/sources/historical_archives/` |
 
-Uploading the staging tree alone is insufficient: audio, feature arrays and ZIPs
-were deliberately not duplicated. Every file has an exact absolute source, Drive
-destination, size, SHA256, purpose and staging flag in
+The completed staging tree contains all 5,412 manifest files, including audio,
+feature arrays and historical ZIPs (10,311,854,467 bytes). Upload its contents
+without introducing an extra EdgeAI directory. The original manifest staging flags
+predate the complete copy; source/destination, size and SHA256 remain authoritative in
 [drive_migration.csv](portability/drive_migration.csv). Historical payloads are
 provenance, not required for the first cache-only test. The two unreadable historical
 cache directories under `data/stage04_cache/preserved-before-audit-20260929/` are
@@ -106,18 +107,21 @@ immutable audio/arrays to avoid duplication. Do not edit those test payloads.
 
 ## Environment and first Colab GPU smoke test
 
-1. Later, create a GitHub repository and push the local commit yourself. No remote
-   is configured by this task. Configure private-repository authentication
-   interactively; never embed tokens in URLs, source or notebooks.
+1. Commit and push the final local portability fixes to the configured repository,
+   `https://github.com/ancaranovik/Mosquito_Wingbeat_v1.git`. The audit does not
+   commit or push. Configure private-repository authentication interactively;
+   never embed tokens in URLs, source or notebooks.
 2. Open `notebooks/current/04D_experiments.ipynb` in VS Code and connect to a Colab
    GPU kernel. The local notebook file and remote execution filesystem differ.
 3. Set REPO_URL to your GitHub HTTPS clone URL. Run the first cell to mount Drive,
    clone or fast-forward pull, check origin and require a clean runtime checkout.
-4. Run `configure(install=True)`. It sets EDGEAI_REPO_ROOT, defaults EDGEAI_DATA_ROOT
-   to `/content/drive/MyDrive/EdgeAI`, installs `requirements-colab.txt`, and prints
+4. Run the configuration cell. In Colab, `configure(install=True)` sets
+   EDGEAI_REPO_ROOT, requires `/content/drive/MyDrive/EdgeAI`, installs
+   `requirements-colab.txt`, and prints
    code/data/baseline/future-output paths. No local Windows path is used remotely.
 5. Run `python -B tools/verify_portability.py` through the supplied notebook cell.
-   It verifies scientific source/locks, both cache hashes and metadata, source
+   It verifies scientific source/locks, all 1,898 Core WAV hashes, both cache
+   hashes and metadata, source
    separation/class order, and all eight baseline records without training.
 6. Run the GPU cell. It prints `torch.cuda.is_available()` and
    `torch.cuda.get_device_name(0)`, then invokes
@@ -140,7 +144,8 @@ under the same interpreter; no scientific pin is rewritten.
 
 Historical DSP/CPU execution used Python 3.12.14 and requirements-pipeline.txt /
 requirements-stage04.txt. Any suitable environment directory works; `.venv-stage04`
-is not required. 04A/04B inspect that CPU protocol with training disabled. 04C reads
+is not required. 04D also runs locally: it uses the current checkout, keeps
+EDGEAI_DATA_ROOT configurable, skips package installation and selects CPU smoke. 04A/04B inspect that CPU protocol with training disabled. 04C reads
 the accepted CUDA results. 04D uses the cache-consumer environment. Full 00–03B
 notebook reruns are unnecessary for normal experiments.
 

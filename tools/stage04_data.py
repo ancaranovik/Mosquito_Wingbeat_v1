@@ -295,7 +295,7 @@ def cache_staging(base, branch):
     # directory preserves its ACL and can deny access to subsequent kernels.
     # Ordinary mkdir inherits the destination parent's ACL; keep failed builds
     # clearly separate for diagnosis rather than publishing or deleting them.
-    folder = Path(base) / f"{branch}-building-{uuid.uuid4().hex}"
+    folder = require_mutable_output(Path(base) / f"{branch}-building-{uuid.uuid4().hex}")
     folder.mkdir()
     yield folder
 

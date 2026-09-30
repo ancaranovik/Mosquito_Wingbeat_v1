@@ -64,11 +64,13 @@ def verify():
                            and any(isinstance(t, ast.Name) and t.id == 'RUN_TRAINING' for t in n.targets)]
             require(len(assignments) == 1 and isinstance(assignments[0], ast.Constant)
                     and assignments[0].value is False, f'Training must default to False: {path.name}')
+    from pipeline_contract import authenticate_project
+    raw = authenticate_project(REPO_ROOT, audio=True, require_grid_freeze=True)
     caches, evidence = prepare_caches()
     baseline = verify_baseline()
     return {'status': 'PASS', 'scientific_ast_locks': 'PASS', 'executed_frontend_cell_locks': 'PASS',
             'training_function_ast_parity': 'PASS', 'model_source_byte_parity': 'PASS', 'training_defaults_disabled': True,
-            'core_clips': 1898, 'sources': 1189, 'source_leakage': 0, 'examples': 32645,
+            'raw_wav_sha256_verified': raw['wav_files_authenticated'], 'core_clips': 1898, 'sources': 1189, 'source_leakage': 0, 'examples': 32645,
             'counts': evidence['counts'], 'label_mapping': evidence['label_mapping'],
             'manifest_sha256': evidence['sha256']['data/manifests/current/core_example_grid_v2_stride15360_ref15600_candidates.csv'],
             'split_sha256': evidence['sha256']['data/manifests/current/core_single_4species_frozen_split.csv'],

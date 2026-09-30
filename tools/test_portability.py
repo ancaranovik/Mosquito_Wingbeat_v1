@@ -66,5 +66,84 @@ class StorageTests(unittest.TestCase):
                 experiment_training.run_branch('03A')
 
 
+    def test_local_bootstrap_preserves_configured_storage(self):
+        from colab_bootstrap import configure
+        with patch('colab_bootstrap.is_colab_runtime', return_value=False), \
+             patch('project_paths.is_colab_runtime', return_value=False), \
+             patch.object(Path, 'is_dir', return_value=True):
+            self.assertEqual(configure(install=False).data, self.storage)
+
+    def test_colab_rejects_local_data_root(self):
+        with patch('project_paths.is_colab_runtime', return_value=True):
+            with self.assertRaisesRegex(ValueError, 'Colab data must'):
+                ProjectPaths.from_env()
+
+    def test_colab_defaults_to_mounted_drive(self):
+        from project_paths import COLAB_DATA_ROOT
+        with patch.dict(os.environ), patch('project_paths.is_colab_runtime', return_value=True):
+            os.environ.pop('EDGEAI_DATA_ROOT', None)
+            paths = ProjectPaths.from_env()
+            self.assertEqual(paths.data, COLAB_DATA_ROOT)
+            self.assertEqual(paths.EXPERIMENT_ROOT, COLAB_DATA_ROOT / 'experiments')
+
+    def test_legacy_cache_staging_rejects_fixed_storage(self):
+        from stage04_data import cache_staging
+        with self.assertRaises(PermissionError):
+            with cache_staging(ProjectPaths.from_env().CACHE_ROOT, '03A'):
+                self.fail('Fixed cache was writable')
+
+    def test_00_promotion_is_blocked_even_if_enabled(self):
+        import ast, json
+        notebook = json.loads((REPO_ROOT / 'notebooks/current/00_prepare_dataset.ipynb').read_text(encoding='utf-8'))
+        source = next(''.join(c['source']) for c in notebook['cells']
+                      if c['cell_type'] == 'code' and 'WRITE_CANONICAL = False' in ''.join(c['source']))
+        tree = ast.parse(source)
+        guarded_write = next(n for n in tree.body if isinstance(n, ast.If))
+        target = ProjectPaths.from_env().MANIFEST_ROOT / 'blocked.csv'
+        with self.assertRaises(PermissionError):
+            exec(compile(ast.Module(body=[guarded_write], type_ignores=[]), '<promotion guard>', 'exec'),
+                 {'WRITE_CANONICAL': True, 'verified_payloads': {target: b'never written'}})
+
+
+    def test_04d_colab_mount_clone_pull_and_cuda_routing(self):
+        import json, sys, types
+        from unittest.mock import Mock
+        notebook = json.loads((REPO_ROOT / 'notebooks/current/04D_experiments.ipynb').read_text(encoding='utf-8'))
+        google = types.ModuleType('google')
+        colab = types.ModuleType('google.colab')
+        colab.drive = Mock()
+        google.colab = colab
+        url = 'https://github.com/ancaranovik/Mosquito_Wingbeat_v1.git'
+        for exists in (False, True):
+            with self.subTest(existing_checkout=exists), \
+                 patch.dict(sys.modules, {'google': google, 'google.colab': colab}), \
+                 patch.dict(os.environ, {'EDGEAI_REPO_ROOT': '/content/edge-ai'}), \
+                 patch.object(sys, 'path', list(sys.path)), \
+                 patch('os.chdir'), patch.object(Path, 'exists', return_value=exists), \
+                 patch('subprocess.run') as run_command, \
+                 patch('subprocess.check_output', side_effect=[url, ''] if exists else []) as read_command:
+                scope = {}
+                exec(''.join(notebook['cells'][1]['source']), scope)
+                colab.drive.mount.assert_called_with('/content/drive')
+                self.assertTrue(scope['IN_COLAB'])
+                args = run_command.call_args.args[0]
+                self.assertEqual(args[:3], ['git', 'pull', '--ff-only'] if exists else ['git', 'clone', url])
+                scope['paths'] = ProjectPaths(repo=REPO_ROOT, data=Path('/content/drive/MyDrive/EdgeAI'))
+                exec(''.join(notebook['cells'][7]['source']), scope)
+                self.assertEqual(run_command.call_args.args[0][-3:], ['smoke', '--device', 'cuda'])
+                before = run_command.call_count
+                exec(''.join(notebook['cells'][9]['source']), scope)
+                self.assertFalse(scope['RUN_TRAINING'])
+                self.assertEqual(run_command.call_count, before)
+
+    def test_cuda_smoke_fails_before_cache_access_without_gpu(self):
+        from experiment_runner import smoke
+        with patch('torch.cuda.is_available', return_value=False), \
+             patch('cache_consumer.prepare_caches') as caches:
+            with self.assertRaisesRegex(RuntimeError, 'Select a Colab GPU'):
+                smoke('cuda')
+            caches.assert_not_called()
+
+
 if __name__ == '__main__':
     unittest.main()
