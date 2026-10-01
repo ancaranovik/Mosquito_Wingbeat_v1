@@ -53,6 +53,8 @@ def validate_config(config):
     from model_zoo import FAMILIES
     common = {'experiment_id', 'parent_baseline_id', 'seed', 'scientific_overrides', 'description'}
     suite = 'frontends' in config or 'models' in config
+    if 'protocol_version' in config and config['protocol_version'] not in VERSIONED_PROTOCOLS:
+        raise ValueError('Unsupported experiment protocol_version; update the repo and restart the kernel')
     versioned = config.get('protocol_version') in VERSIONED_PROTOCOLS
     expected = common | ({'frontends', 'models'} if suite else {'frontend', 'model'})
     if versioned:

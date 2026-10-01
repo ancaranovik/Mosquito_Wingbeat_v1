@@ -137,6 +137,26 @@ class V4Tests(fixture.V2Tests):
         with patch.object(v4, 'OUTPUT', target / 'results'), self.assertRaisesRegex(RuntimeError, 'Effective class weights'):
             v4.validate_saved_run(record, directory, protocol)
 
+    def test_stale_kernel_runner_stops_preview_before_training(self):
+        import experiment_runner
+        notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
+        source = next(''.join(c['source']) for c in notebook['cells']
+                      if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+        scope = {'paths': ProjectPaths.from_env(), 'repo': REPO_ROOT,
+                 'sys': __import__('sys'), 'subprocess': __import__('subprocess')}
+        with patch.object(experiment_runner, 'VERSIONED_PROTOCOLS', ('stage04_experiment_v2', 'stage04_experiment_v3')), \
+             patch('subprocess.run') as command, \
+             self.assertRaisesRegex(RuntimeError, 'restart the kernel'):
+            exec(source.replace('RUN_TRAINING = False', 'RUN_TRAINING = True'), scope)
+        command.assert_not_called()
+        self.assertFalse(ProjectPaths.from_env().experiment('exp_007_power075').exists())
+
+    def test_unknown_protocol_reports_update_before_legacy_schema_error(self):
+        config = read_json(REPO_ROOT / 'configs/experiments/power075_v4.json')
+        config['protocol_version'] = 'stage04_experiment_unknown'
+        with self.assertRaisesRegex(ValueError, 'Unsupported experiment protocol_version'):
+            run_plan(config)
+
     def test_actual_notebook_preview_never_trains_and_routes_v4(self):
         notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
         source = next(''.join(c['source']) for c in notebook['cells']
