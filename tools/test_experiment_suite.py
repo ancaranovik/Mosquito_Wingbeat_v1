@@ -1,6 +1,7 @@
 """Exercise orchestration with COPIES of saved baseline fixtures, never training."""
 import contextlib
 import io
+import re
 import os
 from pathlib import Path
 import shutil
@@ -87,7 +88,7 @@ class SuiteTests(unittest.TestCase):
                  'FAMILIES': training.FAMILIES, 'read_json': read_json, 'pd': pd,
                  'display': lambda _: None}
         with contextlib.redirect_stdout(io.StringIO()):
-            exec(selection.replace('EXPERIMENT_NAME = "exp_002_control_v2"', 'EXPERIMENT_NAME = "exp_test_suite"'), scope)
+            exec(re.sub(r'^EXPERIMENT_NAME = .*$', 'EXPERIMENT_NAME = "exp_test_suite"', selection, count=1, flags=re.MULTILINE), scope)
         self.assertTrue(scope['all_complete'])
         self.assertEqual(scope['RUNS'], target / 'results/runs')
         self.assertEqual(len(scope['comparison']), 8)
@@ -155,7 +156,7 @@ class SuiteTests(unittest.TestCase):
             command.assert_not_called()
             exec(source.replace('RUN_TRAINING = False', 'RUN_TRAINING = True'), scope)
             args = command.call_args.args[0]
-            self.assertIn('configs/experiments/control_v2.json', args)
+            self.assertEqual(args[args.index('--config') + 1], scope['EXPERIMENT_CONFIG'])
             self.assertEqual(args[args.index('--experiment-id') + 1], scope['EXPERIMENT_NAME'])
             self.assertEqual(args[args.index('--description') + 1], scope['EXPERIMENT_DESCRIPTION'])
 

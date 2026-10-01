@@ -7,6 +7,7 @@ fresh untrained state dictionaries; it never runs forward/backward or TEST.
 import contextlib
 from copy import deepcopy
 import io
+import re
 import json
 import os
 from pathlib import Path
@@ -282,7 +283,7 @@ class V2Tests(unittest.TestCase):
                  "pd": pd, "read_json": read_json, "display": lambda _: None}
         before = {p.relative_to(target).as_posix(): sha256(p) for p in target.rglob("*") if p.is_file()}
         with contextlib.redirect_stdout(io.StringIO()):
-            exec(selection.replace('EXPERIMENT_NAME = "exp_002_control_v2"', 'EXPERIMENT_NAME = "exp_v2_mock"'), scope)
+            exec(re.sub(r'^EXPERIMENT_NAME = .*$', 'EXPERIMENT_NAME = "exp_v2_mock"', selection, count=1, flags=re.MULTILINE), scope)
             self.assertTrue(scope["all_complete"])
             self.assertEqual(len(scope["comparison"]), 8)
             plot = next("".join(c["source"]) for c in notebook["cells"] if "labels_short =" in "".join(c["source"]))

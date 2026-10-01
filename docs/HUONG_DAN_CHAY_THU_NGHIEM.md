@@ -1,9 +1,9 @@
 # Hướng dẫn chạy 8 cấu hình và quản lý kết quả
 
-**Lần tiếp theo exp_002_control_v2:** làm theo [hướng dẫn v2](EXPERIMENT_V2_GUIDE.md),
-bao gồm commit/push, chọn checkpoint theo Macro-F1 và chẩn đoán validation.
+**Lần tiếp theo exp_003_lr3e4:** làm theo [hướng dẫn exp_003](EXP_003_LR3E4.md),
+chỉ giảm LR xuống 0.0003 và so sánh validation với exp_002_control_v2.
 Các ví dụ exp_001 / baseline_suite bên dưới mô tả luồng baseline gốc và vẫn được
-hỗ trợ; notebook 04D hiện mặc định dùng control_v2 với TEST tắt khi tuning.
+hỗ trợ; notebook 04D hiện mặc định dùng lr3e4_v2 với TEST tắt khi tuning.
 
 **Một lần chạy 04D = một experiment có tên = 8 cấu hình, chạy lần lượt.**
 Không cần train trong 04A/04B rồi mới chạy 04D. Không cần chạy lại từ 03 khi chỉ
