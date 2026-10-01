@@ -1,6 +1,7 @@
 # Chạy và theo dõi các experiment v2
 
-**Lần tiếp theo: exp_004_train_norm**, làm theo [hướng dẫn exp_004](EXP_004_TRAIN_NORM.md).
+**Lần tiếp theo: exp_005_norm_lr3e4**, làm theo [hướng dẫn exp_005](EXP_005_NORM_LR3E4.md).
+Giữ normalization của exp_004, chỉ giảm LR từ 0.001 xuống 0.0003; đối chứng exp_004_train_norm.
 Các bước exp_002 bên dưới được giữ để tra cứu lần đối chứng đã chạy.
 04D huấn luyện; 04C đọc kết quả theo tên. Không cần chạy lại 03A/03B hoặc train trong
 04A/04B. GitHub lưu code/config, Drive lưu cache cố định và các experiment.
@@ -134,6 +135,11 @@ Các template đã chuẩn bị cho từng thử nghiệm riêng, không tự ch
 |---|---|---|
 | exp_003_lr3e4 | `configs/experiments/lr3e4_v2.json` | Chỉ đổi Adam LR thành 0.0003 |
 | exp_004_train_norm | `configs/experiments/train_norm_v2.json` | Chỉ thêm train-global z-score; LR vẫn 0.001 |
+
+Thử nghiệm tiếp theo `exp_005_norm_lr3e4` dùng
+`configs/experiments/norm_lr3e4_v2.json`, đối chứng **exp_004_train_norm**:
+giữ train-global z-score, chỉ giảm LR từ 0.001 xuống 0.0003. So với exp_002,
+exp_005 khác cả LR và normalization; không dùng so sánh đó để quy riêng tác động LR.
 
 Đổi **tên, config và mô tả** trong cùng cell điều khiển 04D. JSON là nơi đặt params:
 `training_overrides.learning_rate` hoặc `training_overrides.input_normalization`.

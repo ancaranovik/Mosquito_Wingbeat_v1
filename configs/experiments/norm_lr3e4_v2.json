@@ -1,0 +1,16 @@
+{
+  "experiment_id": "exp_005_norm_lr3e4",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": ["03A", "03B"],
+  "models": ["small_cnn", "ds_cnn", "tc_resnet8", "cnn_lstm"],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v2",
+  "training_overrides": {
+    "input_normalization": "train_global_zscore",
+    "learning_rate": 0.0003
+  },
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_004_train_norm",
+  "description": "Single-factor LR trial versus exp_004_train_norm: reduce Adam LR from 0.001 to 0.0003 while retaining TRAIN-only scalar z-score per frontend and all other v2 settings. Frozen caches unchanged; validation-only, TEST disabled."
+}
