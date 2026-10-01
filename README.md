@@ -11,8 +11,9 @@ build/runtime material excluded from Git. Original local data and `colab_result/
 remain available. Nothing was deleted.
 
 Hướng dẫn thao tác từng lần chạy bằng tiếng Việt: [Hướng dẫn chạy thử nghiệm](docs/HUONG_DAN_CHAY_THU_NGHIEM.md).
-Lần tiếp theo **exp_002_control_v2**: [Hướng dẫn experiment v2](docs/EXPERIMENT_V2_GUIDE.md).
-04D đã đặt sẵn control v2 và training tắt; 04C đọc validation diagnostics theo tên.
+Lần tiếp theo **exp_006_sqrt_weights**: [Hướng dẫn exp006](docs/EXP_006_SQRT_WEIGHTS.md).
+04D đã đặt sẵn sqrt class weights, LR 0.001, TRAIN normalization và training tắt;
+04C đọc validation diagnostics theo tên, đối chứng exp_004_train_norm.
 
 ## Start here
 
@@ -59,7 +60,7 @@ For a full future run, open 04D, set `EXPERIMENT_NAME` once and explicitly enabl
 03A, then all four with 03B, sequentially in one named experiment. The equivalent CLI is:
 
 ```sh
-python -u -B tools/experiment_runner.py train --config configs/experiments/control_v2.json --experiment-id exp_002_control_v2
+python -u -B tools/experiment_runner.py train --config configs/experiments/sqrt_weights_v3.json --experiment-id exp_006_sqrt_weights
 ```
 
 Commit/push the implementation, then pull it into a clean Colab checkout before
@@ -73,6 +74,11 @@ by validation Macro-F1 while retaining loss-based early stopping, and saves both
 checkpoint candidates plus TRAIN-eval / validation diagnostics. TEST defaults to
 disabled during tuning. Only learning-rate and TRAIN-global normalization overrides
 are supported in v2; other scientific options require separate implementation.
+The separate v3 engine adds a declared TRAIN-frequency class-weight policy;
+exp006 uses square-root inverse-frequency weights against exp004. It preserves
+baseline/v2 engine bytes and frozen cache evidence, and records accepted and
+effective weights per run. Weighted loss values across policies are not directly
+comparable; use validation Macro-F1, per-class and subgroup diagnostics.
 Each experiment saves
 effective config, commit, runtime, cache/split identities and eight separate histories,
 checkpoints, predictions, metrics and confusion matrices under

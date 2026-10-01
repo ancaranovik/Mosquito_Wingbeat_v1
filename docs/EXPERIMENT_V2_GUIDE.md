@@ -1,7 +1,8 @@
 # Chạy và theo dõi các experiment v2
 
-**Lần tiếp theo: exp_005_norm_lr3e4**, làm theo [hướng dẫn exp_005](EXP_005_NORM_LR3E4.md).
-Giữ normalization của exp_004, chỉ giảm LR từ 0.001 xuống 0.0003; đối chứng exp_004_train_norm.
+**Lần tiếp theo: exp_006_sqrt_weights**, làm theo [hướng dẫn exp_006](EXP_006_SQRT_WEIGHTS.md).
+Protocol v3 riêng chỉ đổi class-weight policy so với exp_004_train_norm;
+giữ LR 0.001 và TRAIN normalization. Engine/config v2 vẫn giữ nguyên.
 Các bước exp_002 bên dưới được giữ để tra cứu lần đối chứng đã chạy.
 04D huấn luyện; 04C đọc kết quả theo tên. Không cần chạy lại 03A/03B hoặc train trong
 04A/04B. GitHub lưu code/config, Drive lưu cache cố định và các experiment.
@@ -136,7 +137,7 @@ Các template đã chuẩn bị cho từng thử nghiệm riêng, không tự ch
 | exp_003_lr3e4 | `configs/experiments/lr3e4_v2.json` | Chỉ đổi Adam LR thành 0.0003 |
 | exp_004_train_norm | `configs/experiments/train_norm_v2.json` | Chỉ thêm train-global z-score; LR vẫn 0.001 |
 
-Thử nghiệm tiếp theo `exp_005_norm_lr3e4` dùng
+Thử nghiệm `exp_005_norm_lr3e4` dùng
 `configs/experiments/norm_lr3e4_v2.json`, đối chứng **exp_004_train_norm**:
 giữ train-global z-score, chỉ giảm LR từ 0.001 xuống 0.0003. So với exp_002,
 exp_005 khác cả LR và normalization; không dùng so sánh đó để quy riêng tác động LR.
@@ -145,6 +146,12 @@ exp_005 khác cả LR và normalization; không dùng so sánh đó để quy ri
 `training_overrides.learning_rate` hoặc `training_overrides.input_normalization`.
 Runner v2 chỉ nhận hai override đã kiểm tra này. Các thay đổi loss, seed, augmentation
 hoặc kiến trúc cần một protocol được chuẩn bị riêng; không được âm thầm nhận.
+
+`exp_006_sqrt_weights` dùng `configs/experiments/sqrt_weights_v3.json` và engine
+`tools/experiment_training_v3.py`. V3 chỉ bổ sung policy weights TRAIN đã khai báo,
+không thay class weights trong evidence cache đã freeze. Config/protocol/result
+ghi policy và weights mới; mỗi run có `class_weights.json`. Chỉ so Macro-F1 và
+per-class/subgroup với exp004; weighted loss hai policy không cùng cách tính.
 
 Nếu control thành công dưới tên retry, cập nhật `reference_experiment_id` trong
 config tiếp theo về tên đó trước commit/push, hoặc chọn reference đúng trong 04C.

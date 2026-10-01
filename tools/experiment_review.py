@@ -1,7 +1,7 @@
 """Read and authenticate a named Drive experiment; never train or rewrite results."""
 from cache_consumer import read_json, sha256, require
 from project_paths import ProjectPaths
-from experiment_runner import run_plan, validate_config, training_module
+from experiment_runner import run_plan, validate_config, training_module, VERSIONED_PROTOCOLS
 
 
 def comparison_summary(records):
@@ -17,7 +17,7 @@ def comparison_summary(records):
             'stage05_shortlist': [r['run_id'] for r in shortlist],
             'edge_winner_declared': False, 'test_used_for_shortlist': False,
             'limitation': 'Correlated windows are not independent mosquitoes; source grouping does not prove biological or domain independence'}
-    if records[0].get('protocol_version') == 'stage04_experiment_v2':
+    if records[0].get('protocol_version') in VERSIONED_PROTOCOLS:
         summary.update(protocol_version=records[0]['protocol_version'],
                        test_evaluated=records[0]['test_evaluated'],
                        evaluation_policy=records[0]['training_configuration']['evaluation_policy'])
@@ -46,7 +46,7 @@ def verify_experiment(experiment_id, require_complete=True):
             'Missing or unexpected run directories')
     require(sha256(output / 'protocol.json') == metadata['protocol_sha256'], 'Experiment protocol changed')
     protocol = read_json(output / 'protocol.json')
-    if config.get('protocol_version') == 'stage04_experiment_v2':
+    if config.get('protocol_version') in VERSIONED_PROTOCOLS:
         require(protocol.get('protocol_version') == config['protocol_version']
                 and protocol['training_configuration'] == training.effective_config(
                     config['training_overrides'], config['evaluate_test']), 'Config/effective protocol mismatch')
@@ -69,7 +69,7 @@ def verify_experiment(experiment_id, require_complete=True):
                     f'Checkpoint copy changed: {run_id}')
             display_metrics = record['final_test_metrics'] or record['selected_validation_metrics']
             confusion = display_metrics['confusion_matrix']
-            if config.get('protocol_version') == 'stage04_experiment_v2':
+            if config.get('protocol_version') in VERSIONED_PROTOCOLS:
                 confusion = {'split': 'test' if record['test_evaluated'] else 'validation',
                              'class_order': record['class_order'], 'matrix': confusion}
             require(read_json(directory / 'confusion_matrix.json') == confusion,

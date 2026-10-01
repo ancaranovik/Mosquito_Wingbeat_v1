@@ -1,9 +1,9 @@
 # Hướng dẫn chạy 8 cấu hình và quản lý kết quả
 
-**Lần tiếp theo exp_005_norm_lr3e4:** làm theo [hướng dẫn exp_005](EXP_005_NORM_LR3E4.md),
-giữ normalization TRAIN-only của exp_004, chỉ giảm LR xuống 0.0003 và so sánh với exp_004_train_norm.
+**Lần tiếp theo exp_006_sqrt_weights:** làm theo [hướng dẫn exp_006](EXP_006_SQRT_WEIGHTS.md),
+chỉ giảm độ mạnh class weights, giữ LR 0.001 và normalization của exp_004.
 Các ví dụ exp_001 / baseline_suite bên dưới mô tả luồng baseline gốc và vẫn được
-hỗ trợ; notebook 04D hiện mặc định dùng norm_lr3e4_v2 với TEST tắt khi tuning.
+hỗ trợ; notebook 04D hiện mặc định dùng sqrt_weights_v3 với TEST tắt khi tuning.
 
 **Một lần chạy 04D = một experiment có tên = 8 cấu hình, chạy lần lượt.**
 Không cần train trong 04A/04B rồi mới chạy 04D. Không cần chạy lại từ 03 khi chỉ

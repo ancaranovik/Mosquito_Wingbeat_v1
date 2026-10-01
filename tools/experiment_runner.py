@@ -13,6 +13,8 @@ sys.dont_write_bytecode = True
 
 from project_paths import ProjectPaths, REPO_ROOT, require_mutable_output
 
+VERSIONED_PROTOCOLS = ('stage04_experiment_v2', 'stage04_experiment_v3')
+
 
 def runtime():
     import importlib.metadata
@@ -51,9 +53,9 @@ def validate_config(config):
     from model_zoo import FAMILIES
     common = {'experiment_id', 'parent_baseline_id', 'seed', 'scientific_overrides', 'description'}
     suite = 'frontends' in config or 'models' in config
-    v2 = config.get('protocol_version') == 'stage04_experiment_v2'
+    versioned = config.get('protocol_version') in VERSIONED_PROTOCOLS
     expected = common | ({'frontends', 'models'} if suite else {'frontend', 'model'})
-    if v2:
+    if versioned:
         expected |= {'protocol_version', 'training_overrides', 'evaluate_test', 'reference_experiment_id'}
     if set(config) != expected:
         raise ValueError(f'Config must contain exactly {sorted(expected)}')
@@ -65,10 +67,10 @@ def validate_config(config):
         raise ValueError('Unknown frozen frontend/model')
     if config['seed'] != 42 or config['scientific_overrides'] != {}:
         raise ValueError('Scientific changes require a separately reviewed experiment implementation')
-    if v2:
-        from experiment_training_v2 import effective_config
+    if versioned:
+        effective_config = training_module(config).effective_config
         if not suite:
-            raise ValueError('v2 requires a complete eight-configuration suite')
+            raise ValueError('Versioned protocols require a complete eight-configuration suite')
         effective_config(config['training_overrides'], config['evaluate_test'])
         ProjectPaths.from_env().experiment(config['reference_experiment_id'])
         if config['reference_experiment_id'] == config['experiment_id']:
@@ -79,6 +81,10 @@ def validate_config(config):
 def training_module(config):
     if config.get('protocol_version') == 'stage04_experiment_v2':
         import experiment_training_v2 as training
+    elif config.get('protocol_version') == 'stage04_experiment_v3':
+        import experiment_training_v3 as training
+    elif 'protocol_version' in config:
+        raise ValueError('Unknown experiment protocol_version')
     else:
         import experiment_training as training
     return training
@@ -151,7 +157,7 @@ def run(config_path, experiment_id=None, description=None):
             training.OUTPUT = target / 'results'
             training.RUNS = training.OUTPUT / 'runs'
             training.EXPERIMENT_ID = config['experiment_id']
-            if config.get('protocol_version') == 'stage04_experiment_v2':
+            if config.get('protocol_version') in VERSIONED_PROTOCOLS:
                 training.CONFIG = training.effective_config(config['training_overrides'], config['evaluate_test'])
             with contextlib.redirect_stdout(Tee(sys.stdout, log)), contextlib.redirect_stderr(Tee(sys.stderr, log)):
                 for index, item in enumerate(plan, 1):
@@ -169,7 +175,7 @@ def run(config_path, experiment_id=None, description=None):
                     result = read_json(run_root / 'result.json')
                     display_metrics = result['final_test_metrics'] or result['selected_validation_metrics']
                     confusion = display_metrics['confusion_matrix']
-                    if config.get('protocol_version') == 'stage04_experiment_v2':
+                    if config.get('protocol_version') in VERSIONED_PROTOCOLS:
                         confusion = {'split': 'test' if result['test_evaluated'] else 'validation',
                                      'class_order': result['class_order'], 'matrix': confusion}
                     write_json(run_root / 'confusion_matrix.json', confusion)
