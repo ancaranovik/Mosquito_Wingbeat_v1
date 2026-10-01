@@ -5,6 +5,7 @@ Reuse v2 synthetic fixtures with scoped module bindings; baseline/v2 sources sta
 import contextlib
 from copy import deepcopy
 import io
+import re
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -117,10 +118,14 @@ class V3Tests(fixture.V2Tests):
         with patch.object(v3, 'OUTPUT', target / 'results'), self.assertRaisesRegex(RuntimeError, 'Effective class weights'):
             v3.validate_saved_run(record, directory, protocol)
 
-    def test_actual_notebook_preview_never_trains_and_routes_v3(self):
+    def test_notebook_preview_can_select_historical_v3_without_training(self):
         notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
         source = next(''.join(c['source']) for c in notebook['cells']
                       if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+        # Keep the historical v3 route covered when the current notebook selects v4.
+        source = re.sub(r'^EXPERIMENT_NAME = .*$', 'EXPERIMENT_NAME = "exp_006_sqrt_weights"', source, flags=re.MULTILINE)
+        source = re.sub(r'^EXPERIMENT_CONFIG = .*$', 'EXPERIMENT_CONFIG = "configs/experiments/sqrt_weights_v3.json"', source, flags=re.MULTILINE)
+        source = re.sub(r'^EXPERIMENT_DESCRIPTION = .*$', 'EXPERIMENT_DESCRIPTION = "Historical sqrt-weight trial"', source, flags=re.MULTILINE)
         scope = {'paths': ProjectPaths.from_env(), 'repo': REPO_ROOT,
                  'sys': __import__('sys'), 'subprocess': __import__('subprocess')}
         with patch('subprocess.run') as command, contextlib.redirect_stdout(io.StringIO()):

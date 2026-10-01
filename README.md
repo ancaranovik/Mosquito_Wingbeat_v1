@@ -11,9 +11,9 @@ build/runtime material excluded from Git. Original local data and `colab_result/
 remain available. Nothing was deleted.
 
 Hướng dẫn thao tác từng lần chạy bằng tiếng Việt: [Hướng dẫn chạy thử nghiệm](docs/HUONG_DAN_CHAY_THU_NGHIEM.md).
-Lần tiếp theo **exp_006_sqrt_weights**: [Hướng dẫn exp006](docs/EXP_006_SQRT_WEIGHTS.md).
-04D đã đặt sẵn sqrt class weights, LR 0.001, TRAIN normalization và training tắt;
-04C đọc validation diagnostics theo tên, đối chứng exp_004_train_norm.
+Lần tiếp theo **exp_007_power075**: [Hướng dẫn exp007](docs/EXP_007_POWER075.md).
+04D đã đặt sẵn class-weight exponent 0.75, LR 0.001, TRAIN normalization và training tắt;
+04C đọc validation diagnostics theo tên, đối chiếu exp_004_train_norm và exp_006_sqrt_weights.
 
 ## Start here
 
@@ -60,7 +60,7 @@ For a full future run, open 04D, set `EXPERIMENT_NAME` once and explicitly enabl
 03A, then all four with 03B, sequentially in one named experiment. The equivalent CLI is:
 
 ```sh
-python -u -B tools/experiment_runner.py train --config configs/experiments/sqrt_weights_v3.json --experiment-id exp_006_sqrt_weights
+python -u -B tools/experiment_runner.py train --config configs/experiments/power075_v4.json --experiment-id exp_007_power075
 ```
 
 Commit/push the implementation, then pull it into a clean Colab checkout before
@@ -79,6 +79,8 @@ exp006 uses square-root inverse-frequency weights against exp004. It preserves
 baseline/v2 engine bytes and frozen cache evidence, and records accepted and
 effective weights per run. Weighted loss values across policies are not directly
 comparable; use validation Macro-F1, per-class and subgroup diagnostics.
+The separate v4 engine adds a recorded power exponent to the frozen TRAIN weights;
+exp007 uses 0.75, retaining baseline/v2/v3 engines and old trial configs unchanged.
 Each experiment saves
 effective config, commit, runtime, cache/split identities and eight separate histories,
 checkpoints, predictions, metrics and confusion matrices under

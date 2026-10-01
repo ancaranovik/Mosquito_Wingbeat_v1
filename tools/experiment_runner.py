@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 
 from project_paths import ProjectPaths, REPO_ROOT, require_mutable_output
 
-VERSIONED_PROTOCOLS = ('stage04_experiment_v2', 'stage04_experiment_v3')
+VERSIONED_PROTOCOLS = ('stage04_experiment_v2', 'stage04_experiment_v3', 'stage04_experiment_v4')
 
 
 def runtime():
@@ -83,6 +83,8 @@ def training_module(config):
         import experiment_training_v2 as training
     elif config.get('protocol_version') == 'stage04_experiment_v3':
         import experiment_training_v3 as training
+    elif config.get('protocol_version') == 'stage04_experiment_v4':
+        import experiment_training_v4 as training
     elif 'protocol_version' in config:
         raise ValueError('Unknown experiment protocol_version')
     else:

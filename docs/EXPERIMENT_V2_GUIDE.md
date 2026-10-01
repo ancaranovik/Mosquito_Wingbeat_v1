@@ -1,8 +1,8 @@
 # Chạy và theo dõi các experiment v2
 
-**Lần tiếp theo: exp_006_sqrt_weights**, làm theo [hướng dẫn exp_006](EXP_006_SQRT_WEIGHTS.md).
-Protocol v3 riêng chỉ đổi class-weight policy so với exp_004_train_norm;
-giữ LR 0.001 và TRAIN normalization. Engine/config v2 vẫn giữ nguyên.
+**Lần tiếp theo: exp_007_power075**, làm theo [hướng dẫn exp_007](EXP_007_POWER075.md).
+Protocol v4 riêng dùng exponent 0.75, đối chiếu exp004 (1) và exp006 (0.5);
+giữ LR 0.001 và TRAIN normalization. Engine/config baseline/v2/v3 giữ nguyên.
 Các bước exp_002 bên dưới được giữ để tra cứu lần đối chứng đã chạy.
 04D huấn luyện; 04C đọc kết quả theo tên. Không cần chạy lại 03A/03B hoặc train trong
 04A/04B. GitHub lưu code/config, Drive lưu cache cố định và các experiment.
@@ -193,3 +193,10 @@ Git commit và đường học. Chênh lệch validation trong một seed chưa 
 cải thiện chắc chắn; các thử nghiệm nhiều seed sẽ được lên kế hoạch sau.
 Trong v2, `confusion_matrix.json` ghi rõ `split`, thứ tự lớp và `matrix`, tránh
 nhầm validation với TEST khi experiment tắt TEST.
+
+## Thử nghiệm class-weight exponent v4
+
+exp_007_power075 dùng configs/experiments/power075_v4.json và engine
+tools/experiment_training_v4.py. Chỉ đổi weights thành power0.75; lưu exponent,
+accepted/effective weights và float32 weights mỗi run. Engine v3 và config exp006
+giữ nguyên; 04C so sánh riêng với exp004 và exp006. Chi tiết ở [hướng dẫn exp007](EXP_007_POWER075.md).

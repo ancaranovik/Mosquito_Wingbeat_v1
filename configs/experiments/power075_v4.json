@@ -1,0 +1,26 @@
+{
+  "experiment_id": "exp_007_power075",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": [
+    "03A",
+    "03B"
+  ],
+  "models": [
+    "small_cnn",
+    "ds_cnn",
+    "tc_resnet8",
+    "cnn_lstm"
+  ],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v4",
+  "training_overrides": {
+    "learning_rate": 0.001,
+    "input_normalization": "train_global_zscore",
+    "class_weight_policy": "power_inverse_frequency",
+    "class_weight_exponent": 0.75
+  },
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_004_train_norm",
+  "description": "Single-factor class-weight ablation versus exp_004_train_norm (power 1) and exp_006_sqrt_weights (power 0.5): use (N_train/(4*n_train_class))**0.75 from frozen TRAIN window counts. Retain Adam LR=0.001, TRAIN-only scalar z-score, eight frozen model/frontend pairs, split, caches, selection and loss-based stopping. Validation-only; TEST disabled. Weighted loss values are not comparable across policies."
+}
