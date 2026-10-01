@@ -152,13 +152,14 @@ notebook reruns are unnecessary for normal experiments.
 ## Future experiments
 
 The reviewed v2 workflow is documented in [EXPERIMENT_V2_GUIDE.md](EXPERIMENT_V2_GUIDE.md).
-04D now defaults to `configs/experiments/lr3e4_v2.json`, `exp_003_lr3e4`
+04D now defaults to `configs/experiments/train_norm_v2.json`, `exp_004_train_norm`
 and `RUN_TRAINING=False`. This separately versioned engine selects by validation
 Macro-F1, retains loss-based early stopping, saves both checkpoints and TRAIN-eval /
 validation diagnostics, and defaults to validation-only tuning with TEST disabled.
-This LR trial changes only Adam learning rate to 0.0003 versus exp_002_control_v2.
-See [EXP_003_LR3E4.md](EXP_003_LR3E4.md) for execution and review steps.
-The TRAIN-only normalization template remains a separate later trial.
+This trial changes only input normalization to TRAIN-only global z-score versus
+exp_002_control_v2, retaining Adam learning rate 0.001 and immutable cache bytes.
+See [EXP_004_TRAIN_NORM.md](EXP_004_TRAIN_NORM.md) for execution and review steps.
+The separate LR trial is documented in [EXP_003_LR3E4.md](EXP_003_LR3E4.md).
 The original CUDA engine and baseline suite below remain available unchanged.
 
 Edit locally → commit → push → Colab pull → mount Drive → verify cache/data →

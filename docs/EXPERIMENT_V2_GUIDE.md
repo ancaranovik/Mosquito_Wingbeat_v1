@@ -1,6 +1,6 @@
 # Chạy và theo dõi các experiment v2
 
-**Lần tiếp theo: exp_003_lr3e4**, làm theo [hướng dẫn exp_003](EXP_003_LR3E4.md).
+**Lần tiếp theo: exp_004_train_norm**, làm theo [hướng dẫn exp_004](EXP_004_TRAIN_NORM.md).
 Các bước exp_002 bên dưới được giữ để tra cứu lần đối chứng đã chạy.
 04D huấn luyện; 04C đọc kết quả theo tên. Không cần chạy lại 03A/03B hoặc train trong
 04A/04B. GitHub lưu code/config, Drive lưu cache cố định và các experiment.
