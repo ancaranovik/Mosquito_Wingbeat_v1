@@ -1,8 +1,8 @@
 # Chạy và theo dõi các experiment v2
 
-**Lần tiếp theo: exp_007_power075**, làm theo [hướng dẫn exp_007](EXP_007_POWER075.md).
-Protocol v4 riêng dùng exponent 0.75, đối chiếu exp004 (1) và exp006 (0.5);
-giữ LR 0.001 và TRAIN normalization. Engine/config baseline/v2/v3 giữ nguyên.
+**Lần tiếp theo: exp_008_power075_wd1e4**, làm theo [hướng dẫn exp008](EXP_008_WEIGHT_DECAY.md).
+Protocol v5 riêng đổi Adam weight_decay 0 → 0.0001 so với exp007;
+giữ exponent 0.75, LR 0.001 và TRAIN normalization. Engine/config baseline/v2/v3/v4 giữ nguyên.
 Các bước exp_002 bên dưới được giữ để tra cứu lần đối chứng đã chạy.
 04D huấn luyện; 04C đọc kết quả theo tên. Không cần chạy lại 03A/03B hoặc train trong
 04A/04B. GitHub lưu code/config, Drive lưu cache cố định và các experiment.

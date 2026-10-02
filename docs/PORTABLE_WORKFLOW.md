@@ -152,18 +152,19 @@ notebook reruns are unnecessary for normal experiments.
 ## Future experiments
 
 The reviewed v2 workflow is documented in [EXPERIMENT_V2_GUIDE.md](EXPERIMENT_V2_GUIDE.md).
-04D now defaults to `configs/experiments/power075_v4.json`, `exp_007_power075`
+04D now defaults to `configs/experiments/power075_wd1e4_v5.json`, `exp_008_power075_wd1e4`
 and `RUN_TRAINING=False`. This separately versioned engine selects by validation
 Macro-F1, retains loss-based early stopping, saves both checkpoints and TRAIN-eval /
 validation diagnostics, and defaults to validation-only tuning with TEST disabled.
-This trial uses a separate v4 engine and changes only the TRAIN-frequency class-weight
-exponent to 0.75 versus exp_004_train_norm (1) and exp_006_sqrt_weights (0.5), retaining Adam LR 0.001,
+This trial uses a separate v5 engine and changes only Adam weight_decay from 0
+to 0.0001 versus exp_007_power075, retaining class-weight exponent 0.75, Adam LR 0.001,
 TRAIN-only global z-score and immutable cache/evidence bytes. Accepted inverse
 weights and effective weights are both recorded; each run has class_weights.json.
-Weighted loss uses the new weights for TRAIN/validation, so loss values across
+Weighted loss retains exp007 weights for TRAIN/validation; loss values across
 policies are not directly comparable. Checkpoint selection remains validation
 Macro-F1; early stopping remains minimum weighted validation loss with patience 8.
-See [EXP_007_POWER075.md](EXP_007_POWER075.md) for execution and review steps.
+See [EXP_008_WEIGHT_DECAY.md](EXP_008_WEIGHT_DECAY.md) for execution and review steps.
+The preceding power-weight trial remains documented in [EXP_007_POWER075.md](EXP_007_POWER075.md); its v4 engine/config remain unchanged.
 The preceding sqrt-weight trial remains documented in [EXP_006_SQRT_WEIGHTS.md](EXP_006_SQRT_WEIGHTS.md); its v3 engine/config remain unchanged.
 The preceding LR trial is documented in [EXP_005_NORM_LR3E4.md](EXP_005_NORM_LR3E4.md).
 The preceding normalization trial is documented in [EXP_004_TRAIN_NORM.md](EXP_004_TRAIN_NORM.md).

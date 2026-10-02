@@ -1,0 +1,27 @@
+{
+  "experiment_id": "exp_008_power075_wd1e4",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": [
+    "03A",
+    "03B"
+  ],
+  "models": [
+    "small_cnn",
+    "ds_cnn",
+    "tc_resnet8",
+    "cnn_lstm"
+  ],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v5",
+  "training_overrides": {
+    "learning_rate": 0.001,
+    "input_normalization": "train_global_zscore",
+    "class_weight_policy": "power_inverse_frequency",
+    "class_weight_exponent": 0.75,
+    "weight_decay": 0.0001
+  },
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_007_power075",
+  "description": "Lần 8: single-factor Adam L2 ablation versus exp_007_power075: weight_decay 0 -> 0.0001; keep weighted CE exponent 0.75, Adam LR=0.001, TRAIN-only global z-score, seed 42, batch 64, max 50 epochs, patience 8, eight frozen frontend/model pairs, split/cache, validation Macro-F1 selection and weighted validation-loss stopping. No augmentation or feature regeneration. Validation-only; TEST disabled."
+}

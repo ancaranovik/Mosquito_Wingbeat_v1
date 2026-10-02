@@ -11,9 +11,9 @@ build/runtime material excluded from Git. Original local data and `colab_result/
 remain available. Nothing was deleted.
 
 Hướng dẫn thao tác từng lần chạy bằng tiếng Việt: [Hướng dẫn chạy thử nghiệm](docs/HUONG_DAN_CHAY_THU_NGHIEM.md).
-Lần tiếp theo **exp_007_power075**: [Hướng dẫn exp007](docs/EXP_007_POWER075.md).
-04D đã đặt sẵn class-weight exponent 0.75, LR 0.001, TRAIN normalization và training tắt;
-04C đọc validation diagnostics theo tên, đối chiếu exp_004_train_norm và exp_006_sqrt_weights.
+Lần tiếp theo **exp_008_power075_wd1e4**: [Hướng dẫn exp008](docs/EXP_008_WEIGHT_DECAY.md).
+04D đã đặt sẵn Adam weight_decay 0.0001, class-weight exponent 0.75, LR 0.001,
+TRAIN normalization và training tắt; 04C đọc diagnostics theo tên, đối chiếu exp007 và exp004.
 
 ## Start here
 
@@ -60,7 +60,7 @@ For a full future run, open 04D, set `EXPERIMENT_NAME` once and explicitly enabl
 03A, then all four with 03B, sequentially in one named experiment. The equivalent CLI is:
 
 ```sh
-python -u -B tools/experiment_runner.py train --config configs/experiments/power075_v4.json --experiment-id exp_007_power075
+python -u -B tools/experiment_runner.py train --config configs/experiments/power075_wd1e4_v5.json --experiment-id exp_008_power075_wd1e4
 ```
 
 Commit/push the implementation, then pull it into a clean Colab checkout before
@@ -81,6 +81,9 @@ effective weights per run. Weighted loss values across policies are not directly
 comparable; use validation Macro-F1, per-class and subgroup diagnostics.
 The separate v4 engine adds a recorded power exponent to the frozen TRAIN weights;
 exp007 uses 0.75, retaining baseline/v2/v3 engines and old trial configs unchanged.
+The separate v5 engine adds the reviewed Adam weight_decay override; exp008 uses
+0.0001 against exp007's 0, retaining exponent 0.75 and all other effective settings.
+This is Adam L2 regularization, not AdamW. The v4 engine and exp007 config stay frozen.
 Each experiment saves
 effective config, commit, runtime, cache/split identities and eight separate histories,
 checkpoints, predictions, metrics and confusion matrices under

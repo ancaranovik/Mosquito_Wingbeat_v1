@@ -1,9 +1,9 @@
 # Hướng dẫn chạy 8 cấu hình và quản lý kết quả
 
-**Lần tiếp theo exp_007_power075:** làm theo [hướng dẫn exp_007](EXP_007_POWER075.md),
-chỉ dùng class-weight exponent 0.75, giữ LR 0.001 và normalization của exp004.
+**Lần tiếp theo exp_008_power075_wd1e4:** làm theo [hướng dẫn exp008](EXP_008_WEIGHT_DECAY.md),
+chỉ đổi Adam weight_decay 0 → 0.0001 so với exp007; giữ exponent 0.75, LR 0.001 và normalization.
 Các ví dụ exp_001 / baseline_suite bên dưới mô tả luồng baseline gốc và vẫn được
-hỗ trợ; notebook 04D hiện mặc định dùng power075_v4 với TEST tắt khi tuning.
+hỗ trợ; notebook 04D hiện mặc định dùng power075_wd1e4_v5 với TEST tắt khi tuning.
 
 **Một lần chạy 04D = một experiment có tên = 8 cấu hình, chạy lần lượt.**
 Không cần train trong 04A/04B rồi mới chạy 04D. Không cần chạy lại từ 03 khi chỉ

@@ -157,10 +157,13 @@ class V4Tests(fixture.V2Tests):
         with self.assertRaisesRegex(ValueError, 'Unsupported experiment protocol_version'):
             run_plan(config)
 
-    def test_actual_notebook_preview_never_trains_and_routes_v4(self):
+    def test_notebook_preview_can_still_route_frozen_v4_without_training(self):
         notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
         source = next(''.join(c['source']) for c in notebook['cells']
                       if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+        # Current defaults may advance; keep the old protocol preview regression.
+        source = re.sub(r'^EXPERIMENT_NAME = .*$', 'EXPERIMENT_NAME = "exp_007_power075"', source, flags=re.MULTILINE)
+        source = re.sub(r'^EXPERIMENT_CONFIG = .*$', 'EXPERIMENT_CONFIG = "configs/experiments/power075_v4.json"', source, flags=re.MULTILINE)
         scope = {'paths': ProjectPaths.from_env(), 'repo': REPO_ROOT,
                  'sys': __import__('sys'), 'subprocess': __import__('subprocess')}
         with patch('subprocess.run') as command, contextlib.redirect_stdout(io.StringIO()):
@@ -216,6 +219,8 @@ class V4Tests(fixture.V2Tests):
         notebook = read_json(REPO_ROOT / 'notebooks/current/04C_compare_models.ipynb')
         source = next(''.join(c['source']) for c in notebook['cells']
                       if c['cell_type'] == 'code' and 'ADDITIONAL_REFERENCE_EXPERIMENT_NAME =' in ''.join(c['source']))
+        source = re.sub(r'^ADDITIONAL_REFERENCE_EXPERIMENT_NAME = .*$',
+                        'ADDITIONAL_REFERENCE_EXPERIMENT_NAME = "exp_006_sqrt_weights"', source, flags=re.MULTILINE)
         for name in ('exp_004_train_norm', 'exp_006_sqrt_weights'):
             path = ProjectPaths.from_env().experiment(name) / 'config/metadata.json'
             write_json(path, {})
