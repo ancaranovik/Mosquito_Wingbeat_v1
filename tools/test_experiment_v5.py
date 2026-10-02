@@ -3,6 +3,7 @@ import ast
 import contextlib
 from copy import deepcopy
 import io
+import re
 import unittest
 from unittest.mock import patch
 
@@ -15,6 +16,14 @@ from experiment_review import verify_experiment, compare_validation_to_reference
 from project_paths import ProjectPaths, REPO_ROOT
 
 TEMPLATE = REPO_ROOT / 'configs/experiments/power075_wd1e4_v5.json'
+
+
+def v5_preview_source(notebook):
+    """Exercise the shared preview with v5 settings even when the default advances."""
+    source = next(''.join(c['source']) for c in notebook['cells']
+                  if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+    source = re.sub(r'^EXPERIMENT_NAME = .*$', 'EXPERIMENT_NAME = "exp_008_power075_wd1e4"', source, flags=re.M)
+    return re.sub(r'^EXPERIMENT_CONFIG = .*$', 'EXPERIMENT_CONFIG = "configs/experiments/power075_wd1e4_v5.json"', source, flags=re.M)
 
 
 class V5Tests(fixture.V2Tests):
@@ -104,8 +113,7 @@ class V5Tests(fixture.V2Tests):
 
     def test_actual_notebook_preview_routes_v5_and_defaults_disabled(self):
         notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
-        source = next(''.join(c['source']) for c in notebook['cells']
-                      if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+        source = v5_preview_source(notebook)
         scope = {'paths': ProjectPaths.from_env(), 'repo': REPO_ROOT,
                  'sys': __import__('sys'), 'subprocess': __import__('subprocess')}
         with patch('subprocess.run') as command, contextlib.redirect_stdout(io.StringIO()):
@@ -125,8 +133,7 @@ class V5Tests(fixture.V2Tests):
     def test_stale_kernel_blocks_preview_even_with_training_true(self):
         import experiment_runner
         notebook = read_json(REPO_ROOT / 'notebooks/current/04D_experiments.ipynb')
-        source = next(''.join(c['source']) for c in notebook['cells']
-                      if c['cell_type'] == 'code' and 'EXPERIMENT_CONFIG =' in ''.join(c['source']))
+        source = v5_preview_source(notebook)
         scope = {'paths': ProjectPaths.from_env(), 'repo': REPO_ROOT,
                  'sys': __import__('sys'), 'subprocess': __import__('subprocess')}
         with patch.object(experiment_runner, 'VERSIONED_PROTOCOLS', ('stage04_experiment_v2', 'stage04_experiment_v3', 'stage04_experiment_v4')), \

@@ -17,7 +17,9 @@ import notebook_runtime
 class NotebookRuntimeTests(unittest.TestCase):
     def bootstrap(self, name):
         notebook = json.loads((REPO_ROOT / 'notebooks/current' / name).read_text(encoding='utf-8'))
-        source = next(''.join(c['source']) for c in notebook['cells'] if c['cell_type'] == 'code')
+        source = next(''.join(c['source']) for c in notebook['cells']
+                      if c['cell_type'] == 'code'
+                      and 'from notebook_runtime import initialize' in ''.join(c['source']))
         return source.split('from project_paths import REPO_ROOT, ProjectPaths, resolve_path, logical_relative')[0]
 
     def test_all_three_find_04d_checkout_from_new_kernel(self):

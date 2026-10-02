@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 
 from project_paths import ProjectPaths, REPO_ROOT, require_mutable_output
 
-VERSIONED_PROTOCOLS = ('stage04_experiment_v2', 'stage04_experiment_v3', 'stage04_experiment_v4', 'stage04_experiment_v5')
+VERSIONED_PROTOCOLS = ('stage04_experiment_v2', 'stage04_experiment_v3', 'stage04_experiment_v4', 'stage04_experiment_v5', 'stage04_experiment_v6')
 
 
 def runtime():
@@ -25,7 +25,7 @@ def runtime():
             'gpu': torch.cuda.get_device_name(0) if torch.cuda.is_available() else None}
 
 
-def smoke(device='cuda'):
+def smoke(device='cuda', config=None):
     import torch
     from cache_consumer import prepare_caches, require
     from model_zoo import FAMILIES, build_model
@@ -34,10 +34,13 @@ def smoke(device='cuda'):
     if device == 'cuda':
         require(info['cuda_available'] and info['cuda'], 'Select a Colab GPU and CUDA-enabled PyTorch')
     caches, evidence = prepare_caches()
+    plan = run_plan(config) if config is not None else [
+        {'frontend': b, 'model': f} for b in caches for f in FAMILIES]
     torch.set_num_threads(4)
     checks = []
-    for branch, (features, metadata, cache) in caches.items():
-        for family in FAMILIES:
+    for branch in dict.fromkeys(item['frontend'] for item in plan):
+        features, metadata, cache = caches[branch]
+        for family in [item['model'] for item in plan if item['frontend'] == branch]:
             model = build_model(family, features.shape[-1]).to(device).eval()
             with torch.inference_mode():
                 logits = model(torch.zeros(2, 1, *features.shape[1:], device=device))
@@ -53,6 +56,7 @@ def validate_config(config):
     from model_zoo import FAMILIES
     common = {'experiment_id', 'parent_baseline_id', 'seed', 'scientific_overrides', 'description'}
     suite = 'frontends' in config or 'models' in config
+    targeted = config.get('protocol_version') == 'stage04_experiment_v6'
     if 'protocol_version' in config and config['protocol_version'] not in VERSIONED_PROTOCOLS:
         raise ValueError('Unsupported experiment protocol_version; update the repo and restart the kernel')
     versioned = config.get('protocol_version') in VERSIONED_PROTOCOLS
@@ -63,7 +67,10 @@ def validate_config(config):
         raise ValueError(f'Config must contain exactly {sorted(expected)}')
     if config['parent_baseline_id'] != 'stage04_colab_seed42_20260929':
         raise ValueError('Unknown parent baseline')
-    if suite and (config['frontends'] != ['03A', '03B'] or config['models'] != list(FAMILIES)):
+    if targeted and (not suite or config['frontends'] != ['03A'] or config['models'] != ['ds_cnn']
+                     or config['reference_experiment_id'] != 'exp_007_power075'):
+        raise ValueError('v6 requires DS-CNN/03A only, compared with exp_007_power075')
+    if suite and not targeted and (config['frontends'] != ['03A', '03B'] or config['models'] != list(FAMILIES)):
         raise ValueError('A suite must contain 03A and 03B and all four frozen models exactly once, in order')
     if not suite and (config['frontend'] not in ('03A', '03B') or config['model'] not in FAMILIES):
         raise ValueError('Unknown frozen frontend/model')
@@ -89,6 +96,8 @@ def training_module(config):
         import experiment_training_v4 as training
     elif config.get('protocol_version') == 'stage04_experiment_v5':
         import experiment_training_v5 as training
+    elif config.get('protocol_version') == 'stage04_experiment_v6':
+        import experiment_training_v6 as training
     elif 'protocol_version' in config:
         raise ValueError('Unknown experiment protocol_version')
     else:
@@ -97,7 +106,7 @@ def training_module(config):
 
 
 def run_plan(config):
-    """One legacy pair or eight frozen model/frontend pairs; seed 42 remains fixed."""
+    """Legacy pair, full suite or the reviewed v6 DS-CNN/03A run; seed 42 stays fixed."""
     validate_config(config)
     frontends = config.get('frontends', [config.get('frontend')])
     models = config.get('models', [config.get('model')])
@@ -137,12 +146,22 @@ def run(config_path, experiment_id=None, description=None):
     require_mutable_output(target)
     if target.exists():
         raise FileExistsError(f'Experiment ID already exists; preserve it and choose a new ID: {target}')
+    reference_evidence = None
+    if config.get('protocol_version') == 'stage04_experiment_v6':
+        from bounded_aggregation import authenticate_reference
+        from cache_consumer import require
+        _, reference_evidence, _ = authenticate_reference(ProjectPaths.from_env())
+        before = reference_evidence['source_training_configuration']
+        after = training.effective_config(config['training_overrides'], config['evaluate_test'])
+        changes = {k for k in before.keys() | after.keys() if before.get(k) != after.get(k)}
+        require(changes == {'protocol_version', 'augmentation', 'augmentation_config'},
+                'Exp010 differs from exp007 beyond the reviewed augmentation')
     # Require committed source so metadata identifies the implementation actually run.
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO_ROOT, text=True).strip()
     dirty = subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'], cwd=REPO_ROOT, text=True)
     if dirty.strip():
         raise RuntimeError('Commit source/config changes before starting an experiment')
-    report = smoke('cuda')
+    report = smoke('cuda', config) if config.get('protocol_version') == 'stage04_experiment_v6' else smoke('cuda')
     target.mkdir(parents=True, exist_ok=False)
     for name in ('config', 'checkpoints', 'results', 'logs'):
         (target / name).mkdir()
@@ -155,6 +174,8 @@ def run(config_path, experiment_id=None, description=None):
                 'runs': {item['run_id']: {'status': 'PENDING'} for item in plan},
                 'cache_sha256': report['cache_sha256'], 'split_sha256': report['split_sha256'],
                 'started_at_utc': datetime.now(timezone.utc).isoformat(), 'status': 'RUNNING'}
+    if reference_evidence is not None:
+        metadata['reference_evidence'] = reference_evidence
     write_json(target / 'config/metadata.json', metadata)
     previous = (training.OUTPUT, training.RUNS, training.SELECTED_FAMILIES, training.EXPERIMENT_ID)
     previous_config = training.CONFIG
@@ -227,7 +248,8 @@ def main():
     parser.add_argument('--description', help='Purpose/change notes saved with this run')
     args = parser.parse_args()
     if args.action == 'smoke':
-        print(json.dumps(smoke(args.device), indent=2))
+        from cache_consumer import read_json
+        print(json.dumps(smoke(args.device, read_json(args.config) if args.config else None), indent=2))
     elif args.action == 'baseline':
         from baseline_review import compare_saved_results
         print(compare_saved_results().to_string(index=False))

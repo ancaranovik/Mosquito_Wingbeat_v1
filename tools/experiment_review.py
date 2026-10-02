@@ -21,6 +21,9 @@ def comparison_summary(records):
         summary.update(protocol_version=records[0]['protocol_version'],
                        test_evaluated=records[0]['test_evaluated'],
                        evaluation_policy=records[0]['training_configuration']['evaluation_policy'])
+    if records[0].get('protocol_version') == 'stage04_experiment_v6':
+        summary.update(interpretation='single DS-CNN/03A time-mask ablation; compare with the matching exp007 run',
+                       run_scope='targeted_single_run', shortlist_is_cross_model_comparison=False)
     return summary, table
 
 
@@ -100,7 +103,12 @@ def compare_validation_to_reference(experiment_id, reference_id=None):
     require(reference_id is not None and reference_id != experiment_id, 'Choose a distinct reference experiment')
     reference = verify_experiment(reference_id)
     original = {r['run_id']: r for r in reference}
-    require(set(original) == {r['run_id'] for r in records}, 'Reference has a different run plan')
+    current_ids = {r['run_id'] for r in records}
+    if records[0].get('protocol_version') == 'stage04_experiment_v6':
+        require(current_ids == {'03A_ds_cnn_seed42'} and current_ids <= set(original),
+                'Missing matching targeted reference run')
+    else:
+        require(set(original) == current_ids, 'Reference has a different run plan')
     rows = []
     for record in records:
         old = original[record['run_id']]

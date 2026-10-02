@@ -1,0 +1,22 @@
+{
+  "experiment_id": "exp_010_time_mask",
+  "parent_baseline_id": "stage04_colab_seed42_20260929",
+  "frontends": [
+    "03A"
+  ],
+  "models": [
+    "ds_cnn"
+  ],
+  "seed": 42,
+  "scientific_overrides": {},
+  "protocol_version": "stage04_experiment_v6",
+  "training_overrides": {
+    "learning_rate": 0.001,
+    "input_normalization": "train_global_zscore",
+    "class_weight_policy": "power_inverse_frequency",
+    "class_weight_exponent": 0.75
+  },
+  "evaluate_test": false,
+  "reference_experiment_id": "exp_007_power075",
+  "description": "Exp010: DS-CNN/03A only; add TRAIN-only time masking (p=0.5, one mask 1-8 frames, zero after TRAIN z-score). Keep exp007 Adam LR=0.001, weight_decay=0, CE exponent=0.75, seed42, batch64, max50, loss patience8, validation window-F1 checkpoint selection, frozen split/cache. No augmentation in TRAIN eval/VAL. TEST disabled."
+}
